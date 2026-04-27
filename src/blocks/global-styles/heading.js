@@ -1,0 +1,116 @@
+import classnames from "classnames";
+import { __ } from "@wordpress/i18n";
+import { addFilter } from "@wordpress/hooks";
+import { Fragment } from "@wordpress/element";
+import { createHigherOrderComponent } from "@wordpress/compose";
+import { SelectControl, ToggleControl, PanelBody } from "@wordpress/components";
+import { InspectorControls } from "@wordpress/block-editor";
+
+const allowedBlocks = ["core/heading", "core/paragraph", "core/list"];
+
+const addAttributes = (settings) => {
+	if (allowedBlocks.includes(settings.name)) {
+		settings.attributes = Object.assign(settings.attributes, {
+			fontFamily: { type: "string" },
+			enableAnimation: { type: "boolean", default: false },
+			typeAnimation: { type: "string", default: "fadein-chars" },
+		});
+	}
+	return settings;
+};
+
+const withAdvancedControls = createHigherOrderComponent(
+	(BlockEdit) => (props) => {
+		const {
+			name,
+			attributes: { fontFamily, enableAnimation, typeAnimation },
+			setAttributes,
+		} = props;
+
+		return (
+			<Fragment>
+				<BlockEdit {...props} />
+				{allowedBlocks.includes(name) && (
+					<InspectorControls group="settings" priority={10}>
+						<PanelBody
+							title={__("General", "flip-blocks")}
+							initialOpen={true}
+						>
+							<SelectControl
+								label="Select Font Family"
+								value={fontFamily}
+								options={[
+									{ label: "--Select--", value: "" },
+									{ label: "SVN-Ogg", value: "svn-ogg" },
+									{ label: "be-vietnam-pro", value: "be-vietnam-pro" },
+								]}
+								onChange={(vl) => setAttributes({ fontFamily: vl })}
+							/>
+							<ToggleControl
+								label="Enable Animation"
+								checked={enableAnimation}
+								onChange={() =>
+									setAttributes({
+										enableAnimation: !enableAnimation,
+									})
+								}
+							/>
+							{enableAnimation && (
+								<SelectControl
+									label="Select Animation"
+									value={typeAnimation}
+									options={[
+										{ label: "Fade In Chars", value: "fadein-chars" },
+										{
+											label: "Stagger Random",
+											value: "stagger-random",
+										},
+									]}
+									onChange={(vl) =>
+										setAttributes({ typeAnimation: vl })
+									}
+								/>
+							)}
+						</PanelBody>
+					</InspectorControls>
+				)}
+			</Fragment>
+		);
+	},
+	"withAdvancedControls"
+);
+
+const applyExtraClass = (
+	extraProps,
+	blockType,
+	{ fontFamily, enableAnimation, typeAnimation }
+) => {
+	if (!allowedBlocks.includes(blockType.name)) {
+		return extraProps;
+	}
+
+	extraProps.className = classnames(
+		extraProps.className,
+		fontFamily ? "font-" + fontFamily : "",
+		enableAnimation ? `wp-block-heading-${typeAnimation}` : ""
+	);
+
+	return extraProps;
+};
+
+// Add filters
+addFilter(
+	"blocks.registerBlockType",
+	"editorskit/custom-attributes",
+	addAttributes
+);
+addFilter(
+	"editor.BlockEdit",
+	"editorskit/custom-advanced-control",
+	withAdvancedControls
+);
+addFilter(
+	"blocks.getSaveContent.extraProps",
+	"editorskit/applyExtraClass",
+	applyExtraClass
+);
