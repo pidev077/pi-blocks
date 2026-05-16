@@ -47,9 +47,9 @@ const addHeightControl = createHigherOrderComponent((BlockEdit) => {
             <Fragment>
                 <BlockEdit {...props} />
                 <InspectorControls>
-                    <PanelBody title={__('Media Height', 'flip-blocks')} initialOpen={true}>
+                    <PanelBody title={__('Media Height', 'pi-blocks')} initialOpen={true}>
                         <RangeControl
-                            label={__('Height (%)', 'flip-blocks')}
+                            label={__('Height (%)', 'pi-blocks')}
                             value={heightMedia}
                             onChange={(newHeight) => setAttributes({ heightMedia: newHeight })}
                             __nextHasNoMarginBottom
@@ -58,7 +58,7 @@ const addHeightControl = createHigherOrderComponent((BlockEdit) => {
                         />
 
                         <RangeControl
-                            label={__('Gap (px)', 'flip-blocks')}
+                            label={__('Gap (px)', 'pi-blocks')}
                             value={gap}
                             onChange={(newGap) => setAttributes({ gap: newGap })}
                             __nextHasNoMarginBottom
@@ -72,7 +72,7 @@ const addHeightControl = createHigherOrderComponent((BlockEdit) => {
     };
 }, 'addHeightControl');
 
-addFilter('editor.BlockEdit', 'flip-blocks/add-height-control', addHeightControl);
+addFilter('editor.BlockEdit', 'pi-blocks/add-height-control', addHeightControl);
 
 const addHeightAttribute = (settings) => {
     if (settings.name !== 'core/media-text') {
@@ -95,7 +95,7 @@ const addHeightAttribute = (settings) => {
     };
 };
 
-addFilter('blocks.registerBlockType', 'flip-blocks/add-height-media-attribute', addHeightAttribute);
+addFilter('blocks.registerBlockType', 'pi-blocks/add-height-media-attribute', addHeightAttribute);
 
 const applyHeightMediaStyle = (extraProps, blockType, attributes) => {
     if (blockType.name !== 'core/media-text') {
@@ -115,4 +115,4 @@ const applyHeightMediaStyle = (extraProps, blockType, attributes) => {
     return extraProps;
 };
 
-addFilter('blocks.getSaveContent.extraProps', 'flip-blocks/apply-height-media-style', applyHeightMediaStyle);
+addFilter('blocks.getSaveContent.extraProps', 'pi-blocks/apply-height-media-style', applyHeightMediaStyle);

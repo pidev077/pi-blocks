@@ -187,11 +187,11 @@ const Edit = (props) => {
 	const blockProps = useBlockProps({
 		className: classnames(
 			className,
-			"flip-block-layout-column",
-			isBorder ? "flip-has-border" : null,
-			isBoxshadow ? "flip-has-boxshadow" : null,
+			"pi-block-layout-column",
+			isBorder ? "pi-has-border" : null,
+			isBoxshadow ? "pi-has-boxshadow" : null,
 			columnVerticalAlignment
-				? "flip-is-vertically-aligned-" + columnVerticalAlignment
+				? "pi-is-vertically-aligned-" + columnVerticalAlignment
 				: null
 		),
 		style: Object.assign(
@@ -210,19 +210,19 @@ const Edit = (props) => {
 	const toolbarControls = [
 		{
 			icon: "arrow-up-alt2",
-			title: __("Vertical Align Top", "flip-blocks"),
+			title: __("Vertical Align Top", "pi-blocks"),
 			isActive: "top" === columnVerticalAlignment,
 			onClick: () => setAttributes({ columnVerticalAlignment: "top" }),
 		},
 		{
 			icon: "minus",
-			title: __("Vertical Align Middle", "flip-blocks"),
+			title: __("Vertical Align Middle", "pi-blocks"),
 			isActive: "center" === columnVerticalAlignment,
 			onClick: () => setAttributes({ columnVerticalAlignment: "center" }),
 		},
 		{
 			icon: "arrow-down-alt2",
-			title: __("Vertical Align Bottom", "flip-blocks"),
+			title: __("Vertical Align Bottom", "pi-blocks"),
 			isActive: "bottom" === columnVerticalAlignment,
 			onClick: () => setAttributes({ columnVerticalAlignment: "bottom" }),
 		},
@@ -236,7 +236,7 @@ const Edit = (props) => {
 			<Inspector {...props} key="inspector" />
 
 			<div key="column" {...blockProps}>
-				<div className="flip-block-layout-column-inner">
+				<div className="pi-block-layout-column-inner">
 					<InnerBlocks
 						template={[["core/paragraph"]]}
 						templateLock={false}

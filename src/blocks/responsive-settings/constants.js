@@ -12,4 +12,4 @@ export const DEVICE_SIZES = {
 	Tablet: '1199.98px',
 	Mobile: '767.98px',
 };
-export const RESPONSIVE_SETTINGS_ATTRIBUTE = 'flipResponsiveSettings';
+export const RESPONSIVE_SETTINGS_ATTRIBUTE = 'piResponsiveSettings';

@@ -1,9 +1,9 @@
 <?php
-if (!function_exists('flip_init_register_block')) {
-	function flip_init_register_block()
+if (!function_exists('pi_init_register_block')) {
+	function pi_init_register_block()
 	{
 
-		register_block_type('flip-blocks/featured-case-studies', array(
+		register_block_type('pi-blocks/featured-case-studies', array(
 			'render_callback' => 'featured_case_studies_render',
 			'attributes' => array(
 				'items' => array(
@@ -20,7 +20,7 @@ if (!function_exists('flip_init_register_block')) {
 			),
 		));
 
-		register_block_type('flip-blocks/block-filter-case-studies', array(
+		register_block_type('pi-blocks/block-filter-case-studies', array(
 			'render_callback' => 'filter_case_studies_render',
 			'attributes' => array(
 				'posts_per_page' => array(
@@ -45,8 +45,8 @@ if (!function_exists('flip_init_register_block')) {
 			),
 		));
 
-		register_block_type('flip-blocks/block-sectors-list', array(
-			'render_callback' => 'flip_sectors_list_render',
+		register_block_type('pi-blocks/block-sectors-list', array(
+			'render_callback' => 'pi_sectors_list_render',
 			'attributes' => array(
 				'posts_per_page' => array(
 					'type' => 'number',
@@ -77,8 +77,8 @@ if (!function_exists('flip_init_register_block')) {
 			),
 		));
 
-		register_block_type('flip-blocks/block-related-list', array(
-			'render_callback' => 'flip_related_list_render',
+		register_block_type('pi-blocks/block-related-list', array(
+			'render_callback' => 'pi_related_list_render',
 			'attributes' => array(
 				'posts_per_page' => array(
 					'type' => 'number',
@@ -109,8 +109,8 @@ if (!function_exists('flip_init_register_block')) {
 		));
 
 
-		register_block_type('flip-blocks/block-solutions-scroll', array(
-			'render_callback' => 'flip_solutions_scroll_render',
+		register_block_type('pi-blocks/block-solutions-scroll', array(
+			'render_callback' => 'pi_solutions_scroll_render',
 			'attributes' => array(
 				'posts_per_page' => array(
 					'type' => 'number',
@@ -134,8 +134,8 @@ if (!function_exists('flip_init_register_block')) {
 			),
 		));
 
-		register_block_type('flip-blocks/block-teams-list', array(
-			'render_callback' => 'flip_teams_list_render',
+		register_block_type('pi-blocks/block-teams-list', array(
+			'render_callback' => 'pi_teams_list_render',
 			'attributes' => array(
 				'posts_per_page' => array(
 					'type' => 'number',
@@ -160,8 +160,8 @@ if (!function_exists('flip_init_register_block')) {
 		));
 
 
-		register_block_type('flip-blocks/client-block', array(
-			'render_callback' => 'flip_client_block',
+		register_block_type('pi-blocks/client-block', array(
+			'render_callback' => 'pi_client_block',
 			'attributes' => array(
 				'className' => array(
 					'type' => 'string',
@@ -175,7 +175,7 @@ if (!function_exists('flip_init_register_block')) {
 		));
 
 
-		register_block_type('flip-blocks/block-insights', array(
+		register_block_type('pi-blocks/block-insights', array(
 			'render_callback' => 'block_insights_render',
 			'attributes' => array(
 				'posts_per_page' => array(
@@ -201,4 +201,4 @@ if (!function_exists('flip_init_register_block')) {
 	}
 }
 
-add_action('init', 'flip_init_register_block');
+add_action('init', 'pi_init_register_block');

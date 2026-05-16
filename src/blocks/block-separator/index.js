@@ -45,14 +45,14 @@ const BlockAttrs = {
 	},
 };
 
-export default registerBlockType("flip-blocks/flip-separator-block", {
+export default registerBlockType("pi-blocks/pi-separator-block", {
 	apiVersion: 3,
 	title: __("Separator"),
 	description: __(
 		"Create a break between ideas or sections with a horizontal separator.",
 	),
 	icon: blockIcon,
-	category: "flip-blocks",
+	category: "pi-blocks",
 	keywords: [__("separator"), __(""), __("break")],
 	attributes: BlockAttrs,
 	/* Render the block in the editor. */

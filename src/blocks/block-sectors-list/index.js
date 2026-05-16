@@ -34,11 +34,11 @@ const BlockAttrs = {
 	},
 };
 
-export default registerBlockType("flip-blocks/block-sectors-list", {
+export default registerBlockType("pi-blocks/block-sectors-list", {
 	apiVersion: 3,
 	title: __("List Sectors"),
 	icon: "list-view",
-	category: "flip-blocks",
+	category: "pi-blocks",
 	keywords: [__("list"), __("sectors")],
 	attributes: BlockAttrs,
 	supports: {

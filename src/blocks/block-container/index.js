@@ -92,16 +92,16 @@ const blockAttributes = {
 };
 
 // Register the block
-registerBlockType("flip-blocks/flip-container", {
+registerBlockType("pi-blocks/pi-container", {
 	apiVersion: 3,
 	title: "Container",
 	description: __(
 		"Add a container block to wrap several blocks in a parent container.",
-		"flip-blocks"
+		"pi-blocks"
 	),
 	icon: "editor-table",
-	category: "flip-blocks",
-	keywords: [__("container", "flip-blocks"), __("section", "flip-blocks")],
+	category: "pi-blocks",
+	keywords: [__("container", "pi-blocks"), __("section", "pi-blocks")],
 	supports: {
 		anchor: true,
 	},

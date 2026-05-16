@@ -16,10 +16,10 @@ const attr = {
 	},
 };
 
-registerBlockType("flip-blocks/client-block", {
+registerBlockType("pi-blocks/client-block", {
 	apiVersion: 3,
 	title: __("Client"),
-	category: "flip-blocks",
+	category: "pi-blocks",
 	icon: "networking",
 	attributes: attr,
 	edit: Edit,

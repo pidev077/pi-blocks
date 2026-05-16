@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name: Flip Blocks
- * Plugin URI: https://github.com/weareflip/weareflip-2024-wp
- * Description: Flip Blocks is a collection of page building blocks for the Gutenberg block editor. Building pages with the block editor and gives you more control to quickly create and launch any kind of site you want.
- * Author: We are Flip
- * Author URI: https://weareflip.com
+ * Plugin Name: Pi Blocks
+ * Plugin URI: https://github.com/wearepi/wearepi-2024-wp
+ * Description: Pi Blocks is a collection of page building blocks for the Gutenberg block editor. Building pages with the block editor and gives you more control to quickly create and launch any kind of site you want.
+ * Author: We are Pi
+ * Author URI: https://wearepi.com
  * Version: 1.0.0
  * License: GPL2+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt

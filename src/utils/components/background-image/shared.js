@@ -4,6 +4,6 @@
 
 export function dimRatioToClass( ratio ) {
 	return 100 > ratio
-		? `flip-has-background-dim-${ +10 * Math.round( ratio / 10 ) }`
+		? `pi-has-background-dim-${ +10 * Math.round( ratio / 10 ) }`
 		: null;
 }

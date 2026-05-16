@@ -8,7 +8,7 @@ const Edit = (props) => {
 
 	const blockProps = useBlockProps({
 		className: [
-			"flip-separator-blocks",
+			"pi-separator-blocks",
 			fullwidth ? "separator-fullwidth" : "",
 			`separator-${alignBlock}`,
 			className,

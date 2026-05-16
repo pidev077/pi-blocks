@@ -34,9 +34,9 @@ const Save = (props) => {
 	};
 
 	const classes = classnames(
-		"flip-block-container",
-		containerImgURL ? "flip-container-bg__image" : "",
-		videoURL ? "flip-container-bg__video" : "",
+		"pi-block-container",
+		containerImgURL ? "pi-container-bg__image" : "",
+		videoURL ? "pi-container-bg__video" : "",
 		`container-alignment-${textAlign}`,
 		borderRadiusTop ? "has-borer-radius-top" : "",
 		borderRadiusBottom ? "has-borer-radius-bottom" : "",
@@ -51,12 +51,12 @@ const Save = (props) => {
 	return (
 		<div {...blockProps}>
 			<div
-				className="flip-container-bg"
+				className="pi-container-bg"
 				style={{ backgroundColor: containerBgColor }}
 			>
 				{containerImgURL && !!containerImgURL.length && (
 					<img
-						className="flip-container-image"
+						className="pi-container-image"
 						src={containerImgURL}
 						alt={containerImgAlt}
 						style={{

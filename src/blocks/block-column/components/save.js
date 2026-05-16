@@ -30,7 +30,7 @@ const Save = ( props ) => {
 
 	/* Setup the wrapper classes. */
 	const classNames = classnames(
-		[ className, 'flip-layout-columns-' + columns, layout ],
+		[ className, 'pi-layout-columns-' + columns, layout ],
 		{
 			[ 'align' + align ]: align,
 		}
@@ -74,9 +74,9 @@ const Save = ( props ) => {
 	// };
 
 	const className = classnames( [
-		'flip-layout-column-wrap',
-		'flip-block-layout-column-gap',
-		attributes.responsiveToggle ? 'flip-is-responsive-column' : null,
+		'pi-layout-column-wrap',
+		'pi-block-layout-column-gap',
+		attributes.responsiveToggle ? 'pi-is-responsive-column' : null,
 		attributes.reverseOnMB ? 'reverse-column-mb' : null,
 	] );
 

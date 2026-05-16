@@ -6,7 +6,7 @@ const Save = (props) => {
 
 	const blockProps = useBlockProps.save({
 		className: [
-			"flip-separator-blocks",
+			"pi-separator-blocks",
 			fullwidth ? "separator-fullwidth" : "",
 			`separator-${alignBlock}`,
 			className,

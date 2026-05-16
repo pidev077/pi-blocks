@@ -6,7 +6,7 @@ import {
 	Autoplay,
 	EffectCube,
 	EffectCoverflow,
-	EffectFlip,
+	EffectPi,
 } from "swiper/modules";
 
 export default {

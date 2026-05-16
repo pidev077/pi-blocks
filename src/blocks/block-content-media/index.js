@@ -7,11 +7,11 @@ import { __ } from "@wordpress/i18n";
 import Edit from "./components/edit";
 import Save from "./components/save";
 
-registerBlockType("flip-blocks/content-media", {
+registerBlockType("pi-blocks/content-media", {
 	apiVersion: 3,
 	title: __("Content Media"),
 	icon: "images-alt2",
-	category: "flip-blocks",
+	category: "pi-blocks",
 
 	attributes: {
 		items: {

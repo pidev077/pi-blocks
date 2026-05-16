@@ -68,17 +68,17 @@ const Inspector = (props) => {
 
 	/* CSS Units. */
 	const cssUnits = [
-		{ value: "px", label: __("Pixel (px)", "flip-blocks") },
-		{ value: "%", label: __("Percent (%)", "flip-blocks") },
-		{ value: "em", label: __("Em (em)", "flip-blocks") },
+		{ value: "px", label: __("Pixel (px)", "pi-blocks") },
+		{ value: "%", label: __("Percent (%)", "pi-blocks") },
+		{ value: "em", label: __("Em (em)", "pi-blocks") },
 	];
 
 	return (
 		<InspectorControls key="inspector">
-			<PanelBody title={__("General", "flip-blocks")}>
+			<PanelBody title={__("General", "pi-blocks")}>
 				<RangeControl
 					value={borderRadius}
-					label={__("Border Radius", "flip-blocks")}
+					label={__("Border Radius", "pi-blocks")}
 					onChange={(value) => setAttributes({ borderRadius: value })}
 					__nextHasNoMarginBottom
 					min={0}
@@ -87,34 +87,34 @@ const Inspector = (props) => {
 				/>
 
 				<ToggleControl
-					label={__("Box Shadow", "flip-blocks")}
-					help={__("Enable box shadow effect", "flip-blocks")}
+					label={__("Box Shadow", "pi-blocks")}
+					help={__("Enable box shadow effect", "pi-blocks")}
 					checked={isBoxshadow}
 					onChange={() => setAttributes({ isBoxshadow: !isBoxshadow })}
 				/>
 
 				<ToggleControl
-					label={__("Border", "flip-blocks")}
-					help={__("Enable border", "flip-blocks")}
+					label={__("Border", "pi-blocks")}
+					help={__("Enable border", "pi-blocks")}
 					checked={isBorder}
 					onChange={() => setAttributes({ isBorder: !isBorder })}
 				/>
 				<ToggleControl
-					label={__("Sticky Column", "flip-blocks")}
+					label={__("Sticky Column", "pi-blocks")}
 					checked={isSticky}
 					onChange={() => setAttributes({ isSticky: !isSticky })}
 				/>
 			</PanelBody>
-			<RenderSettingControl id="flip_column_inner_marginPadding">
+			<RenderSettingControl id="pi_column_inner_marginPadding">
 				<PanelBody
-					title={__("Margin and Padding", "flip-blocks")}
+					title={__("Margin and Padding", "pi-blocks")}
 					initialOpen={false}
 				>
 					<SelectControl
-						label={__("Margin Unit", "flip-blocks")}
+						label={__("Margin Unit", "pi-blocks")}
 						help={__(
 							"Choose between pixel, percent, or em units.",
-							"flip-blocks"
+							"pi-blocks"
 						)}
 						options={cssUnits}
 						value={marginUnit}
@@ -125,10 +125,10 @@ const Inspector = (props) => {
 						}
 					/>
 					<ToggleControl
-						label={__("Sync Margin", "flip-blocks")}
+						label={__("Sync Margin", "pi-blocks")}
 						help={__(
 							"Top and bottom margins will have the same value.",
-							"flip-blocks"
+							"pi-blocks"
 						)}
 						checked={marginSync}
 						onChange={() =>
@@ -162,7 +162,7 @@ const Inspector = (props) => {
 							marginEnableVertical={true}
 							marginVerticalLabel={__(
 								"Margin Top/Bottom",
-								"flip-blocks"
+								"pi-blocks"
 							)}
 							marginVertical={margin}
 							marginVerticalMin="0"
@@ -174,10 +174,10 @@ const Inspector = (props) => {
 					)}
 					<hr />
 					<SelectControl
-						label={__("Padding Unit", "flip-blocks")}
+						label={__("Padding Unit", "pi-blocks")}
 						help={__(
 							"Choose between pixel, percent, or em units.",
-							"flip-blocks"
+							"pi-blocks"
 						)}
 						options={cssUnits}
 						value={paddingUnit}
@@ -188,10 +188,10 @@ const Inspector = (props) => {
 						}
 					/>
 					<ToggleControl
-						label={__("Sync Padding", "flip-blocks")}
+						label={__("Sync Padding", "pi-blocks")}
 						help={__(
 							"Padding on all sides will have the same value.",
-							"flip-blocks"
+							"pi-blocks"
 						)}
 						checked={paddingSync}
 						onChange={() =>
@@ -248,16 +248,16 @@ const Inspector = (props) => {
 				</PanelBody>
 			</RenderSettingControl>
 
-			<RenderSettingControl id="flip_column_inner_marginpadding">
+			<RenderSettingControl id="pi_column_inner_marginpadding">
 				<PanelBody
-					title={__("Margin and Padding Tablet", "flip-blocks")}
+					title={__("Margin and Padding Tablet", "pi-blocks")}
 					initialOpen={false}
 				>
 					<SelectControl
-						label={__("Margin Unit", "flip-blocks")}
+						label={__("Margin Unit", "pi-blocks")}
 						help={__(
 							"Choose between pixel, percent, or em units.",
-							"flip-blocks"
+							"pi-blocks"
 						)}
 						options={cssUnits}
 						value={marginUnitTL}
@@ -268,10 +268,10 @@ const Inspector = (props) => {
 						}
 					/>
 					<ToggleControl
-						label={__("Sync Margin", "flip-blocks")}
+						label={__("Sync Margin", "pi-blocks")}
 						help={__(
 							"Top and bottom margins will have the same value.",
-							"flip-blocks"
+							"pi-blocks"
 						)}
 						checked={marginSyncTL}
 						onChange={() =>
@@ -305,7 +305,7 @@ const Inspector = (props) => {
 							marginEnableVertical={true}
 							marginVerticalLabel={__(
 								"Margin Top/Bottom",
-								"flip-blocks"
+								"pi-blocks"
 							)}
 							marginVertical={marginTL}
 							marginVerticalMin="0"
@@ -317,10 +317,10 @@ const Inspector = (props) => {
 					)}
 					<hr />
 					<SelectControl
-						label={__("Padding Unit", "flip-blocks")}
+						label={__("Padding Unit", "pi-blocks")}
 						help={__(
 							"Choose between pixel, percent, or em units.",
-							"flip-blocks"
+							"pi-blocks"
 						)}
 						options={cssUnits}
 						value={paddingUnitTL}
@@ -331,10 +331,10 @@ const Inspector = (props) => {
 						}
 					/>
 					<ToggleControl
-						label={__("Sync Padding", "flip-blocks")}
+						label={__("Sync Padding", "pi-blocks")}
 						help={__(
 							"Padding on all sides will have the same value.",
-							"flip-blocks"
+							"pi-blocks"
 						)}
 						checked={paddingSyncTL}
 						onChange={() =>
@@ -393,16 +393,16 @@ const Inspector = (props) => {
 				</PanelBody>
 			</RenderSettingControl>
 
-			<RenderSettingControl id="flip_column_inner_marginpadding">
+			<RenderSettingControl id="pi_column_inner_marginpadding">
 				<PanelBody
-					title={__("Margin and Padding Mobile", "flip-blocks")}
+					title={__("Margin and Padding Mobile", "pi-blocks")}
 					initialOpen={false}
 				>
 					<SelectControl
-						label={__("Margin Unit", "flip-blocks")}
+						label={__("Margin Unit", "pi-blocks")}
 						help={__(
 							"Choose between pixel, percent, or em units.",
-							"flip-blocks"
+							"pi-blocks"
 						)}
 						options={cssUnits}
 						value={marginUnitMB}
@@ -413,10 +413,10 @@ const Inspector = (props) => {
 						}
 					/>
 					<ToggleControl
-						label={__("Sync Margin", "flip-blocks")}
+						label={__("Sync Margin", "pi-blocks")}
 						help={__(
 							"Top and bottom margins will have the same value.",
-							"flip-blocks"
+							"pi-blocks"
 						)}
 						checked={marginSyncMB}
 						onChange={() =>
@@ -450,7 +450,7 @@ const Inspector = (props) => {
 							marginEnableVertical={true}
 							marginVerticalLabel={__(
 								"Margin Top/Bottom",
-								"flip-blocks"
+								"pi-blocks"
 							)}
 							marginVertical={marginMB}
 							marginVerticalMin="0"
@@ -462,10 +462,10 @@ const Inspector = (props) => {
 					)}
 					<hr />
 					<SelectControl
-						label={__("Padding Unit", "flip-blocks")}
+						label={__("Padding Unit", "pi-blocks")}
 						help={__(
 							"Choose between pixel, percent, or em units.",
-							"flip-blocks"
+							"pi-blocks"
 						)}
 						options={cssUnits}
 						value={paddingUnitMB}
@@ -476,10 +476,10 @@ const Inspector = (props) => {
 						}
 					/>
 					<ToggleControl
-						label={__("Sync Padding", "flip-blocks")}
+						label={__("Sync Padding", "pi-blocks")}
 						help={__(
 							"Padding on all sides will have the same value.",
-							"flip-blocks"
+							"pi-blocks"
 						)}
 						checked={paddingSyncMB}
 						onChange={() =>
@@ -539,18 +539,18 @@ const Inspector = (props) => {
 			</RenderSettingControl>
 
 			<PanelColorSettings
-				title={__("Background Color", "flip-blocks")}
+				title={__("Background Color", "pi-blocks")}
 				colorSettings={[
 					{
 						value: backgroundColor,
 						onChange: (backgroundColor) =>
 							setAttributes({ backgroundColor }),
-						label: __("Choose color", "flip-blocks"),
+						label: __("Choose color", "pi-blocks"),
 					},
 				]}
 			/>
 
-			<RenderSettingControl id="flip_column_inner_backgroundImagePanel">
+			<RenderSettingControl id="pi_column_inner_backgroundImagePanel">
 				<BackgroundImagePanel {...props} />
 			</RenderSettingControl>
 		</InspectorControls>

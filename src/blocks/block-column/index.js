@@ -18,16 +18,16 @@ const { registerBlockType } = wp.blocks;
 /**
  * Register advanced columns block InnerBlocks.
  */
-registerBlockType("flip-blocks/flip-columns", {
+registerBlockType("pi-blocks/pi-columns", {
 	apiVersion: 3,
-	title: __("Advanced Columns", "flip-blocks"),
-	description: __("Add a pre-defined column layout.", "flip-blocks"),
+	title: __("Advanced Columns", "pi-blocks"),
+	description: __("Add a pre-defined column layout.", "pi-blocks"),
 	icon: "editor-table",
-	category: "flip-blocks",
+	category: "pi-blocks",
 	keywords: [
-		__("column", "flip-blocks"),
-		__("grid", "flip-blocks"),
-		__("row", "flip-blocks"),
+		__("column", "pi-blocks"),
+		__("grid", "pi-blocks"),
+		__("row", "pi-blocks"),
 	],
 	attributes: {
 		...BackgroundAttributes,

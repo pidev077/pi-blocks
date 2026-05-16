@@ -58,31 +58,31 @@ const Inspector = ( { attributes, setAttributes } ) => {
 
 	// CSS Units options
 	const cssUnits = [
-		{ value: 'px', label: __( 'Pixel (px)', 'flip-blocks' ) },
-		{ value: '%', label: __( 'Percent (%)', 'flip-blocks' ) },
-		{ value: 'em', label: __( 'Em (em)', 'flip-blocks' ) },
+		{ value: 'px', label: __( 'Pixel (px)', 'pi-blocks' ) },
+		{ value: '%', label: __( 'Percent (%)', 'pi-blocks' ) },
+		{ value: 'em', label: __( 'Em (em)', 'pi-blocks' ) },
 	];
 
 	return (
 		<InspectorControls key="inspector">
 			{ layout && (
 				<PanelBody
-					title={ __( 'General', 'flip-blocks' ) }
+					title={ __( 'General', 'pi-blocks' ) }
 					initialOpen={ true }
-					className="flip-column-select-panel"
+					className="pi-column-select-panel"
 				>
 					<RenderSettingControl id="gb_column_columns">
 						<RangeControl
-							label={ __( 'Column Count', 'flip-blocks' ) }
+							label={ __( 'Column Count', 'pi-blocks' ) }
 							help={ __(
 								"Note: Changing the column count after you've added content to the column can cause loss of content.",
-								'flip-blocks'
+								'pi-blocks'
 							) }
 							value={ columns }
 							onChange={ ( value ) =>
 								setAttributes( {
 									columns: value,
-									layout: 'flip-' + value + '-col-equal',
+									layout: 'pi-' + value + '-col-equal',
 								} )
 							}
 							__nextHasNoMarginBottom
@@ -97,11 +97,11 @@ const Inspector = ( { attributes, setAttributes } ) => {
 					{ ( 2 === columns || 3 === columns || 4 === columns ) && (
 						<Fragment>
 							<RenderSettingControl id="gb_column_columnLayouts">
-								<p>{ __( 'Column Layout', 'flip-blocks' ) }</p>
+								<p>{ __( 'Column Layout', 'pi-blocks' ) }</p>
 								<ButtonGroup
 									aria-label={ __(
 										'Column Layout',
-										'flip-blocks'
+										'pi-blocks'
 									) }
 								>
 									{ map(
@@ -110,7 +110,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 											<Tooltip text={ name } key={ key }>
 												<Button
 													key={ key }
-													className="flip-column-selector-button"
+													className="pi-column-selector-button"
 													isSmall
 													onClick={ () => {
 														setAttributes( {
@@ -128,7 +128,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 									<i>
 										{ __(
 											'Change the layout of your columns.',
-											'flip-blocks'
+											'pi-blocks'
 										) }
 									</i>
 								</p>
@@ -139,10 +139,10 @@ const Inspector = ( { attributes, setAttributes } ) => {
 
 					<RenderSettingControl id="gb_column_columnsGap">
 						<RangeControl
-							label={ __( 'Column Gap (px)', 'flip-blocks' ) }
+							label={ __( 'Column Gap (px)', 'pi-blocks' ) }
 							help={ __(
 								'Adjust the spacing between columns.',
-								'flip-blocks'
+								'pi-blocks'
 							) }
 							value={ columnsGap }
 							onChange={ ( value ) =>
@@ -155,10 +155,10 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						/>
 
 						<RangeControl
-							label={ __( 'Row Gap (px)', 'flip-blocks' ) }
+							label={ __( 'Row Gap (px)', 'pi-blocks' ) }
 							help={ __(
 								'Adjust the spacing between rows.',
-								'flip-blocks'
+								'pi-blocks'
 							) }
 							value={ rowGap }
 							onChange={ ( value ) =>
@@ -178,7 +178,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 							label={ __( 'Column Inner Max Width (px)' ) }
 							help={ __(
 								'Adjust the width of the content inside the container wrapper.',
-								'flip-blocks'
+								'pi-blocks'
 							) }
 							value={ columnMaxWidth }
 							onChange={ ( value ) =>
@@ -195,10 +195,10 @@ const Inspector = ( { attributes, setAttributes } ) => {
 
 					<RenderSettingControl id="gb_column_responsiveToggle">
 						<ToggleControl
-							label={ __( 'Responsive Columns', 'flip-blocks' ) }
+							label={ __( 'Responsive Columns', 'pi-blocks' ) }
 							help={ __(
 								'Columns will be adjusted to fit on tablets and mobile devices.',
-								'flip-blocks'
+								'pi-blocks'
 							) }
 							checked={ responsiveToggle }
 							onChange={ () =>
@@ -212,11 +212,11 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						<ToggleControl
 							label={ __(
 								'Reverse columns Mobile',
-								'flip-blocks'
+								'pi-blocks'
 							) }
 							help={ __(
 								'Reverse the order of columns on mobile devices.',
-								'flip-blocks'
+								'pi-blocks'
 							) }
 							checked={ reverseOnMB }
 							onChange={ () =>
@@ -231,14 +231,14 @@ const Inspector = ( { attributes, setAttributes } ) => {
 
 			<RenderSettingControl id="gb_column_marginPadding">
 				<PanelBody
-					title={ __( 'Margin and Padding', 'flip-blocks' ) }
+					title={ __( 'Margin and Padding', 'pi-blocks' ) }
 					initialOpen={ false }
 				>
 					<SelectControl
-						label={ __( 'Margin Unit', 'flip-blocks' ) }
+						label={ __( 'Margin Unit', 'pi-blocks' ) }
 						help={ __(
 							'Choose between pixel, percent, or em units.',
-							'flip-blocks'
+							'pi-blocks'
 						) }
 						options={ cssUnits }
 						value={ marginUnit }
@@ -247,10 +247,10 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						}
 					/>
 					<ToggleControl
-						label={ __( 'Sync Margin', 'flip-blocks' ) }
+						label={ __( 'Sync Margin', 'pi-blocks' ) }
 						help={ __(
 							'Top and bottom margins will have the same value.',
-							'flip-blocks'
+							'pi-blocks'
 						) }
 						checked={ marginSync }
 						onChange={ () =>
@@ -282,7 +282,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 							marginEnableVertical={ true }
 							marginVerticalLabel={ __(
 								'Margin Top/Bottom',
-								'flip-blocks'
+								'pi-blocks'
 							) }
 							marginVertical={ margin }
 							marginVerticalMin="0"
@@ -294,10 +294,10 @@ const Inspector = ( { attributes, setAttributes } ) => {
 					) }
 					<hr />
 					<SelectControl
-						label={ __( 'Padding Unit', 'flip-blocks' ) }
+						label={ __( 'Padding Unit', 'pi-blocks' ) }
 						help={ __(
 							'Choose between pixel, percent, or em units.',
-							'flip-blocks'
+							'pi-blocks'
 						) }
 						options={ cssUnits }
 						value={ paddingUnit }
@@ -306,10 +306,10 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						}
 					/>
 					<ToggleControl
-						label={ __( 'Sync Padding', 'flip-blocks' ) }
+						label={ __( 'Sync Padding', 'pi-blocks' ) }
 						help={ __(
 							'Padding on all sides will have the same value.',
-							'flip-blocks'
+							'pi-blocks'
 						) }
 						checked={ paddingSync }
 						onChange={ () =>
@@ -340,7 +340,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 							paddingEnableVertical={ true }
 							paddingVerticalLabel={ __(
 								'Padding Top/Bottom',
-								'flip-blocks'
+								'pi-blocks'
 							) }
 							padding={ padding }
 							paddingMin="0"
@@ -359,13 +359,13 @@ const Inspector = ( { attributes, setAttributes } ) => {
 			/>
 
 			<PanelColorSettings
-				title={ __( 'Background Color', 'flip-blocks' ) }
+				title={ __( 'Background Color', 'pi-blocks' ) }
 				colorSettings={ [
 					{
 						value: backgroundColor,
 						onChange: ( backgroundColor ) =>
 							setAttributes( { backgroundColor } ),
-						label: __( 'Choose color', 'flip-blocks' ),
+						label: __( 'Choose color', 'pi-blocks' ),
 					},
 				] }
 			/>

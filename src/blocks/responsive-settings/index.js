@@ -24,6 +24,6 @@ addFilter(
 
 addFilter(
     'editor.BlockEdit',
-    'flip-blocks/add-responsive-typo-controls',
+    'pi-blocks/add-responsive-typo-controls',
     withResponsiveSettings
 );

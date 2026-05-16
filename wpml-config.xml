@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    WPML configuration for pi-blocks plugin.
+    This file tells WPML which Gutenberg block attributes contain
+    translatable text, so they appear in WPML's Translation Editor.
+
+    field_type values:
+      line  = single-line text (titles, labels, short strings)
+      area  = multi-line text (descriptions, paragraphs)
+      image = image URL (not translated, but WPML may handle separately)
+
+    Array attributes (items, testimonials, counters) are handled
+    automatically by WPML's Advanced Translation Editor when
+    translating posts/pages that contain these blocks.
+-->
+<wpml-config>
+    <gutenberg-blocks>
+
+        <!-- ── Hero Block ──────────────────────────────────────────── -->
+        <block type="pi-blocks/hero">
+            <fields>
+                <field name="scrollLabel" field_type="line" label="Nút cuộn trang" />
+                <field name="imgAlt"      field_type="line" label="Alt text ảnh nền" />
+            </fields>
+        </block>
+
+        <!-- ── Content Media Block ─────────────────────────────────── -->
+        <block type="pi-blocks/content-media">
+            <fields>
+                <field name="contentTitle" field_type="line" label="Tiêu đề" />
+                <field name="contentText"  field_type="area" label="Nội dung mô tả" />
+            </fields>
+        </block>
+
+        <!-- ── Testimonials Carousel ───────────────────────────────── -->
+        <block type="pi-blocks/block-testimonials-carousel">
+            <fields>
+                <field name="heading" field_type="line" label="Tiêu đề section" />
+            </fields>
+        </block>
+
+        <!-- ── Process Steps Block ─────────────────────────────────── -->
+        <!--
+            The `items` array (title, description per step) is handled
+            automatically by WPML's Translation Editor via block JSON.
+        -->
+        <block type="pi-blocks/process-steps">
+            <fields>
+                <!-- items array translated via WPML ATE block view -->
+            </fields>
+        </block>
+
+        <!--
+            Blocks below use InnerBlocks or array attributes fully
+            managed by WPML's Advanced Translation Editor:
+              pi-blocks/block-text-w-counter  (counters array)
+              pi-blocks/block-sectors-list    (items array)
+              pi-blocks/block-teams-list      (items array)
+              pi-blocks/block-insights        (items array)
+              pi-blocks/block-gallery-carousel (images array)
+              pi-blocks/block-logo-carousel   (images array)
+              pi-blocks/block-separator       (no text content)
+              pi-blocks/block-column          (InnerBlocks)
+              pi-blocks/block-column-inner    (InnerBlocks)
+              pi-blocks/block-container       (InnerBlocks)
+              pi-blocks/block-related-list    (WP query – no custom text)
+        -->
+
+    </gutenberg-blocks>
+</wpml-config>

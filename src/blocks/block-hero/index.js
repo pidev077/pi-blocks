@@ -59,12 +59,16 @@ const attr = {
 		type: "boolean",
 		default: true,
 	},
+	scrollLabel: {
+		type: "string",
+		default: "KHÁM PHÁ THÊM",
+	},
 };
 
-registerBlockType("flip-blocks/hero", {
+registerBlockType("pi-blocks/hero", {
 	apiVersion: 3,
 	title: __("Hero"),
-	category: "flip-blocks",
+	category: "pi-blocks",
 	keywords: [__("section"), __("hero")],
 	icon: "format-video",
 	attributes: attr,

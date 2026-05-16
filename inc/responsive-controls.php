@@ -9,12 +9,12 @@ function responsive_settings( $block_content, $block, $uuid = false ) {
 		return $block_content;
 	}
 
-	if ( ! isset( $block['attrs']['flipResponsiveSettings'] ) || empty( $block['attrs']['flipResponsiveSettings'] ) ) {
+	if ( ! isset( $block['attrs']['piResponsiveSettings'] ) || empty( $block['attrs']['piResponsiveSettings'] ) ) {
 		return $block_content;
 	}
 
 	// Generate a unique id to use as a class name so we can target it with CSS.
-	$unique_class_name = 'flip-' . ( $uuid ? $uuid : uniqid() );
+	$unique_class_name = 'pi-' . ( $uuid ? $uuid : uniqid() );
 
 	// If the block has a class HTML attribute.
 	preg_match( '/(?<=\bclass=")[^"]*/', $block_content, $possibly_existing_class_names );
@@ -42,7 +42,7 @@ function responsive_settings( $block_content, $block, $uuid = false ) {
 
 	// Ensure the smallest breakpoint rules are rendered last, so they can take effect.
 	uksort(
-		$block['attrs']['flipResponsiveSettings'],
+		$block['attrs']['piResponsiveSettings'],
 		function ($first_breakpoint, $second_breakpoint) {
 			if (absint($first_breakpoint) == absint($second_breakpoint)) return 0;
 			return (absint($first_breakpoint) < absint($second_breakpoint)) ? 1 : -1;
@@ -50,7 +50,7 @@ function responsive_settings( $block_content, $block, $uuid = false ) {
 	);
 
 	// Loop through each breakpoint.
-	foreach ( $block['attrs']['flipResponsiveSettings'] as $breakpoint_width => $responsive_settings ) {
+	foreach ( $block['attrs']['piResponsiveSettings'] as $breakpoint_width => $responsive_settings ) {
 
 		$style_tag .= '@media only screen and (max-width: ' . $breakpoint_width . ') {.' . $unique_class_name . '{';
 

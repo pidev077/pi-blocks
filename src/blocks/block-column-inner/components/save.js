@@ -178,12 +178,12 @@ const Save = (props) => {
 	const blockProps = useBlockProps.save({
 		className: classnames(
 			className,
-			"flip-block-layout-column",
-			isBorder ? "flip-has-border" : null,
-			isBoxshadow ? "flip-has-boxshadow" : null,
+			"pi-block-layout-column",
+			isBorder ? "pi-has-border" : null,
+			isBoxshadow ? "pi-has-boxshadow" : null,
 			isSticky ? "is-sticky" : null,
 			columnVerticalAlignment
-				? "flip-is-vertically-aligned-" + columnVerticalAlignment
+				? "pi-is-vertically-aligned-" + columnVerticalAlignment
 				: null
 		),
 		style: Object.assign(
@@ -201,7 +201,7 @@ const Save = (props) => {
 
 	return (
 		<div {...blockProps}>
-			<div className="flip-block-layout-column-inner">
+			<div className="pi-block-layout-column-inner">
 				<InnerBlocks.Content />
 			</div>
 		</div>

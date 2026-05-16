@@ -60,7 +60,7 @@ export default function Margin( props ) {
 					label={
 						marginTopLabel
 							? marginTopLabel
-							: __( 'Margin Top', 'flip-blocks' )
+							: __( 'Margin Top', 'pi-blocks' )
 					}
 					value={ marginTop }
 					min={ marginTopMin }
@@ -74,7 +74,7 @@ export default function Margin( props ) {
 					label={
 						marginRightLabel
 							? marginRightLabel
-							: __( 'Margin Right', 'flip-blocks' )
+							: __( 'Margin Right', 'pi-blocks' )
 					}
 					value={ marginRight }
 					min={ marginRightMin }
@@ -88,7 +88,7 @@ export default function Margin( props ) {
 					label={
 						marginBottomLabel
 							? marginBottomLabel
-							: __( 'Margin Bottom', 'flip-blocks' )
+							: __( 'Margin Bottom', 'pi-blocks' )
 					}
 					value={ marginBottom }
 					min={ marginBottomMin }
@@ -102,7 +102,7 @@ export default function Margin( props ) {
 					label={
 						marginLeftLabel
 							? marginLeftLabel
-							: __( 'Margin Left', 'flip-blocks' )
+							: __( 'Margin Left', 'pi-blocks' )
 					}
 					value={ marginLeft }
 					min={ marginLeftMin }
@@ -116,7 +116,7 @@ export default function Margin( props ) {
 					label={
 						marginVerticalLabel
 							? marginVerticalLabel
-							: __( 'Margin Vertical', 'flip-blocks' )
+							: __( 'Margin Vertical', 'pi-blocks' )
 					}
 					value={ marginVertical }
 					min={ marginVerticalMin }
@@ -130,7 +130,7 @@ export default function Margin( props ) {
 					label={
 						marginHorizontalLabel
 							? marginHorizontalLabel
-							: __( 'Margin Horizontal', 'flip-blocks' )
+							: __( 'Margin Horizontal', 'pi-blocks' )
 					}
 					value={ marginHorizontal }
 					min={ marginHorizontalMin }

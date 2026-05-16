@@ -9,10 +9,10 @@ function BackgroundImageClasses( attributes ) {
 		attributes.backgroundImgURL &&
 		attributes.backgroundSize &&
 		'no-repeat' === attributes.backgroundRepeat
-			? 'flip-background-' + attributes.backgroundSize
+			? 'pi-background-' + attributes.backgroundSize
 			: null,
 		attributes.backgroundImgURL && attributes.backgroundRepeat
-			? 'flip-background-' + attributes.backgroundRepeat
+			? 'pi-background-' + attributes.backgroundRepeat
 			: null,
 	];
 }

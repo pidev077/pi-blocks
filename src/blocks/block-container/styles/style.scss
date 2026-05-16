@@ -3,7 +3,7 @@
  * Loads on front end and back end
  */
 
-.flip-block-container {
+.pi-block-container {
 	position: relative;
 	padding-top: var(--paddingTop);
 	padding-bottom: var(--paddingBottom);
@@ -40,7 +40,7 @@
 			margin-top: -32px;
 		}
 
-		.flip-container-bg {
+		.pi-container-bg {
 			border-top-left-radius: 60px;
 			border-top-right-radius: 60px;
 
@@ -73,7 +73,7 @@
 			margin-bottom: -32px;
 		}
 
-		.flip-container-bg {
+		.pi-container-bg {
 			border-bottom-right-radius: 60px;
 			border-bottom-left-radius: 60px;
 
@@ -130,7 +130,7 @@
 			}
 		}
 	}
-	.flip-container-bg {
+	.pi-container-bg {
 		position: absolute;
 		height: 100%;
 		width: 100%;

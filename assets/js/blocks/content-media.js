@@ -26,10 +26,10 @@ export default {
 		// CLICK EVENT
 		// ======================
 		document.addEventListener("click", (e) => {
-			const item = e.target.closest(".flip-content-media .content-item");
+			const item = e.target.closest(".pi-content-media .content-item");
 			if (!item) return;
 
-			const wrapper = item.closest(".flip-content-media");
+			const wrapper = item.closest(".pi-content-media");
 			if (!wrapper) return;
 
 			const left = wrapper.querySelector(".thumb-list");
@@ -63,7 +63,7 @@ export default {
 		// ======================
 		window.addEventListener("load", () => {
 			document
-				.querySelectorAll(".flip-content-media")
+				.querySelectorAll(".pi-content-media")
 				.forEach((wrapper) => initBlock(wrapper));
 		});
 	},

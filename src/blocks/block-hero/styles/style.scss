@@ -1,34 +1,27 @@
 .hero-block {
 	position: relative;
-	height: calc(100vh + 60px);
+	height: calc(100vh + 0px);
 	display: flex;
-	align-items: end;
-	padding-bottom: 144px;
+	align-items: center;
 	z-index: 1;
 
 	@supports (height: 100svh) {
-		height: calc(100svh + 60px);
-	}
-
-	@include media-breakpoint-down(xl) {
-		padding-bottom: 100px;
+		height: calc(100svh + 0px);
 	}
 
 	@include media-breakpoint-down(lg) {
-		padding-bottom: 96px;
-		height: calc(100vh + 48px);
+		height: calc(100vh + 0px);
 
 		@supports (height: 100svh) {
-			height: calc(100svh + 48px);
+			height: calc(100svh + 0px);
 		}
 	}
 
 	@include media-breakpoint-down(md) {
-		padding-bottom: 64px;
-		height: calc(100vh + 32px);
+		height: calc(100vh + 0px);
 
 		@supports (height: 100svh) {
-			height: calc(100svh + 32px);
+			height: calc(100svh + 0px);
 		}
 	}
 
@@ -48,9 +41,9 @@
 			height: 100%;
 			z-index: 2;
 			background: linear-gradient(
-				0deg,
-				rgba(60, 33, 14, 0.2) 0%,
-				rgba(60, 33, 14, 0.2) 100%
+				180deg,
+				rgba(0, 0, 0, 0.08) 0%,
+				rgba(0, 0, 0, 0.35) 100%
 			);
 		}
 	}
@@ -77,24 +70,71 @@
 	}
 
 	&-content {
+		text-align: center;
+
+		p {
+			font-size: 16px;
+			font-weight: 500;
+			text-transform: uppercase;
+			line-height: 1.5;
+			margin: 0 0 20px;
+
+			@include media-breakpoint-down(md) {
+				font-size: 11px;
+				letter-spacing: 0.15em;
+				margin-bottom: 16px;
+			}
+		}
+
 		h1 {
-			letter-spacing: clamp(-2.03px, calc(-0.138vw - 0.04px), -0.556px);
 			margin: 0;
 			text-align: center;
-			font-size: clamp(55.56px, calc(13.83vw + 3.7px), 203px);
+			font-size: 48px;
+			line-height: 1.2;
 
 			@include media-breakpoint-down(sm) {
-				font-size: 55.56px;
-				letter-spacing: -0.556px;
+				font-size: 40px;
+				letter-spacing: -0.5px;
 			}
 
 			@media (max-width: 375px) {
-				font-size: 50px;
+				font-size: 34px;
 			}
 
 			span {
 				line-height: inherit;
 			}
+		}
+	}
+
+	&-scroll {
+		position: absolute;
+		bottom: 48px;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 3;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+		text-decoration: none;
+		color: inherit;
+		white-space: nowrap;
+
+		@include media-breakpoint-down(md) {
+			bottom: 32px;
+		}
+
+		span {
+			font-size: 16px;
+			font-weight: 400;
+			letter-spacing: 0.15em;
+			text-transform: uppercase;
+		}
+
+		svg {
+			display: block;
+			margin-left: 0;
 		}
 	}
 

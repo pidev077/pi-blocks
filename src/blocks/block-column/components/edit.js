@@ -31,11 +31,11 @@ import { compose } from '@wordpress/compose';
 import BackgroundImageStyles from '../../../utils/components/background-image/styles';
 
 /* Set allowed blocks and media. */
-const ALLOWED_BLOCKS = [ 'flip-blocks/flip-column' ];
+const ALLOWED_BLOCKS = [ 'pi-blocks/pi-column' ];
 
 /* Get the column template. */
 const getLayoutTemplate = memoize( ( columns ) => {
-	return _times( columns, () => [ 'flip-blocks/flip-column' ] );
+	return _times( columns, () => [ 'pi-blocks/pi-column' ] );
 } );
 
 const Edit = ( props ) => {
@@ -64,7 +64,7 @@ const Edit = ( props ) => {
 
 	/* Setup the wrapper classes. */
 	const classNames = classnames(
-		[ className, 'flip-layout-columns-' + columns, layout ],
+		[ className, 'pi-layout-columns-' + columns, layout ],
 		{
 			[ 'align' + align ]: align,
 		}
@@ -120,37 +120,37 @@ const Edit = ( props ) => {
 
 	const columnOptions = [
 		{
-			name: __( '1 Column', 'flip-blocks' ),
+			name: __( '1 Column', 'pi-blocks' ),
 			key: 'one-column',
 			columns: 1,
 			icon: icons.oneEqual,
 		},
 		{
-			name: __( '2 Columns', 'flip-blocks' ),
+			name: __( '2 Columns', 'pi-blocks' ),
 			key: 'two-column',
 			columns: 2,
 			icon: icons.twoEqual,
 		},
 		{
-			name: __( '3 Columns', 'flip-blocks' ),
+			name: __( '3 Columns', 'pi-blocks' ),
 			key: 'three-column',
 			columns: 3,
 			icon: icons.threeEqual,
 		},
 		{
-			name: __( '4 Columns', 'flip-blocks' ),
+			name: __( '4 Columns', 'pi-blocks' ),
 			key: 'four-column',
 			columns: 4,
 			icon: icons.fourEqual,
 		},
 		{
-			name: __( '5 Columns', 'flip-blocks' ),
+			name: __( '5 Columns', 'pi-blocks' ),
 			key: 'five-column',
 			columns: 5,
 			icon: icons.fiveEqual,
 		},
 		{
-			name: __( '6 Columns', 'flip-blocks' ),
+			name: __( '6 Columns', 'pi-blocks' ),
 			key: 'six-column',
 			columns: 6,
 			icon: icons.sixEqual,
@@ -165,36 +165,36 @@ const Edit = ( props ) => {
 				icon="editor-table"
 				label={
 					columns
-						? __( 'Column Layout', 'flip-blocks' )
-						: __( 'Column Number', 'flip-blocks' )
+						? __( 'Column Layout', 'pi-blocks' )
+						: __( 'Column Number', 'pi-blocks' )
 				}
 				instructions={
 					columns
 						? __(
 								'Select a layout for this column.',
-								'flip-blocks'
+								'pi-blocks'
 						  )
 						: __(
 								'Select the number of columns for this layout.',
-								'flip-blocks'
+								'pi-blocks'
 						  )
 				}
-				className={ 'flip-column-selector-placeholder' }
+				className={ 'pi-column-selector-placeholder' }
 			>
 				{ ! columns ? (
 					<ButtonGroup
-						aria-label={ __( 'Select Row Columns', 'flip-blocks' ) }
-						className="flip-column-selector-group"
+						aria-label={ __( 'Select Row Columns', 'pi-blocks' ) }
+						className="pi-column-selector-group"
 					>
 						{ map(
 							columnOptions,
 							( { name, key, icon, columns } ) => (
 								<Tooltip text={ name } key={ key }>
-									<div className="flip-column-selector">
+									<div className="pi-column-selector">
 										<Button
 											className={ classnames(
-												'flip-column-selector-button',
-												'flip-select-' + key
+												'pi-column-selector-button',
+												'pi-select-' + key
 											) }
 											isSmall
 											onClick={ () => {
@@ -225,19 +225,19 @@ const Edit = ( props ) => {
 						<ButtonGroup
 							aria-label={ __(
 								'Select Column Layout',
-								'flip-blocks'
+								'pi-blocks'
 							) }
-							className="flip-column-selector-group"
+							className="pi-column-selector-group"
 						>
 							{ map(
 								columnLayouts[ selectedRows ],
 								( { name, key, icon } ) => (
 									<Tooltip text={ name } key={ key }>
-										<div className="flip-column-selector">
+										<div className="pi-column-selector">
 											<Button
 												key={ key }
 												className={ classnames(
-													'flip-column-selector-button',
+													'pi-column-selector-button',
 													key
 												) }
 												isSmall
@@ -256,7 +256,7 @@ const Edit = ( props ) => {
 							) }
 						</ButtonGroup>
 						<Button
-							className="flip-column-selector-button-back"
+							className="pi-column-selector-button-back"
 							onClick={ () => {
 								setAttributes( {
 									columns: null,
@@ -266,7 +266,7 @@ const Edit = ( props ) => {
 						>
 							{ __(
 								'Return to Column Selection',
-								'flip-blocks'
+								'pi-blocks'
 							) }
 						</Button>
 					</Fragment>
@@ -289,9 +289,9 @@ const Edit = ( props ) => {
 		<div { ...blockProps } key="columns">
 			<div
 				className={ classnames(
-					'flip-layout-column-wrap-admin',
-					'flip-block-layout-column-gap',
-					responsiveToggle ? 'flip-is-responsive-column' : null
+					'pi-layout-column-wrap-admin',
+					'pi-block-layout-column-gap',
+					responsiveToggle ? 'pi-is-responsive-column' : null
 				) }
 				style={ {
 					maxWidth: columnMaxWidth ? columnMaxWidth : null,

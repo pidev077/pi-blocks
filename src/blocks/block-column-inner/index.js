@@ -1,5 +1,5 @@
 /**
- * BLOCK: Flip Blocks Advanced Columns InnerBlocks.
+ * BLOCK: Pi Blocks Advanced Columns InnerBlocks.
  */
 
 /**
@@ -20,17 +20,17 @@ import { registerBlockType } from "@wordpress/blocks";
 /**
  * Register advanced columns block.
  */
-registerBlockType("flip-blocks/flip-column", {
+registerBlockType("pi-blocks/pi-column", {
 	apiVersion: 3,
 	title: "Column",
-	description: __("Add a pre-defined column layout.", "flip-blocks"),
+	description: __("Add a pre-defined column layout.", "pi-blocks"),
 	icon: "editor-table",
-	category: "flip-blocks",
-	parent: ["flip-blocks/flip-columns"],
+	category: "pi-blocks",
+	parent: ["pi-blocks/pi-columns"],
 	keywords: [
-		__("column", "flip-blocks"),
-		__("layout", "flip-blocks"),
-		__("row", "flip-blocks"),
+		__("column", "pi-blocks"),
+		__("layout", "pi-blocks"),
+		__("row", "pi-blocks"),
 	],
 	attributes: {
 		...BackgroundAttributes,
@@ -223,14 +223,14 @@ const withClientIdClassName = wp.compose.createHigherOrderComponent(
 			const blockName = props.block.name;
 
 			if (
-				"flip-blocks/flip-column" === blockName &&
+				"pi-blocks/pi-column" === blockName &&
 				props.block.attributes.columnVerticalAlignment
 			) {
 				return (
 					<BlockListBlock
 						{...props}
 						className={
-							"flip-is-vertically-aligned-" +
+							"pi-is-vertically-aligned-" +
 							props.block.attributes.columnVerticalAlignment
 						}
 					/>
@@ -244,6 +244,6 @@ const withClientIdClassName = wp.compose.createHigherOrderComponent(
 
 wp.hooks.addFilter(
 	"editor.BlockListBlock",
-	"flip-blocks/add-vertical-align-class",
+	"pi-blocks/add-vertical-align-class",
 	withClientIdClassName
 );

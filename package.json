@@ -1,5 +1,5 @@
 {
-	"name": "flip-blocks",
+	"name": "pi-blocks",
 	"version": "1.0.0",
 	"scripts": {
 		"build": "wp-scripts build",

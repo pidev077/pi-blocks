@@ -54,6 +54,12 @@ Editor style
 	:before {
 		box-sizing: border-box;
 	}
+	.has-playfair-display-font-family{
+		font-family: $font-primary;
+	}
+	.has-google-sans-font-family{  
+		font-family: $font-second;
+	}
 
 	p,
 	span:not(.dashicon),

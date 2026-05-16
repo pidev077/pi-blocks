@@ -34,10 +34,10 @@ const attr = {
 	},
 };
 
-registerBlockType("flip-blocks/block-text-w-counter", {
+registerBlockType("pi-blocks/block-text-w-counter", {
 	apiVersion: 3,
 	title: __("Text with Counter"),
-	category: "flip-blocks",
+	category: "pi-blocks",
 	keywords: [__("text"), __("counter")],
 	icon: "editor-ol-rtl",
 	attributes: attr,

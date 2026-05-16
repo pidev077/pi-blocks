@@ -26,11 +26,11 @@ const BlockAttrs = {
 	},
 };
 
-export default registerBlockType("flip-blocks/block-insights", {
+export default registerBlockType("pi-blocks/block-insights", {
 	apiVersion: 3,
 	title: __("Insights"),
 	icon: "text-page",
-	category: "flip-blocks",
+	category: "pi-blocks",
 	keywords: [__("insight"), __("blog"), __("post")],
 	attributes: BlockAttrs,
 	supports: {

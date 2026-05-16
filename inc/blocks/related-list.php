@@ -1,5 +1,5 @@
 <?php
-function flip_related_list_render($attributes) {
+function pi_related_list_render($attributes) {
 
     $taxonomy = $attributes['taxonomy'] ?? '';
     $term_id  = (int) ($attributes['termId'] ?? 0);

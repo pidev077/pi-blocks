@@ -85,10 +85,10 @@ const attr = {
 	},
 };
 
-registerBlockType("flip-blocks/block-testimonials-carousel", {
+registerBlockType("pi-blocks/block-testimonials-carousel", {
 	apiVersion: 3,
 	title: __("Testimonials Carousel"),
-	category: "flip-blocks",
+	category: "pi-blocks",
 	keywords: [__("quote"), __("carousel"), __("testimonials")],
 	icon: "testimonial",
 	attributes: attr,

@@ -29,10 +29,10 @@ const BlockAttrs = {
 };
 
 
-export default registerBlockType('flip-blocks/block-teams-list', {
+export default registerBlockType('pi-blocks/block-teams-list', {
 	title: __('Teams List'),
 	icon: 'groups',
-	category: 'flip-blocks',
+	category: 'pi-blocks',
 	keywords: [__('list'), __('teams')],
 	attributes: BlockAttrs,
 	supports: {

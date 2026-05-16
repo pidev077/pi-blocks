@@ -21,22 +21,22 @@ class BackgroundImagePanel extends Component {
 		const { attributes, setAttributes } = this.props;
 
 		const backgroundRepeatOptions = [
-			{ value: 'no-repeat', label: __( 'No Repeat', 'flip-blocks' ) },
-			{ value: 'repeat', label: __( 'Repeat', 'flip-blocks' ) },
+			{ value: 'no-repeat', label: __( 'No Repeat', 'pi-blocks' ) },
+			{ value: 'repeat', label: __( 'Repeat', 'pi-blocks' ) },
 			{
 				value: 'repeat-x',
-				label: __( 'Repeat Horizontally', 'flip-blocks' ),
+				label: __( 'Repeat Horizontally', 'pi-blocks' ),
 			},
 			{
 				value: 'repeat-y',
-				label: __( 'Repeat Vertically', 'flip-blocks' ),
+				label: __( 'Repeat Vertically', 'pi-blocks' ),
 			},
 		];
 
 		const backgroundSizeOptions = [
-			{ value: 'auto', label: __( 'Auto', 'flip-blocks' ) },
-			{ value: 'cover', label: __( 'Cover', 'flip-blocks' ) },
-			{ value: 'contain', label: __( 'Contain', 'flip-blocks' ) },
+			{ value: 'auto', label: __( 'Auto', 'pi-blocks' ) },
+			{ value: 'cover', label: __( 'Cover', 'pi-blocks' ) },
+			{ value: 'contain', label: __( 'Contain', 'pi-blocks' ) },
 		];
 
 		let backgroundSizeHelp;
@@ -44,26 +44,26 @@ class BackgroundImagePanel extends Component {
 		if ( 'cover' === attributes.backgroundSize ) {
 			backgroundSizeHelp = __(
 				'Scales the image as large as possible without stretching the image. Cropped either vertically or horizontally so that no empty space remains.',
-				'flip-blocks'
+				'pi-blocks'
 			);
 		}
 		if ( 'contain' === attributes.backgroundSize ) {
 			backgroundSizeHelp = __(
 				'Scales the image as large as possible without cropping or stretching the image.',
-				'flip-blocks'
+				'pi-blocks'
 			);
 		}
 		if ( 'auto' === attributes.backgroundSize ) {
 			backgroundSizeHelp = __(
 				'Scales the background image in the corresponding direction such that its intrinsic proportions are maintained.',
-				'flip-blocks'
+				'pi-blocks'
 			);
 		}
 
 		return (
 			<Fragment>
 				<PanelBody
-					title={ __( 'Background Image', 'flip-blocks' ) }
+					title={ __( 'Background Image', 'pi-blocks' ) }
 					initialOpen={ false }
 				>
 					<MediaUploadCheck>
@@ -77,28 +77,28 @@ class BackgroundImagePanel extends Component {
 							value={ attributes.backgroundImgURL }
 							render={ ( { open } ) => (
 								<div>
-									<ButtonGroup className="flip-background-button-group">
+									<ButtonGroup className="pi-background-button-group">
 										<Button
-											className="flip-inspector-icon-button flip-background-add-button is-button is-default"
+											className="pi-inspector-icon-button pi-background-add-button is-button is-default"
 											label={ __(
 												'Edit image',
-												'flip-blocks'
+												'pi-blocks'
 											) }
 											onClick={ open }
 										>
 											<Icon icon="format-image" />
 											{ __(
 												'Select Image',
-												'flip-blocks'
+												'pi-blocks'
 											) }
 										</Button>
 
 										{ attributes.backgroundImgURL && (
 											<Button
-												className="flip-inspector-icon-button flip-background-remove-button is-button is-default"
+												className="pi-inspector-icon-button pi-background-remove-button is-button is-default"
 												label={ __(
 													'Remove Image',
-													'flip-blocks'
+													'pi-blocks'
 												) }
 												onClick={ () =>
 													setAttributes( {
@@ -109,7 +109,7 @@ class BackgroundImagePanel extends Component {
 												<Icon icon="dismiss" />
 												{ __(
 													'Remove',
-													'flip-blocks'
+													'pi-blocks'
 												) }
 											</Button>
 										) }
@@ -122,7 +122,7 @@ class BackgroundImagePanel extends Component {
 					{ attributes.backgroundImgURL && (
 						<Fragment>
 							<FocalPointPicker
-								label={ __( 'Focal Point', 'flip-blocks' ) }
+								label={ __( 'Focal Point', 'pi-blocks' ) }
 								url={ attributes.backgroundImgURL }
 								value={ attributes.focalPoint }
 								onChange={ ( value ) =>
@@ -131,10 +131,10 @@ class BackgroundImagePanel extends Component {
 							/>
 
 							<SelectControl
-								className="flip-inspector-help-text"
+								className="pi-inspector-help-text"
 								label={ __(
 									'Image Display',
-									'flip-blocks'
+									'pi-blocks'
 								) }
 								value={ attributes.backgroundSize }
 								help={ backgroundSizeHelp }
@@ -150,7 +150,7 @@ class BackgroundImagePanel extends Component {
 								<SelectControl
 									label={ __(
 										'Image Repeat',
-										'flip-blocks'
+										'pi-blocks'
 									) }
 									value={ attributes.backgroundRepeat }
 									options={ backgroundRepeatOptions }

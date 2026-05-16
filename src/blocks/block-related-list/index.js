@@ -37,11 +37,11 @@ const BlockAttrs = {
 	},
 };
 
-export default registerBlockType("flip-blocks/block-related-list", {
+export default registerBlockType("pi-blocks/block-related-list", {
 	apiVersion: 3,
 	title: __("Related List Case Studies"),
 	icon: "editor-ul",
-	category: "flip-blocks",
+	category: "pi-blocks",
 	keywords: [__("list"), __("related"), __("case studies")],
 	attributes: BlockAttrs,
 	supports: {

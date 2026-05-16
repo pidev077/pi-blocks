@@ -12,7 +12,7 @@ const Edit = (props) => {
 			<Inspector {...props} />
 			<ServerSideRender
 				className="block-server-render"
-				block="flip-blocks/block-insights"
+				block="pi-blocks/block-insights"
 				attributes={attributes}
 			/>
 		</div>

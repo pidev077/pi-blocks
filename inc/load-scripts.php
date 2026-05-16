@@ -25,24 +25,24 @@ if (!defined('ABSPATH')) {
  * @since 1.0.0
  */
 
-function flip_frontend_assets()
+function pi_frontend_assets()
 {
 
 	wp_enqueue_style(
-		'flip-block-style',
+		'pi-block-style',
 		plugins_url('build/style-index.css', dirname(__FILE__)),
 		array(),
 		'1.0.1',
 	);
 }
-add_action('enqueue_block_assets', 'flip_frontend_assets');
+add_action('enqueue_block_assets', 'pi_frontend_assets');
 
 
-function flip_editor_assets()
+function pi_editor_assets()
 {
 
 	wp_enqueue_script(
-		'flip-block-script',
+		'pi-block-script',
 		plugins_url('/build/index.js', dirname(__FILE__)),
 		array('wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-edit-post'),
 		'1.0.1',
@@ -50,7 +50,7 @@ function flip_editor_assets()
 	);
 
 	wp_enqueue_style(
-		'flip-style-editor',
+		'pi-style-editor',
 		plugins_url('build/index.css', dirname(__FILE__)),
 		array('wp-edit-blocks'),
 		'1.0.1',
@@ -61,7 +61,7 @@ function flip_editor_assets()
 	unset($user_data->user_pass, $user_data->user_email);
 	// WP Localized globals. Use dynamic PHP stuff in JavaScript via `variablesGlobal` object.
 	wp_localize_script(
-		'flip-block-script',
+		'pi-block-script',
 		'variablesGlobal', // Array containing dynamic data for a JS Global.
 		[
 			'pluginDirPath' => plugin_dir_path(__DIR__),
@@ -71,19 +71,19 @@ function flip_editor_assets()
 		]
 	);
 }
-add_action('enqueue_block_editor_assets', 'flip_editor_assets');
+add_action('enqueue_block_editor_assets', 'pi_editor_assets');
 
 /**
  * Enqueue assets for frontend
  *
  * @since 1.0.0
  */
-function flip_blocks_frontend_assets()
+function pi_blocks_frontend_assets()
 {
 	// Load the dismissible notice js.
-	wp_enqueue_script('flip-blocks-app-min', plugins_url('assets/dist/index.js', dirname(__FILE__)), array('jquery'), filemtime(plugin_dir_path(__DIR__) . 'assets/dist/index.js'), true);
-	wp_localize_script('flip-blocks-app-min', 'block_script', [
+	wp_enqueue_script('pi-blocks-app-min', plugins_url('assets/dist/index.js', dirname(__FILE__)), array('jquery'), filemtime(plugin_dir_path(__DIR__) . 'assets/dist/index.js'), true);
+	wp_localize_script('pi-blocks-app-min', 'block_script', [
 		'ajax_url' => admin_url('admin-ajax.php'),
 	]);
 }
-add_action('wp_enqueue_scripts', 'flip_blocks_frontend_assets');
+add_action('wp_enqueue_scripts', 'pi_blocks_frontend_assets');

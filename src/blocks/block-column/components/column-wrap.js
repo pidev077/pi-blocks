@@ -32,7 +32,7 @@ const Columns = ( { attributes, className, children } ) => {
 
 	/* Setup the wrapper classes. */
 	const classNames = classnames(
-		[ className, 'flip-layout-columns-' + columns, layout ],
+		[ className, 'pi-layout-columns-' + columns, layout ],
 		{
 			[ 'align' + align ]: align,
 		}

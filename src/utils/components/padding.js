@@ -61,7 +61,7 @@ export default function Padding(props) {
 		<Fragment>
 			{paddingEnableTop && (
 				<RangeControl
-					label={__('Padding Top', 'flip-blocks')}
+					label={__('Padding Top', 'pi-blocks')}
 					value={paddingTop}
 					min={paddingTopMin}
 					max={paddingTopMax}
@@ -71,7 +71,7 @@ export default function Padding(props) {
 			)}
 			{paddingEnableRight && (
 				<RangeControl
-					label={__('Padding Right', 'flip-blocks')}
+					label={__('Padding Right', 'pi-blocks')}
 					value={paddingRight}
 					min={paddingRightMin}
 					max={paddingRightMax}
@@ -81,7 +81,7 @@ export default function Padding(props) {
 			)}
 			{paddingEnableBottom && (
 				<RangeControl
-					label={__('Padding Bottom', 'flip-blocks')}
+					label={__('Padding Bottom', 'pi-blocks')}
 					value={paddingBottom}
 					min={paddingBottomMin}
 					max={paddingBottomMax}
@@ -91,7 +91,7 @@ export default function Padding(props) {
 			)}
 			{paddingEnableLeft && (
 				<RangeControl
-					label={__('Padding Left', 'flip-blocks')}
+					label={__('Padding Left', 'pi-blocks')}
 					value={paddingLeft}
 					min={paddingLeftMin}
 					max={paddingLeftMax}
@@ -104,7 +104,7 @@ export default function Padding(props) {
 					label={
 						paddingVerticalLabel
 							? paddingVerticalLabel
-							: __('Padding Vertical', 'flip-blocks')
+							: __('Padding Vertical', 'pi-blocks')
 					}
 					value={paddingVertical}
 					min={paddingVerticalMin}
@@ -115,7 +115,7 @@ export default function Padding(props) {
 			)}
 			{paddingEnableHorizontal && (
 				<RangeControl
-					label={__('Padding Horizontal', 'flip-blocks')}
+					label={__('Padding Horizontal', 'pi-blocks')}
 					value={paddingHorizontal}
 					min={paddingHorizontalMin}
 					max={paddingHorizontalMax}
@@ -126,7 +126,7 @@ export default function Padding(props) {
 
 			{paddingEnable && (
 				<RangeControl
-					label={__('Padding', 'flip-blocks')}
+					label={__('Padding', 'pi-blocks')}
 					value={padding}
 					min={paddingMin}
 					max={paddingMax}

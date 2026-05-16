@@ -48,7 +48,7 @@ const Edit = (props) => {
 							render={({ open }) => (
 								<ToolbarButton
 									icon="format-gallery"
-									label={__("Add image", "flip-blocks")}
+									label={__("Add image", "pi-blocks")}
 									onClick={open}
 								/>
 							)}
@@ -62,10 +62,10 @@ const Edit = (props) => {
 					<MediaPlaceholder
 						icon="format-image"
 						labels={{
-							title: __("Image", "flip-blocks"),
+							title: __("Image", "pi-blocks"),
 							instructions: __(
 								"Click or drag images here to add",
-								"flip-blocks"
+								"pi-blocks"
 							),
 						}}
 						value={items.map((item) => item.id)}

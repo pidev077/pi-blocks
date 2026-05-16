@@ -11,7 +11,7 @@ const Edit = (props) => {
 			<Inspector {...props} />
 			<ServerSideRender
                 className='block-server-render'
-                block="flip-blocks/block-teams-list"
+                block="pi-blocks/block-teams-list"
                 attributes={attributes}
             />
 		</Fragment>

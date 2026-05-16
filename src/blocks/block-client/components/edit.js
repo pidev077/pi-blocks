@@ -9,7 +9,7 @@ const Edit = (props) => {
 	return (
 		<div {...blockProps}>
 			<ServerSideRender
-				block="flip-blocks/client-block"
+				block="pi-blocks/client-block"
 				attributes={attributes}
 				className="client-block-editor"
 			/>

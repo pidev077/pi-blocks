@@ -52,6 +52,7 @@ const Inspector = (props) => {
 		posterUrl,
 		videoFormat,
 		scrollAnchor,
+		scrollLabel,
 	} = attributes;
 
 	const onSelectMedia = (media) => {
@@ -90,7 +91,7 @@ const Inspector = (props) => {
 		<InspectorControls>
 			<PanelBody title="General">
 				<SelectControl
-					label={__("Hero Type", "flip-blocks")}
+					label={__("Hero Type", "pi-blocks")}
 					value={typeHero}
 					options={[
 						{ label: "Image", value: "image" },
@@ -117,12 +118,21 @@ const Inspector = (props) => {
 					value={scrollAnchor}
 					onChange={(vl) => setAttributes({ scrollAnchor: vl })}
 				/>
+				{scrollAnchor && (
+					<TextControl
+						__next40pxDefaultSize
+						label="Scroll Label"
+						help="Text hiển thị trên nút cuộn (có thể dịch qua WPML)"
+						value={scrollLabel}
+						onChange={(vl) => setAttributes({ scrollLabel: vl })}
+					/>
+				)}
 			</PanelBody>
 
 			{typeHero == "video" && (
 				<PanelBody title="Video">
 					<SelectControl
-						label={__("Video format", "flip-blocks")}
+						label={__("Video format", "pi-blocks")}
 						value={videoFormat}
 						options={[
 							{ label: "MP4", value: "video/mp4" },
@@ -166,17 +176,17 @@ const Inspector = (props) => {
 									onClick={open}
 									style={{ marginRight: "5px" }}
 								>
-									{__("Choose video", "flip-blocks")}
+									{__("Choose video", "pi-blocks")}
 								</Button>
 								{videoURL && !!videoURL.length && (
 									<Button
-										className="flip-container-inspector-media"
+										className="pi-container-inspector-media"
 										variant="secondary"
 										isDestructive
-										label={__("Remove Video", "flip-blocks")}
+										label={__("Remove Video", "pi-blocks")}
 										onClick={onRemoveVideo}
 									>
-										{__("Remove", "flip-blocks")}
+										{__("Remove", "pi-blocks")}
 									</Button>
 								)}
 							</>
@@ -311,7 +321,7 @@ const Inspector = (props) => {
 
 						{!!imgUrl && (
 							<FocalPointPicker
-								label={__("Focal Point", "flip-blocks")}
+								label={__("Focal Point", "pi-blocks")}
 								url={imgUrl}
 								value={focalPoint}
 								onChange={(newFocalPoint) =>

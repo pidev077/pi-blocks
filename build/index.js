@@ -5309,7 +5309,7 @@ var Edit = function Edit(props) {
   var attributes = props.attributes;
   var blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
   return /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_0___default()), {
-    block: "flip-blocks/client-block",
+    block: "pi-blocks/client-block",
     attributes: attributes,
     className: "client-block-editor"
   }));
@@ -5348,10 +5348,10 @@ var attr = {
     "default": ""
   }
 };
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("flip-blocks/client-block", {
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("pi-blocks/client-block", {
   apiVersion: 3,
   title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Client"),
-  category: "flip-blocks",
+  category: "pi-blocks",
   icon: "networking",
   attributes: attr,
   edit: _components_edit__WEBPACK_IMPORTED_MODULE_4__["default"],
@@ -5552,12 +5552,12 @@ var Edit = function Edit(props) {
     backgroundColor: backgroundColor
   }, (0,_utils_components_background_image_styles__WEBPACK_IMPORTED_MODULE_1__["default"])(attributes));
   var blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__.useBlockProps)({
-    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(className, "flip-block-layout-column", isBorder ? "flip-has-border" : null, isBoxshadow ? "flip-has-boxshadow" : null, columnVerticalAlignment ? "flip-is-vertically-aligned-" + columnVerticalAlignment : null),
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(className, "pi-block-layout-column", isBorder ? "pi-has-border" : null, isBoxshadow ? "pi-has-boxshadow" : null, columnVerticalAlignment ? "pi-is-vertically-aligned-" + columnVerticalAlignment : null),
     style: Object.assign({}, marginStyle, paddingStyle, borderRadiusStyle, marginStyleTL, marginStyleMB, paddingStyleMB, paddingStyleTL, styles)
   });
   var toolbarControls = [{
     icon: "arrow-up-alt2",
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Vertical Align Top", "flip-blocks"),
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Vertical Align Top", "pi-blocks"),
     isActive: "top" === columnVerticalAlignment,
     onClick: function onClick() {
       return setAttributes({
@@ -5566,7 +5566,7 @@ var Edit = function Edit(props) {
     }
   }, {
     icon: "minus",
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Vertical Align Middle", "flip-blocks"),
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Vertical Align Middle", "pi-blocks"),
     isActive: "center" === columnVerticalAlignment,
     onClick: function onClick() {
       return setAttributes({
@@ -5575,7 +5575,7 @@ var Edit = function Edit(props) {
     }
   }, {
     icon: "arrow-down-alt2",
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Vertical Align Bottom", "flip-blocks"),
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Vertical Align Bottom", "pi-blocks"),
     isActive: "bottom" === columnVerticalAlignment,
     onClick: function onClick() {
       return setAttributes({
@@ -5592,7 +5592,7 @@ var Edit = function Edit(props) {
   })), /*#__PURE__*/React.createElement("div", _extends({
     key: "column"
   }, blockProps), /*#__PURE__*/React.createElement("div", {
-    className: "flip-block-layout-column-inner"
+    className: "pi-block-layout-column-inner"
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__.InnerBlocks, {
     template: [["core/paragraph"]],
     templateLock: false,
@@ -5690,21 +5690,21 @@ var Inspector = function Inspector(props) {
   /* CSS Units. */
   var cssUnits = [{
     value: "px",
-    label: __("Pixel (px)", "flip-blocks")
+    label: __("Pixel (px)", "pi-blocks")
   }, {
     value: "%",
-    label: __("Percent (%)", "flip-blocks")
+    label: __("Percent (%)", "pi-blocks")
   }, {
     value: "em",
-    label: __("Em (em)", "flip-blocks")
+    label: __("Em (em)", "pi-blocks")
   }];
   return /*#__PURE__*/React.createElement(InspectorControls, {
     key: "inspector"
   }, /*#__PURE__*/React.createElement(PanelBody, {
-    title: __("General", "flip-blocks")
+    title: __("General", "pi-blocks")
   }, /*#__PURE__*/React.createElement(RangeControl, {
     value: borderRadius,
-    label: __("Border Radius", "flip-blocks"),
+    label: __("Border Radius", "pi-blocks"),
     onChange: function onChange(value) {
       return setAttributes({
         borderRadius: value
@@ -5715,8 +5715,8 @@ var Inspector = function Inspector(props) {
     max: 999,
     step: 1
   }), /*#__PURE__*/React.createElement(ToggleControl, {
-    label: __("Box Shadow", "flip-blocks"),
-    help: __("Enable box shadow effect", "flip-blocks"),
+    label: __("Box Shadow", "pi-blocks"),
+    help: __("Enable box shadow effect", "pi-blocks"),
     checked: isBoxshadow,
     onChange: function onChange() {
       return setAttributes({
@@ -5724,8 +5724,8 @@ var Inspector = function Inspector(props) {
       });
     }
   }), /*#__PURE__*/React.createElement(ToggleControl, {
-    label: __("Border", "flip-blocks"),
-    help: __("Enable border", "flip-blocks"),
+    label: __("Border", "pi-blocks"),
+    help: __("Enable border", "pi-blocks"),
     checked: isBorder,
     onChange: function onChange() {
       return setAttributes({
@@ -5733,7 +5733,7 @@ var Inspector = function Inspector(props) {
       });
     }
   }), /*#__PURE__*/React.createElement(ToggleControl, {
-    label: __("Sticky Column", "flip-blocks"),
+    label: __("Sticky Column", "pi-blocks"),
     checked: isSticky,
     onChange: function onChange() {
       return setAttributes({
@@ -5741,13 +5741,13 @@ var Inspector = function Inspector(props) {
       });
     }
   })), /*#__PURE__*/React.createElement(_utils_components_settings_renderSettingControl__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    id: "flip_column_inner_marginPadding"
+    id: "pi_column_inner_marginPadding"
   }, /*#__PURE__*/React.createElement(PanelBody, {
-    title: __("Margin and Padding", "flip-blocks"),
+    title: __("Margin and Padding", "pi-blocks"),
     initialOpen: false
   }, /*#__PURE__*/React.createElement(SelectControl, {
-    label: __("Margin Unit", "flip-blocks"),
-    help: __("Choose between pixel, percent, or em units.", "flip-blocks"),
+    label: __("Margin Unit", "pi-blocks"),
+    help: __("Choose between pixel, percent, or em units.", "pi-blocks"),
     options: cssUnits,
     value: marginUnit,
     onChange: function onChange(value) {
@@ -5756,8 +5756,8 @@ var Inspector = function Inspector(props) {
       });
     }
   }), /*#__PURE__*/React.createElement(ToggleControl, {
-    label: __("Sync Margin", "flip-blocks"),
-    help: __("Top and bottom margins will have the same value.", "flip-blocks"),
+    label: __("Sync Margin", "pi-blocks"),
+    help: __("Top and bottom margins will have the same value.", "pi-blocks"),
     checked: marginSync,
     onChange: function onChange() {
       return setAttributes({
@@ -5788,7 +5788,7 @@ var Inspector = function Inspector(props) {
   }) : /*#__PURE__*/React.createElement(_utils_components_margin__WEBPACK_IMPORTED_MODULE_0__["default"]
   /* Margin top/bottom. */, {
     marginEnableVertical: true,
-    marginVerticalLabel: __("Margin Top/Bottom", "flip-blocks"),
+    marginVerticalLabel: __("Margin Top/Bottom", "pi-blocks"),
     marginVertical: margin,
     marginVerticalMin: "0",
     marginVerticalMax: "200",
@@ -5798,8 +5798,8 @@ var Inspector = function Inspector(props) {
       });
     }
   }), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(SelectControl, {
-    label: __("Padding Unit", "flip-blocks"),
-    help: __("Choose between pixel, percent, or em units.", "flip-blocks"),
+    label: __("Padding Unit", "pi-blocks"),
+    help: __("Choose between pixel, percent, or em units.", "pi-blocks"),
     options: cssUnits,
     value: paddingUnit,
     onChange: function onChange(value) {
@@ -5808,8 +5808,8 @@ var Inspector = function Inspector(props) {
       });
     }
   }), /*#__PURE__*/React.createElement(ToggleControl, {
-    label: __("Sync Padding", "flip-blocks"),
-    help: __("Padding on all sides will have the same value.", "flip-blocks"),
+    label: __("Sync Padding", "pi-blocks"),
+    help: __("Padding on all sides will have the same value.", "pi-blocks"),
     checked: paddingSync,
     onChange: function onChange() {
       return setAttributes({
@@ -5869,13 +5869,13 @@ var Inspector = function Inspector(props) {
       });
     }
   }))), /*#__PURE__*/React.createElement(_utils_components_settings_renderSettingControl__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    id: "flip_column_inner_marginpadding"
+    id: "pi_column_inner_marginpadding"
   }, /*#__PURE__*/React.createElement(PanelBody, {
-    title: __("Margin and Padding Tablet", "flip-blocks"),
+    title: __("Margin and Padding Tablet", "pi-blocks"),
     initialOpen: false
   }, /*#__PURE__*/React.createElement(SelectControl, {
-    label: __("Margin Unit", "flip-blocks"),
-    help: __("Choose between pixel, percent, or em units.", "flip-blocks"),
+    label: __("Margin Unit", "pi-blocks"),
+    help: __("Choose between pixel, percent, or em units.", "pi-blocks"),
     options: cssUnits,
     value: marginUnitTL,
     onChange: function onChange(value) {
@@ -5884,8 +5884,8 @@ var Inspector = function Inspector(props) {
       });
     }
   }), /*#__PURE__*/React.createElement(ToggleControl, {
-    label: __("Sync Margin", "flip-blocks"),
-    help: __("Top and bottom margins will have the same value.", "flip-blocks"),
+    label: __("Sync Margin", "pi-blocks"),
+    help: __("Top and bottom margins will have the same value.", "pi-blocks"),
     checked: marginSyncTL,
     onChange: function onChange() {
       return setAttributes({
@@ -5916,7 +5916,7 @@ var Inspector = function Inspector(props) {
   }) : /*#__PURE__*/React.createElement(_utils_components_margin__WEBPACK_IMPORTED_MODULE_0__["default"]
   /* Margin top/bottom. */, {
     marginEnableVertical: true,
-    marginVerticalLabel: __("Margin Top/Bottom", "flip-blocks"),
+    marginVerticalLabel: __("Margin Top/Bottom", "pi-blocks"),
     marginVertical: marginTL,
     marginVerticalMin: "0",
     marginVerticalMax: "200",
@@ -5926,8 +5926,8 @@ var Inspector = function Inspector(props) {
       });
     }
   }), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(SelectControl, {
-    label: __("Padding Unit", "flip-blocks"),
-    help: __("Choose between pixel, percent, or em units.", "flip-blocks"),
+    label: __("Padding Unit", "pi-blocks"),
+    help: __("Choose between pixel, percent, or em units.", "pi-blocks"),
     options: cssUnits,
     value: paddingUnitTL,
     onChange: function onChange(value) {
@@ -5936,8 +5936,8 @@ var Inspector = function Inspector(props) {
       });
     }
   }), /*#__PURE__*/React.createElement(ToggleControl, {
-    label: __("Sync Padding", "flip-blocks"),
-    help: __("Padding on all sides will have the same value.", "flip-blocks"),
+    label: __("Sync Padding", "pi-blocks"),
+    help: __("Padding on all sides will have the same value.", "pi-blocks"),
     checked: paddingSyncTL,
     onChange: function onChange() {
       return setAttributes({
@@ -5997,13 +5997,13 @@ var Inspector = function Inspector(props) {
       });
     }
   }))), /*#__PURE__*/React.createElement(_utils_components_settings_renderSettingControl__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    id: "flip_column_inner_marginpadding"
+    id: "pi_column_inner_marginpadding"
   }, /*#__PURE__*/React.createElement(PanelBody, {
-    title: __("Margin and Padding Mobile", "flip-blocks"),
+    title: __("Margin and Padding Mobile", "pi-blocks"),
     initialOpen: false
   }, /*#__PURE__*/React.createElement(SelectControl, {
-    label: __("Margin Unit", "flip-blocks"),
-    help: __("Choose between pixel, percent, or em units.", "flip-blocks"),
+    label: __("Margin Unit", "pi-blocks"),
+    help: __("Choose between pixel, percent, or em units.", "pi-blocks"),
     options: cssUnits,
     value: marginUnitMB,
     onChange: function onChange(value) {
@@ -6012,8 +6012,8 @@ var Inspector = function Inspector(props) {
       });
     }
   }), /*#__PURE__*/React.createElement(ToggleControl, {
-    label: __("Sync Margin", "flip-blocks"),
-    help: __("Top and bottom margins will have the same value.", "flip-blocks"),
+    label: __("Sync Margin", "pi-blocks"),
+    help: __("Top and bottom margins will have the same value.", "pi-blocks"),
     checked: marginSyncMB,
     onChange: function onChange() {
       return setAttributes({
@@ -6044,7 +6044,7 @@ var Inspector = function Inspector(props) {
   }) : /*#__PURE__*/React.createElement(_utils_components_margin__WEBPACK_IMPORTED_MODULE_0__["default"]
   /* Margin top/bottom. */, {
     marginEnableVertical: true,
-    marginVerticalLabel: __("Margin Top/Bottom", "flip-blocks"),
+    marginVerticalLabel: __("Margin Top/Bottom", "pi-blocks"),
     marginVertical: marginMB,
     marginVerticalMin: "0",
     marginVerticalMax: "200",
@@ -6054,8 +6054,8 @@ var Inspector = function Inspector(props) {
       });
     }
   }), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(SelectControl, {
-    label: __("Padding Unit", "flip-blocks"),
-    help: __("Choose between pixel, percent, or em units.", "flip-blocks"),
+    label: __("Padding Unit", "pi-blocks"),
+    help: __("Choose between pixel, percent, or em units.", "pi-blocks"),
     options: cssUnits,
     value: paddingUnitMB,
     onChange: function onChange(value) {
@@ -6064,8 +6064,8 @@ var Inspector = function Inspector(props) {
       });
     }
   }), /*#__PURE__*/React.createElement(ToggleControl, {
-    label: __("Sync Padding", "flip-blocks"),
-    help: __("Padding on all sides will have the same value.", "flip-blocks"),
+    label: __("Sync Padding", "pi-blocks"),
+    help: __("Padding on all sides will have the same value.", "pi-blocks"),
     checked: paddingSyncMB,
     onChange: function onChange() {
       return setAttributes({
@@ -6125,7 +6125,7 @@ var Inspector = function Inspector(props) {
       });
     }
   }))), /*#__PURE__*/React.createElement(PanelColorSettings, {
-    title: __("Background Color", "flip-blocks"),
+    title: __("Background Color", "pi-blocks"),
     colorSettings: [{
       value: backgroundColor,
       onChange: function onChange(backgroundColor) {
@@ -6133,10 +6133,10 @@ var Inspector = function Inspector(props) {
           backgroundColor: backgroundColor
         });
       },
-      label: __("Choose color", "flip-blocks")
+      label: __("Choose color", "pi-blocks")
     }]
   }), /*#__PURE__*/React.createElement(_utils_components_settings_renderSettingControl__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    id: "flip_column_inner_backgroundImagePanel"
+    id: "pi_column_inner_backgroundImagePanel"
   }, /*#__PURE__*/React.createElement(_utils_components_background_image_inspector__WEBPACK_IMPORTED_MODULE_2__["default"], props)));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Inspector);
@@ -6320,11 +6320,11 @@ var Save = function Save(props) {
     backgroundColor: backgroundColor
   }, (0,_utils_components_background_image_styles__WEBPACK_IMPORTED_MODULE_0__["default"])(attributes));
   var blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save({
-    className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(className, "flip-block-layout-column", isBorder ? "flip-has-border" : null, isBoxshadow ? "flip-has-boxshadow" : null, isSticky ? "is-sticky" : null, columnVerticalAlignment ? "flip-is-vertically-aligned-" + columnVerticalAlignment : null),
+    className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(className, "pi-block-layout-column", isBorder ? "pi-has-border" : null, isBoxshadow ? "pi-has-boxshadow" : null, isSticky ? "is-sticky" : null, columnVerticalAlignment ? "pi-is-vertically-aligned-" + columnVerticalAlignment : null),
     style: Object.assign({}, marginStyle, paddingStyle, borderRadiusStyle, marginStyleMB, marginStyleTL, paddingStyleTL, paddingStyleMB, styles)
   });
   return /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement("div", {
-    className: "flip-block-layout-column-inner"
+    className: "pi-block-layout-column-inner"
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks.Content, null)));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Save);
@@ -6356,7 +6356,7 @@ function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 /**
- * BLOCK: Flip Blocks Advanced Columns InnerBlocks.
+ * BLOCK: Pi Blocks Advanced Columns InnerBlocks.
  */
 
 /**
@@ -6377,14 +6377,14 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
 /**
  * Register advanced columns block.
  */
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_6__.registerBlockType)("flip-blocks/flip-column", {
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_6__.registerBlockType)("pi-blocks/pi-column", {
   apiVersion: 3,
   title: "Column",
-  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Add a pre-defined column layout.", "flip-blocks"),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Add a pre-defined column layout.", "pi-blocks"),
   icon: "editor-table",
-  category: "flip-blocks",
-  parent: ["flip-blocks/flip-columns"],
-  keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("column", "flip-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("layout", "flip-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("row", "flip-blocks")],
+  category: "pi-blocks",
+  parent: ["pi-blocks/pi-columns"],
+  keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("column", "pi-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("layout", "pi-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("row", "pi-blocks")],
   attributes: _objectSpread(_objectSpread({}, _utils_components_background_image_attributes__WEBPACK_IMPORTED_MODULE_4__["default"]), {}, {
     backgroundColor: {
       type: "string"
@@ -6567,15 +6567,15 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
 var withClientIdClassName = wp.compose.createHigherOrderComponent(function (BlockListBlock) {
   return function (props) {
     var blockName = props.block.name;
-    if ("flip-blocks/flip-column" === blockName && props.block.attributes.columnVerticalAlignment) {
+    if ("pi-blocks/pi-column" === blockName && props.block.attributes.columnVerticalAlignment) {
       return /*#__PURE__*/React.createElement(BlockListBlock, _extends({}, props, {
-        className: "flip-is-vertically-aligned-" + props.block.attributes.columnVerticalAlignment
+        className: "pi-is-vertically-aligned-" + props.block.attributes.columnVerticalAlignment
       }));
     }
     return /*#__PURE__*/React.createElement(BlockListBlock, props);
   };
 }, "withClientIdClassName");
-wp.hooks.addFilter("editor.BlockListBlock", "flip-blocks/add-vertical-align-class", withClientIdClassName);
+wp.hooks.addFilter("editor.BlockListBlock", "pi-blocks/add-vertical-align-class", withClientIdClassName);
 
 /***/ },
 
@@ -6600,123 +6600,123 @@ var __ = wp.i18n.__;
 var columnLayouts = {
   /* 1 column layout. */
   1: [{
-    name: __("1 Column", "flip-blocks"),
-    key: "flip-1-col-equal",
+    name: __("1 Column", "pi-blocks"),
+    key: "pi-1-col-equal",
     col: 1,
     icon: _icons__WEBPACK_IMPORTED_MODULE_0__["default"].oneEqual
   }],
   /* 2 column layouts. */
   2: [{
-    name: __("2 Columns - 50/50", "flip-blocks"),
-    key: "flip-2-col-equal",
+    name: __("2 Columns - 50/50", "pi-blocks"),
+    key: "pi-2-col-equal",
     col: 2,
     icon: _icons__WEBPACK_IMPORTED_MODULE_0__["default"].twoEqual
   }, {
-    name: __("2 Columns - 55/45", "flip-blocks"),
-    key: "flip-2-col-wideleft",
+    name: __("2 Columns - 55/45", "pi-blocks"),
+    key: "pi-2-col-wideleft",
     col: 2,
     icon: _icons__WEBPACK_IMPORTED_MODULE_0__["default"].twoLeftWide
   }, {
-    name: __("2 Columns - 45/55", "flip-blocks"),
-    key: "flip-2-col-wideright",
+    name: __("2 Columns - 45/55", "pi-blocks"),
+    key: "pi-2-col-wideright",
     col: 2,
     icon: _icons__WEBPACK_IMPORTED_MODULE_0__["default"].twoRightWide
   }, {
-    name: __("2 Columns - 60/40", "flip-blocks"),
-    key: "flip-2-col-wideleft-60-40",
+    name: __("2 Columns - 60/40", "pi-blocks"),
+    key: "pi-2-col-wideleft-60-40",
     col: 2,
     icon: _icons__WEBPACK_IMPORTED_MODULE_0__["default"].twoLeftWide
   }, {
-    name: __("2 Columns - 40/60", "flip-blocks"),
-    key: "flip-2-col-wideright-60-40",
+    name: __("2 Columns - 40/60", "pi-blocks"),
+    key: "pi-2-col-wideright-60-40",
     col: 2,
     icon: _icons__WEBPACK_IMPORTED_MODULE_0__["default"].twoRightWide
   }, {
-    name: __("2 Columns - 70/30", "flip-blocks"),
-    key: "flip-2-col-wideleft-70-30",
+    name: __("2 Columns - 70/30", "pi-blocks"),
+    key: "pi-2-col-wideleft-70-30",
     col: 2,
     icon: _icons__WEBPACK_IMPORTED_MODULE_0__["default"].twoLeftWide
   }, {
-    name: __("2 Columns - 30/70", "flip-blocks"),
-    key: "flip-2-col-wideright-70-30",
+    name: __("2 Columns - 30/70", "pi-blocks"),
+    key: "pi-2-col-wideright-70-30",
     col: 2,
     icon: _icons__WEBPACK_IMPORTED_MODULE_0__["default"].twoRightWide
   }, {
-    name: __("2 Columns - 66/33", "flip-blocks"),
-    key: "flip-2-col-wideleft-66-33",
+    name: __("2 Columns - 66/33", "pi-blocks"),
+    key: "pi-2-col-wideleft-66-33",
     col: 2,
     icon: _icons__WEBPACK_IMPORTED_MODULE_0__["default"].twoLeftWide
   }, {
-    name: __("2 Columns - 33/66", "flip-blocks"),
-    key: "flip-2-col-wideright-66-33",
+    name: __("2 Columns - 33/66", "pi-blocks"),
+    key: "pi-2-col-wideright-66-33",
     col: 2,
     icon: _icons__WEBPACK_IMPORTED_MODULE_0__["default"].twoRightWide
   }, {
-    name: __("2 Columns - 75/25", "flip-blocks"),
-    key: "flip-2-col-wideleft-75-25",
+    name: __("2 Columns - 75/25", "pi-blocks"),
+    key: "pi-2-col-wideleft-75-25",
     col: 2,
     icon: _icons__WEBPACK_IMPORTED_MODULE_0__["default"].twoLeftWide
   }, {
-    name: __("2 Columns - 25/75", "flip-blocks"),
-    key: "flip-2-col-wideright-25-75",
+    name: __("2 Columns - 25/75", "pi-blocks"),
+    key: "pi-2-col-wideright-25-75",
     col: 2,
     icon: _icons__WEBPACK_IMPORTED_MODULE_0__["default"].twoRightWide
   }],
   /* 3 column layouts. */
   3: [{
-    name: __("3 Columns - 33/33/33", "flip-blocks"),
-    key: "flip-3-col-equal",
+    name: __("3 Columns - 33/33/33", "pi-blocks"),
+    key: "pi-3-col-equal",
     col: 3,
     icon: _icons__WEBPACK_IMPORTED_MODULE_0__["default"].threeEqual
   }, {
-    name: __("3 Columns - 25/50/25", "flip-blocks"),
-    key: "flip-3-col-widecenter",
+    name: __("3 Columns - 25/50/25", "pi-blocks"),
+    key: "pi-3-col-widecenter",
     col: 3,
     icon: _icons__WEBPACK_IMPORTED_MODULE_0__["default"].threeWideCenter
   }, {
-    name: __("3 Columns - 40/20/40", "flip-blocks"),
-    key: "flip-3-col-smallcenter",
+    name: __("3 Columns - 40/20/40", "pi-blocks"),
+    key: "pi-3-col-smallcenter",
     col: 3,
     icon: _icons__WEBPACK_IMPORTED_MODULE_0__["default"].threeSmallCenter
   }, {
-    name: __("3 Columns - 50/25/25", "flip-blocks"),
-    key: "flip-3-col-wideleft",
+    name: __("3 Columns - 50/25/25", "pi-blocks"),
+    key: "pi-3-col-wideleft",
     col: 3,
     icon: _icons__WEBPACK_IMPORTED_MODULE_0__["default"].threeWideLeft
   }, {
-    name: __("3 Columns - 25/25/50", "flip-blocks"),
-    key: "flip-3-col-wideright",
+    name: __("3 Columns - 25/25/50", "pi-blocks"),
+    key: "pi-3-col-wideright",
     col: 3,
     icon: _icons__WEBPACK_IMPORTED_MODULE_0__["default"].threeWideRight
   }],
   /* 4 column layouts. */
   4: [{
-    name: __("4 Columns - 25/25/25/25", "flip-blocks"),
-    key: "flip-4-col-equal",
+    name: __("4 Columns - 25/25/25/25", "pi-blocks"),
+    key: "pi-4-col-equal",
     col: 4,
     icon: _icons__WEBPACK_IMPORTED_MODULE_0__["default"].fourEqual
   }, {
-    name: __("4 Columns - 40/20/20/20", "flip-blocks"),
-    key: "flip-4-col-wideleft",
+    name: __("4 Columns - 40/20/20/20", "pi-blocks"),
+    key: "pi-4-col-wideleft",
     col: 4,
     icon: _icons__WEBPACK_IMPORTED_MODULE_0__["default"].fourLeft
   }, {
-    name: __("4 Columns - 20/20/20/40", "flip-blocks"),
-    key: "flip-4-col-wideright",
+    name: __("4 Columns - 20/20/20/40", "pi-blocks"),
+    key: "pi-4-col-wideright",
     col: 4,
     icon: _icons__WEBPACK_IMPORTED_MODULE_0__["default"].fourRight
   }],
   /* 5 column layouts. */
   5: [{
-    name: __("5 Columns", "flip-blocks"),
-    key: "flip-5-col-equal",
+    name: __("5 Columns", "pi-blocks"),
+    key: "pi-5-col-equal",
     col: 5,
     icon: _icons__WEBPACK_IMPORTED_MODULE_0__["default"].fiveEqual
   }],
   /* 6 column layouts. */
   6: [{
-    name: __("6 Columns", "flip-blocks"),
-    key: "flip-6-col-equal",
+    name: __("6 Columns", "pi-blocks"),
+    key: "pi-6-col-equal",
     col: 6,
     icon: _icons__WEBPACK_IMPORTED_MODULE_0__["default"].sixEqual
   }]
@@ -6792,12 +6792,12 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 /* Set allowed blocks and media. */
-var ALLOWED_BLOCKS = ['flip-blocks/flip-column'];
+var ALLOWED_BLOCKS = ['pi-blocks/pi-column'];
 
 /* Get the column template. */
 var getLayoutTemplate = (0,memize__WEBPACK_IMPORTED_MODULE_4__["default"])(function (columns) {
   return lodash_times__WEBPACK_IMPORTED_MODULE_6___default()(columns, function () {
-    return ['flip-blocks/flip-column'];
+    return ['pi-blocks/pi-column'];
   });
 });
 var Edit = function Edit(props) {
@@ -6828,7 +6828,7 @@ var Edit = function Edit(props) {
     paddingBottom = attributes.paddingBottom;
 
   /* Setup the wrapper classes. */
-  var classNames = classnames__WEBPACK_IMPORTED_MODULE_0___default()([className, 'flip-layout-columns-' + columns, layout], _defineProperty({}, 'align' + align, align));
+  var classNames = classnames__WEBPACK_IMPORTED_MODULE_0___default()([className, 'pi-layout-columns-' + columns, layout], _defineProperty({}, 'align' + align, align));
 
   /* Setup the margin styles. */
   var marginValue;
@@ -6871,32 +6871,32 @@ var Edit = function Edit(props) {
     selectedRows = parseInt(columns.toString().split('-'));
   }
   var columnOptions = [{
-    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('1 Column', 'flip-blocks'),
+    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('1 Column', 'pi-blocks'),
     key: 'one-column',
     columns: 1,
     icon: _icons__WEBPACK_IMPORTED_MODULE_1__["default"].oneEqual
   }, {
-    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('2 Columns', 'flip-blocks'),
+    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('2 Columns', 'pi-blocks'),
     key: 'two-column',
     columns: 2,
     icon: _icons__WEBPACK_IMPORTED_MODULE_1__["default"].twoEqual
   }, {
-    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('3 Columns', 'flip-blocks'),
+    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('3 Columns', 'pi-blocks'),
     key: 'three-column',
     columns: 3,
     icon: _icons__WEBPACK_IMPORTED_MODULE_1__["default"].threeEqual
   }, {
-    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('4 Columns', 'flip-blocks'),
+    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('4 Columns', 'pi-blocks'),
     key: 'four-column',
     columns: 4,
     icon: _icons__WEBPACK_IMPORTED_MODULE_1__["default"].fourEqual
   }, {
-    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('5 Columns', 'flip-blocks'),
+    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('5 Columns', 'pi-blocks'),
     key: 'five-column',
     columns: 5,
     icon: _icons__WEBPACK_IMPORTED_MODULE_1__["default"].fiveEqual
   }, {
-    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('6 Columns', 'flip-blocks'),
+    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('6 Columns', 'pi-blocks'),
     key: 'six-column',
     columns: 6,
     icon: _icons__WEBPACK_IMPORTED_MODULE_1__["default"].sixEqual
@@ -6907,12 +6907,12 @@ var Edit = function Edit(props) {
     return [/*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.Placeholder, {
       key: "placeholder",
       icon: "editor-table",
-      label: columns ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Column Layout', 'flip-blocks') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Column Number', 'flip-blocks'),
-      instructions: columns ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Select a layout for this column.', 'flip-blocks') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Select the number of columns for this layout.', 'flip-blocks'),
-      className: 'flip-column-selector-placeholder'
+      label: columns ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Column Layout', 'pi-blocks') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Column Number', 'pi-blocks'),
+      instructions: columns ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Select a layout for this column.', 'pi-blocks') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Select the number of columns for this layout.', 'pi-blocks'),
+      className: 'pi-column-selector-placeholder'
     }, !columns ? /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.ButtonGroup, {
-      "aria-label": (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Select Row Columns', 'flip-blocks'),
-      className: "flip-column-selector-group"
+      "aria-label": (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Select Row Columns', 'pi-blocks'),
+      className: "pi-column-selector-group"
     }, lodash_map__WEBPACK_IMPORTED_MODULE_5___default()(columnOptions, function (_ref) {
       var name = _ref.name,
         key = _ref.key,
@@ -6922,9 +6922,9 @@ var Edit = function Edit(props) {
         text: name,
         key: key
       }, /*#__PURE__*/React.createElement("div", {
-        className: "flip-column-selector"
+        className: "pi-column-selector"
       }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.Button, {
-        className: classnames__WEBPACK_IMPORTED_MODULE_0___default()('flip-column-selector-button', 'flip-select-' + key),
+        className: classnames__WEBPACK_IMPORTED_MODULE_0___default()('pi-column-selector-button', 'pi-select-' + key),
         isSmall: true,
         onClick: function onClick() {
           setAttributes({
@@ -6937,8 +6937,8 @@ var Edit = function Edit(props) {
         }
       }, icon)));
     })) : /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__.Fragment, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.ButtonGroup, {
-      "aria-label": (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Select Column Layout', 'flip-blocks'),
-      className: "flip-column-selector-group"
+      "aria-label": (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Select Column Layout', 'pi-blocks'),
+      className: "pi-column-selector-group"
     }, lodash_map__WEBPACK_IMPORTED_MODULE_5___default()(_column_layouts__WEBPACK_IMPORTED_MODULE_3__["default"][selectedRows], function (_ref2) {
       var name = _ref2.name,
         key = _ref2.key,
@@ -6947,10 +6947,10 @@ var Edit = function Edit(props) {
         text: name,
         key: key
       }, /*#__PURE__*/React.createElement("div", {
-        className: "flip-column-selector"
+        className: "pi-column-selector"
       }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.Button, {
         key: key,
-        className: classnames__WEBPACK_IMPORTED_MODULE_0___default()('flip-column-selector-button', key),
+        className: classnames__WEBPACK_IMPORTED_MODULE_0___default()('pi-column-selector-button', key),
         isSmall: true,
         onClick: function onClick() {
           setAttributes({
@@ -6960,14 +6960,14 @@ var Edit = function Edit(props) {
         }
       }, icon)));
     })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.Button, {
-      className: "flip-column-selector-button-back",
+      className: "pi-column-selector-button-back",
       onClick: function onClick() {
         setAttributes({
           columns: null
         });
         setSelectLayout(true);
       }
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Return to Column Selection', 'flip-blocks'))))];
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Return to Column Selection', 'pi-blocks'))))];
   }
   return [/*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_9__.BlockControls, {
     key: "controls"
@@ -6984,7 +6984,7 @@ var Edit = function Edit(props) {
   })), /*#__PURE__*/React.createElement("div", _extends({}, blockProps, {
     key: "columns"
   }), /*#__PURE__*/React.createElement("div", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_0___default()('flip-layout-column-wrap-admin', 'flip-block-layout-column-gap', responsiveToggle ? 'flip-is-responsive-column' : null),
+    className: classnames__WEBPACK_IMPORTED_MODULE_0___default()('pi-layout-column-wrap-admin', 'pi-block-layout-column-gap', responsiveToggle ? 'pi-is-responsive-column' : null),
     style: {
       maxWidth: columnMaxWidth ? columnMaxWidth : null,
       '--columnGap': columnsGap + 'px',
@@ -7553,30 +7553,30 @@ var Inspector = function Inspector(_ref) {
   // CSS Units options
   var cssUnits = [{
     value: 'px',
-    label: __('Pixel (px)', 'flip-blocks')
+    label: __('Pixel (px)', 'pi-blocks')
   }, {
     value: '%',
-    label: __('Percent (%)', 'flip-blocks')
+    label: __('Percent (%)', 'pi-blocks')
   }, {
     value: 'em',
-    label: __('Em (em)', 'flip-blocks')
+    label: __('Em (em)', 'pi-blocks')
   }];
   return /*#__PURE__*/React.createElement(InspectorControls, {
     key: "inspector"
   }, layout && /*#__PURE__*/React.createElement(PanelBody, {
-    title: __('General', 'flip-blocks'),
+    title: __('General', 'pi-blocks'),
     initialOpen: true,
-    className: "flip-column-select-panel"
+    className: "pi-column-select-panel"
   }, /*#__PURE__*/React.createElement(_utils_components_settings_renderSettingControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
     id: "gb_column_columns"
   }, /*#__PURE__*/React.createElement(RangeControl, {
-    label: __('Column Count', 'flip-blocks'),
-    help: __("Note: Changing the column count after you've added content to the column can cause loss of content.", 'flip-blocks'),
+    label: __('Column Count', 'pi-blocks'),
+    help: __("Note: Changing the column count after you've added content to the column can cause loss of content.", 'pi-blocks'),
     value: columns,
     onChange: function onChange(value) {
       return setAttributes({
         columns: value,
-        layout: 'flip-' + value + '-col-equal'
+        layout: 'pi-' + value + '-col-equal'
       });
     },
     __nextHasNoMarginBottom: true,
@@ -7585,8 +7585,8 @@ var Inspector = function Inspector(_ref) {
     step: 1
   })), /*#__PURE__*/React.createElement("hr", null), (2 === columns || 3 === columns || 4 === columns) && /*#__PURE__*/React.createElement(Fragment, null, /*#__PURE__*/React.createElement(_utils_components_settings_renderSettingControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
     id: "gb_column_columnLayouts"
-  }, /*#__PURE__*/React.createElement("p", null, __('Column Layout', 'flip-blocks')), /*#__PURE__*/React.createElement(ButtonGroup, {
-    "aria-label": __('Column Layout', 'flip-blocks')
+  }, /*#__PURE__*/React.createElement("p", null, __('Column Layout', 'pi-blocks')), /*#__PURE__*/React.createElement(ButtonGroup, {
+    "aria-label": __('Column Layout', 'pi-blocks')
   }, lodash_map__WEBPACK_IMPORTED_MODULE_0___default()(_column_layouts__WEBPACK_IMPORTED_MODULE_1__["default"][selectedRows], function (_ref2) {
     var name = _ref2.name,
       key = _ref2.key,
@@ -7596,7 +7596,7 @@ var Inspector = function Inspector(_ref) {
       key: key
     }, /*#__PURE__*/React.createElement(Button, {
       key: key,
-      className: "flip-column-selector-button",
+      className: "pi-column-selector-button",
       isSmall: true,
       onClick: function onClick() {
         setAttributes({
@@ -7604,11 +7604,11 @@ var Inspector = function Inspector(_ref) {
         });
       }
     }, icon));
-  })), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("i", null, __('Change the layout of your columns.', 'flip-blocks'))), /*#__PURE__*/React.createElement("hr", null))), /*#__PURE__*/React.createElement(_utils_components_settings_renderSettingControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  })), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("i", null, __('Change the layout of your columns.', 'pi-blocks'))), /*#__PURE__*/React.createElement("hr", null))), /*#__PURE__*/React.createElement(_utils_components_settings_renderSettingControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
     id: "gb_column_columnsGap"
   }, /*#__PURE__*/React.createElement(RangeControl, {
-    label: __('Column Gap (px)', 'flip-blocks'),
-    help: __('Adjust the spacing between columns.', 'flip-blocks'),
+    label: __('Column Gap (px)', 'pi-blocks'),
+    help: __('Adjust the spacing between columns.', 'pi-blocks'),
     value: columnsGap,
     onChange: function onChange(value) {
       return setAttributes({
@@ -7620,8 +7620,8 @@ var Inspector = function Inspector(_ref) {
     max: 200,
     step: 1
   }), /*#__PURE__*/React.createElement(RangeControl, {
-    label: __('Row Gap (px)', 'flip-blocks'),
-    help: __('Adjust the spacing between rows.', 'flip-blocks'),
+    label: __('Row Gap (px)', 'pi-blocks'),
+    help: __('Adjust the spacing between rows.', 'pi-blocks'),
     value: rowGap,
     onChange: function onChange(value) {
       return setAttributes({
@@ -7636,7 +7636,7 @@ var Inspector = function Inspector(_ref) {
     id: "gb_column_columnMaxWidth"
   }, /*#__PURE__*/React.createElement(RangeControl, {
     label: __('Column Inner Max Width (px)'),
-    help: __('Adjust the width of the content inside the container wrapper.', 'flip-blocks'),
+    help: __('Adjust the width of the content inside the container wrapper.', 'pi-blocks'),
     value: columnMaxWidth,
     onChange: function onChange(value) {
       return setAttributes({
@@ -7650,8 +7650,8 @@ var Inspector = function Inspector(_ref) {
   })), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(_utils_components_settings_renderSettingControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
     id: "gb_column_responsiveToggle"
   }, /*#__PURE__*/React.createElement(ToggleControl, {
-    label: __('Responsive Columns', 'flip-blocks'),
-    help: __('Columns will be adjusted to fit on tablets and mobile devices.', 'flip-blocks'),
+    label: __('Responsive Columns', 'pi-blocks'),
+    help: __('Columns will be adjusted to fit on tablets and mobile devices.', 'pi-blocks'),
     checked: responsiveToggle,
     onChange: function onChange() {
       return setAttributes({
@@ -7659,8 +7659,8 @@ var Inspector = function Inspector(_ref) {
       });
     }
   }), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(ToggleControl, {
-    label: __('Reverse columns Mobile', 'flip-blocks'),
-    help: __('Reverse the order of columns on mobile devices.', 'flip-blocks'),
+    label: __('Reverse columns Mobile', 'pi-blocks'),
+    help: __('Reverse the order of columns on mobile devices.', 'pi-blocks'),
     checked: reverseOnMB,
     onChange: function onChange() {
       return setAttributes({
@@ -7670,11 +7670,11 @@ var Inspector = function Inspector(_ref) {
   }))), /*#__PURE__*/React.createElement(_utils_components_settings_renderSettingControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
     id: "gb_column_marginPadding"
   }, /*#__PURE__*/React.createElement(PanelBody, {
-    title: __('Margin and Padding', 'flip-blocks'),
+    title: __('Margin and Padding', 'pi-blocks'),
     initialOpen: false
   }, /*#__PURE__*/React.createElement(SelectControl, {
-    label: __('Margin Unit', 'flip-blocks'),
-    help: __('Choose between pixel, percent, or em units.', 'flip-blocks'),
+    label: __('Margin Unit', 'pi-blocks'),
+    help: __('Choose between pixel, percent, or em units.', 'pi-blocks'),
     options: cssUnits,
     value: marginUnit,
     onChange: function onChange(value) {
@@ -7683,8 +7683,8 @@ var Inspector = function Inspector(_ref) {
       });
     }
   }), /*#__PURE__*/React.createElement(ToggleControl, {
-    label: __('Sync Margin', 'flip-blocks'),
-    help: __('Top and bottom margins will have the same value.', 'flip-blocks'),
+    label: __('Sync Margin', 'pi-blocks'),
+    help: __('Top and bottom margins will have the same value.', 'pi-blocks'),
     checked: marginSync,
     onChange: function onChange() {
       return setAttributes({
@@ -7712,7 +7712,7 @@ var Inspector = function Inspector(_ref) {
     }
   }) : /*#__PURE__*/React.createElement(_utils_components_margin__WEBPACK_IMPORTED_MODULE_2__["default"], {
     marginEnableVertical: true,
-    marginVerticalLabel: __('Margin Top/Bottom', 'flip-blocks'),
+    marginVerticalLabel: __('Margin Top/Bottom', 'pi-blocks'),
     marginVertical: margin,
     marginVerticalMin: "0",
     marginVerticalMax: "200",
@@ -7722,8 +7722,8 @@ var Inspector = function Inspector(_ref) {
       });
     }
   }), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(SelectControl, {
-    label: __('Padding Unit', 'flip-blocks'),
-    help: __('Choose between pixel, percent, or em units.', 'flip-blocks'),
+    label: __('Padding Unit', 'pi-blocks'),
+    help: __('Choose between pixel, percent, or em units.', 'pi-blocks'),
     options: cssUnits,
     value: paddingUnit,
     onChange: function onChange(value) {
@@ -7732,8 +7732,8 @@ var Inspector = function Inspector(_ref) {
       });
     }
   }), /*#__PURE__*/React.createElement(ToggleControl, {
-    label: __('Sync Padding', 'flip-blocks'),
-    help: __('Padding on all sides will have the same value.', 'flip-blocks'),
+    label: __('Sync Padding', 'pi-blocks'),
+    help: __('Padding on all sides will have the same value.', 'pi-blocks'),
     checked: paddingSync,
     onChange: function onChange() {
       return setAttributes({
@@ -7761,7 +7761,7 @@ var Inspector = function Inspector(_ref) {
     }
   }) : /*#__PURE__*/React.createElement(_utils_components_padding__WEBPACK_IMPORTED_MODULE_3__["default"], {
     paddingEnableVertical: true,
-    paddingVerticalLabel: __('Padding Top/Bottom', 'flip-blocks'),
+    paddingVerticalLabel: __('Padding Top/Bottom', 'pi-blocks'),
     padding: padding,
     paddingMin: "0",
     paddingMax: "200",
@@ -7774,7 +7774,7 @@ var Inspector = function Inspector(_ref) {
     attributes: attributes,
     setAttributes: setAttributes
   }), /*#__PURE__*/React.createElement(PanelColorSettings, {
-    title: __('Background Color', 'flip-blocks'),
+    title: __('Background Color', 'pi-blocks'),
     colorSettings: [{
       value: backgroundColor,
       onChange: function onChange(backgroundColor) {
@@ -7782,7 +7782,7 @@ var Inspector = function Inspector(_ref) {
           backgroundColor: backgroundColor
         });
       },
-      label: __('Choose color', 'flip-blocks')
+      label: __('Choose color', 'pi-blocks')
     }]
   }));
 };
@@ -7837,7 +7837,7 @@ var Save = function Save(props) {
     paddingBottom = attributes.paddingBottom;
 
   /* Setup the wrapper classes. */
-  var classNames = classnames__WEBPACK_IMPORTED_MODULE_0___default()([className, 'flip-layout-columns-' + columns, layout], _defineProperty({}, 'align' + align, align));
+  var classNames = classnames__WEBPACK_IMPORTED_MODULE_0___default()([className, 'pi-layout-columns-' + columns, layout], _defineProperty({}, 'align' + align, align));
 
   /* Setup the margin styles. */
   var marginValue;
@@ -7873,7 +7873,7 @@ var Save = function Save(props) {
   // 	...BackgroundImageStyles( attributes ),
   // };
 
-  var className = classnames__WEBPACK_IMPORTED_MODULE_0___default()(['flip-layout-column-wrap', 'flip-block-layout-column-gap', attributes.responsiveToggle ? 'flip-is-responsive-column' : null, attributes.reverseOnMB ? 'reverse-column-mb' : null]);
+  var className = classnames__WEBPACK_IMPORTED_MODULE_0___default()(['pi-layout-column-wrap', 'pi-block-layout-column-gap', attributes.responsiveToggle ? 'pi-is-responsive-column' : null, attributes.reverseOnMB ? 'reverse-column-mb' : null]);
   var blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
     className: classNames || undefined,
     style: Object.assign(marginValue, paddingValue)
@@ -7928,13 +7928,13 @@ var registerBlockType = wp.blocks.registerBlockType;
 /**
  * Register advanced columns block InnerBlocks.
  */
-registerBlockType("flip-blocks/flip-columns", {
+registerBlockType("pi-blocks/pi-columns", {
   apiVersion: 3,
-  title: __("Advanced Columns", "flip-blocks"),
-  description: __("Add a pre-defined column layout.", "flip-blocks"),
+  title: __("Advanced Columns", "pi-blocks"),
+  description: __("Add a pre-defined column layout.", "pi-blocks"),
   icon: "editor-table",
-  category: "flip-blocks",
-  keywords: [__("column", "flip-blocks"), __("grid", "flip-blocks"), __("row", "flip-blocks")],
+  category: "pi-blocks",
+  keywords: [__("column", "pi-blocks"), __("grid", "pi-blocks"), __("row", "pi-blocks")],
   attributes: _objectSpread(_objectSpread({}, _utils_components_background_image_attributes__WEBPACK_IMPORTED_MODULE_2__["default"]), {}, {
     columns: {
       type: "number"
@@ -8093,7 +8093,7 @@ var Edit = function Edit(props) {
   }), {}, {
     zIndex: zIndex
   });
-  var classes = classnames__WEBPACK_IMPORTED_MODULE_2___default()("flip-block-container", containerImgURL ? "flip-container-bg__image" : "", videoURL ? "flip-container-bg__video" : "", "container-alignment-".concat(textAlign), borderRadiusTop ? "has-borer-radius-top" : "", borderRadiusBottom ? "has-borer-radius-bottom" : "", className);
+  var classes = classnames__WEBPACK_IMPORTED_MODULE_2___default()("pi-block-container", containerImgURL ? "pi-container-bg__image" : "", videoURL ? "pi-container-bg__video" : "", "container-alignment-".concat(textAlign), borderRadiusTop ? "has-borer-radius-top" : "", borderRadiusBottom ? "has-borer-radius-bottom" : "", className);
   var blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
     className: classes,
     style: styles
@@ -8108,12 +8108,12 @@ var Edit = function Edit(props) {
       });
     }
   })), /*#__PURE__*/React.createElement(_inspector__WEBPACK_IMPORTED_MODULE_1__["default"], props), /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement("div", {
-    className: "flip-container-bg",
+    className: "pi-container-bg",
     style: {
       backgroundColor: containerBgColor
     }
   }, containerImgURL && !!containerImgURL.length && /*#__PURE__*/React.createElement("img", {
-    className: "flip-container-image",
+    className: "pi-container-image",
     src: containerImgURL,
     alt: containerImgAlt,
     style: {
@@ -8281,11 +8281,11 @@ var Inspector = function Inspector(props) {
     key: "settings",
     group: "settings"
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-    title: __("General", "flip-blocks"),
+    title: __("General", "pi-blocks"),
     initialOpen: true
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
-    label: __("Border Radius Top", "flip-blocks"),
-    help: __("Enable BorderRadius Top", "flip-blocks"),
+    label: __("Border Radius Top", "pi-blocks"),
+    help: __("Enable BorderRadius Top", "pi-blocks"),
     checked: borderRadiusTop,
     onChange: function onChange() {
       return setAttributes({
@@ -8293,8 +8293,8 @@ var Inspector = function Inspector(props) {
       });
     }
   }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
-    label: __("Border Radius Bottom", "flip-blocks"),
-    help: __("Enable BorderRadius Bottom", "flip-blocks"),
+    label: __("Border Radius Bottom", "pi-blocks"),
+    help: __("Enable BorderRadius Bottom", "pi-blocks"),
     checked: borderRadiusBottom,
     onChange: function onChange() {
       return setAttributes({
@@ -8302,7 +8302,7 @@ var Inspector = function Inspector(props) {
       });
     }
   }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
-    label: __("Overflow Hidden", "flip-blocks"),
+    label: __("Overflow Hidden", "pi-blocks"),
     checked: overflowHidden,
     onChange: function onChange() {
       return setAttributes({
@@ -8322,7 +8322,7 @@ var Inspector = function Inspector(props) {
     max: 999,
     step: 1
   })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-    title: __("Padding", "flip-blocks"),
+    title: __("Padding", "pi-blocks"),
     initialOpen: true
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
     label: __("Padding Top"),
@@ -8400,7 +8400,7 @@ var Inspector = function Inspector(props) {
       onChangeSize("bottom", value, "mobile");
     }
   })), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
-    label: __("Inside Container Max Width (px)", "flip-blocks"),
+    label: __("Inside Container Max Width (px)", "pi-blocks"),
     value: containerMaxWidth,
     help: "Set unit px, vw, %",
     __next40pxDefaultSize: true,
@@ -8413,26 +8413,26 @@ var Inspector = function Inspector(props) {
     key: "styles",
     group: "styles"
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-    title: __("Background Image", "flip-blocks")
-  }, /*#__PURE__*/React.createElement("p", null, __("Select a background image:", "flip-blocks")), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.MediaUpload, {
+    title: __("Background Image", "pi-blocks")
+  }, /*#__PURE__*/React.createElement("p", null, __("Select a background image:", "pi-blocks")), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.MediaUpload, {
     onSelect: onSelectImage,
     type: "image",
     value: containerImgID,
     render: function render(_ref) {
       var open = _ref.open;
       return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
-        className: "flip-container-inspector-media",
-        label: __("Edit image", "flip-blocks"),
+        className: "pi-container-inspector-media",
+        label: __("Edit image", "pi-blocks"),
         onClick: open
       }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Icon, {
         icon: "format-image"
-      }), __("Select Image", "flip-blocks")), containerImgURL && !!containerImgURL.length && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
-        className: "flip-container-inspector-media",
-        label: __("Remove Image", "flip-blocks"),
+      }), __("Select Image", "pi-blocks")), containerImgURL && !!containerImgURL.length && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+        className: "pi-container-inspector-media",
+        label: __("Remove Image", "pi-blocks"),
         onClick: onRemoveImage
       }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Icon, {
         icon: "dismiss"
-      }), __("Remove", "flip-blocks")));
+      }), __("Remove", "pi-blocks")));
     }
   })), containerImgURL && !!containerImgURL.length && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
     title: "Background Position"
@@ -8462,12 +8462,12 @@ var Inspector = function Inspector(props) {
           marginLeft: "5px"
         }
       }, "Choose video"), videoURL && !!videoURL.length && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
-        className: "flip-container-inspector-media",
-        label: __("Remove Video", "flip-blocks"),
+        className: "pi-container-inspector-media",
+        label: __("Remove Video", "pi-blocks"),
         onClick: onRemoveVideo
       }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Icon, {
         icon: "dismiss"
-      }), __("Remove", "flip-blocks")));
+      }), __("Remove", "pi-blocks")));
     }
   }), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -8484,7 +8484,7 @@ var Inspector = function Inspector(props) {
   }, " ", videoHostIcon, " "), /*#__PURE__*/React.createElement("span", {
     id: "title-video"
   }, videoTitle || "Not selected yet."))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-    title: __("Background Color", "flip-blocks")
+    title: __("Background Color", "pi-blocks")
   }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.__experimentalColorGradientControl, {
     colorValue: containerBgColor,
     label: __("Choose a color"),
@@ -8554,18 +8554,18 @@ var Save = function Save(props) {
   }), {}, {
     zIndex: zIndex
   });
-  var classes = classnames__WEBPACK_IMPORTED_MODULE_1___default()("flip-block-container", containerImgURL ? "flip-container-bg__image" : "", videoURL ? "flip-container-bg__video" : "", "container-alignment-".concat(textAlign), borderRadiusTop ? "has-borer-radius-top" : "", borderRadiusBottom ? "has-borer-radius-bottom" : "", className);
+  var classes = classnames__WEBPACK_IMPORTED_MODULE_1___default()("pi-block-container", containerImgURL ? "pi-container-bg__image" : "", videoURL ? "pi-container-bg__video" : "", "container-alignment-".concat(textAlign), borderRadiusTop ? "has-borer-radius-top" : "", borderRadiusBottom ? "has-borer-radius-bottom" : "", className);
   var blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
     className: classes,
     style: styles
   });
   return /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement("div", {
-    className: "flip-container-bg",
+    className: "pi-container-bg",
     style: {
       backgroundColor: containerBgColor
     }
   }, containerImgURL && !!containerImgURL.length && /*#__PURE__*/React.createElement("img", {
-    className: "flip-container-image",
+    className: "pi-container-image",
     src: containerImgURL,
     alt: containerImgAlt,
     style: {
@@ -8704,13 +8704,13 @@ var blockAttributes = {
 };
 
 // Register the block
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)("flip-blocks/flip-container", {
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)("pi-blocks/pi-container", {
   apiVersion: 3,
   title: "Container",
-  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Add a container block to wrap several blocks in a parent container.", "flip-blocks"),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Add a container block to wrap several blocks in a parent container.", "pi-blocks"),
   icon: "editor-table",
-  category: "flip-blocks",
-  keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("container", "flip-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("section", "flip-blocks")],
+  category: "pi-blocks",
+  keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("container", "pi-blocks"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("section", "pi-blocks")],
   supports: {
     anchor: true
   },
@@ -8769,7 +8769,7 @@ function Edit(_ref) {
   }, [items]);
   var activeItem = items[active];
   var blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
-    className: ["flip-content-media", className].join(" ")
+    className: ["pi-content-media", className].join(" ")
   });
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_inspector__WEBPACK_IMPORTED_MODULE_2__["default"], {
     items: items,
@@ -8979,7 +8979,7 @@ function Save(_ref) {
     contentText = attributes.contentText;
   if (!(items !== null && items !== void 0 && items.length)) return null;
   var blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
-    className: ["flip-content-media", className].join(" ")
+    className: ["pi-content-media", className].join(" ")
   });
   return /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText.Content, {
     tagName: "h2",
@@ -9040,11 +9040,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.registerBlockType)("flip-blocks/content-media", {
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.registerBlockType)("pi-blocks/content-media", {
   apiVersion: 3,
   title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Content Media"),
   icon: "images-alt2",
-  category: "flip-blocks",
+  category: "pi-blocks",
   attributes: {
     items: {
       type: "array",
@@ -9132,15 +9132,15 @@ var Edit = function Edit(props) {
       var open = _ref.open;
       return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToolbarButton, {
         icon: "format-gallery",
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Add image", "flip-blocks"),
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Add image", "pi-blocks"),
         onClick: open
       });
     }
   })))), /*#__PURE__*/React.createElement(_inspector__WEBPACK_IMPORTED_MODULE_2__["default"], props), /*#__PURE__*/React.createElement("div", blockProps, items.length === 0 && /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.MediaPlaceholder, {
     icon: "format-image",
     labels: {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Image", "flip-blocks"),
-      instructions: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Click or drag images here to add", "flip-blocks")
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Image", "pi-blocks"),
+      instructions: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Click or drag images here to add", "pi-blocks")
     },
     value: items.map(function (item) {
       return item.id;
@@ -9313,12 +9313,12 @@ var attributes = {
     "default": 5000
   }
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.registerBlockType)("flip-blocks/gallery-carousel", {
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.registerBlockType)("pi-blocks/gallery-carousel", {
   apiVersion: 3,
   title: "Gallery Carousel",
   description: "Display a carousel images autoplay as marquee.",
   icon: "images-alt",
-  category: "flip-blocks",
+  category: "pi-blocks",
   keywords: ["image", "carousel"],
   attributes: attributes,
   supports: {
@@ -9405,14 +9405,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var MY_TEMPLATE = [["core/heading", {
-  content: "ANVIL MEDIA",
+var MY_TEMPLATE = [["core/paragraph", {
+  content: "DD CLINIC TRUNG TÂM TƯ VẤN DỊCH VỤ Y TẾ THẨM MỸ CAO CẤP TẠI HÀN QUỐC"
+}], ["core/heading", {
+  content: "Vẻ Đẹp Chuẩn Y Khoa<br>Chọn Lọc Tinh Hoa",
   level: 1,
-  style: {
-    color: {
-      text: "#FFE071"
-    }
-  }
+  textAlign: "center"
 }]];
 var Edit = function Edit(props) {
   var attributes = props.attributes,
@@ -9420,15 +9418,40 @@ var Edit = function Edit(props) {
     className = props.className;
   var typeHero = attributes.typeHero,
     colorText = attributes.colorText,
-    overlay = attributes.overlay;
+    overlay = attributes.overlay,
+    scrollAnchor = attributes.scrollAnchor,
+    scrollLabel = attributes.scrollLabel;
   var blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
     className: ["hero-block", "hero-type-".concat(typeHero), "".concat(overlay ? "hero-overlay" : ""), className].join(" ")
   });
   return /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.Fragment, null, /*#__PURE__*/React.createElement(_inspector__WEBPACK_IMPORTED_MODULE_3__["default"], props), /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement(_background__WEBPACK_IMPORTED_MODULE_4__["default"], props), /*#__PURE__*/React.createElement("div", {
     className: "container"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "hero-block-content"
-  }))));
+    className: "hero-block-content",
+    style: {
+      color: colorText
+    }
+  }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {
+    template: MY_TEMPLATE
+  }))), scrollAnchor && /*#__PURE__*/React.createElement("a", {
+    href: "#".concat(scrollAnchor),
+    className: "hero-block-scroll",
+    style: {
+      color: colorText
+    }
+  }, /*#__PURE__*/React.createElement("span", null, scrollLabel || "KHÁM PHÁ THÊM"), /*#__PURE__*/React.createElement("svg", {
+    width: "16",
+    height: "24",
+    viewBox: "0 0 16 24",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M8 0V19M1 12.5L8 20L15 12.5",
+    stroke: "currentColor",
+    strokeWidth: "1.4",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  })))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Edit);
 
@@ -9481,7 +9504,8 @@ var Inspector = function Inspector(props) {
     posterID = attributes.posterID,
     posterUrl = attributes.posterUrl,
     videoFormat = attributes.videoFormat,
-    scrollAnchor = attributes.scrollAnchor;
+    scrollAnchor = attributes.scrollAnchor,
+    scrollLabel = attributes.scrollLabel;
   var onSelectMedia = function onSelectMedia(media) {
     setAttributes({
       imgID: parseInt(media.id),
@@ -9513,7 +9537,7 @@ var Inspector = function Inspector(props) {
   return /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
     title: "General"
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
-    label: __("Hero Type", "flip-blocks"),
+    label: __("Hero Type", "pi-blocks"),
     value: typeHero,
     options: [{
       label: "Image",
@@ -9547,10 +9571,20 @@ var Inspector = function Inspector(props) {
         scrollAnchor: vl
       });
     }
+  }), scrollAnchor && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+    __next40pxDefaultSize: true,
+    label: "Scroll Label",
+    help: "Text hi\u1EC3n th\u1ECB tr\xEAn n\xFAt cu\u1ED9n (c\xF3 th\u1EC3 d\u1ECBch qua WPML)",
+    value: scrollLabel,
+    onChange: function onChange(vl) {
+      return setAttributes({
+        scrollLabel: vl
+      });
+    }
   })), typeHero == "video" && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
     title: "Video"
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
-    label: __("Video format", "flip-blocks"),
+    label: __("Video format", "pi-blocks"),
     value: videoFormat,
     options: [{
       label: "MP4",
@@ -9595,13 +9629,13 @@ var Inspector = function Inspector(props) {
         style: {
           marginRight: "5px"
         }
-      }, __("Choose video", "flip-blocks")), videoURL && !!videoURL.length && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
-        className: "flip-container-inspector-media",
+      }, __("Choose video", "pi-blocks")), videoURL && !!videoURL.length && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+        className: "pi-container-inspector-media",
         variant: "secondary",
         isDestructive: true,
-        label: __("Remove Video", "flip-blocks"),
+        label: __("Remove Video", "pi-blocks"),
         onClick: onRemoveVideo
-      }, __("Remove", "flip-blocks")));
+      }, __("Remove", "pi-blocks")));
     }
   }), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("div", {
     className: "components-placeholder__fieldset"
@@ -9695,7 +9729,7 @@ var Inspector = function Inspector(props) {
     },
     isDestructive: true
   }, "Remove Image")), !!imgUrl && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.FocalPointPicker, {
-    label: __("Focal Point", "flip-blocks"),
+    label: __("Focal Point", "pi-blocks"),
     url: imgUrl,
     value: focalPoint,
     onChange: function onChange(newFocalPoint) {
@@ -9731,12 +9765,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _background__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./background */ "./src/blocks/block-hero/components/background.js");
-
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _background__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./background */ "./src/blocks/block-hero/components/background.js");
 
 
 var Save = function Save(props) {
@@ -9745,15 +9776,37 @@ var Save = function Save(props) {
   var typeHero = attributes.typeHero,
     colorText = attributes.colorText,
     overlay = attributes.overlay,
-    scrollAnchor = attributes.scrollAnchor;
-  var blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
+    scrollAnchor = attributes.scrollAnchor,
+    scrollLabel = attributes.scrollLabel;
+  var blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
     className: ["hero-block", "hero-type-".concat(typeHero), "".concat(overlay ? "hero-overlay" : ""), className].join(" ")
   });
-  return /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement(_background__WEBPACK_IMPORTED_MODULE_2__["default"], props), /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement(_background__WEBPACK_IMPORTED_MODULE_1__["default"], props), /*#__PURE__*/React.createElement("div", {
     className: "container"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "hero-block-content"
-  })));
+    className: "hero-block-content",
+    style: {
+      color: colorText
+    }
+  }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InnerBlocks.Content, null))), scrollAnchor && /*#__PURE__*/React.createElement("a", {
+    href: "#".concat(scrollAnchor),
+    className: "hero-block-scroll",
+    style: {
+      color: colorText
+    }
+  }, /*#__PURE__*/React.createElement("span", null, scrollLabel || "KHÁM PHÁ THÊM"), /*#__PURE__*/React.createElement("svg", {
+    width: "16",
+    height: "24",
+    viewBox: "0 0 16 24",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M8 0V19M1 12.5L8 20L15 12.5",
+    stroke: "currentColor",
+    strokeWidth: "1.4",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Save);
 
@@ -9834,12 +9887,16 @@ var attr = {
   overlay: {
     type: "boolean",
     "default": true
+  },
+  scrollLabel: {
+    type: "string",
+    "default": "KHÁM PHÁ THÊM"
   }
 };
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("flip-blocks/hero", {
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("pi-blocks/hero", {
   apiVersion: 3,
   title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Hero"),
-  category: "flip-blocks",
+  category: "pi-blocks",
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("section"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("hero")],
   icon: "format-video",
   attributes: attr,
@@ -9879,7 +9936,7 @@ var Edit = function Edit(props) {
   var blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
   return /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement(_inspector__WEBPACK_IMPORTED_MODULE_0__["default"], props), /*#__PURE__*/React.createElement((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_1___default()), {
     className: "block-server-render",
-    block: "flip-blocks/block-insights",
+    block: "pi-blocks/block-insights",
     attributes: attributes
   }));
 };
@@ -9998,11 +10055,11 @@ var BlockAttrs = {
     type: "string"
   }
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("flip-blocks/block-insights", {
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("pi-blocks/block-insights", {
   apiVersion: 3,
   title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Insights"),
   icon: "text-page",
-  category: "flip-blocks",
+  category: "pi-blocks",
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("insight"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("blog"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("post")],
   attributes: BlockAttrs,
   supports: {
@@ -10084,15 +10141,15 @@ var Edit = function Edit(props) {
       var open = _ref.open;
       return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToolbarButton, {
         icon: "format-gallery",
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Add Logo", "flip-blocks"),
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Add Logo", "pi-blocks"),
         onClick: open
       });
     }
   })))), /*#__PURE__*/React.createElement(_inspector__WEBPACK_IMPORTED_MODULE_2__["default"], props), /*#__PURE__*/React.createElement("div", blockProps, items.length === 0 && /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.MediaPlaceholder, {
     icon: "format-image",
     labels: {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Logo", "flip-blocks"),
-      instructions: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Click or drag images here to add", "flip-blocks")
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Logo", "pi-blocks"),
+      instructions: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Click or drag images here to add", "pi-blocks")
     },
     value: items.map(function (item) {
       return item.id;
@@ -10260,12 +10317,12 @@ var attributes = {
     "default": 5000
   }
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.registerBlockType)("flip-blocks/logo-carousel", {
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.registerBlockType)("pi-blocks/logo-carousel", {
   apiVersion: 3,
   title: "Logo Carousel",
   description: "Display a carousel logo auto play as marquee.",
   icon: "images-alt",
-  category: "flip-blocks",
+  category: "pi-blocks",
   keywords: ["logo", "carousel"],
   attributes: attributes,
   supports: {
@@ -10281,6 +10338,337 @@ var attributes = {
     return /*#__PURE__*/React.createElement(_components_save__WEBPACK_IMPORTED_MODULE_4__["default"], props);
   }
 }));
+
+/***/ },
+
+/***/ "./src/blocks/block-process-steps/components/edit.js"
+/*!***********************************************************!*\
+  !*** ./src/blocks/block-process-steps/components/edit.js ***!
+  \***********************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Edit)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _inspector__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./inspector */ "./src/blocks/block-process-steps/components/inspector.js");
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
+
+
+function Edit(_ref) {
+  var attributes = _ref.attributes,
+    setAttributes = _ref.setAttributes,
+    className = _ref.className;
+  var _attributes$items = attributes.items,
+    items = _attributes$items === void 0 ? [] : _attributes$items;
+  var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    _useState2 = _slicedToArray(_useState, 2),
+    activeIdx = _useState2[0],
+    setActiveIdx = _useState2[1];
+  var blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
+    className: ["pi-process-steps", className].join(" ")
+  });
+  var activeItem = items[activeIdx] || items[0];
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_inspector__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    items: items,
+    setAttributes: setAttributes
+  }), /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement("div", {
+    className: "ps-left"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "ps-tabs"
+  }, items.map(function (item, i) {
+    return /*#__PURE__*/React.createElement("button", {
+      key: i,
+      className: "ps-tab".concat(i === activeIdx ? " is-active" : ""),
+      onClick: function onClick() {
+        return setActiveIdx(i);
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "ps-num"
+    }, i + 1, "."), /*#__PURE__*/React.createElement("span", {
+      className: "ps-label"
+    }, item.title || "B\u01B0\u1EDBc ".concat(i + 1)));
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "ps-panels"
+  }, activeItem ? /*#__PURE__*/React.createElement("div", {
+    className: "ps-panel is-active"
+  }, /*#__PURE__*/React.createElement("h3", {
+    className: "ps-title"
+  }, activeItem.title || "Tiêu đề bước"), /*#__PURE__*/React.createElement("p", {
+    className: "ps-desc"
+  }, activeItem.description || "Thêm mô tả trong Inspector →")) : /*#__PURE__*/React.createElement("p", {
+    style: {
+      opacity: 0.5
+    }
+  }, "Th\xEAm b\u01B0\u1EDBc trong Inspector \u2192"))), /*#__PURE__*/React.createElement("div", {
+    className: "ps-right"
+  }, activeItem !== null && activeItem !== void 0 && activeItem.imgUrl ? /*#__PURE__*/React.createElement("div", {
+    className: "ps-img is-active"
+  }, /*#__PURE__*/React.createElement("img", {
+    src: activeItem.imgUrl,
+    alt: activeItem.imgAlt || ""
+  })) : /*#__PURE__*/React.createElement("div", {
+    className: "ps-img-placeholder"
+  }, /*#__PURE__*/React.createElement("span", null, "Ch\u1ECDn \u1EA3nh trong Inspector")))));
+}
+
+/***/ },
+
+/***/ "./src/blocks/block-process-steps/components/inspector.js"
+/*!****************************************************************!*\
+  !*** ./src/blocks/block-process-steps/components/inspector.js ***!
+  \****************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Inspector)
+/* harmony export */ });
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+
+
+function Inspector(_ref) {
+  var items = _ref.items,
+    setAttributes = _ref.setAttributes;
+  var updateItem = function updateItem(index, newVal) {
+    var newItems = _toConsumableArray(items);
+    newItems[index] = _objectSpread(_objectSpread({}, newItems[index]), newVal);
+    setAttributes({
+      items: newItems
+    });
+  };
+  var addItem = function addItem() {
+    setAttributes({
+      items: [].concat(_toConsumableArray(items), [{
+        id: Date.now(),
+        title: "B\u01B0\u1EDBc ".concat(items.length + 1),
+        description: "",
+        imgUrl: "",
+        imgID: 0,
+        imgAlt: ""
+      }])
+    });
+  };
+  var removeItem = function removeItem(index) {
+    setAttributes({
+      items: items.filter(function (_, i) {
+        return i !== index;
+      })
+    });
+  };
+  return /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+    title: "C\xE1c b\u01B0\u1EDBc",
+    initialOpen: true
+  }, items.map(function (item, index) {
+    return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+      key: item.id || index,
+      title: "".concat(index + 1, ". ").concat(item.title || "Bước"),
+      initialOpen: index === 0
+    }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+      __next40pxDefaultSize: true,
+      __nextHasNoMarginBottom: true,
+      label: "Ti\xEAu \u0111\u1EC1",
+      value: item.title,
+      onChange: function onChange(v) {
+        return updateItem(index, {
+          title: v
+        });
+      }
+    }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextareaControl, {
+      label: "M\xF4 t\u1EA3",
+      value: item.description,
+      onChange: function onChange(v) {
+        return updateItem(index, {
+          description: v
+        });
+      },
+      rows: 4
+    }), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.MediaUploadCheck, null, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.MediaUpload, {
+      allowedTypes: ["image"],
+      value: item.imgID,
+      onSelect: function onSelect(media) {
+        return updateItem(index, {
+          imgUrl: media.url,
+          imgID: media.id,
+          imgAlt: media.alt || ""
+        });
+      },
+      render: function render(_ref2) {
+        var open = _ref2.open;
+        return /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+          variant: "secondary",
+          onClick: open,
+          style: {
+            marginBottom: 8
+          }
+        }, item.imgUrl ? "Đổi ảnh" : "Chọn ảnh");
+      }
+    })), item.imgUrl && /*#__PURE__*/React.createElement("img", {
+      src: item.imgUrl,
+      alt: item.imgAlt,
+      style: {
+        width: "100%",
+        borderRadius: 8,
+        marginBottom: 8,
+        display: "block"
+      }
+    }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+      variant: "link",
+      isDestructive: true,
+      onClick: function onClick() {
+        return removeItem(index);
+      }
+    }, "X\xF3a b\u01B0\u1EDBc n\xE0y"));
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+    variant: "primary",
+    onClick: addItem,
+    style: {
+      marginTop: 12,
+      width: "100%"
+    }
+  }, "+ Th\xEAm b\u01B0\u1EDBc")));
+}
+
+/***/ },
+
+/***/ "./src/blocks/block-process-steps/components/save.js"
+/*!***********************************************************!*\
+  !*** ./src/blocks/block-process-steps/components/save.js ***!
+  \***********************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Save)
+/* harmony export */ });
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
+
+function Save(_ref) {
+  var attributes = _ref.attributes,
+    className = _ref.className;
+  var _attributes$items = attributes.items,
+    items = _attributes$items === void 0 ? [] : _attributes$items;
+  if (!items.length) return null;
+  var blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
+    className: ["pi-process-steps", className].join(" ")
+  });
+  return /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement("div", {
+    className: "ps-left"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "ps-tabs"
+  }, items.map(function (item, i) {
+    return /*#__PURE__*/React.createElement("button", {
+      key: i,
+      className: "ps-tab".concat(i === 0 ? " is-active" : ""),
+      "data-index": i
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "ps-num"
+    }, i + 1, "."), /*#__PURE__*/React.createElement("span", {
+      className: "ps-label"
+    }, item.title));
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "ps-panels"
+  }, items.map(function (item, i) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: i,
+      className: "ps-panel".concat(i === 0 ? " is-active" : ""),
+      "data-index": i
+    }, /*#__PURE__*/React.createElement("h3", {
+      className: "ps-title"
+    }, item.title), /*#__PURE__*/React.createElement("p", {
+      className: "ps-desc"
+    }, item.description));
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "ps-right"
+  }, items.map(function (item, i) {
+    return item.imgUrl ? /*#__PURE__*/React.createElement("div", {
+      key: i,
+      className: "ps-img".concat(i === 0 ? " is-active" : ""),
+      "data-index": i
+    }, /*#__PURE__*/React.createElement("img", {
+      src: item.imgUrl,
+      alt: item.imgAlt || ""
+    })) : null;
+  })));
+}
+
+/***/ },
+
+/***/ "./src/blocks/block-process-steps/index.js"
+/*!*************************************************!*\
+  !*** ./src/blocks/block-process-steps/index.js ***!
+  \*************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/style.scss */ "./src/blocks/block-process-steps/styles/style.scss");
+/* harmony import */ var _styles_editor_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/editor.scss */ "./src/blocks/block-process-steps/styles/editor.scss");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_edit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/edit */ "./src/blocks/block-process-steps/components/edit.js");
+/* harmony import */ var _components_save__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/save */ "./src/blocks/block-process-steps/components/save.js");
+
+
+
+
+
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.registerBlockType)("pi-blocks/process-steps", {
+  apiVersion: 3,
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Process Steps"),
+  icon: "editor-ol",
+  category: "pi-blocks",
+  attributes: {
+    items: {
+      type: "array",
+      "default": [{
+        id: 1,
+        title: "Tư Vấn",
+        description: "Chúng tôi bắt đầu bằng buổi tư vấn riêng để lắng nghe mục tiêu, mối quan tâm và kỳ vọng của bạn. Từ đó, đội ngũ DD CLINIC xác định hướng tiếp cận phù hợp và những ưu tiên quan trọng trong hành trình làm đẹp.",
+        imgUrl: "",
+        imgID: 0,
+        imgAlt: ""
+      }]
+    }
+  },
+  supports: {
+    anchor: true
+  },
+  edit: _components_edit__WEBPACK_IMPORTED_MODULE_4__["default"],
+  save: _components_save__WEBPACK_IMPORTED_MODULE_5__["default"]
+});
 
 /***/ },
 
@@ -10308,7 +10696,7 @@ var Edit = function Edit(props) {
   var blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
   return /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement(_inspector__WEBPACK_IMPORTED_MODULE_0__["default"], props), /*#__PURE__*/React.createElement((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_1___default()), {
     className: "block-server-render",
-    block: "flip-blocks/block-related-list",
+    block: "pi-blocks/block-related-list",
     attributes: attributes
   }));
 };
@@ -10394,10 +10782,10 @@ var Inspector = function Inspector(_ref) {
     };
   })) || [];
   return /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Block Settings", "flip-blocks"),
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Block Settings", "pi-blocks"),
     initialOpen: true
   }, !filteredTaxonomies && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.Spinner, null), filteredTaxonomies && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.SelectControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Select taxonomy", "flip-blocks"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Select taxonomy", "pi-blocks"),
     value: taxonomy,
     options: taxonomyOptions,
     onChange: function onChange(value) {
@@ -10407,10 +10795,10 @@ var Inspector = function Inspector(_ref) {
       });
     }
   }), taxonomy && !terms && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.Spinner, null), taxonomy && terms && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.SelectControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Select term", "flip-blocks"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Select term", "pi-blocks"),
     value: termId,
     options: [{
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Select term", "flip-blocks"),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Select term", "pi-blocks"),
       value: 0
     }].concat(_toConsumableArray(termOptions)),
     onChange: function onChange(value) {
@@ -10419,7 +10807,7 @@ var Inspector = function Inspector(_ref) {
       });
     }
   }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.ToggleControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Show taxonomy buttons", "flip-blocks"),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Show taxonomy buttons", "pi-blocks"),
     checked: showTaxonomyButtons,
     onChange: function onChange(value) {
       return setAttributes({
@@ -10521,11 +10909,11 @@ var BlockAttrs = {
     "default": true
   }
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("flip-blocks/block-related-list", {
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("pi-blocks/block-related-list", {
   apiVersion: 3,
   title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Related List Case Studies"),
   icon: "editor-ul",
-  category: "flip-blocks",
+  category: "pi-blocks",
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("list"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("related"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("case studies")],
   attributes: BlockAttrs,
   supports: {
@@ -10568,7 +10956,7 @@ var Edit = function Edit(props) {
   var blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
   return /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement(_inspector__WEBPACK_IMPORTED_MODULE_0__["default"], props), /*#__PURE__*/React.createElement((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_1___default()), {
     className: "block-server-render",
-    block: "flip-blocks/block-sectors-list",
+    block: "pi-blocks/block-sectors-list",
     attributes: attributes
   }));
 };
@@ -10742,11 +11130,11 @@ var BlockAttrs = {
     "default": ""
   }
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("flip-blocks/block-sectors-list", {
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("pi-blocks/block-sectors-list", {
   apiVersion: 3,
   title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("List Sectors"),
   icon: "list-view",
-  category: "flip-blocks",
+  category: "pi-blocks",
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("list"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("sectors")],
   attributes: BlockAttrs,
   supports: {
@@ -10790,7 +11178,7 @@ var Edit = function Edit(props) {
     fullwidth = attributes.fullwidth,
     alignBlock = attributes.alignBlock;
   var blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
-    className: ["flip-separator-blocks", fullwidth ? "separator-fullwidth" : "", "separator-".concat(alignBlock), className].join(" ")
+    className: ["pi-separator-blocks", fullwidth ? "separator-fullwidth" : "", "separator-".concat(alignBlock), className].join(" ")
   });
   return /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, /*#__PURE__*/React.createElement(_inspector__WEBPACK_IMPORTED_MODULE_2__["default"], props), /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement("div", {
     className: "separators",
@@ -10892,7 +11280,7 @@ var Save = function Save(props) {
     fullwidth = attributes.fullwidth,
     alignBlock = attributes.alignBlock;
   var blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
-    className: ["flip-separator-blocks", fullwidth ? "separator-fullwidth" : "", "separator-".concat(alignBlock), className].join(" ")
+    className: ["pi-separator-blocks", fullwidth ? "separator-fullwidth" : "", "separator-".concat(alignBlock), className].join(" ")
   });
   return /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement("div", {
     className: "separators",
@@ -10964,12 +11352,12 @@ var BlockAttrs = {
     "default": "left"
   }
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("flip-blocks/flip-separator-block", {
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("pi-blocks/pi-separator-block", {
   apiVersion: 3,
   title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Separator"),
   description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Create a break between ideas or sections with a horizontal separator."),
   icon: blockIcon,
-  category: "flip-blocks",
+  category: "pi-blocks",
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("separator"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)(""), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("break")],
   attributes: BlockAttrs,
   /* Render the block in the editor. */
@@ -11006,7 +11394,7 @@ var Edit = function Edit(props) {
   var attributes = props.attributes;
   return /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/React.createElement(_inspector__WEBPACK_IMPORTED_MODULE_1__["default"], props), /*#__PURE__*/React.createElement(ServerSideRender, {
     className: "block-server-render",
-    block: "flip-blocks/block-teams-list",
+    block: "pi-blocks/block-teams-list",
     attributes: attributes
   }));
 };
@@ -11126,10 +11514,10 @@ var BlockAttrs = {
     "default": ''
   }
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)('flip-blocks/block-teams-list', {
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)('pi-blocks/block-teams-list', {
   title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Teams List'),
   icon: 'groups',
-  category: 'flip-blocks',
+  category: 'pi-blocks',
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('list'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('teams')],
   attributes: BlockAttrs,
   supports: {
@@ -11997,10 +12385,10 @@ var attr = {
     type: "string"
   }
 };
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("flip-blocks/block-testimonials-carousel", {
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("pi-blocks/block-testimonials-carousel", {
   apiVersion: 3,
   title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Testimonials Carousel"),
-  category: "flip-blocks",
+  category: "pi-blocks",
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("quote"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("carousel"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("testimonials")],
   icon: "testimonial",
   attributes: attr,
@@ -12486,10 +12874,10 @@ var attr = {
     "default": "#97ECFF"
   }
 };
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("flip-blocks/block-text-w-counter", {
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("pi-blocks/block-text-w-counter", {
   apiVersion: 3,
   title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Text with Counter"),
-  category: "flip-blocks",
+  category: "pi-blocks",
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("text"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("counter")],
   icon: "editor-ol-rtl",
   attributes: attr,
@@ -12577,7 +12965,7 @@ var withInspectorControls = createHigherOrderComponent(function (BlockEdit) {
     return /*#__PURE__*/React.createElement(Fragment, null, /*#__PURE__*/React.createElement(BlockEdit, props), /*#__PURE__*/React.createElement(InspectorControls, {
       group: "styles"
     }, /*#__PURE__*/React.createElement(PanelColorSettings, {
-      title: __('Hover Color Settings', 'flip-blocks'),
+      title: __('Hover Color Settings', 'pi-blocks'),
       initialOpen: true,
       colorSettings: [{
         value: hoverColor,
@@ -12586,7 +12974,7 @@ var withInspectorControls = createHigherOrderComponent(function (BlockEdit) {
             hoverColor: color
           });
         },
-        label: __('Hover Color', 'flip-blocks')
+        label: __('Hover Color', 'pi-blocks')
       }, {
         value: hoverBgColor,
         onChange: function onChange(color) {
@@ -12594,7 +12982,7 @@ var withInspectorControls = createHigherOrderComponent(function (BlockEdit) {
             hoverBgColor: color
           });
         },
-        label: __('Hover Background Color', 'flip-blocks')
+        label: __('Hover Background Color', 'pi-blocks')
       }]
     })));
   };
@@ -12774,7 +13162,7 @@ var withAdvancedControls = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_4__.cr
       group: "settings",
       priority: 10
     }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("General", "flip-blocks"),
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("General", "pi-blocks"),
       initialOpen: true
     }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.SelectControl, {
       label: "Select Font Family",
@@ -12783,11 +13171,11 @@ var withAdvancedControls = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_4__.cr
         label: "--Select--",
         value: ""
       }, {
-        label: "SVN-Ogg",
-        value: "svn-ogg"
+        label: "Google Sans",
+        value: "google-sans"
       }, {
-        label: "be-vietnam-pro",
-        value: "be-vietnam-pro"
+        label: "Playfair Display",
+        value: "playfair-display"
       }],
       onChange: function onChange(vl) {
         return setAttributes({
@@ -12940,10 +13328,10 @@ var addHeightControl = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_6__.create
       }
     }, [heightMedia, gap]);
     return /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.Fragment, null, /*#__PURE__*/React.createElement(BlockEdit, props), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_7__.InspectorControls, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.PanelBody, {
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Media Height', 'flip-blocks'),
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Media Height', 'pi-blocks'),
       initialOpen: true
     }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.RangeControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Height (%)', 'flip-blocks'),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Height (%)', 'pi-blocks'),
       value: heightMedia,
       onChange: function onChange(newHeight) {
         return setAttributes({
@@ -12954,7 +13342,7 @@ var addHeightControl = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_6__.create
       min: 0,
       max: 100
     }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.RangeControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Gap (px)', 'flip-blocks'),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Gap (px)', 'pi-blocks'),
       value: gap,
       onChange: function onChange(newGap) {
         return setAttributes({
@@ -12967,7 +13355,7 @@ var addHeightControl = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_6__.create
     }))));
   };
 }, 'addHeightControl');
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_3__.addFilter)('editor.BlockEdit', 'flip-blocks/add-height-control', addHeightControl);
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_3__.addFilter)('editor.BlockEdit', 'pi-blocks/add-height-control', addHeightControl);
 var addHeightAttribute = function addHeightAttribute(settings) {
   if (settings.name !== 'core/media-text') {
     return settings;
@@ -12985,7 +13373,7 @@ var addHeightAttribute = function addHeightAttribute(settings) {
     })
   });
 };
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_3__.addFilter)('blocks.registerBlockType', 'flip-blocks/add-height-media-attribute', addHeightAttribute);
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_3__.addFilter)('blocks.registerBlockType', 'pi-blocks/add-height-media-attribute', addHeightAttribute);
 var applyHeightMediaStyle = function applyHeightMediaStyle(extraProps, blockType, attributes) {
   if (blockType.name !== 'core/media-text') {
     return extraProps;
@@ -13000,7 +13388,7 @@ var applyHeightMediaStyle = function applyHeightMediaStyle(extraProps, blockType
   }
   return extraProps;
 };
-(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_3__.addFilter)('blocks.getSaveContent.extraProps', 'flip-blocks/apply-height-media-style', applyHeightMediaStyle);
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_3__.addFilter)('blocks.getSaveContent.extraProps', 'pi-blocks/apply-height-media-style', applyHeightMediaStyle);
 
 /***/ },
 
@@ -13287,37 +13675,37 @@ var withResponsiveSettings = createHigherOrderComponent(function (BlockEdit) {
     }))) : null, /*#__PURE__*/React.createElement(BlockEdit, props), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, /*#__PURE__*/React.createElement(PanelBody, {
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Responsive Typography', '')
     }, /*#__PURE__*/React.createElement(NavigableMenu, {
-      className: "flip-responsive-toggle",
+      className: "pi-responsive-toggle",
       onNavigate: function onNavigate() {},
       orientation: "horizontal"
     }, /*#__PURE__*/React.createElement(Button, {
       icon: "laptop",
       showTooltip: true,
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Desktop view', 'flip-blocks'),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Desktop view', 'pi-blocks'),
       onClick: function onClick() {
         return setSelectedDevice(_constants__WEBPACK_IMPORTED_MODULE_4__.DEVICE_NAMES.desktop);
       },
       isPrimary: _constants__WEBPACK_IMPORTED_MODULE_4__.DEVICE_NAMES.desktop === selectedDevice,
       isSecondary: _constants__WEBPACK_IMPORTED_MODULE_4__.DEVICE_NAMES.desktop !== selectedDevice
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Desktop', 'flip-blocks')), /*#__PURE__*/React.createElement(Button, {
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Desktop', 'pi-blocks')), /*#__PURE__*/React.createElement(Button, {
       icon: "tablet",
       showTooltip: true,
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Tablet view', 'flip-blocks'),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Tablet view', 'pi-blocks'),
       onClick: function onClick() {
         return setSelectedDevice(_constants__WEBPACK_IMPORTED_MODULE_4__.DEVICE_NAMES.tablet);
       },
       isPrimary: _constants__WEBPACK_IMPORTED_MODULE_4__.DEVICE_NAMES.tablet === selectedDevice,
       isSecondary: _constants__WEBPACK_IMPORTED_MODULE_4__.DEVICE_NAMES.tablet !== selectedDevice
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Tablet', 'flip-blocks')), /*#__PURE__*/React.createElement(Button, {
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Tablet', 'pi-blocks')), /*#__PURE__*/React.createElement(Button, {
       icon: "smartphone",
       showTooltip: true,
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Mobile view', 'flip-blocks'),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Mobile view', 'pi-blocks'),
       onClick: function onClick() {
         return setSelectedDevice(_constants__WEBPACK_IMPORTED_MODULE_4__.DEVICE_NAMES.mobile);
       },
       isPrimary: _constants__WEBPACK_IMPORTED_MODULE_4__.DEVICE_NAMES.mobile === selectedDevice,
       isSecondary: _constants__WEBPACK_IMPORTED_MODULE_4__.DEVICE_NAMES.mobile !== selectedDevice
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Mobile', 'flip-blocks'))), isFontSizeDisabled ? null : /*#__PURE__*/React.createElement(FontSizePicker, {
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Mobile', 'pi-blocks'))), isFontSizeDisabled ? null : /*#__PURE__*/React.createElement(FontSizePicker, {
       value: getFontSizeOfSelectedDevice(),
       onChange: function onChange(newFontSize) {
         var fontSizeSlug = (0,_utils__WEBPACK_IMPORTED_MODULE_2__.getFontSlug)(newFontSize, fontSizes);
@@ -13402,7 +13790,7 @@ var DEVICE_SIZES = {
   Tablet: '1199.98px',
   Mobile: '767.98px'
 };
-var RESPONSIVE_SETTINGS_ATTRIBUTE = 'flipResponsiveSettings';
+var RESPONSIVE_SETTINGS_ATTRIBUTE = 'piResponsiveSettings';
 
 /***/ },
 
@@ -13434,7 +13822,7 @@ var addFilter = wp.hooks.addFilter;
 
 
 addFilter('blocks.registerBlockType', 'bcf-blocks/add-responsive-typo-attributes', _utils__WEBPACK_IMPORTED_MODULE_1__.addResponsiveAttributes);
-addFilter('editor.BlockEdit', 'flip-blocks/add-responsive-typo-controls', _components_with_responsive_settings__WEBPACK_IMPORTED_MODULE_2__.withResponsiveSettings);
+addFilter('editor.BlockEdit', 'pi-blocks/add-responsive-typo-controls', _components_with_responsive_settings__WEBPACK_IMPORTED_MODULE_2__.withResponsiveSettings);
 
 /***/ },
 
@@ -13543,6 +13931,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_block_related_list__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./blocks/block-related-list */ "./src/blocks/block-related-list/index.js");
 /* harmony import */ var _blocks_block_logo_carousel__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./blocks/block-logo-carousel */ "./src/blocks/block-logo-carousel/index.js");
 /* harmony import */ var _blocks_block_gallery_carousel__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./blocks/block-gallery-carousel */ "./src/blocks/block-gallery-carousel/index.js");
+/* harmony import */ var _blocks_block_process_steps__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./blocks/block-process-steps */ "./src/blocks/block-process-steps/index.js");
 /**
  * Gutenberg Blocks
  *
@@ -13565,6 +13954,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // Add more block here
+
 
 
 
@@ -13673,39 +14063,39 @@ var BackgroundImagePanel = /*#__PURE__*/function (_Component) {
         setAttributes = _this$props.setAttributes;
       var backgroundRepeatOptions = [{
         value: 'no-repeat',
-        label: __('No Repeat', 'flip-blocks')
+        label: __('No Repeat', 'pi-blocks')
       }, {
         value: 'repeat',
-        label: __('Repeat', 'flip-blocks')
+        label: __('Repeat', 'pi-blocks')
       }, {
         value: 'repeat-x',
-        label: __('Repeat Horizontally', 'flip-blocks')
+        label: __('Repeat Horizontally', 'pi-blocks')
       }, {
         value: 'repeat-y',
-        label: __('Repeat Vertically', 'flip-blocks')
+        label: __('Repeat Vertically', 'pi-blocks')
       }];
       var backgroundSizeOptions = [{
         value: 'auto',
-        label: __('Auto', 'flip-blocks')
+        label: __('Auto', 'pi-blocks')
       }, {
         value: 'cover',
-        label: __('Cover', 'flip-blocks')
+        label: __('Cover', 'pi-blocks')
       }, {
         value: 'contain',
-        label: __('Contain', 'flip-blocks')
+        label: __('Contain', 'pi-blocks')
       }];
       var backgroundSizeHelp;
       if ('cover' === attributes.backgroundSize) {
-        backgroundSizeHelp = __('Scales the image as large as possible without stretching the image. Cropped either vertically or horizontally so that no empty space remains.', 'flip-blocks');
+        backgroundSizeHelp = __('Scales the image as large as possible without stretching the image. Cropped either vertically or horizontally so that no empty space remains.', 'pi-blocks');
       }
       if ('contain' === attributes.backgroundSize) {
-        backgroundSizeHelp = __('Scales the image as large as possible without cropping or stretching the image.', 'flip-blocks');
+        backgroundSizeHelp = __('Scales the image as large as possible without cropping or stretching the image.', 'pi-blocks');
       }
       if ('auto' === attributes.backgroundSize) {
-        backgroundSizeHelp = __('Scales the background image in the corresponding direction such that its intrinsic proportions are maintained.', 'flip-blocks');
+        backgroundSizeHelp = __('Scales the background image in the corresponding direction such that its intrinsic proportions are maintained.', 'pi-blocks');
       }
       return /*#__PURE__*/React.createElement(Fragment, null, /*#__PURE__*/React.createElement(PanelBody, {
-        title: __('Background Image', 'flip-blocks'),
+        title: __('Background Image', 'pi-blocks'),
         initialOpen: false
       }, /*#__PURE__*/React.createElement(MediaUploadCheck, null, /*#__PURE__*/React.createElement(MediaUpload, {
         onSelect: function onSelect(img) {
@@ -13718,16 +14108,16 @@ var BackgroundImagePanel = /*#__PURE__*/function (_Component) {
         render: function render(_ref) {
           var open = _ref.open;
           return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(ButtonGroup, {
-            className: "flip-background-button-group"
+            className: "pi-background-button-group"
           }, /*#__PURE__*/React.createElement(Button, {
-            className: "flip-inspector-icon-button flip-background-add-button is-button is-default",
-            label: __('Edit image', 'flip-blocks'),
+            className: "pi-inspector-icon-button pi-background-add-button is-button is-default",
+            label: __('Edit image', 'pi-blocks'),
             onClick: open
           }, /*#__PURE__*/React.createElement(Icon, {
             icon: "format-image"
-          }), __('Select Image', 'flip-blocks')), attributes.backgroundImgURL && /*#__PURE__*/React.createElement(Button, {
-            className: "flip-inspector-icon-button flip-background-remove-button is-button is-default",
-            label: __('Remove Image', 'flip-blocks'),
+          }), __('Select Image', 'pi-blocks')), attributes.backgroundImgURL && /*#__PURE__*/React.createElement(Button, {
+            className: "pi-inspector-icon-button pi-background-remove-button is-button is-default",
+            label: __('Remove Image', 'pi-blocks'),
             onClick: function onClick() {
               return setAttributes({
                 backgroundImgURL: null
@@ -13735,10 +14125,10 @@ var BackgroundImagePanel = /*#__PURE__*/function (_Component) {
             }
           }, /*#__PURE__*/React.createElement(Icon, {
             icon: "dismiss"
-          }), __('Remove', 'flip-blocks'))));
+          }), __('Remove', 'pi-blocks'))));
         }
       })), attributes.backgroundImgURL && /*#__PURE__*/React.createElement(Fragment, null, /*#__PURE__*/React.createElement(FocalPointPicker, {
-        label: __('Focal Point', 'flip-blocks'),
+        label: __('Focal Point', 'pi-blocks'),
         url: attributes.backgroundImgURL,
         value: attributes.focalPoint,
         onChange: function onChange(value) {
@@ -13747,8 +14137,8 @@ var BackgroundImagePanel = /*#__PURE__*/function (_Component) {
           });
         }
       }), /*#__PURE__*/React.createElement(SelectControl, {
-        className: "flip-inspector-help-text",
-        label: __('Image Display', 'flip-blocks'),
+        className: "pi-inspector-help-text",
+        label: __('Image Display', 'pi-blocks'),
         value: attributes.backgroundSize,
         help: backgroundSizeHelp,
         options: backgroundSizeOptions,
@@ -13758,7 +14148,7 @@ var BackgroundImagePanel = /*#__PURE__*/function (_Component) {
           });
         }
       }), 'cover' !== attributes.backgroundSize && /*#__PURE__*/React.createElement(SelectControl, {
-        label: __('Image Repeat', 'flip-blocks'),
+        label: __('Image Repeat', 'pi-blocks'),
         value: attributes.backgroundRepeat,
         options: backgroundRepeatOptions,
         onChange: function onChange(value) {
@@ -13878,42 +14268,42 @@ function Margin(props) {
     _props$onChangeMargin6 = props.onChangeMarginHorizontal,
     onChangeMarginHorizontal = _props$onChangeMargin6 === void 0 ? function () {} : _props$onChangeMargin6;
   return /*#__PURE__*/React.createElement(Fragment, null, marginEnableTop && /*#__PURE__*/React.createElement(RangeControl, {
-    label: marginTopLabel ? marginTopLabel : __('Margin Top', 'flip-blocks'),
+    label: marginTopLabel ? marginTopLabel : __('Margin Top', 'pi-blocks'),
     value: marginTop,
     min: marginTopMin,
     max: marginTopMax,
     onChange: onChangeMarginTop,
     __nextHasNoMarginBottom: true
   }), marginEnableRight && /*#__PURE__*/React.createElement(RangeControl, {
-    label: marginRightLabel ? marginRightLabel : __('Margin Right', 'flip-blocks'),
+    label: marginRightLabel ? marginRightLabel : __('Margin Right', 'pi-blocks'),
     value: marginRight,
     min: marginRightMin,
     max: marginRightMax,
     onChange: onChangeMarginRight,
     __nextHasNoMarginBottom: true
   }), marginEnableBottom && /*#__PURE__*/React.createElement(RangeControl, {
-    label: marginBottomLabel ? marginBottomLabel : __('Margin Bottom', 'flip-blocks'),
+    label: marginBottomLabel ? marginBottomLabel : __('Margin Bottom', 'pi-blocks'),
     value: marginBottom,
     min: marginBottomMin,
     max: marginBottomMax,
     onChange: onChangeMarginBottom,
     __nextHasNoMarginBottom: true
   }), marginEnableLeft && /*#__PURE__*/React.createElement(RangeControl, {
-    label: marginLeftLabel ? marginLeftLabel : __('Margin Left', 'flip-blocks'),
+    label: marginLeftLabel ? marginLeftLabel : __('Margin Left', 'pi-blocks'),
     value: marginLeft,
     min: marginLeftMin,
     max: marginLeftMax,
     onChange: onChangeMarginLeft,
     __nextHasNoMarginBottom: true
   }), marginEnableVertical && /*#__PURE__*/React.createElement(RangeControl, {
-    label: marginVerticalLabel ? marginVerticalLabel : __('Margin Vertical', 'flip-blocks'),
+    label: marginVerticalLabel ? marginVerticalLabel : __('Margin Vertical', 'pi-blocks'),
     value: marginVertical,
     min: marginVerticalMin,
     max: marginVerticalMax,
     onChange: onChangeMarginVertical,
     __nextHasNoMarginBottom: true
   }), marginEnableHorizontal && /*#__PURE__*/React.createElement(RangeControl, {
-    label: marginHorizontalLabel ? marginHorizontalLabel : __('Margin Horizontal', 'flip-blocks'),
+    label: marginHorizontalLabel ? marginHorizontalLabel : __('Margin Horizontal', 'pi-blocks'),
     value: marginHorizontal,
     min: marginHorizontalMin,
     max: marginHorizontalMax,
@@ -13985,49 +14375,49 @@ function Padding(props) {
     _props$onChangePaddin7 = props.onChangePaddingHorizontal,
     onChangePaddingHorizontal = _props$onChangePaddin7 === void 0 ? function () {} : _props$onChangePaddin7;
   return /*#__PURE__*/React.createElement(Fragment, null, paddingEnableTop && /*#__PURE__*/React.createElement(RangeControl, {
-    label: __('Padding Top', 'flip-blocks'),
+    label: __('Padding Top', 'pi-blocks'),
     value: paddingTop,
     min: paddingTopMin,
     max: paddingTopMax,
     onChange: onChangePaddingTop,
     __nextHasNoMarginBottom: true
   }), paddingEnableRight && /*#__PURE__*/React.createElement(RangeControl, {
-    label: __('Padding Right', 'flip-blocks'),
+    label: __('Padding Right', 'pi-blocks'),
     value: paddingRight,
     min: paddingRightMin,
     max: paddingRightMax,
     onChange: onChangePaddingRight,
     __nextHasNoMarginBottom: true
   }), paddingEnableBottom && /*#__PURE__*/React.createElement(RangeControl, {
-    label: __('Padding Bottom', 'flip-blocks'),
+    label: __('Padding Bottom', 'pi-blocks'),
     value: paddingBottom,
     min: paddingBottomMin,
     max: paddingBottomMax,
     onChange: onChangePaddingBottom,
     __nextHasNoMarginBottom: true
   }), paddingEnableLeft && /*#__PURE__*/React.createElement(RangeControl, {
-    label: __('Padding Left', 'flip-blocks'),
+    label: __('Padding Left', 'pi-blocks'),
     value: paddingLeft,
     min: paddingLeftMin,
     max: paddingLeftMax,
     onChange: onChangePaddingLeft,
     __nextHasNoMarginBottom: true
   }), paddingEnableVertical && /*#__PURE__*/React.createElement(RangeControl, {
-    label: paddingVerticalLabel ? paddingVerticalLabel : __('Padding Vertical', 'flip-blocks'),
+    label: paddingVerticalLabel ? paddingVerticalLabel : __('Padding Vertical', 'pi-blocks'),
     value: paddingVertical,
     min: paddingVerticalMin,
     max: paddingVerticalMax,
     onChange: onChangePaddingVertical,
     __nextHasNoMarginBottom: true
   }), paddingEnableHorizontal && /*#__PURE__*/React.createElement(RangeControl, {
-    label: __('Padding Horizontal', 'flip-blocks'),
+    label: __('Padding Horizontal', 'pi-blocks'),
     value: paddingHorizontal,
     min: paddingHorizontalMin,
     max: paddingHorizontalMax,
     onChange: onChangePaddingHorizontal,
     __nextHasNoMarginBottom: true
   }), paddingEnable && /*#__PURE__*/React.createElement(RangeControl, {
-    label: __('Padding', 'flip-blocks'),
+    label: __('Padding', 'pi-blocks'),
     value: padding,
     min: paddingMin,
     max: paddingMax,
@@ -14091,7 +14481,7 @@ var RenderSettingControl = /*#__PURE__*/function (_Component) {
         return this.props.children;
       }
       var blockName = fallback ? ownerProps === null || ownerProps === void 0 ? void 0 : ownerProps.name : this.props.children.props.name;
-      if (applyFilters('flip_should_render_block_setting', true, blockName, this.props.id, (0,_data_providers_currentUserData__WEBPACK_IMPORTED_MODULE_0__["default"])())) {
+      if (applyFilters('pi_should_render_block_setting', true, blockName, this.props.id, (0,_data_providers_currentUserData__WEBPACK_IMPORTED_MODULE_0__["default"])())) {
         return this.props.children;
       }
       return null;
@@ -19013,6 +19403,32 @@ __webpack_require__.r(__webpack_exports__);
 /***/ "./src/blocks/block-logo-carousel/styles/style.scss"
 /*!**********************************************************!*\
   !*** ./src/blocks/block-logo-carousel/styles/style.scss ***!
+  \**********************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ },
+
+/***/ "./src/blocks/block-process-steps/styles/editor.scss"
+/*!***********************************************************!*\
+  !*** ./src/blocks/block-process-steps/styles/editor.scss ***!
+  \***********************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ },
+
+/***/ "./src/blocks/block-process-steps/styles/style.scss"
+/*!**********************************************************!*\
+  !*** ./src/blocks/block-process-steps/styles/style.scss ***!
   \**********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -31220,7 +31636,7 @@ SwiperSlide.displayName = 'SwiperSlide';
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
 /******/ 		
-/******/ 		var chunkLoadingGlobal = globalThis["webpackChunkflip_blocks"] = globalThis["webpackChunkflip_blocks"] || [];
+/******/ 		var chunkLoadingGlobal = globalThis["webpackChunkpi_blocks"] = globalThis["webpackChunkpi_blocks"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();

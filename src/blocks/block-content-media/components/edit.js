@@ -13,7 +13,7 @@ export default function Edit({ attributes, setAttributes, className }) {
 	const activeItem = items[active];
 
 	const blockProps = useBlockProps({
-		className: ["flip-content-media", className].join(" "),
+		className: ["pi-content-media", className].join(" "),
 	});
 
 	return (

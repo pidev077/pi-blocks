@@ -1,5 +1,5 @@
 <?php
-function flip_teams_list_render($atts)
+function pi_teams_list_render($atts)
 {
     $bl_attr = shortcode_atts([
         'posts_per_page' => 6,
@@ -93,14 +93,14 @@ function flip_teams_list_render($atts)
                 <?php if ($the_query->max_num_pages > 1): ?>
                     <div class="block-teams-list__load-more">
                         <div class="loading"></div>
-                        <button class="flip-btn btn-load-more"> Load More </button>
+                        <button class="pi-btn btn-load-more"> Load More </button>
                     </div>
                 <?php endif; ?>
             </div>
 
         <?php else: ?>
-            <div class="flip-filter-posts-block--not-found">
-                <?php _e('Sorry, no posts matched your criteria.', 'flip-blocks'); ?>
+            <div class="pi-filter-posts-block--not-found">
+                <?php _e('Sorry, no posts matched your criteria.', 'pi-blocks'); ?>
             </div>
         <?php endif; ?>
     </div>

@@ -1,9 +1,16 @@
 .is-root-container .hero-block {
 	&-content {
+		p {
+			font-size: 13px;
+			letter-spacing: 0.2em;
+			text-transform: uppercase;
+			margin-bottom: 20px;
+		}
+
 		h1 {
 			margin-left: 0;
 			margin-right: 0;
-			letter-spacing: -2.03px;
+			letter-spacing: -0.02em;
 		}
 	}
 

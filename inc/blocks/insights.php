@@ -55,7 +55,7 @@ function block_insights_render($atts, $content)
 						insight_card();
 					}
 				} else { ?>
-					<div class="flip-filter-posts-block--not-found"> Sorry, no posts matched your criteria.</div>
+					<div class="pi-filter-posts-block--not-found"> Sorry, no posts matched your criteria.</div>
 				<?php } ?>
 			</div>
 			<div id="block-insights__infinite">

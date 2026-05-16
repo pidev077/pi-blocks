@@ -177,36 +177,36 @@ export const withResponsiveSettings = createHigherOrderComponent((BlockEdit) => 
                     <PanelBody
                         title={__('Responsive Typography', '')}
                     >
-                        <NavigableMenu className="flip-responsive-toggle" onNavigate={() => { }} orientation="horizontal">
+                        <NavigableMenu className="pi-responsive-toggle" onNavigate={() => { }} orientation="horizontal">
                             <Button
                                 icon="laptop"
                                 showTooltip
-                                label={__('Desktop view', 'flip-blocks')}
+                                label={__('Desktop view', 'pi-blocks')}
                                 onClick={() => setSelectedDevice(DEVICE_NAMES.desktop)}
                                 isPrimary={DEVICE_NAMES.desktop === selectedDevice}
                                 isSecondary={DEVICE_NAMES.desktop !== selectedDevice}
                             >
-                                {__('Desktop', 'flip-blocks')}
+                                {__('Desktop', 'pi-blocks')}
                             </Button>                            
                             <Button
                                 icon="tablet"
                                 showTooltip
-                                label={__('Tablet view', 'flip-blocks')}
+                                label={__('Tablet view', 'pi-blocks')}
                                 onClick={() => setSelectedDevice(DEVICE_NAMES.tablet)}
                                 isPrimary={DEVICE_NAMES.tablet === selectedDevice}
                                 isSecondary={DEVICE_NAMES.tablet !== selectedDevice}
                             >
-                                {__('Tablet', 'flip-blocks')}
+                                {__('Tablet', 'pi-blocks')}
                             </Button>
                             <Button
                                 icon="smartphone"
                                 showTooltip
-                                label={__('Mobile view', 'flip-blocks')}
+                                label={__('Mobile view', 'pi-blocks')}
                                 onClick={() => setSelectedDevice(DEVICE_NAMES.mobile)}
                                 isPrimary={DEVICE_NAMES.mobile === selectedDevice}
                                 isSecondary={DEVICE_NAMES.mobile !== selectedDevice}
                             >
-                                {__('Mobile', 'flip-blocks')}
+                                {__('Mobile', 'pi-blocks')}
                             </Button>
                         </NavigableMenu>
                         {isFontSizeDisabled

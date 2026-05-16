@@ -136,10 +136,10 @@ const Inspector = (props) => {
 	return (
 		<>
 			<InspectorControls key="settings" group="settings">
-				<PanelBody title={__("General", "flip-blocks")} initialOpen={true}>
+				<PanelBody title={__("General", "pi-blocks")} initialOpen={true}>
 					<ToggleControl
-						label={__("Border Radius Top", "flip-blocks")}
-						help={__("Enable BorderRadius Top", "flip-blocks")}
+						label={__("Border Radius Top", "pi-blocks")}
+						help={__("Enable BorderRadius Top", "pi-blocks")}
 						checked={borderRadiusTop}
 						onChange={() =>
 							setAttributes({ borderRadiusTop: !borderRadiusTop })
@@ -147,15 +147,15 @@ const Inspector = (props) => {
 					/>
 
 					<ToggleControl
-						label={__("Border Radius Bottom", "flip-blocks")}
-						help={__("Enable BorderRadius Bottom", "flip-blocks")}
+						label={__("Border Radius Bottom", "pi-blocks")}
+						help={__("Enable BorderRadius Bottom", "pi-blocks")}
 						checked={borderRadiusBottom}
 						onChange={() =>
 							setAttributes({ borderRadiusBottom: !borderRadiusBottom })
 						}
 					/>
 					<ToggleControl
-						label={__("Overflow Hidden", "flip-blocks")}
+						label={__("Overflow Hidden", "pi-blocks")}
 						checked={overflowHidden}
 						onChange={() =>
 							setAttributes({ overflowHidden: !overflowHidden })
@@ -172,7 +172,7 @@ const Inspector = (props) => {
 					/>
 				</PanelBody>
 
-				<PanelBody title={__("Padding", "flip-blocks")} initialOpen={true}>
+				<PanelBody title={__("Padding", "pi-blocks")} initialOpen={true}>
 					<TextControl
 						label={__("Padding Top")}
 						value={containerPaddingTop.default}
@@ -281,7 +281,7 @@ const Inspector = (props) => {
 					<hr />
 
 					<TextControl
-						label={__("Inside Container Max Width (px)", "flip-blocks")}
+						label={__("Inside Container Max Width (px)", "pi-blocks")}
 						value={containerMaxWidth}
 						help="Set unit px, vw, %"
 						__next40pxDefaultSize
@@ -292,8 +292,8 @@ const Inspector = (props) => {
 				</PanelBody>
 			</InspectorControls>
 			<InspectorControls key="styles" group="styles">
-				<PanelBody title={__("Background Image", "flip-blocks")}>
-					<p>{__("Select a background image:", "flip-blocks")}</p>
+				<PanelBody title={__("Background Image", "pi-blocks")}>
+					<p>{__("Select a background image:", "pi-blocks")}</p>
 					<MediaUpload
 						onSelect={onSelectImage}
 						type="image"
@@ -301,22 +301,22 @@ const Inspector = (props) => {
 						render={({ open }) => (
 							<div>
 								<Button
-									className="flip-container-inspector-media"
-									label={__("Edit image", "flip-blocks")}
+									className="pi-container-inspector-media"
+									label={__("Edit image", "pi-blocks")}
 									onClick={open}
 								>
 									<Icon icon="format-image" />
-									{__("Select Image", "flip-blocks")}
+									{__("Select Image", "pi-blocks")}
 								</Button>
 
 								{containerImgURL && !!containerImgURL.length && (
 									<Button
-										className="flip-container-inspector-media"
-										label={__("Remove Image", "flip-blocks")}
+										className="pi-container-inspector-media"
+										label={__("Remove Image", "pi-blocks")}
 										onClick={onRemoveImage}
 									>
 										<Icon icon="dismiss" />
-										{__("Remove", "flip-blocks")}
+										{__("Remove", "pi-blocks")}
 									</Button>
 								)}
 							</div>
@@ -350,12 +350,12 @@ const Inspector = (props) => {
 								</Button>
 								{videoURL && !!videoURL.length && (
 									<Button
-										className="flip-container-inspector-media"
-										label={__("Remove Video", "flip-blocks")}
+										className="pi-container-inspector-media"
+										label={__("Remove Video", "pi-blocks")}
 										onClick={onRemoveVideo}
 									>
 										<Icon icon="dismiss" />
-										{__("Remove", "flip-blocks")}
+										{__("Remove", "pi-blocks")}
 									</Button>
 								)}
 							</>
@@ -384,7 +384,7 @@ const Inspector = (props) => {
 					</div>
 				</PanelBody>
 
-				<PanelBody title={__("Background Color", "flip-blocks")}>
+				<PanelBody title={__("Background Color", "pi-blocks")}>
 					<ColorGradientControl
 						colorValue={containerBgColor}
 						label={__("Choose a color")}

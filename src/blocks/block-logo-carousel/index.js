@@ -21,12 +21,12 @@ const attributes = {
 	},
 };
 
-export default registerBlockType("flip-blocks/logo-carousel", {
+export default registerBlockType("pi-blocks/logo-carousel", {
 	apiVersion: 3,
 	title: "Logo Carousel",
 	description: "Display a carousel logo auto play as marquee.",
 	icon: "images-alt",
-	category: "flip-blocks",
+	category: "pi-blocks",
 	keywords: ["logo", "carousel"],
 	attributes,
 	supports: {

@@ -36,7 +36,7 @@ export default class RenderSettingControl extends Component {
 
 		if (
 			applyFilters(
-				'flip_should_render_block_setting',
+				'pi_should_render_block_setting',
 				true,
 				blockName,
 				this.props.id,

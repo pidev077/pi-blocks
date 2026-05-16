@@ -54,18 +54,18 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
                 <BlockEdit {...props} />
                 <InspectorControls group="styles">
                     <PanelColorSettings
-                        title={__('Hover Color Settings', 'flip-blocks')}
+                        title={__('Hover Color Settings', 'pi-blocks')}
                         initialOpen={true}
                         colorSettings={[
                             {
                                 value: hoverColor,
                                 onChange: (color) => setAttributes({ hoverColor: color }),
-                                label: __('Hover Color', 'flip-blocks'),
+                                label: __('Hover Color', 'pi-blocks'),
                             },
                             {
                                 value: hoverBgColor,
                                 onChange: (color) => setAttributes({ hoverBgColor: color }),
-                                label: __('Hover Background Color', 'flip-blocks'),
+                                label: __('Hover Background Color', 'pi-blocks'),
                             },
                         ]}
                     />

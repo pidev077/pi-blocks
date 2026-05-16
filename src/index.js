@@ -31,3 +31,4 @@ import "./blocks/block-teams-list";
 import "./blocks/block-related-list";
 import "./blocks/block-logo-carousel";
 import "./blocks/block-gallery-carousel";
+import "./blocks/block-process-steps";

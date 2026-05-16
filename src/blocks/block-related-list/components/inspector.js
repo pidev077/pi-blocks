@@ -64,11 +64,11 @@ const Inspector = ({ attributes, setAttributes }) => {
 
 	return (
 		<InspectorControls>
-			<PanelBody title={__("Block Settings", "flip-blocks")} initialOpen>
+			<PanelBody title={__("Block Settings", "pi-blocks")} initialOpen>
 				{!filteredTaxonomies && <Spinner />}
 				{filteredTaxonomies && (
 					<SelectControl
-						label={__("Select taxonomy", "flip-blocks")}
+						label={__("Select taxonomy", "pi-blocks")}
 						value={taxonomy}
 						options={taxonomyOptions}
 						onChange={(value) =>
@@ -80,17 +80,17 @@ const Inspector = ({ attributes, setAttributes }) => {
 				{taxonomy && !terms && <Spinner />}
 				{taxonomy && terms && (
 					<SelectControl
-						label={__("Select term", "flip-blocks")}
+						label={__("Select term", "pi-blocks")}
 						value={termId}
 						options={[
-							{ label: __("Select term", "flip-blocks"), value: 0 },
+							{ label: __("Select term", "pi-blocks"), value: 0 },
 							...termOptions,
 						]}
 						onChange={(value) => setAttributes({ termId: Number(value) })}
 					/>
 				)}
 				<ToggleControl
-					label={__("Show taxonomy buttons", "flip-blocks")}
+					label={__("Show taxonomy buttons", "pi-blocks")}
 					checked={showTaxonomyButtons}
 					onChange={(value) =>
 						setAttributes({ showTaxonomyButtons: value })

@@ -21,12 +21,12 @@ const attributes = {
 	},
 };
 
-export default registerBlockType("flip-blocks/gallery-carousel", {
+export default registerBlockType("pi-blocks/gallery-carousel", {
 	apiVersion: 3,
 	title: "Gallery Carousel",
 	description: "Display a carousel images autoplay as marquee.",
 	icon: "images-alt",
-	category: "flip-blocks",
+	category: "pi-blocks",
 	keywords: ["image", "carousel"],
 	attributes,
 	supports: {

@@ -1,4 +1,4 @@
-<?php function flip_sectors_list_render($atts)
+<?php function pi_sectors_list_render($atts)
 {
     $atts = shortcode_atts(
         [

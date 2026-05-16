@@ -166,7 +166,7 @@ function load_team_detail()
     if (!$team_id)
         wp_send_json_error();
 
-    $html = flip_get_team_detail_html($team_id);
+    $html = pi_get_team_detail_html($team_id);
 
     wp_send_json_success([
         'html' => $html

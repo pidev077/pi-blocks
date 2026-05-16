@@ -33,7 +33,7 @@ const withAdvancedControls = createHigherOrderComponent(
 				{allowedBlocks.includes(name) && (
 					<InspectorControls group="settings" priority={10}>
 						<PanelBody
-							title={__("General", "flip-blocks")}
+							title={__("General", "pi-blocks")}
 							initialOpen={true}
 						>
 							<SelectControl
@@ -41,8 +41,8 @@ const withAdvancedControls = createHigherOrderComponent(
 								value={fontFamily}
 								options={[
 									{ label: "--Select--", value: "" },
-									{ label: "SVN-Ogg", value: "svn-ogg" },
-									{ label: "be-vietnam-pro", value: "be-vietnam-pro" },
+									{ label: "Google Sans", value: "google-sans" },
+									{ label: "Playfair Display", value: "playfair-display" },
 								]}
 								onChange={(vl) => setAttributes({ fontFamily: vl })}
 							/>
