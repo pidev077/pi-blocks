@@ -14,5 +14,21 @@
 				}
 			}
 		}
+
+		.wp-block-button.has-pi-icon {
+			.wp-block-button__link {
+				&::after {
+					content: '';
+					display: inline-block;
+					width: var(--pi-icon-size, 20px);
+					height: var(--pi-icon-size, 20px);
+					background-image: var(--pi-icon-url);
+					background-size: contain;
+					background-repeat: no-repeat;
+					background-position: center;
+					flex-shrink: 0;
+				}
+			}
+		}
 	}
 }

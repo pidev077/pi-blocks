@@ -19,7 +19,7 @@ Editor style
   font-family: "Playfair Display", serif;
   font-weight: 400;
   line-height: 100%;
-  color: #120a00;
+  color: #27211C;
 }
 
 .is-root-container {
@@ -66,8 +66,15 @@ Editor style
   color: #584E44;
   font-family: "Google Sans", sans-serif;
   line-height: 150%;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 400;
+}
+@media (min-width: 768px) {
+  .is-root-container p,
+  .is-root-container span:not(.dashicon),
+  .is-root-container div {
+    font-size: 1.125rem;
+  }
 }
 .is-root-container h1,
 .is-root-container h2,
@@ -227,6 +234,17 @@ html :where(.wp-block) {
 .is-root-container .wp-block-buttons .wp-block-button .wp-block-button__link:hover {
   background: rgb(208.8186046512, 149.8046511628, 35.1813953488);
   color: #fff;
+}
+.is-root-container .wp-block-buttons .wp-block-button.has-pi-icon .wp-block-button__link::after {
+  content: "";
+  display: inline-block;
+  width: var(--pi-icon-size, 20px);
+  height: var(--pi-icon-size, 20px);
+  background-image: var(--pi-icon-url);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
 }
 /*!************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/blocks/responsive-settings/styles/editor.scss ***!
@@ -668,6 +686,11 @@ html :where(.wp-block) {
 }
 [data-type="pi-blocks/pi-column"].pi-is-vertically-aligned-bottom {
   align-self: flex-end;
+  display: flex;
+  align-items: flex-end;
+}
+[data-type="pi-blocks/pi-column"].pi-is-vertically-aligned-bottom .pi-block-layout-column-inner {
+  height: auto;
 }
 
 [data-type="pi-blocks/pi-column"] .components-placeholder {
@@ -775,6 +798,12 @@ html :where(.wp-block) {
  * Can include things like variables and mixins
  * that are used across the project.
 */
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
 .is-root-container .hero-block-content p {
   font-size: 13px;
   letter-spacing: 0.2em;
@@ -785,6 +814,13 @@ html :where(.wp-block) {
   margin-left: 0;
   margin-right: 0;
   letter-spacing: -0.02em;
+  font-size: 48px;
+  line-height: 1.2;
+}
+@media (max-width: 575.98px) {
+  .is-root-container .hero-block-content h1 {
+    font-size: 40px;
+  }
 }
 .is-root-container .hero-block .container {
   margin: 0 auto;

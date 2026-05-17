@@ -578,6 +578,11 @@
 
 	&.pi-is-vertically-aligned-bottom {
 		align-self: flex-end;
+		display: flex;
+		align-items: flex-end;
+		.pi-block-layout-column-inner{
+			height: auto;
+		}
 	}
 }
 

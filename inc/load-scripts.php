@@ -80,8 +80,11 @@ add_action('enqueue_block_editor_assets', 'pi_editor_assets');
  */
 function pi_blocks_frontend_assets()
 {
-	// Load the dismissible notice js.
-	wp_enqueue_script('pi-blocks-app-min', plugins_url('assets/dist/index.js', dirname(__FILE__)), array('jquery'), filemtime(plugin_dir_path(__DIR__) . 'assets/dist/index.js'), true);
+	$dist_file = plugin_dir_path(__DIR__) . 'assets/dist/index.js';
+	if ( ! file_exists( $dist_file ) ) {
+		return;
+	}
+	wp_enqueue_script('pi-blocks-app-min', plugins_url('assets/dist/index.js', dirname(__FILE__)), array('jquery'), filemtime($dist_file), true);
 	wp_localize_script('pi-blocks-app-min', 'block_script', [
 		'ajax_url' => admin_url('admin-ajax.php'),
 	]);

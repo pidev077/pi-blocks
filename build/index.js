@@ -13147,7 +13147,13 @@ var addFilter = wp.hooks.addFilter;
 var __ = wp.i18n.__;
 var _wp$blockEditor = wp.blockEditor,
   PanelColorSettings = _wp$blockEditor.PanelColorSettings,
-  InspectorControls = _wp$blockEditor.InspectorControls;
+  InspectorControls = _wp$blockEditor.InspectorControls,
+  MediaUpload = _wp$blockEditor.MediaUpload,
+  MediaUploadCheck = _wp$blockEditor.MediaUploadCheck;
+var _wp$components = wp.components,
+  PanelBody = _wp$components.PanelBody,
+  Button = _wp$components.Button,
+  ToggleControl = _wp$components.ToggleControl;
 var _wp$element = wp.element,
   Fragment = _wp$element.Fragment,
   useEffect = _wp$element.useEffect;
@@ -13155,7 +13161,7 @@ var createHigherOrderComponent = wp.compose.createHigherOrderComponent;
 
 
 
-// Add custom attribute for hover color
+// Add custom attributes
 var addCustomAttributes = function addCustomAttributes(settings) {
   if (settings.name !== 'core/button') {
     return settings;
@@ -13164,18 +13170,30 @@ var addCustomAttributes = function addCustomAttributes(settings) {
     attributes: _objectSpread(_objectSpread({}, settings.attributes), {}, {
       hoverColor: {
         type: 'string',
-        "default": '' // Default hover color
+        "default": ''
       },
       hoverBgColor: {
         type: 'string',
-        "default": '' // Default hover bg color
+        "default": ''
+      },
+      piShowIcon: {
+        type: 'boolean',
+        "default": false
+      },
+      piIconUrl: {
+        type: 'string',
+        "default": ''
+      },
+      piIconSize: {
+        type: 'number',
+        "default": 20
       }
     })
   });
 };
 addFilter('blocks.registerBlockType', 'custom/custom-button-attributes', addCustomAttributes);
 
-// Add Hover Color Picker Control
+// Add Inspector Controls HOC
 var withInspectorControls = createHigherOrderComponent(function (BlockEdit) {
   return function (props) {
     if (props.name !== 'core/button') {
@@ -13185,19 +13203,30 @@ var withInspectorControls = createHigherOrderComponent(function (BlockEdit) {
       setAttributes = props.setAttributes,
       clientId = props.clientId;
     var hoverColor = attributes.hoverColor,
-      hoverBgColor = attributes.hoverBgColor;
+      hoverBgColor = attributes.hoverBgColor,
+      piShowIcon = attributes.piShowIcon,
+      piIconUrl = attributes.piIconUrl,
+      piIconSize = attributes.piIconSize;
     useEffect(function () {
       var blockEl = document.querySelector("[data-block=\"".concat(clientId, "\"]"));
-      if (blockEl) {
-        blockEl.style.setProperty('--hover-color', hoverColor || '');
-        blockEl.style.setProperty('--hover-bg-color', hoverBgColor || '');
+      if (!blockEl) return;
+      blockEl.style.setProperty('--hover-color', hoverColor || '');
+      blockEl.style.setProperty('--hover-bg-color', hoverBgColor || '');
+      if (piShowIcon && piIconUrl) {
+        blockEl.style.setProperty('--pi-icon-url', "url(".concat(piIconUrl, ")"));
+        blockEl.style.setProperty('--pi-icon-size', "".concat(piIconSize || 20, "px"));
+        blockEl.classList.add('has-pi-icon');
+      } else {
+        blockEl.style.removeProperty('--pi-icon-url');
+        blockEl.style.removeProperty('--pi-icon-size');
+        blockEl.classList.remove('has-pi-icon');
       }
-    }, [hoverColor, hoverBgColor, clientId]);
+    }, [hoverColor, hoverBgColor, piShowIcon, piIconUrl, piIconSize, clientId]);
     return /*#__PURE__*/React.createElement(Fragment, null, /*#__PURE__*/React.createElement(BlockEdit, props), /*#__PURE__*/React.createElement(InspectorControls, {
       group: "styles"
     }, /*#__PURE__*/React.createElement(PanelColorSettings, {
       title: __('Hover Color Settings', 'pi-blocks'),
-      initialOpen: true,
+      initialOpen: false,
       colorSettings: [{
         value: hoverColor,
         onChange: function onChange(color) {
@@ -13215,18 +13244,102 @@ var withInspectorControls = createHigherOrderComponent(function (BlockEdit) {
         },
         label: __('Hover Background Color', 'pi-blocks')
       }]
-    })));
+    })), /*#__PURE__*/React.createElement(InspectorControls, null, /*#__PURE__*/React.createElement(PanelBody, {
+      title: __('Button Icon', 'pi-blocks'),
+      initialOpen: false
+    }, /*#__PURE__*/React.createElement(ToggleControl, {
+      label: __('Show icon after text', 'pi-blocks'),
+      checked: !!piShowIcon,
+      onChange: function onChange(val) {
+        return setAttributes({
+          piShowIcon: val
+        });
+      }
+    }), piShowIcon && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(MediaUploadCheck, null, /*#__PURE__*/React.createElement(MediaUpload, {
+      onSelect: function onSelect(media) {
+        return setAttributes({
+          piIconUrl: media.url
+        });
+      },
+      allowedTypes: ['image'],
+      value: piIconUrl,
+      render: function render(_ref) {
+        var open = _ref.open;
+        return /*#__PURE__*/React.createElement("div", {
+          style: {
+            marginBottom: '8px'
+          }
+        }, piIconUrl && /*#__PURE__*/React.createElement("div", {
+          style: {
+            marginBottom: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px'
+          }
+        }, /*#__PURE__*/React.createElement("img", {
+          src: piIconUrl,
+          alt: "",
+          style: {
+            width: '32px',
+            height: '32px',
+            objectFit: 'contain'
+          }
+        }), /*#__PURE__*/React.createElement(Button, {
+          variant: "link",
+          isDestructive: true,
+          onClick: function onClick() {
+            return setAttributes({
+              piIconUrl: ''
+            });
+          }
+        }, __('Remove', 'pi-blocks'))), /*#__PURE__*/React.createElement(Button, {
+          variant: "secondary",
+          onClick: open,
+          style: {
+            width: '100%'
+          }
+        }, piIconUrl ? __('Change Icon', 'pi-blocks') : __('Upload Icon', 'pi-blocks')));
+      }
+    })), /*#__PURE__*/React.createElement("div", {
+      style: {
+        marginTop: '12px'
+      }
+    }, /*#__PURE__*/React.createElement("label", {
+      style: {
+        display: 'block',
+        marginBottom: '4px',
+        fontSize: '11px',
+        fontWeight: '500',
+        textTransform: 'uppercase'
+      }
+    }, __('Icon Size (px)', 'pi-blocks')), /*#__PURE__*/React.createElement("input", {
+      type: "number",
+      min: "12",
+      max: "48",
+      value: piIconSize || 20,
+      onChange: function onChange(e) {
+        return setAttributes({
+          piIconSize: parseInt(e.target.value, 10) || 20
+        });
+      },
+      style: {
+        width: '80px'
+      }
+    }))))));
   };
 }, 'withInspectorControls');
 addFilter('editor.BlockEdit', 'custom/custom-button-inspector', withInspectorControls);
 
-// Apply hover color style
+// Apply icon class and CSS vars to saved HTML
 var applyExtraClass = function applyExtraClass(extraProps, blockType, attributes) {
   if (blockType.name !== 'core/button') {
     return extraProps;
   }
   var hoverColor = attributes.hoverColor,
-    hoverBgColor = attributes.hoverBgColor;
+    hoverBgColor = attributes.hoverBgColor,
+    piShowIcon = attributes.piShowIcon,
+    piIconUrl = attributes.piIconUrl,
+    piIconSize = attributes.piIconSize;
   if (hoverColor) {
     extraProps.style = _objectSpread(_objectSpread({}, extraProps.style), {}, {
       '--hover-color': hoverColor
@@ -13235,6 +13348,13 @@ var applyExtraClass = function applyExtraClass(extraProps, blockType, attributes
   if (hoverBgColor) {
     extraProps.style = _objectSpread(_objectSpread({}, extraProps.style), {}, {
       '--hover-bg-color': hoverBgColor
+    });
+  }
+  if (piShowIcon && piIconUrl) {
+    extraProps.className = [extraProps.className, 'has-pi-icon'].filter(Boolean).join(' ');
+    extraProps.style = _objectSpread(_objectSpread({}, extraProps.style), {}, {
+      '--pi-icon-url': "url(".concat(piIconUrl, ")"),
+      '--pi-icon-size': "".concat(piIconSize || 20, "px")
     });
   }
   return extraProps;

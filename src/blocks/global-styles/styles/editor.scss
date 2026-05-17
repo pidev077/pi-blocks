@@ -13,7 +13,7 @@ Editor style
 			font-family: $font-primary;
 			font-weight: 400;
 			line-height: 100%;
-			color: $color-brown;
+			color: $color-heading;
 		}
 	}
 }
@@ -67,8 +67,12 @@ Editor style
 		color: $color-body;
 		font-family: $font-second;
 		line-height: $lh-base;
-		font-size: $fz-base;
+		font-size: $fz-root;
 		font-weight: $fw-base;
+
+		@include media-breakpoint-up(md) {
+			font-size: $fz-base;
+		}
 	}
 
 	h1,

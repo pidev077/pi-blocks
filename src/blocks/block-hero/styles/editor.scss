@@ -1,3 +1,5 @@
+@import "../../../common.scss";
+
 .is-root-container .hero-block {
 	&-content {
 		p {
@@ -11,6 +13,12 @@
 			margin-left: 0;
 			margin-right: 0;
 			letter-spacing: -0.02em;
+			font-size: 48px;
+			line-height: 1.2;
+
+			@include media-breakpoint-down(sm) {
+				font-size: 40px;
+			}
 		}
 	}
 
