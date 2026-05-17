@@ -33,16 +33,20 @@ const Save = (props) => {
 		height: `${heightSep}px`,
 	};
 
+	const iconWrapStyle = {
+		color: colorBg,
+		width: `${iconSize}px`,
+		height: `${iconSize}px`,
+		minWidth: `${iconSize}px`,
+	};
+
 	return (
 		<div {...blockProps}>
 			<div className="separator-inner" style={innerStyle}>
 				{showIcon ? (
 					<>
 						<div className="separator-line" style={lineStyle}></div>
-						<div
-							className="separator-icon"
-							style={{ color: colorBg, width: iconSize, height: iconSize }}
-						>
+						<div className="separator-icon" style={iconWrapStyle}>
 							{renderIcon(iconType, iconSize)}
 						</div>
 						<div className="separator-line" style={lineStyle}></div>

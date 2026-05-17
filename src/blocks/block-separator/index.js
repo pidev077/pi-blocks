@@ -29,7 +29,7 @@ const BlockAttrs = {
 	},
 	colorBg: {
 		type: "string",
-		default: "#120A0033",
+		default: "#27211C",
 	},
 	widthSep: {
 		type: "number",

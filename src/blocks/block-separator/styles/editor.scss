@@ -1,7 +1,50 @@
-.wp-block-sm-blocks-sm-separator-block {
-	&.separator-fullwidth {
-		.separators {
-			width: 100% !important;
+@import "../../../common.scss";
+
+.pi-separator-blocks {
+	display: flex;
+	width: 100%;
+
+	&.separator-center {
+		justify-content: center;
+	}
+
+	&.separator-left {
+		justify-content: flex-start;
+	}
+
+	&.separator-right {
+		justify-content: flex-end;
+	}
+
+	.separator-inner {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+	}
+
+	&.separator-fullwidth .separator-inner {
+		width: 100% !important;
+	}
+
+	.separators {
+		flex: 1;
+		width: 100%;
+	}
+
+	.separator-line {
+		flex: 1;
+		min-width: 20px;
+	}
+
+	.separator-icon {
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		line-height: 0;
+
+		svg {
+			display: block;
 		}
 	}
 }

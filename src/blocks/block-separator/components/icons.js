@@ -4,7 +4,7 @@ export const renderIcon = (type, size) => {
 		case "star":
 			return (
 				<svg width={s} height={s} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					<path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" />
+					<polygon points="12,2 14.4,9.2 22,9.2 16,13.8 18.4,21 12,16.4 5.6,21 8,13.8 2,9.2 9.6,9.2" />
 				</svg>
 			);
 		case "cross":
@@ -17,18 +17,18 @@ export const renderIcon = (type, size) => {
 		case "fleur":
 			return (
 				<svg width={s} height={s} viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					<circle cx="10" cy="10" r="2" />
-					<ellipse cx="10" cy="3.5" rx="1.8" ry="3" />
-					<ellipse cx="10" cy="16.5" rx="1.8" ry="3" />
-					<ellipse cx="3.5" cy="10" rx="3" ry="1.8" />
-					<ellipse cx="16.5" cy="10" rx="3" ry="1.8" />
+					<circle cx="10" cy="10" r="2.2" />
+					<ellipse cx="10" cy="3" rx="2" ry="3" />
+					<ellipse cx="10" cy="17" rx="2" ry="3" />
+					<ellipse cx="3" cy="10" rx="3" ry="2" />
+					<ellipse cx="17" cy="10" rx="3" ry="2" />
 				</svg>
 			);
 		case "diamond":
 		default:
 			return (
 				<svg width={s} height={s} viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					<path d="M10 0 C10 0 11.5 7 20 10 C11.5 13 10 20 10 20 C10 20 8.5 13 0 10 C8.5 7 10 0 10 0Z" />
+					<polygon points="10,0 12,8.5 20,10 12,11.5 10,20 8,11.5 0,10 8,8.5" />
 				</svg>
 			);
 	}

@@ -217,6 +217,17 @@ html :where(.wp-block) {
  * Can include things like variables and mixins
  * that are used across the project.
 */
+.is-root-container .wp-block-buttons .wp-block-button .wp-block-button__link {
+  background: #E0AC47;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 16px;
+}
+.is-root-container .wp-block-buttons .wp-block-button .wp-block-button__link:hover {
+  background: rgb(208.8186046512, 149.8046511628, 35.1813953488);
+  color: #fff;
+}
 /*!************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/blocks/responsive-settings/styles/editor.scss ***!
   \************************************************************************************************************************************************************************/
@@ -267,8 +278,50 @@ html :where(.wp-block) {
  * Can include things like variables and mixins
  * that are used across the project.
 */
-.wp-block-sm-blocks-sm-separator-block.separator-fullwidth .separators {
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.pi-separator-blocks {
+  display: flex;
+  width: 100%;
+}
+.pi-separator-blocks.separator-center {
+  justify-content: center;
+}
+.pi-separator-blocks.separator-left {
+  justify-content: flex-start;
+}
+.pi-separator-blocks.separator-right {
+  justify-content: flex-end;
+}
+.pi-separator-blocks .separator-inner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.pi-separator-blocks.separator-fullwidth .separator-inner {
   width: 100% !important;
+}
+.pi-separator-blocks .separators {
+  flex: 1;
+  width: 100%;
+}
+.pi-separator-blocks .separator-line {
+  flex: 1;
+  min-width: 20px;
+}
+.pi-separator-blocks .separator-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+.pi-separator-blocks .separator-icon svg {
+  display: block;
 }
 /*!***********************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/blocks/block-column-inner/styles/editor.scss ***!

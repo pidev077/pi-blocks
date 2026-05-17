@@ -11194,6 +11194,12 @@ var Edit = function Edit(props) {
     background: colorBg,
     height: "".concat(heightSep, "px")
   };
+  var iconWrapStyle = {
+    color: colorBg,
+    width: "".concat(iconSize, "px"),
+    height: "".concat(iconSize, "px"),
+    minWidth: "".concat(iconSize, "px")
+  };
   return /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, /*#__PURE__*/React.createElement(_inspector__WEBPACK_IMPORTED_MODULE_2__["default"], props), /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement("div", {
     className: "separator-inner",
     style: innerStyle
@@ -11202,11 +11208,7 @@ var Edit = function Edit(props) {
     style: lineStyle
   }), /*#__PURE__*/React.createElement("div", {
     className: "separator-icon",
-    style: {
-      color: colorBg,
-      width: iconSize,
-      height: iconSize
-    }
+    style: iconWrapStyle
   }, (0,_icons__WEBPACK_IMPORTED_MODULE_3__.renderIcon)(iconType, iconSize)), /*#__PURE__*/React.createElement("div", {
     className: "separator-line",
     style: lineStyle
@@ -11240,8 +11242,8 @@ var renderIcon = function renderIcon(type, size) {
         viewBox: "0 0 24 24",
         fill: "currentColor",
         xmlns: "http://www.w3.org/2000/svg"
-      }, /*#__PURE__*/React.createElement("path", {
-        d: "M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z"
+      }, /*#__PURE__*/React.createElement("polygon", {
+        points: "12,2 14.4,9.2 22,9.2 16,13.8 18.4,21 12,16.4 5.6,21 8,13.8 2,9.2 9.6,9.2"
       }));
     case "cross":
       return /*#__PURE__*/React.createElement("svg", {
@@ -11273,27 +11275,27 @@ var renderIcon = function renderIcon(type, size) {
       }, /*#__PURE__*/React.createElement("circle", {
         cx: "10",
         cy: "10",
-        r: "2"
+        r: "2.2"
       }), /*#__PURE__*/React.createElement("ellipse", {
         cx: "10",
-        cy: "3.5",
-        rx: "1.8",
+        cy: "3",
+        rx: "2",
         ry: "3"
       }), /*#__PURE__*/React.createElement("ellipse", {
         cx: "10",
-        cy: "16.5",
-        rx: "1.8",
+        cy: "17",
+        rx: "2",
         ry: "3"
       }), /*#__PURE__*/React.createElement("ellipse", {
-        cx: "3.5",
+        cx: "3",
         cy: "10",
         rx: "3",
-        ry: "1.8"
+        ry: "2"
       }), /*#__PURE__*/React.createElement("ellipse", {
-        cx: "16.5",
+        cx: "17",
         cy: "10",
         rx: "3",
-        ry: "1.8"
+        ry: "2"
       }));
     case "diamond":
     default:
@@ -11303,8 +11305,8 @@ var renderIcon = function renderIcon(type, size) {
         viewBox: "0 0 20 20",
         fill: "currentColor",
         xmlns: "http://www.w3.org/2000/svg"
-      }, /*#__PURE__*/React.createElement("path", {
-        d: "M10 0 C10 0 11.5 7 20 10 C11.5 13 10 20 10 20 C10 20 8.5 13 0 10 C8.5 7 10 0 10 0Z"
+      }, /*#__PURE__*/React.createElement("polygon", {
+        points: "10,0 12,8.5 20,10 12,11.5 10,20 8,11.5 0,10 8,8.5"
       }));
   }
 };
@@ -11485,6 +11487,12 @@ var Save = function Save(props) {
     background: colorBg,
     height: "".concat(heightSep, "px")
   };
+  var iconWrapStyle = {
+    color: colorBg,
+    width: "".concat(iconSize, "px"),
+    height: "".concat(iconSize, "px"),
+    minWidth: "".concat(iconSize, "px")
+  };
   return /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement("div", {
     className: "separator-inner",
     style: innerStyle
@@ -11493,11 +11501,7 @@ var Save = function Save(props) {
     style: lineStyle
   }), /*#__PURE__*/React.createElement("div", {
     className: "separator-icon",
-    style: {
-      color: colorBg,
-      width: iconSize,
-      height: iconSize
-    }
+    style: iconWrapStyle
   }, (0,_icons__WEBPACK_IMPORTED_MODULE_1__.renderIcon)(iconType, iconSize)), /*#__PURE__*/React.createElement("div", {
     className: "separator-line",
     style: lineStyle
@@ -11554,7 +11558,7 @@ var BlockAttrs = {
   },
   colorBg: {
     type: "string",
-    "default": "#120A0033"
+    "default": "#27211C"
   },
   widthSep: {
     type: "number",

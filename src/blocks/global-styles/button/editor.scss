@@ -1,16 +1,18 @@
-// .is-root-container {
-//     .wp-block-buttons {
-//         .wp-block-button {
-//             .wp-block-button__link {
-//                 &:hover {
-//                     background: $color-brown;
-//                     color: #fff;
+.is-root-container {
+	.wp-block-buttons {
+		.wp-block-button {
+			.wp-block-button__link {
+				background: #E0AC47;
+				color: #fff;
+				border-radius: 4px;
+				font-weight: 700;
+				font-size: 16px;
 
-//                     &::before {
-//                         background: #fff;
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
+				&:hover {
+					background: darken(#E0AC47, 10%);
+					color: #fff;
+				}
+			}
+		}
+	}
+}

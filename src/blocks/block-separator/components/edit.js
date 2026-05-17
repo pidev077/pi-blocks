@@ -35,6 +35,13 @@ const Edit = (props) => {
 		height: `${heightSep}px`,
 	};
 
+	const iconWrapStyle = {
+		color: colorBg,
+		width: `${iconSize}px`,
+		height: `${iconSize}px`,
+		minWidth: `${iconSize}px`,
+	};
+
 	return (
 		<Fragment>
 			<Inspector {...props} />
@@ -43,10 +50,7 @@ const Edit = (props) => {
 					{showIcon ? (
 						<>
 							<div className="separator-line" style={lineStyle}></div>
-							<div
-								className="separator-icon"
-								style={{ color: colorBg, width: iconSize, height: iconSize }}
-							>
+							<div className="separator-icon" style={iconWrapStyle}>
 								{renderIcon(iconType, iconSize)}
 							</div>
 							<div className="separator-line" style={lineStyle}></div>
