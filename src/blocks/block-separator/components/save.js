@@ -1,21 +1,56 @@
 import { useBlockProps } from "@wordpress/block-editor";
+import { renderIcon } from "./icons";
 
 const Save = (props) => {
-	let { attributes, className } = props;
-	const { colorBg, fullwidth, alignBlock } = attributes;
+	const { attributes, className } = props;
+	const {
+		colorBg,
+		fullwidth,
+		alignBlock,
+		widthSep,
+		heightSep,
+		showIcon,
+		iconType,
+		iconSize,
+	} = attributes;
 
 	const blockProps = useBlockProps.save({
 		className: [
 			"pi-separator-blocks",
-			fullwidth ? "separator-fullwidth" : "",
-			`separator-${alignBlock}`,
+			fullwidth ? "separator-fullwidth" : `separator-${alignBlock}`,
 			className,
-		].join(" "),
+		]
+			.filter(Boolean)
+			.join(" "),
 	});
+
+	const innerStyle = {
+		width: fullwidth ? "100%" : `${widthSep}%`,
+	};
+
+	const lineStyle = {
+		background: colorBg,
+		height: `${heightSep}px`,
+	};
 
 	return (
 		<div {...blockProps}>
-			<div className="separators" style={{ background: colorBg }}></div>
+			<div className="separator-inner" style={innerStyle}>
+				{showIcon ? (
+					<>
+						<div className="separator-line" style={lineStyle}></div>
+						<div
+							className="separator-icon"
+							style={{ color: colorBg, width: iconSize, height: iconSize }}
+						>
+							{renderIcon(iconType, iconSize)}
+						</div>
+						<div className="separator-line" style={lineStyle}></div>
+					</>
+				) : (
+					<div className="separators" style={lineStyle}></div>
+				)}
+			</div>
 		</div>
 	);
 };

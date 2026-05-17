@@ -12,7 +12,7 @@ $transition-base: all 0.3s ease-in-out !default;
 @import "~bootstrap-scss/mixins";
 
 //font
-$font-primary: "Playfair Display", sans-serif !default;
+$font-primary: "Playfair Display", serif !default;
 $font-second: "Google Sans", sans-serif !default;
 //color
 $color-primary: #ffe071;
@@ -20,6 +20,7 @@ $color-second: #fff5d2;
 $color-third: #efffb3;
 $color-blue: #97ecff;
 $color-brown: #120a00;
+$color-body: #584E44;
 
 $color-palette: (
 	"primary": $color-primary,
@@ -34,12 +35,12 @@ $color-palette: (
 $fz-root: 1rem !default;
 $fz-base: 1.125rem !default;
 $fz-base-heading: 1rem !default;
-$h1-size: $fz-root * 6 !default;
-$h2-size: $fz-root * 4.5 !default;
-$h3-size: $fz-root * 3.5 !default;
-$h4-size: $fz-root * 3 !default;
-$h5-size: $fz-root * 2 !default;
-$h6-size: $fz-root * 1.5 !default;
+$h1-size: $fz-root * 4 !default;
+$h2-size: $fz-root * 3 !default;
+$h3-size: $fz-root * 2.25 !default;
+$h4-size: $fz-root * 1.5 !default;
+$h5-size: $fz-root * 1 !default;
+$h6-size: $fz-root * 0.875 !default;
 
 $fw-base: 400 !default;
 $lh-base: 150% !default;

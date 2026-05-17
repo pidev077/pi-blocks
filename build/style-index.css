@@ -823,6 +823,71 @@ button.swiper-pagination-bullet {
   color: white;
 }
 
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  line-height: 100%;
+}
+
+@media (max-width: 1199.98px) {
+  h1, .h1 {
+    font-size: 3.25rem;
+  }
+  h2, .h2 {
+    font-size: 2.5rem;
+  }
+  h3, .h3 {
+    font-size: 1.875rem;
+  }
+  h4, .h4 {
+    font-size: 1.375rem;
+  }
+}
+@media (max-width: 1023.98px) {
+  h1, .h1 {
+    font-size: 2.5rem;
+  }
+  h2, .h2 {
+    font-size: 2rem;
+  }
+  h3, .h3 {
+    font-size: 1.5rem;
+  }
+  h4, .h4 {
+    font-size: 1.25rem;
+  }
+}
+@media (max-width: 767.98px) {
+  h1, .h1 {
+    font-size: 2rem;
+  }
+  h2, .h2 {
+    font-size: 1.75rem;
+  }
+  h3, .h3 {
+    font-size: 1.375rem;
+  }
+  h4, .h4 {
+    font-size: 1.125rem;
+  }
+}
+@media (max-width: 575.98px) {
+  h1, .h1 {
+    font-size: 1.75rem;
+  }
+  h2, .h2 {
+    font-size: 1.5rem;
+  }
+  h3, .h3 {
+    font-size: 1.25rem;
+  }
+  h4, .h4 {
+    font-size: 1.125rem;
+  }
+}
 .has-primary-color {
   color: #ffe071 !important;
 }
@@ -908,7 +973,7 @@ a svg,
 }
 
 .has-svn-ogg-font-family {
-  font-family: "Playfair Display", sans-serif;
+  font-family: "Playfair Display", serif;
 }
 
 .has-be-vietnam-pro-font-family {
@@ -919,26 +984,31 @@ a svg,
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border-radius: 15px;
-  background: #9fb877;
-  padding: 10px 30px;
+  gap: 8px;
+  border-radius: 4px;
+  background: #E0AC47;
+  padding: 12px 24px;
   color: #fff;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Google Sans", sans-serif;
   text-decoration: none;
-  transition: all 0.3s ease-in-out;
+  letter-spacing: 0.01em;
+  transition: background 0.25s ease, transform 0.2s ease;
 }
-@media (max-width: 767.98px) {
-  .pi-btn {
-    padding: 12px 24px;
-  }
+.pi-btn svg {
+  margin-left: 0;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 .pi-btn:hover {
-  background: #120a00;
+  background: rgb(208.8186046512, 149.8046511628, 35.1813953488);
   color: #fff;
+  transform: translateY(-1px);
 }
-.pi-btn:hover::before {
-  background: #fff;
+.pi-btn:active {
+  transform: translateY(0);
 }
 
 .max-width-9 {
@@ -969,7 +1039,7 @@ figure.wp-block-video video {
 .wp-block-table thead th {
   color: #efffb3;
   font-size: 20px;
-  font-family: "Playfair Display", sans-serif;
+  font-family: "Playfair Display", serif;
   line-height: 1;
 }
 .wp-block-table thead td {
@@ -1162,11 +1232,17 @@ figure.wp-block-video video {
  * Can include things like variables and mixins
  * that are used across the project.
 */
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
 .pi-separator-blocks {
   display: flex;
 }
-.pi-separator-blocks.separator-fullwidth .separators {
-  width: 100% !important;
+.pi-separator-blocks.separator-fullwidth .separator-inner {
+  width: 100%;
 }
 .pi-separator-blocks.separator-center {
   justify-content: center;
@@ -1177,10 +1253,27 @@ figure.wp-block-video video {
 .pi-separator-blocks.separator-right {
   justify-content: flex-end;
 }
+.pi-separator-blocks .separator-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 .pi-separator-blocks .separators {
-  height: 1px;
-  width: 63px;
-  background: var(--color, #273138);
+  flex: 1;
+  width: 100%;
+}
+.pi-separator-blocks .separator-line {
+  flex: 1;
+  min-width: 16px;
+}
+.pi-separator-blocks .separator-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.pi-separator-blocks .separator-icon svg {
+  display: block;
 }
 /*!**********************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/blocks/block-column-inner/styles/style.scss ***!
@@ -2151,7 +2244,7 @@ figure.wp-block-video video {
   opacity: 0.8;
 }
 .pi-content-media .left .content-item p {
-  font-family: "Playfair Display", sans-serif;
+  font-family: "Playfair Display", serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -3124,7 +3217,7 @@ body.team-popup-open {
   align-items: center;
 }
 .block-teams-list .team-item__number {
-  font-family: "Playfair Display", sans-serif;
+  font-family: "Playfair Display", serif;
   font-size: 24px;
   font-weight: 300;
   line-height: 100%;
@@ -3655,7 +3748,7 @@ body.logged-in .team-popup-inner {
   font-weight: 400;
   line-height: 110%;
   color: #efffb3;
-  font-family: "Playfair Display", sans-serif;
+  font-family: "Playfair Display", serif;
 }
 .related-section__list-item .item-post h3 a {
   font-size: inherit;
@@ -3856,7 +3949,7 @@ body.logged-in .team-popup-inner {
   display: block;
 }
 .pi-process-steps .ps-title {
-  font-family: "Playfair Display", sans-serif;
+  font-family: "Playfair Display", serif;
   font-size: clamp(22px, 1.5vw + 10px, 32px);
   font-weight: 700;
   color: #120a00;

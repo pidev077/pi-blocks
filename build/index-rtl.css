@@ -16,7 +16,7 @@ Editor style
 
 .editor-styles-wrapper .editor-visual-editor__post-title-wrapper h1 {
   font-size: 56px;
-  font-family: "Playfair Display", sans-serif;
+  font-family: "Playfair Display", serif;
   font-weight: 400;
   line-height: 100%;
   color: #120a00;
@@ -55,7 +55,7 @@ Editor style
   box-sizing: border-box;
 }
 .is-root-container .has-playfair-display-font-family {
-  font-family: "Playfair Display", sans-serif;
+  font-family: "Playfair Display", serif;
 }
 .is-root-container .has-google-sans-font-family {
   font-family: "Google Sans", sans-serif;
@@ -63,7 +63,7 @@ Editor style
 .is-root-container p,
 .is-root-container span:not(.dashicon),
 .is-root-container div {
-  color: #120a00;
+  color: #584E44;
   font-family: "Google Sans", sans-serif;
   line-height: 150%;
   font-size: 1.125rem;
@@ -77,7 +77,7 @@ Editor style
 .is-root-container h6 {
   font-weight: 400;
   line-height: 100%;
-  color: #120a00;
+  font-family: "Playfair Display", serif;
   margin-top: 0;
 }
 .is-root-container h1 span,
@@ -103,29 +103,78 @@ Editor style
   font-weight: inherit;
   line-height: inherit;
 }
+.is-root-container h1, .is-root-container h2, .is-root-container h3, .is-root-container h4 {
+  color: #27211C;
+}
+.is-root-container h5, .is-root-container h6 {
+  color: #584E44;
+  font-family: "Google Sans", sans-serif;
+}
 .is-root-container h1,
 .is-root-container .h1 {
-  font-size: 6rem;
+  font-size: 4rem;
 }
 .is-root-container h2,
 .is-root-container .h2 {
-  font-size: 4.5rem;
+  font-size: 3rem;
 }
 .is-root-container h3,
 .is-root-container .h3 {
-  font-size: 3.5rem;
+  font-size: 2.25rem;
 }
 .is-root-container h4,
 .is-root-container .h4 {
-  font-size: 3rem;
+  font-size: 1.5rem;
 }
 .is-root-container h5,
 .is-root-container .h5 {
-  font-size: 2rem;
+  font-size: 1rem;
 }
 .is-root-container h6,
 .is-root-container .h6 {
-  font-size: 1.5rem;
+  font-size: 0.875rem;
+}
+@media (max-width: 1199.98px) {
+  .is-root-container h1, .is-root-container .h1 {
+    font-size: 3.25rem;
+  }
+  .is-root-container h2, .is-root-container .h2 {
+    font-size: 2.5rem;
+  }
+  .is-root-container h3, .is-root-container .h3 {
+    font-size: 1.875rem;
+  }
+  .is-root-container h4, .is-root-container .h4 {
+    font-size: 1.375rem;
+  }
+}
+@media (max-width: 1023.98px) {
+  .is-root-container h1, .is-root-container .h1 {
+    font-size: 2.5rem;
+  }
+  .is-root-container h2, .is-root-container .h2 {
+    font-size: 2rem;
+  }
+  .is-root-container h3, .is-root-container .h3 {
+    font-size: 1.5rem;
+  }
+  .is-root-container h4, .is-root-container .h4 {
+    font-size: 1.25rem;
+  }
+}
+@media (max-width: 767.98px) {
+  .is-root-container h1, .is-root-container .h1 {
+    font-size: 2rem;
+  }
+  .is-root-container h2, .is-root-container .h2 {
+    font-size: 1.75rem;
+  }
+  .is-root-container h3, .is-root-container .h3 {
+    font-size: 1.375rem;
+  }
+  .is-root-container h4, .is-root-container .h4 {
+    font-size: 1.125rem;
+  }
 }
 .is-root-container .wp-block-table table thead th div {
   color: inherit !important;
@@ -805,7 +854,7 @@ html :where(.wp-block) {
   font-size: 20px !important;
   font-weight: 700;
   color: #efffb3 !important;
-  font-family: "Playfair Display", sans-serif !important;
+  font-family: "Playfair Display", serif !important;
 }
 /*!*******************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/blocks/block-insights/styles/editor.scss ***!

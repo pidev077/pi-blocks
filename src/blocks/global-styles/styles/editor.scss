@@ -64,7 +64,7 @@ Editor style
 	p,
 	span:not(.dashicon),
 	div {
-		color: $color-brown;
+		color: $color-body;
 		font-family: $font-second;
 		line-height: $lh-base;
 		font-size: $fz-base;
@@ -79,7 +79,7 @@ Editor style
 	h6 {
 		font-weight: 400;
 		line-height: 100%;
-		color: $color-brown;
+		font-family: $font-primary;
 		margin-top: 0;
 
 		span,
@@ -90,6 +90,15 @@ Editor style
 			font-weight: inherit;
 			line-height: inherit;
 		}
+	}
+
+	h1, h2, h3, h4 {
+		color: #27211C;
+	}
+
+	h5, h6 {
+		color: $color-body;
+		font-family: $font-second;
 	}
 
 	h1,
@@ -120,6 +129,27 @@ Editor style
 	h6,
 	.h6 {
 		font-size: $h6-size;
+	}
+
+	@include media-breakpoint-down(xl) {
+		h1, .h1 { font-size: $fz-root * 3.25; }
+		h2, .h2 { font-size: $fz-root * 2.5; }
+		h3, .h3 { font-size: $fz-root * 1.875; }
+		h4, .h4 { font-size: $fz-root * 1.375; }
+	}
+
+	@include media-breakpoint-down(lg) {
+		h1, .h1 { font-size: $fz-root * 2.5; }
+		h2, .h2 { font-size: $fz-root * 2; }
+		h3, .h3 { font-size: $fz-root * 1.5; }
+		h4, .h4 { font-size: $fz-root * 1.25; }
+	}
+
+	@include media-breakpoint-down(md) {
+		h1, .h1 { font-size: $fz-root * 2; }
+		h2, .h2 { font-size: $fz-root * 1.75; }
+		h3, .h3 { font-size: $fz-root * 1.375; }
+		h4, .h4 { font-size: $fz-root * 1.125; }
 	}
 
 	.wp-block-table {

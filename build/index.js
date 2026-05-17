@@ -11168,6 +11168,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _inspector__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./inspector */ "./src/blocks/block-separator/components/inspector.js");
+/* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./icons */ "./src/blocks/block-separator/components/icons.js");
+
 
 
 
@@ -11176,18 +11178,136 @@ var Edit = function Edit(props) {
     className = props.className;
   var colorBg = attributes.colorBg,
     fullwidth = attributes.fullwidth,
-    alignBlock = attributes.alignBlock;
+    alignBlock = attributes.alignBlock,
+    widthSep = attributes.widthSep,
+    heightSep = attributes.heightSep,
+    showIcon = attributes.showIcon,
+    iconType = attributes.iconType,
+    iconSize = attributes.iconSize;
   var blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
-    className: ["pi-separator-blocks", fullwidth ? "separator-fullwidth" : "", "separator-".concat(alignBlock), className].join(" ")
+    className: ["pi-separator-blocks", fullwidth ? "separator-fullwidth" : "separator-".concat(alignBlock), className].filter(Boolean).join(" ")
   });
+  var innerStyle = {
+    width: fullwidth ? "100%" : "".concat(widthSep, "%")
+  };
+  var lineStyle = {
+    background: colorBg,
+    height: "".concat(heightSep, "px")
+  };
   return /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, /*#__PURE__*/React.createElement(_inspector__WEBPACK_IMPORTED_MODULE_2__["default"], props), /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement("div", {
-    className: "separators",
+    className: "separator-inner",
+    style: innerStyle
+  }, showIcon ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    className: "separator-line",
+    style: lineStyle
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "separator-icon",
     style: {
-      background: colorBg
+      color: colorBg,
+      width: iconSize,
+      height: iconSize
     }
-  })));
+  }, (0,_icons__WEBPACK_IMPORTED_MODULE_3__.renderIcon)(iconType, iconSize)), /*#__PURE__*/React.createElement("div", {
+    className: "separator-line",
+    style: lineStyle
+  })) : /*#__PURE__*/React.createElement("div", {
+    className: "separators",
+    style: lineStyle
+  }))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Edit);
+
+/***/ },
+
+/***/ "./src/blocks/block-separator/components/icons.js"
+/*!********************************************************!*\
+  !*** ./src/blocks/block-separator/components/icons.js ***!
+  \********************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   renderIcon: () => (/* binding */ renderIcon)
+/* harmony export */ });
+var renderIcon = function renderIcon(type, size) {
+  var s = size || 16;
+  switch (type) {
+    case "star":
+      return /*#__PURE__*/React.createElement("svg", {
+        width: s,
+        height: s,
+        viewBox: "0 0 24 24",
+        fill: "currentColor",
+        xmlns: "http://www.w3.org/2000/svg"
+      }, /*#__PURE__*/React.createElement("path", {
+        d: "M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z"
+      }));
+    case "cross":
+      return /*#__PURE__*/React.createElement("svg", {
+        width: s,
+        height: s,
+        viewBox: "0 0 20 20",
+        fill: "currentColor",
+        xmlns: "http://www.w3.org/2000/svg"
+      }, /*#__PURE__*/React.createElement("rect", {
+        x: "8.5",
+        y: "0",
+        width: "3",
+        height: "20",
+        rx: "1.5"
+      }), /*#__PURE__*/React.createElement("rect", {
+        x: "0",
+        y: "8.5",
+        width: "20",
+        height: "3",
+        rx: "1.5"
+      }));
+    case "fleur":
+      return /*#__PURE__*/React.createElement("svg", {
+        width: s,
+        height: s,
+        viewBox: "0 0 20 20",
+        fill: "currentColor",
+        xmlns: "http://www.w3.org/2000/svg"
+      }, /*#__PURE__*/React.createElement("circle", {
+        cx: "10",
+        cy: "10",
+        r: "2"
+      }), /*#__PURE__*/React.createElement("ellipse", {
+        cx: "10",
+        cy: "3.5",
+        rx: "1.8",
+        ry: "3"
+      }), /*#__PURE__*/React.createElement("ellipse", {
+        cx: "10",
+        cy: "16.5",
+        rx: "1.8",
+        ry: "3"
+      }), /*#__PURE__*/React.createElement("ellipse", {
+        cx: "3.5",
+        cy: "10",
+        rx: "3",
+        ry: "1.8"
+      }), /*#__PURE__*/React.createElement("ellipse", {
+        cx: "16.5",
+        cy: "10",
+        rx: "3",
+        ry: "1.8"
+      }));
+    case "diamond":
+    default:
+      return /*#__PURE__*/React.createElement("svg", {
+        width: s,
+        height: s,
+        viewBox: "0 0 20 20",
+        fill: "currentColor",
+        xmlns: "http://www.w3.org/2000/svg"
+      }, /*#__PURE__*/React.createElement("path", {
+        d: "M10 0 C10 0 11.5 7 20 10 C11.5 13 10 20 10 20 C10 20 8.5 13 0 10 C8.5 7 10 0 10 0Z"
+      }));
+  }
+};
 
 /***/ },
 
@@ -11213,18 +11333,34 @@ var Inspector = function Inspector(props) {
     setAttributes = props.setAttributes;
   var colorBg = attributes.colorBg,
     fullwidth = attributes.fullwidth,
-    alignBlock = attributes.alignBlock;
+    alignBlock = attributes.alignBlock,
+    widthSep = attributes.widthSep,
+    heightSep = attributes.heightSep,
+    showIcon = attributes.showIcon,
+    iconType = attributes.iconType,
+    iconSize = attributes.iconSize;
   return /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-    title: "Settings"
+    title: "Layout"
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
-    label: "Fullwidth",
+    label: "Full width",
     checked: fullwidth,
     onChange: function onChange() {
       return setAttributes({
         fullwidth: !fullwidth
       });
     }
-  }), !fullwidth && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
+  }), !fullwidth && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.RangeControl, {
+    label: "Width (%)",
+    value: widthSep,
+    onChange: function onChange(value) {
+      return setAttributes({
+        widthSep: value
+      });
+    },
+    min: 10,
+    max: 100,
+    step: 1
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
     label: "Alignment",
     value: alignBlock,
     options: [{
@@ -11242,7 +11378,60 @@ var Inspector = function Inspector(props) {
         alignBlock: value
       });
     }
+  })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.RangeControl, {
+    label: "Height (px)",
+    value: heightSep,
+    onChange: function onChange(value) {
+      return setAttributes({
+        heightSep: value
+      });
+    },
+    min: 1,
+    max: 8,
+    step: 1
   })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+    title: "Icon"
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+    label: "Show icon",
+    checked: showIcon,
+    onChange: function onChange() {
+      return setAttributes({
+        showIcon: !showIcon
+      });
+    }
+  }), showIcon && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
+    label: "Icon type",
+    value: iconType,
+    options: [{
+      label: "Diamond",
+      value: "diamond"
+    }, {
+      label: "Star",
+      value: "star"
+    }, {
+      label: "Cross",
+      value: "cross"
+    }, {
+      label: "Fleur",
+      value: "fleur"
+    }],
+    onChange: function onChange(value) {
+      return setAttributes({
+        iconType: value
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.RangeControl, {
+    label: "Icon size (px)",
+    value: iconSize,
+    onChange: function onChange(value) {
+      return setAttributes({
+        iconSize: value
+      });
+    },
+    min: 8,
+    max: 40,
+    step: 1
+  }))), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
     initialOpen: false,
     title: "Color"
   }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ColorPicker, {
@@ -11272,22 +11461,50 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icons */ "./src/blocks/block-separator/components/icons.js");
+
 
 var Save = function Save(props) {
   var attributes = props.attributes,
     className = props.className;
   var colorBg = attributes.colorBg,
     fullwidth = attributes.fullwidth,
-    alignBlock = attributes.alignBlock;
+    alignBlock = attributes.alignBlock,
+    widthSep = attributes.widthSep,
+    heightSep = attributes.heightSep,
+    showIcon = attributes.showIcon,
+    iconType = attributes.iconType,
+    iconSize = attributes.iconSize;
   var blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
-    className: ["pi-separator-blocks", fullwidth ? "separator-fullwidth" : "", "separator-".concat(alignBlock), className].join(" ")
+    className: ["pi-separator-blocks", fullwidth ? "separator-fullwidth" : "separator-".concat(alignBlock), className].filter(Boolean).join(" ")
   });
+  var innerStyle = {
+    width: fullwidth ? "100%" : "".concat(widthSep, "%")
+  };
+  var lineStyle = {
+    background: colorBg,
+    height: "".concat(heightSep, "px")
+  };
   return /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement("div", {
-    className: "separators",
+    className: "separator-inner",
+    style: innerStyle
+  }, showIcon ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    className: "separator-line",
+    style: lineStyle
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "separator-icon",
     style: {
-      background: colorBg
+      color: colorBg,
+      width: iconSize,
+      height: iconSize
     }
-  }));
+  }, (0,_icons__WEBPACK_IMPORTED_MODULE_1__.renderIcon)(iconType, iconSize)), /*#__PURE__*/React.createElement("div", {
+    className: "separator-line",
+    style: lineStyle
+  })) : /*#__PURE__*/React.createElement("div", {
+    className: "separators",
+    style: lineStyle
+  })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Save);
 
@@ -11341,7 +11558,7 @@ var BlockAttrs = {
   },
   widthSep: {
     type: "number",
-    "default": 63
+    "default": 60
   },
   heightSep: {
     type: "number",
@@ -11349,7 +11566,19 @@ var BlockAttrs = {
   },
   alignBlock: {
     type: "string",
-    "default": "left"
+    "default": "center"
+  },
+  showIcon: {
+    type: "boolean",
+    "default": false
+  },
+  iconType: {
+    type: "string",
+    "default": "diamond"
+  },
+  iconSize: {
+    type: "number",
+    "default": 16
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("pi-blocks/pi-separator-block", {
@@ -11360,11 +11589,9 @@ var BlockAttrs = {
   category: "pi-blocks",
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("separator"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)(""), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("break")],
   attributes: BlockAttrs,
-  /* Render the block in the editor. */
   edit: function edit(props) {
     return /*#__PURE__*/React.createElement(_components_edit__WEBPACK_IMPORTED_MODULE_4__["default"], props);
   },
-  /* Save the block markup. */
   save: function save(props) {
     return /*#__PURE__*/React.createElement(_components_save__WEBPACK_IMPORTED_MODULE_5__["default"], props);
   }

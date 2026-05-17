@@ -3,6 +3,44 @@
 @import "~swiper/css/pagination";
 @import "./form.scss";
 
+// Responsive heading scale — mirrors theme Bootstrap RFS breakpoints
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+	line-height: 100%;
+}
+
+@include media-breakpoint-down(xl) {
+	h1, .h1 { font-size: $fz-root * 3.25; }
+	h2, .h2 { font-size: $fz-root * 2.5; }
+	h3, .h3 { font-size: $fz-root * 1.875; }
+	h4, .h4 { font-size: $fz-root * 1.375; }
+}
+
+@include media-breakpoint-down(lg) {
+	h1, .h1 { font-size: $fz-root * 2.5; }
+	h2, .h2 { font-size: $fz-root * 2; }
+	h3, .h3 { font-size: $fz-root * 1.5; }
+	h4, .h4 { font-size: $fz-root * 1.25; }
+}
+
+@include media-breakpoint-down(md) {
+	h1, .h1 { font-size: $fz-root * 2; }
+	h2, .h2 { font-size: $fz-root * 1.75; }
+	h3, .h3 { font-size: $fz-root * 1.375; }
+	h4, .h4 { font-size: $fz-root * 1.125; }
+}
+
+@include media-breakpoint-down(sm) {
+	h1, .h1 { font-size: $fz-root * 1.75; }
+	h2, .h2 { font-size: $fz-root * 1.5; }
+	h3, .h3 { font-size: $fz-root * 1.25; }
+	h4, .h4 { font-size: $fz-root * 1.125; }
+}
+
 @each $name, $color in $color-palette {
 	.has-#{$name}-color {
 		color: $color !important;
@@ -53,26 +91,33 @@ a,
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
-	border-radius: 15px;
-	background: #9fb877;
-	padding: 10px 30px;
+	gap: 8px;
+	border-radius: 4px;
+	background: #E0AC47;
+	padding: 12px 24px;
 	color: #fff;
-	font-size: 18px;
-	font-weight: 600;
+	font-size: 16px;
+	font-weight: 700;
+	font-family: $font-second;
 	text-decoration: none;
-	transition: all 0.3s ease-in-out;
+	letter-spacing: 0.01em;
+	transition: background 0.25s ease, transform 0.2s ease;
 
-	@include media-breakpoint-down(md) {
-		padding: 12px 24px;
+	svg {
+		margin-left: 0;
+		width: 16px;
+		height: 16px;
+		flex-shrink: 0;
 	}
 
 	&:hover {
-		background: $color-brown;
+		background: darken(#E0AC47, 10%);
 		color: #fff;
+		transform: translateY(-1px);
+	}
 
-		&::before {
-			background: #fff;
-		}
+	&:active {
+		transform: translateY(0);
 	}
 }
 

@@ -33,7 +33,7 @@ const BlockAttrs = {
 	},
 	widthSep: {
 		type: "number",
-		default: 63,
+		default: 60,
 	},
 	heightSep: {
 		type: "number",
@@ -41,7 +41,19 @@ const BlockAttrs = {
 	},
 	alignBlock: {
 		type: "string",
-		default: "left",
+		default: "center",
+	},
+	showIcon: {
+		type: "boolean",
+		default: false,
+	},
+	iconType: {
+		type: "string",
+		default: "diamond",
+	},
+	iconSize: {
+		type: "number",
+		default: 16,
 	},
 };
 
@@ -55,12 +67,9 @@ export default registerBlockType("pi-blocks/pi-separator-block", {
 	category: "pi-blocks",
 	keywords: [__("separator"), __(""), __("break")],
 	attributes: BlockAttrs,
-	/* Render the block in the editor. */
 	edit: (props) => {
 		return <Edit {...props} />;
 	},
-
-	/* Save the block markup. */
 	save: (props) => {
 		return <Save {...props} />;
 	},
