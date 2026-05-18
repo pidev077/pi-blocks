@@ -1068,13 +1068,13 @@ html :where(.wp-block) {
   min-width: 28px;
   font-family: "Playfair Display", serif;
 }
-.block-faq--editor .faq-item .rich-text {
+.block-faq--editor .faq-item__question {
   flex: 1;
-  font-size: 16px;
-  color: #4A4039;
-  line-height: 24px;
+  font-size: 24px;
+  color: #27211C;
+  line-height: 1.4;
   outline: none;
-  font-family: "Google Sans", sans-serif;
+  font-family: "Playfair Display", serif;
 }
 .block-faq--editor .faq-item__remove {
   flex-shrink: 0;

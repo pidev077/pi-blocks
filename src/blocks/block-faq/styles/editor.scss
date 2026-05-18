@@ -23,13 +23,13 @@
 			font-family: $font-primary;
 		}
 
-		.rich-text {
+		&__question {
 			flex: 1;
-			font-size: 16px;
-			color: #4A4039;
-			line-height: 24px;
+			font-size: 24px;
+			color: #27211C;
+			line-height: 1.4;
 			outline: none;
-			font-family: $font-second;
+			font-family: $font-primary;
 		}
 
 		&__remove {
