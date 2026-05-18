@@ -61,14 +61,17 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
             blockEl.style.setProperty('--hover-color', hoverColor || '');
             blockEl.style.setProperty('--hover-bg-color', hoverBgColor || '');
 
+            // data-block có thể là wrapper ngoài, cần tìm đúng .wp-block-button để CSS selector khớp
+            const buttonEl = blockEl.querySelector('.wp-block-button') || blockEl;
+
             if (piShowIcon && piIconUrl) {
-                blockEl.style.setProperty('--pi-icon-url', `url(${piIconUrl})`);
-                blockEl.style.setProperty('--pi-icon-size', `${piIconSize || 20}px`);
-                blockEl.classList.add('has-pi-icon');
+                buttonEl.style.setProperty('--pi-icon-url', `url(${piIconUrl})`);
+                buttonEl.style.setProperty('--pi-icon-size', `${piIconSize || 20}px`);
+                buttonEl.classList.add('has-pi-icon');
             } else {
-                blockEl.style.removeProperty('--pi-icon-url');
-                blockEl.style.removeProperty('--pi-icon-size');
-                blockEl.classList.remove('has-pi-icon');
+                buttonEl.style.removeProperty('--pi-icon-url');
+                buttonEl.style.removeProperty('--pi-icon-size');
+                buttonEl.classList.remove('has-pi-icon');
             }
         }, [hoverColor, hoverBgColor, piShowIcon, piIconUrl, piIconSize, clientId]);
 

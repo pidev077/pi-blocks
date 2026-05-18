@@ -2,7 +2,7 @@
  * External dependencies.
  */
 import classnames from 'classnames';
-// import BackgroundImageStyles from '../../../utils/components/background-image/styles';
+import BackgroundImageStyles from '../../../utils/components/background-image/styles';
 
 /**
  * WordPress dependencies.
@@ -16,6 +16,7 @@ const Save = ( props ) => {
 		columns,
 		layout,
 		align,
+		backgroundColor,
 		marginSync,
 		margin,
 		marginUnit,
@@ -68,10 +69,10 @@ const Save = ( props ) => {
 	}
 
 	/* Misc styles. */
-	// const styles = {
-	// 	backgroundColor: backgroundColor,
-	// 	...BackgroundImageStyles( attributes ),
-	// };
+	const styles = {
+		backgroundColor: backgroundColor,
+		...BackgroundImageStyles( attributes ),
+	};
 
 	const className = classnames( [
 		'pi-layout-column-wrap',
@@ -82,7 +83,7 @@ const Save = ( props ) => {
 
 	const blockProps = useBlockProps.save( {
 		className: classNames || undefined,
-		style: Object.assign( marginValue, paddingValue ),
+		style: Object.assign( marginValue, paddingValue, styles ),
 	} );
 
 	return (

@@ -11,7 +11,7 @@ const allowedBlocks = ["core/heading", "core/paragraph", "core/list"];
 const addAttributes = (settings) => {
 	if (allowedBlocks.includes(settings.name)) {
 		settings.attributes = Object.assign(settings.attributes, {
-			fontFamily: { type: "string" },
+			piFontFamily: { type: "string" },
 			enableAnimation: { type: "boolean", default: false },
 			typeAnimation: { type: "string", default: "fadein-chars" },
 		});
@@ -23,7 +23,7 @@ const withAdvancedControls = createHigherOrderComponent(
 	(BlockEdit) => (props) => {
 		const {
 			name,
-			attributes: { fontFamily, enableAnimation, typeAnimation },
+			attributes: { piFontFamily, enableAnimation, typeAnimation },
 			setAttributes,
 		} = props;
 
@@ -31,20 +31,20 @@ const withAdvancedControls = createHigherOrderComponent(
 			<Fragment>
 				<BlockEdit {...props} />
 				{allowedBlocks.includes(name) && (
-					<InspectorControls group="settings" priority={10}>
+					<InspectorControls group="settings">
 						<PanelBody
 							title={__("General", "pi-blocks")}
 							initialOpen={true}
 						>
 							<SelectControl
 								label="Select Font Family"
-								value={fontFamily}
+								value={piFontFamily}
 								options={[
 									{ label: "--Select--", value: "" },
 									{ label: "Google Sans", value: "google-sans" },
 									{ label: "Playfair Display", value: "playfair-display" },
 								]}
-								onChange={(vl) => setAttributes({ fontFamily: vl })}
+								onChange={(vl) => setAttributes({ piFontFamily: vl })}
 							/>
 							<ToggleControl
 								label="Enable Animation"
@@ -83,7 +83,7 @@ const withAdvancedControls = createHigherOrderComponent(
 const applyExtraClass = (
 	extraProps,
 	blockType,
-	{ fontFamily, enableAnimation, typeAnimation }
+	{ piFontFamily, enableAnimation, typeAnimation }
 ) => {
 	if (!allowedBlocks.includes(blockType.name)) {
 		return extraProps;
@@ -91,7 +91,7 @@ const applyExtraClass = (
 
 	extraProps.className = classnames(
 		extraProps.className,
-		fontFamily ? "font-" + fontFamily : "",
+		piFontFamily ? "font-" + piFontFamily : "",
 		enableAnimation ? `wp-block-heading-${typeAnimation}` : ""
 	);
 

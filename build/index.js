@@ -7803,9 +7803,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils_components_background_image_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../utils/components/background-image/styles */ "./src/utils/components/background-image/styles.js");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
@@ -7813,7 +7816,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
  * External dependencies.
  */
 
-// import BackgroundImageStyles from '../../../utils/components/background-image/styles';
+
 
 /**
  * WordPress dependencies.
@@ -7825,6 +7828,7 @@ var Save = function Save(props) {
   var columns = attributes.columns,
     layout = attributes.layout,
     align = attributes.align,
+    backgroundColor = attributes.backgroundColor,
     marginSync = attributes.marginSync,
     margin = attributes.margin,
     marginUnit = attributes.marginUnit,
@@ -7868,15 +7872,13 @@ var Save = function Save(props) {
   }
 
   /* Misc styles. */
-  // const styles = {
-  // 	backgroundColor: backgroundColor,
-  // 	...BackgroundImageStyles( attributes ),
-  // };
-
+  var styles = _objectSpread({
+    backgroundColor: backgroundColor
+  }, (0,_utils_components_background_image_styles__WEBPACK_IMPORTED_MODULE_1__["default"])(attributes));
   var className = classnames__WEBPACK_IMPORTED_MODULE_0___default()(['pi-layout-column-wrap', 'pi-block-layout-column-gap', attributes.responsiveToggle ? 'pi-is-responsive-column' : null, attributes.reverseOnMB ? 'reverse-column-mb' : null]);
-  var blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
+  var blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save({
     className: classNames || undefined,
-    style: Object.assign(marginValue, paddingValue)
+    style: Object.assign(marginValue, paddingValue, styles)
   });
   return /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement("div", {
     className: className ? className : undefined,
@@ -7885,7 +7887,7 @@ var Save = function Save(props) {
       columnGap: attributes.columnsGap + 'px',
       rowGap: attributes.rowGap + 'px'
     }
-  }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null)));
+  }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks.Content, null)));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Save);
 
@@ -8073,36 +8075,62 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
 
 var ICONS = {
   address: /*#__PURE__*/React.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
     viewBox: "0 0 24 24",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
+    fill: "none"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z",
-    fill: "currentColor"
+    d: "M9 10.9997C9 11.7953 9.31607 12.5584 9.87868 13.121C10.4413 13.6836 11.2044 13.9997 12 13.9997C12.7956 13.9997 13.5587 13.6836 14.1213 13.121C14.6839 12.5584 15 11.7953 15 10.9997C15 10.204 14.6839 9.44098 14.1213 8.87837C13.5587 8.31576 12.7956 7.99969 12 7.99969C11.2044 7.99969 10.4413 8.31576 9.87868 8.87837C9.31607 9.44098 9 10.204 9 10.9997Z",
+    stroke: "#E0AC47",
+    "stroke-width": "1.5",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M17.657 16.6567L13.414 20.8997C13.039 21.2743 12.5306 21.4848 12.0005 21.4848C11.4704 21.4848 10.962 21.2743 10.587 20.8997L6.343 16.6567C5.22422 15.5379 4.46234 14.1124 4.15369 12.5606C3.84504 11.0087 4.00349 9.40022 4.60901 7.93844C5.21452 6.47665 6.2399 5.22725 7.55548 4.34821C8.87107 3.46918 10.4178 3 12 3C13.5822 3 15.1289 3.46918 16.4445 4.34821C17.7601 5.22725 18.7855 6.47665 19.391 7.93844C19.9965 9.40022 20.155 11.0087 19.8463 12.5606C19.5377 14.1124 18.7758 15.5379 17.657 16.6567Z",
+    stroke: "#E0AC47",
+    "stroke-width": "1.5",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round"
   })),
   phone: /*#__PURE__*/React.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
     viewBox: "0 0 24 24",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
+    fill: "none"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z",
-    fill: "currentColor"
+    d: "M5 4H9L11 9L8.5 10.5C9.57096 12.6715 11.3285 14.429 13.5 15.5L15 13L20 15V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21C14.0993 20.763 10.4202 19.1065 7.65683 16.3432C4.8935 13.5798 3.23705 9.90074 3 6C3 5.46957 3.21071 4.96086 3.58579 4.58579C3.96086 4.21071 4.46957 4 5 4Z",
+    stroke: "#E0AC47",
+    "stroke-width": "1.5",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round"
   })),
   email: /*#__PURE__*/React.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
     viewBox: "0 0 24 24",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
+    fill: "none"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z",
-    fill: "currentColor"
+    d: "M3 7C3 6.46957 3.21071 5.96086 3.58579 5.58579C3.96086 5.21071 4.46957 5 5 5H19C19.5304 5 20.0391 5.21071 20.4142 5.58579C20.7893 5.96086 21 6.46957 21 7M3 7V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19H19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17V7M3 7L12 13L21 7",
+    stroke: "#E0AC47",
+    "stroke-width": "1.5",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round"
   })),
   hours: /*#__PURE__*/React.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
     viewBox: "0 0 24 24",
-    fill: "none",
-    xmlns: "http://www.w3.org/2000/svg"
+    fill: "none"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z",
-    fill: "currentColor"
+    d: "M15 14L12 12V7M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 10.8181 20.7672 9.64778 20.3149 8.55585C19.8626 7.46392 19.1997 6.47177 18.364 5.63604C17.5282 4.80031 16.5361 4.13738 15.4442 3.68508C14.3522 3.23279 13.1819 3 12 3C10.8181 3 9.64778 3.23279 8.55585 3.68508C7.46392 4.13738 6.47177 4.80031 5.63604 5.63604C4.80031 6.47177 4.13738 7.46392 3.68508 8.55585C3.23279 9.64778 3 10.8181 3 12Z",
+    stroke: "#E0AC47",
+    "stroke-width": "1.5",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round"
   }))
 };
 function Edit(_ref) {
@@ -8268,46 +8296,68 @@ __webpack_require__.r(__webpack_exports__);
 
 var IconAddress = function IconAddress() {
   return /*#__PURE__*/React.createElement("svg", {
-    viewBox: "0 0 24 24",
-    fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
-    "aria-hidden": "true"
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24",
+    fill: "none"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z",
-    fill: "currentColor"
+    d: "M9 10.9997C9 11.7953 9.31607 12.5584 9.87868 13.121C10.4413 13.6836 11.2044 13.9997 12 13.9997C12.7956 13.9997 13.5587 13.6836 14.1213 13.121C14.6839 12.5584 15 11.7953 15 10.9997C15 10.204 14.6839 9.44098 14.1213 8.87837C13.5587 8.31576 12.7956 7.99969 12 7.99969C11.2044 7.99969 10.4413 8.31576 9.87868 8.87837C9.31607 9.44098 9 10.204 9 10.9997Z",
+    stroke: "#E0AC47",
+    "stroke-width": "1.5",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M17.657 16.6567L13.414 20.8997C13.039 21.2743 12.5306 21.4848 12.0005 21.4848C11.4704 21.4848 10.962 21.2743 10.587 20.8997L6.343 16.6567C5.22422 15.5379 4.46234 14.1124 4.15369 12.5606C3.84504 11.0087 4.00349 9.40022 4.60901 7.93844C5.21452 6.47665 6.2399 5.22725 7.55548 4.34821C8.87107 3.46918 10.4178 3 12 3C13.5822 3 15.1289 3.46918 16.4445 4.34821C17.7601 5.22725 18.7855 6.47665 19.391 7.93844C19.9965 9.40022 20.155 11.0087 19.8463 12.5606C19.5377 14.1124 18.7758 15.5379 17.657 16.6567Z",
+    stroke: "#E0AC47",
+    "stroke-width": "1.5",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round"
   }));
 };
 var IconPhone = function IconPhone() {
   return /*#__PURE__*/React.createElement("svg", {
-    viewBox: "0 0 24 24",
-    fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
-    "aria-hidden": "true"
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24",
+    fill: "none"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z",
-    fill: "currentColor"
+    d: "M5 4H9L11 9L8.5 10.5C9.57096 12.6715 11.3285 14.429 13.5 15.5L15 13L20 15V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21C14.0993 20.763 10.4202 19.1065 7.65683 16.3432C4.8935 13.5798 3.23705 9.90074 3 6C3 5.46957 3.21071 4.96086 3.58579 4.58579C3.96086 4.21071 4.46957 4 5 4Z",
+    stroke: "#E0AC47",
+    "stroke-width": "1.5",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round"
   }));
 };
 var IconEmail = function IconEmail() {
   return /*#__PURE__*/React.createElement("svg", {
-    viewBox: "0 0 24 24",
-    fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
-    "aria-hidden": "true"
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24",
+    fill: "none"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z",
-    fill: "currentColor"
+    d: "M3 7C3 6.46957 3.21071 5.96086 3.58579 5.58579C3.96086 5.21071 4.46957 5 5 5H19C19.5304 5 20.0391 5.21071 20.4142 5.58579C20.7893 5.96086 21 6.46957 21 7M3 7V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19H19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17V7M3 7L12 13L21 7",
+    stroke: "#E0AC47",
+    "stroke-width": "1.5",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round"
   }));
 };
 var IconHours = function IconHours() {
   return /*#__PURE__*/React.createElement("svg", {
-    viewBox: "0 0 24 24",
-    fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
-    "aria-hidden": "true"
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24",
+    fill: "none"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z",
-    fill: "currentColor"
+    d: "M15 14L12 12V7M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 10.8181 20.7672 9.64778 20.3149 8.55585C19.8626 7.46392 19.1997 6.47177 18.364 5.63604C17.5282 4.80031 16.5361 4.13738 15.4442 3.68508C14.3522 3.23279 13.1819 3 12 3C10.8181 3 9.64778 3.23279 8.55585 3.68508C7.46392 4.13738 6.47177 4.80031 5.63604 5.63604C4.80031 6.47177 4.13738 7.46392 3.68508 8.55585C3.23279 9.64778 3 10.8181 3 12Z",
+    stroke: "#E0AC47",
+    "stroke-width": "1.5",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round"
   }));
 };
 function Save(_ref) {
@@ -14384,14 +14434,17 @@ var withInspectorControls = createHigherOrderComponent(function (BlockEdit) {
       if (!blockEl) return;
       blockEl.style.setProperty('--hover-color', hoverColor || '');
       blockEl.style.setProperty('--hover-bg-color', hoverBgColor || '');
+
+      // data-block có thể là wrapper ngoài, cần tìm đúng .wp-block-button để CSS selector khớp
+      var buttonEl = blockEl.querySelector('.wp-block-button') || blockEl;
       if (piShowIcon && piIconUrl) {
-        blockEl.style.setProperty('--pi-icon-url', "url(".concat(piIconUrl, ")"));
-        blockEl.style.setProperty('--pi-icon-size', "".concat(piIconSize || 20, "px"));
-        blockEl.classList.add('has-pi-icon');
+        buttonEl.style.setProperty('--pi-icon-url', "url(".concat(piIconUrl, ")"));
+        buttonEl.style.setProperty('--pi-icon-size', "".concat(piIconSize || 20, "px"));
+        buttonEl.classList.add('has-pi-icon');
       } else {
-        blockEl.style.removeProperty('--pi-icon-url');
-        blockEl.style.removeProperty('--pi-icon-size');
-        blockEl.classList.remove('has-pi-icon');
+        buttonEl.style.removeProperty('--pi-icon-url');
+        buttonEl.style.removeProperty('--pi-icon-size');
+        buttonEl.classList.remove('has-pi-icon');
       }
     }, [hoverColor, hoverBgColor, piShowIcon, piIconUrl, piIconSize, clientId]);
     return /*#__PURE__*/React.createElement(Fragment, null, /*#__PURE__*/React.createElement(BlockEdit, props), /*#__PURE__*/React.createElement(InspectorControls, {
@@ -14658,7 +14711,7 @@ var allowedBlocks = ["core/heading", "core/paragraph", "core/list"];
 var addAttributes = function addAttributes(settings) {
   if (allowedBlocks.includes(settings.name)) {
     settings.attributes = Object.assign(settings.attributes, {
-      fontFamily: {
+      piFontFamily: {
         type: "string"
       },
       enableAnimation: {
@@ -14677,19 +14730,18 @@ var withAdvancedControls = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_4__.cr
   return function (props) {
     var name = props.name,
       _props$attributes = props.attributes,
-      fontFamily = _props$attributes.fontFamily,
+      piFontFamily = _props$attributes.piFontFamily,
       enableAnimation = _props$attributes.enableAnimation,
       typeAnimation = _props$attributes.typeAnimation,
       setAttributes = props.setAttributes;
     return /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.Fragment, null, /*#__PURE__*/React.createElement(BlockEdit, props), allowedBlocks.includes(name) && /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_6__.InspectorControls, {
-      group: "settings",
-      priority: 10
+      group: "settings"
     }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.PanelBody, {
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("General", "pi-blocks"),
       initialOpen: true
     }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.SelectControl, {
       label: "Select Font Family",
-      value: fontFamily,
+      value: piFontFamily,
       options: [{
         label: "--Select--",
         value: ""
@@ -14702,7 +14754,7 @@ var withAdvancedControls = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_4__.cr
       }],
       onChange: function onChange(vl) {
         return setAttributes({
-          fontFamily: vl
+          piFontFamily: vl
         });
       }
     }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.ToggleControl, {
@@ -14732,13 +14784,13 @@ var withAdvancedControls = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_4__.cr
   };
 }, "withAdvancedControls");
 var applyExtraClass = function applyExtraClass(extraProps, blockType, _ref) {
-  var fontFamily = _ref.fontFamily,
+  var piFontFamily = _ref.piFontFamily,
     enableAnimation = _ref.enableAnimation,
     typeAnimation = _ref.typeAnimation;
   if (!allowedBlocks.includes(blockType.name)) {
     return extraProps;
   }
-  extraProps.className = classnames__WEBPACK_IMPORTED_MODULE_0___default()(extraProps.className, fontFamily ? "font-" + fontFamily : "", enableAnimation ? "wp-block-heading-".concat(typeAnimation) : "");
+  extraProps.className = classnames__WEBPACK_IMPORTED_MODULE_0___default()(extraProps.className, piFontFamily ? "font-" + piFontFamily : "", enableAnimation ? "wp-block-heading-".concat(typeAnimation) : "");
   return extraProps;
 };
 
