@@ -7,12 +7,10 @@ const Edit = ({ attributes, setAttributes }) => {
 	const { items } = attributes;
 	const blockProps = useBlockProps({ className: "block-faq block-faq--editor" });
 
-	const update = (id, field, value) => {
-		setAttributes({
-			items: items.map((item) =>
-				item.id === id ? { ...item, [field]: value } : item
-			),
-		});
+	const update = (index, field, value) => {
+		const newItems = [...items];
+		newItems[index] = { ...newItems[index], [field]: value };
+		setAttributes({ items: newItems });
 	};
 
 	const add = () =>
@@ -20,15 +18,15 @@ const Edit = ({ attributes, setAttributes }) => {
 			items: [...items, { id: genId(), question: "", answer: "" }],
 		});
 
-	const remove = (id) =>
-		setAttributes({ items: items.filter((item) => item.id !== id) });
+	const remove = (index) =>
+		setAttributes({ items: items.filter((_, i) => i !== index) });
 
 	return (
 		<div {...blockProps}>
 			{items.map((item, index) => {
-				const id = item.id || String(index);
+				const key = item.id || String(index);
 				return (
-					<div key={id} className="faq-item faq-item--open">
+					<div key={key} className="faq-item faq-item--open">
 						<div className="faq-item__head">
 							<span className="faq-item__num">{index + 1}.</span>
 							<RichText
@@ -36,7 +34,7 @@ const Edit = ({ attributes, setAttributes }) => {
 								className="faq-item__question"
 								placeholder="Nhập câu hỏi…"
 								value={item.question}
-								onChange={(val) => update(id, "question", val)}
+								onChange={(val) => update(index, "question", val)}
 								allowedFormats={[]}
 							/>
 							<Button
@@ -44,7 +42,7 @@ const Edit = ({ attributes, setAttributes }) => {
 								icon="trash"
 								isDestructive
 								label="Xoá"
-								onClick={() => remove(id)}
+								onClick={() => remove(index)}
 							/>
 						</div>
 						<div className="faq-item__body">
@@ -53,7 +51,7 @@ const Edit = ({ attributes, setAttributes }) => {
 								className="faq-item__answer"
 								placeholder="Nhập câu trả lời…"
 								value={item.answer}
-								onChange={(val) => update(id, "answer", val)}
+								onChange={(val) => update(index, "answer", val)}
 								allowedFormats={[
 									"core/bold",
 									"core/italic",

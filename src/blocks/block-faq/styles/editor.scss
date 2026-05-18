@@ -11,6 +11,7 @@
 			align-items: flex-start;
 			gap: 12px;
 			padding: 20px 0 12px;
+			font-family: $font-primary;
 		}
 
 		&__num {
@@ -24,11 +25,11 @@
 
 		.rich-text {
 			flex: 1;
-			font-size: 24px;
-			color: #27211C;
-			line-height: 1.4;
+			font-size: 16px;
+			color: #4A4039;
+			line-height: 24px;
 			outline: none;
-			font-family: $font-primary;
+			font-family: $font-second;
 		}
 
 		&__remove {
@@ -44,8 +45,8 @@
 
 		&__answer {
 			background: #F5F2EC;
-			padding: 24pxpx;
-			font-size: 16px;
+			padding: 24px;
+			font-size: 16px !important;
 			line-height: 1.7;
 			color: #4A4039;
 			outline: none;
