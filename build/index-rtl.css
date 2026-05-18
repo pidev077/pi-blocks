@@ -1070,11 +1070,11 @@ html :where(.wp-block) {
 }
 .block-faq--editor .faq-item__question {
   flex: 1;
-  font-size: 24px;
-  color: #27211C;
+  font-size: 24px !important;
+  color: #27211C !important;
   line-height: 1.4;
   outline: none;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", serif !important;
 }
 .block-faq--editor .faq-item__remove {
   flex-shrink: 0;

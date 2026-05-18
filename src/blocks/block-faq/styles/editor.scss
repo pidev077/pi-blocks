@@ -25,11 +25,11 @@
 
 		&__question {
 			flex: 1;
-			font-size: 24px;
-			color: #27211C;
+			font-size: 24px !important;
+			color: #27211C !important;
 			line-height: 1.4;
 			outline: none;
-			font-family: $font-primary;
+			font-family: $font-primary !important;
 		}
 
 		&__remove {
