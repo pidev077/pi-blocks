@@ -1090,6 +1090,7 @@ html :where(.wp-block) {
   line-height: 1.7;
   color: #4A4039;
   outline: none;
+  font-family: "Google Sans", sans-serif;
 }
 .block-faq--editor .faq-item__answer p {
   margin: 0;
