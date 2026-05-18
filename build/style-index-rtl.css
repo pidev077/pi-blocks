@@ -2089,6 +2089,7 @@ figure.wp-block-video video {
   text-decoration: none;
   color: inherit;
   white-space: nowrap;
+  animation: hero-scroll-bounce 1.8s ease-in-out infinite;
 }
 @media (max-width: 767.98px) {
   .hero-block-scroll {
@@ -2104,6 +2105,17 @@ figure.wp-block-video video {
 .hero-block-scroll svg {
   display: block;
   margin-right: 0;
+}
+.hero-block-scroll:hover {
+  animation-play-state: paused;
+}
+@keyframes hero-scroll-bounce {
+  0%, 100% {
+    transform: translateX(50%) translateY(0);
+  }
+  50% {
+    transform: translateX(50%) translateY(-10px);
+  }
 }
 .hero-block-meta {
   display: flex;

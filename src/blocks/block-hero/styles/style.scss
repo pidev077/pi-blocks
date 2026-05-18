@@ -120,6 +120,7 @@
 		text-decoration: none;
 		color: inherit;
 		white-space: nowrap;
+		animation: hero-scroll-bounce 1.8s ease-in-out infinite;
 
 		@include media-breakpoint-down(md) {
 			bottom: 32px;
@@ -135,6 +136,19 @@
 		svg {
 			display: block;
 			margin-left: 0;
+		}
+
+		&:hover {
+			animation-play-state: paused;
+		}
+	}
+
+	@keyframes hero-scroll-bounce {
+		0%, 100% {
+			transform: translateX(-50%) translateY(0);
+		}
+		50% {
+			transform: translateX(-50%) translateY(-10px);
 		}
 	}
 
