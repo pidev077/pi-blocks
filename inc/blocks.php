@@ -175,6 +175,36 @@ if (!function_exists('pi_init_register_block')) {
 		));
 
 
+		register_block_type('pi-blocks/block-service-list', array(
+			'render_callback' => 'pi_service_list_render',
+			'attributes' => array(
+				'post_type' => array(
+					'type' => 'string',
+					'default' => 'service',
+				),
+				'posts_per_page' => array(
+					'type' => 'number',
+					'default' => -1,
+				),
+				'order' => array(
+					'type' => 'string',
+					'default' => 'asc',
+				),
+				'orderBy' => array(
+					'type' => 'string',
+					'default' => 'menu_order',
+				),
+				'className' => array(
+					'type' => 'string',
+					'default' => '',
+				),
+				'anchor' => array(
+					'type' => 'string',
+					'default' => '',
+				),
+			),
+		));
+
 		register_block_type('pi-blocks/block-insights', array(
 			'render_callback' => 'block_insights_render',
 			'attributes' => array(
@@ -196,6 +226,44 @@ if (!function_exists('pi_init_register_block')) {
 				'anchor' => array(
 					'type' => 'string',
 				)
+			),
+		));
+
+		register_block_type('pi-blocks/block-post-carousel', array(
+			'render_callback' => 'block_post_carousel_render',
+			'attributes' => array(
+				'posts_per_page' => array(
+					'type' => 'number',
+					'default' => 6,
+				),
+				'order' => array(
+					'type' => 'string',
+					'default' => 'desc',
+				),
+				'orderBy' => array(
+					'type' => 'string',
+					'default' => 'date',
+				),
+				'cat' => array(
+					'type' => 'number',
+					'default' => 0,
+				),
+				'showExcerpt' => array(
+					'type' => 'boolean',
+					'default' => true,
+				),
+				'showMeta' => array(
+					'type' => 'boolean',
+					'default' => true,
+				),
+				'className' => array(
+					'type' => 'string',
+					'default' => '',
+				),
+				'anchor' => array(
+					'type' => 'string',
+					'default' => '',
+				),
 			),
 		));
 	}

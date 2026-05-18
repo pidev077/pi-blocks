@@ -7,6 +7,7 @@ import Team from "./blocks/team";
 import Sectors from "./blocks/sectors";
 import ContentMedia from "./blocks/content-media";
 import ProcessSteps from "./blocks/process-steps";
+import ServiceList from "./blocks/service-list";
 
 document.addEventListener("DOMContentLoaded", async () => {
 	FunctionsJs.init();
@@ -17,4 +18,5 @@ document.addEventListener("DOMContentLoaded", async () => {
 	Sectors.init();
 	ContentMedia.init();
 	ProcessSteps.init();
+	ServiceList.init();
 });

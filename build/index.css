@@ -1014,5 +1014,92 @@ html :where(.wp-block) {
 .is-root-container .pi-process-steps .ps-img-placeholder {
   min-height: 300px;
 }
+/*!***********************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/blocks/block-service-list/styles/editor.scss ***!
+  \***********************************************************************************************************************************************************************/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.wp-block-pi-blocks-block-service-list .block-service-list {
+  pointer-events: none;
+}
+/*!************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/blocks/block-post-carousel/styles/editor.scss ***!
+  \************************************************************************************************************************************************************************/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.wp-block-pi-blocks-block-post-carousel .block-post-carousel__nav {
+  pointer-events: all;
+}
+/*!**************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/blocks/block-faq/styles/editor.scss ***!
+  \**************************************************************************************************************************************************************/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.block-faq--editor .faq-item {
+  border-top: 1px solid #E5E0D8;
+}
+.block-faq--editor .faq-item:last-child {
+  border-bottom: 1px solid #E5E0D8;
+}
+.block-faq--editor .faq-item__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 20px 0 12px;
+}
+.block-faq--editor .faq-item__num {
+  flex-shrink: 0;
+  font-size: 24px;
+  color: #27211C;
+  line-height: 1.4;
+  min-width: 28px;
+  font-family: "Playfair Display", serif;
+}
+.block-faq--editor .faq-item .rich-text {
+  flex: 1;
+  font-size: 24px;
+  color: #27211C;
+  line-height: 1.4;
+  outline: none;
+  font-family: "Playfair Display", serif;
+}
+.block-faq--editor .faq-item__remove {
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.block-faq--editor .faq-item:hover .block-faq--editor .faq-item__remove {
+  opacity: 1;
+}
+.block-faq--editor .faq-item__answer {
+  background: #F5F2EC;
+  padding: 24pxpx;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #4A4039;
+  outline: none;
+}
+.block-faq--editor .faq-item__answer p {
+  margin: 0;
+}
+.block-faq--editor .faq-item__answer p + p {
+  margin-top: 10px;
+}
+.block-faq--editor .faq-add-btn {
+  margin-top: 16px;
+  align-self: flex-start;
+}
 
 /*# sourceMappingURL=index.css.map*/

@@ -32,3 +32,6 @@ import "./blocks/block-related-list";
 import "./blocks/block-logo-carousel";
 import "./blocks/block-gallery-carousel";
 import "./blocks/block-process-steps";
+import "./blocks/block-service-list";
+import "./blocks/block-post-carousel";
+import "./blocks/block-faq";

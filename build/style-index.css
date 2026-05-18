@@ -3844,9 +3844,9 @@ body.logged-in .team-popup-inner {
 */
 .pi-process-steps {
   display: flex;
-  border-radius: 24px;
   overflow: hidden;
   min-height: 480px;
+  background-color: #FAF8F4;
 }
 @media (max-width: 1023.98px) {
   .pi-process-steps {
@@ -3855,44 +3855,46 @@ body.logged-in .team-popup-inner {
   }
 }
 .pi-process-steps .ps-left {
-  width: 45%;
-  background: #faf6f1;
-  padding: 64px 40px 64px 48px;
+  width: 50%;
+  padding: 40px;
   display: flex;
   gap: 32px;
-  align-items: flex-start;
+  align-items: center;
+  align-self: center;
 }
 @media (max-width: 1199.98px) {
   .pi-process-steps .ps-left {
-    padding: 48px 32px;
+    padding: 32px;
   }
 }
 @media (max-width: 1023.98px) {
   .pi-process-steps .ps-left {
     width: 100%;
     flex-direction: column;
-    gap: 24px;
-    padding: 40px 24px;
+    gap: 0;
+    padding: 24px;
   }
 }
 @media (max-width: 767.98px) {
   .pi-process-steps .ps-left {
-    padding: 32px 20px;
+    padding: 20px;
   }
 }
 .pi-process-steps .ps-tabs {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
   flex-shrink: 0;
   min-width: 140px;
 }
 @media (max-width: 1023.98px) {
   .pi-process-steps .ps-tabs {
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 12px 24px;
     min-width: unset;
+    border-bottom: 1px solid #E6DFD4;
+    padding-bottom: 40px;
   }
 }
 .pi-process-steps .ps-tab {
@@ -3904,40 +3906,41 @@ body.logged-in .team-popup-inner {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #27211C;
-  opacity: 0.3;
-  font-size: 16px;
+  color: #B9AE9E;
+  font-size: 20px !important;
   font-weight: 500;
-  font-family: "Google Sans", sans-serif;
+  font-family: "Playfair Display", serif;
   line-height: 1.3;
   transition: opacity 0.3s ease, color 0.3s ease;
 }
 .pi-process-steps .ps-tab.is-active {
   opacity: 1;
-  color: #b8965a;
+  color: #E0AC47 !important;
+  text-decoration: underline;
 }
 .pi-process-steps .ps-tab:hover:not(.is-active) {
-  opacity: 0.6;
+  color: #E0AC47;
 }
 .pi-process-steps .ps-tab .ps-num {
-  font-weight: 600;
+  font-weight: 500;
 }
 @media (max-width: 1023.98px) {
   .pi-process-steps .ps-tab {
-    font-size: 15px;
+    font-size: 18px;
+    justify-content: center;
   }
 }
 .pi-process-steps .ps-panels {
   flex: 1;
-  border-left: 1px solid rgba(0, 0, 0, 0.12);
+  border-left: 1px solid #E6DFD4;
   padding-left: 32px;
 }
 @media (max-width: 1023.98px) {
   .pi-process-steps .ps-panels {
     border-left: none;
-    border-top: 1px solid rgba(0, 0, 0, 0.12);
     padding-left: 0;
     padding-top: 24px;
+    text-align: center;
   }
 }
 .pi-process-steps .ps-panel {
@@ -3948,7 +3951,7 @@ body.logged-in .team-popup-inner {
 }
 .pi-process-steps .ps-title {
   font-family: "Playfair Display", serif;
-  font-size: clamp(22px, 1.5vw + 10px, 32px);
+  font-size: clamp(18px, 1.5vw + 10px, 24px);
   font-weight: 700;
   color: #27211C;
   margin: 0 0 16px;
@@ -3956,14 +3959,14 @@ body.logged-in .team-popup-inner {
 }
 .pi-process-steps .ps-desc {
   font-family: "Google Sans", sans-serif;
-  font-size: 15px;
-  line-height: 1.8;
-  color: rgba(88, 78, 68, 0.75);
+  font-size: 16px;
+  line-height: 24px;
+  color: #584E44;
   margin: 0;
   white-space: pre-line;
 }
 .pi-process-steps .ps-right {
-  width: 55%;
+  width: 50%;
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
@@ -3971,23 +3974,12 @@ body.logged-in .team-popup-inner {
 @media (max-width: 1023.98px) {
   .pi-process-steps .ps-right {
     width: 100%;
-    height: 320px;
     flex-shrink: 0;
-  }
-}
-@media (max-width: 767.98px) {
-  .pi-process-steps .ps-right {
-    height: 260px;
-  }
-}
-@media (max-width: 575.98px) {
-  .pi-process-steps .ps-right {
-    height: 220px;
   }
 }
 .pi-process-steps .ps-img {
   display: none;
-  position: absolute;
+  aspect-ratio: 1/1;
   inset: 0;
 }
 .pi-process-steps .ps-img.is-active {
@@ -4008,6 +4000,507 @@ body.logged-in .team-popup-inner {
   background: #e5e5e5;
   color: #999;
   font-size: 14px;
+}
+/*!**********************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/blocks/block-service-list/styles/style.scss ***!
+  \**********************************************************************************************************************************************************************/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.block-service-list .service-list__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.block-service-list .service-list__left .service-item {
+  border-bottom: 1px solid #F2EEE7;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+.block-service-list .service-list__left .service-item__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 40px 0;
+  transition: padding-left 0.35s ease;
+}
+.block-service-list .service-list__left .service-item__content {
+  flex: 1;
+  min-width: 0;
+}
+.block-service-list .service-list__left .service-item__title {
+  font-size: clamp(24px, 2vw, 32px);
+  font-weight: 500;
+  color: #B9AE9E;
+  margin: 0;
+  line-height: 1.3;
+  transition: color 0.35s ease;
+}
+.block-service-list .service-list__left .service-item__excerpt {
+  display: none;
+}
+.block-service-list .service-list__left .service-item__arrow {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #E6DFD4;
+  color: #B9AE9E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease;
+}
+.block-service-list .service-list__left .service-item__arrow svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.3s ease;
+}
+.block-service-list .service-list__left .service-item.is-active .service-item__title {
+  color: #27211C;
+  font-weight: 500;
+}
+.block-service-list .service-list__left .service-item.is-active .service-item__arrow {
+  background-color: #E0AC47;
+  border-color: #E0AC47;
+  color: #fff;
+}
+.block-service-list .service-list__left .service-item.is-active .service-item__inner {
+  padding-left: 0;
+}
+@media (hover: hover) {
+  .block-service-list .service-list__left .service-item:hover:not(.is-active) .service-item__title {
+    color: #1a1a1a;
+  }
+  .block-service-list .service-list__left .service-item:hover:not(.is-active) .service-item__arrow {
+    border-color: #c9a96e;
+    color: #c9a96e;
+  }
+  .block-service-list .service-list__left .service-item:hover:not(.is-active) .service-item__arrow svg {
+    transform: translateX(2px);
+  }
+  .block-service-list .service-list__left .service-item:hover:not(.is-active) .service-item__inner {
+    padding-left: 4px;
+  }
+}
+.block-service-list .service-list__right {
+  display: grid;
+  position: sticky;
+  top: 80px;
+}
+.block-service-list .service-list__right .service-preview {
+  grid-area: 1/1;
+  opacity: 0;
+  pointer-events: none;
+  max-width: 353px;
+  margin: 0 auto;
+  transform: translateY(12px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+.block-service-list .service-list__right .service-preview.is-active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.block-service-list .service-list__right .service-preview__card {
+  background-color: #06354B;
+  padding: 23px;
+  text-align: center;
+}
+.block-service-list .service-list__right .service-preview__card p {
+  color: #fff;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0 0 8px;
+  font-weight: 500;
+}
+.block-service-list .service-list__right .service-preview__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #E0AC47;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: gap 0.25s ease;
+}
+.block-service-list .service-list__right .service-preview__link svg {
+  transition: transform 0.25s ease;
+  width: 18px;
+  height: 18px;
+  margin-left: 5px;
+}
+.block-service-list .service-list__right .service-preview__link:hover {
+  gap: 10px;
+}
+.block-service-list .service-list__right .service-preview__link:hover svg {
+  transform: translate(2px, -2px);
+}
+.block-service-list .service-list__right .service-preview__image {
+  overflow: hidden;
+  aspect-ratio: 7/8;
+  background: linear-gradient(248.63deg, #FFFCF2 0.9%, #D6E6F7 99.6%);
+}
+.block-service-list .service-list__right .service-preview__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.block-service-list .service-list__right .service-preview__image:hover img {
+  transform: scale(1.03);
+}
+
+@media (max-width: 1023.98px) {
+  .block-service-list .service-list__inner {
+    grid-template-columns: 55% 1fr;
+    gap: 32px;
+  }
+}
+@media (max-width: 767.98px) {
+  .block-service-list .service-list__inner {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .block-service-list .service-list__right {
+    position: static;
+    margin-top: 32px;
+  }
+  .block-service-list .service-list__right .service-preview {
+    grid-area: unset;
+    display: none;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+  .block-service-list .service-item__inner {
+    padding: 24px 0 !important;
+    align-items: center;
+  }
+  .block-service-list .service-item__title {
+    font-size: 24px;
+    margin-bottom: 16px !important;
+  }
+  .block-service-list .service-item__excerpt {
+    display: block !important;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #9A9087;
+    margin: 0;
+  }
+  .block-service-list .service-item.is-active .block-service-list .service-item__excerpt {
+    color: #6B6157;
+  }
+  .block-service-list .service-item__arrow {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    align-self: center;
+  }
+  .block-service-list .service-item__arrow svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+@media (max-width: 575.98px) {
+  .block-service-list .service-item__title {
+    font-size: 15px;
+  }
+  .block-service-list .service-preview__card {
+    padding: 20px 20px;
+  }
+}
+/*!***********************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/blocks/block-post-carousel/styles/style.scss ***!
+  \***********************************************************************************************************************************************************************/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.block-post-carousel {
+  position: relative;
+}
+.block-post-carousel .swiper {
+  overflow: hidden;
+}
+.block-post-carousel__nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.block-post-carousel__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  background: transparent;
+  cursor: pointer;
+  color: #120a00;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+.block-post-carousel__btn:hover {
+  background: #120a00;
+  color: #fff;
+  border-color: #120a00;
+}
+.block-post-carousel__btn svg {
+  width: 20px;
+  height: 20px;
+}
+.block-post-carousel__btn.swiper-button-disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+.block-post-carousel .swiper-slide {
+  height: auto;
+}
+
+.post-carousel-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.post-carousel-card:hover .post-carousel-card__img img {
+  transform: scale(1.06);
+}
+.post-carousel-card__img {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/2;
+  text-decoration: none;
+}
+.post-carousel-card__img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+}
+.post-carousel-card__cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+.post-carousel-card__cat {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #FBF7EB;
+  color: #E0AC47 !important;
+  font-size: 14px !important;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-decoration: none;
+  line-height: 1.6;
+  transition: background 0.2s ease;
+}
+.post-carousel-card__cat:hover {
+  background: #E0AC47;
+  color: #fff;
+}
+.post-carousel-card__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-top: 16px;
+  gap: 10px;
+}
+.post-carousel-card__title {
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  line-height: 1.3 !important;
+  color: #27211C;
+  margin: 0 !important;
+}
+.post-carousel-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+.post-carousel-card__title a:hover {
+  text-decoration: underline;
+}
+.post-carousel-card__excerpt {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #978B7B;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.post-carousel-card__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 14px;
+  color: #978B7B;
+  margin-top: auto;
+  padding-top: 4px;
+}
+.post-carousel-card__author a {
+  color: #07B9F0;
+  font-weight: 500;
+  text-decoration: none;
+}
+.post-carousel-card__author a:hover {
+  text-decoration: underline;
+}
+.post-carousel-card__sep {
+  color: #978B7B;
+}
+.post-carousel-card__date {
+  color: #978B7B;
+}
+/*!*************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/blocks/block-faq/styles/style.scss ***!
+  \*************************************************************************************************************************************************************/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.block-faq {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-item {
+  border-top: 1px solid #F2EEE7;
+  padding: 40px 0;
+}
+@media (max-width: 767.98px) {
+  .faq-item {
+    padding: 32px 0;
+  }
+}
+.faq-item:last-of-type {
+  border-bottom: 1px solid #F2EEE7;
+}
+.faq-item summary {
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  user-select: none;
+}
+.faq-item__num {
+  flex-shrink: 0;
+  font-size: 24px;
+  font-weight: 500;
+  color: #27211C;
+  line-height: 1.4;
+  min-width: 28px;
+  font-family: "Playfair Display", serif;
+}
+@media (max-width: 767.98px) {
+  .faq-item__num {
+    font-size: 20px;
+  }
+}
+.faq-item__question {
+  flex: 1;
+  font-size: 24px;
+  font-weight: 500;
+  color: #27211C;
+  line-height: 1.4;
+  font-family: "Playfair Display", serif;
+}
+@media (max-width: 767.98px) {
+  .faq-item__question {
+    font-size: 20px;
+  }
+}
+.faq-item__icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: #27211C;
+  margin-top: 2px;
+  position: relative;
+}
+.faq-item__icon .icon-plus {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+.faq-item__icon .icon-minus {
+  display: none;
+  width: 24px;
+  height: 24px;
+}
+.faq-item[open] .icon-plus {
+  display: none;
+}
+.faq-item[open] .icon-minus {
+  display: block;
+}
+.faq-item__body {
+  animation: faqFadeIn 0.2s ease;
+}
+.faq-item__answer {
+  background: #FAF8F4;
+  padding: 24px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #584E44;
+}
+.faq-item__answer p {
+  margin: 0;
+}
+.faq-item__answer p + p {
+  margin-top: 12px;
+}
+@media (max-width: 767.98px) {
+  .faq-item__answer {
+    font-size: 14px;
+    padding: 16px;
+  }
+}
+
+@keyframes faqFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /*# sourceMappingURL=style-index.css.map*/

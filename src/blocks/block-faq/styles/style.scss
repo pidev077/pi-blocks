@@ -1,0 +1,98 @@
+.block-faq {
+	display: flex;
+	flex-direction: column;
+}
+
+.faq-item {
+	border-top: 1px solid #F2EEE7;
+	padding: 40px 0;
+	@include media-breakpoint-down(md) {
+			padding: 32px 0;
+		}
+	&:last-of-type {
+		border-bottom: 1px solid #F2EEE7;
+	}
+
+	// Remove native details arrow
+	summary {
+		list-style: none;
+		&::-webkit-details-marker { display: none; }
+	}
+
+	&__head {
+		display: flex;
+		align-items: flex-start;
+		gap: 12px;
+		margin-bottom: 16px;
+		cursor: pointer;
+		user-select: none;
+	}
+
+	&__num {
+		flex-shrink: 0;
+		font-size: 24px;
+		font-weight: 500;
+		color: #27211C;
+		line-height: 1.4;
+		min-width: 28px;
+		font-family: $font-primary;
+		@include media-breakpoint-down(md) {
+			font-size: 20px;
+		}
+	}
+
+	&__question {
+		flex: 1;
+		font-size: 24px;
+		font-weight: 500;
+		color: #27211C;
+		line-height: 1.4;
+		font-family: $font-primary;
+		@include media-breakpoint-down(md) {
+			font-size: 20px;
+		}
+	}
+
+	&__icon {
+		flex-shrink: 0;
+		width: 24px;
+		height: 24px;
+		color: #27211C;
+		margin-top: 2px;
+		position: relative;
+
+		// Default state: show plus, hide minus
+		.icon-plus  { display: block;  width: 24px; height: 24px; }
+		.icon-minus { display: none;   width: 24px; height: 24px; }
+	}
+
+	// Open state: hide plus, show minus
+	&[open] {
+		.icon-plus  { display: none; }
+		.icon-minus { display: block; }
+	}
+
+	&__body {
+		animation: faqFadeIn 0.2s ease;
+	}
+
+	&__answer {
+		background: #FAF8F4;
+		padding: 24px;
+		font-size: 16px;
+		line-height: 24px;
+		color: #584E44;
+
+		p { margin: 0; }
+		p + p { margin-top: 12px; }
+		@include media-breakpoint-down(md) {
+			font-size: 14px;
+			padding: 16px;
+		}
+	}
+}
+
+@keyframes faqFadeIn {
+	from { opacity: 0; transform: translateY(-6px); }
+	to   { opacity: 1; transform: translateY(0); }
+}
