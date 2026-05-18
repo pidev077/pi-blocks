@@ -35,3 +35,4 @@ import "./blocks/block-process-steps";
 import "./blocks/block-service-list";
 import "./blocks/block-post-carousel";
 import "./blocks/block-faq";
+import "./blocks/block-contact-info";

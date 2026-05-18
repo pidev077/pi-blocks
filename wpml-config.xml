@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
     WPML configuration for pi-blocks plugin.
-    This file tells WPML which Gutenberg block attributes contain
-    translatable text, so they appear in WPML's Translation Editor.
 
     field_type values:
       line  = single-line text (titles, labels, short strings)
-      area  = multi-line text (descriptions, paragraphs)
-      image = image URL (not translated, but WPML may handle separately)
+      area  = multi-line / HTML text (descriptions, paragraphs, RichText)
+      image = image URL (not translated, used only for media duplication)
 
-    Array attributes (items, testimonials, counters) are handled
-    automatically by WPML's Advanced Translation Editor when
-    translating posts/pages that contain these blocks.
+    Array attributes (items, testimonials, counters, hoursItems…) are handled
+    automatically by WPML's Advanced Translation Editor (ATE): it reads the
+    block's serialised JSON comment and presents every string value as a
+    translatable field. They do NOT need individual <field> entries here.
+
+    Query-based blocks (sectors-list, teams-list, insights, service-list,
+    post-carousel, related-list) pull text from post content — translated via
+    WPML's normal post-translation workflow, not block attributes.
+
+    Layout/structural blocks (pi-columns, pi-column, pi-container,
+    pi-separator-block, client-block) contain no translatable text attributes.
 -->
 <wpml-config>
     <gutenberg-blocks>
 
-        <!-- ── Hero Block ──────────────────────────────────────────── -->
+        <!-- ═══════════════════════════════════════════════════════════════
+             HERO BLOCK  —  pi-blocks/hero
+             Flat string attrs only; image handled by Media Translation.
+        ═══════════════════════════════════════════════════════════════ -->
         <block type="pi-blocks/hero">
             <fields>
                 <field name="scrollLabel" field_type="line" label="Nút cuộn trang" />
@@ -24,7 +33,10 @@
             </fields>
         </block>
 
-        <!-- ── Content Media Block ─────────────────────────────────── -->
+        <!-- ═══════════════════════════════════════════════════════════════
+             CONTENT MEDIA  —  pi-blocks/content-media
+             items[] has only imgUrl (not translatable).
+        ═══════════════════════════════════════════════════════════════ -->
         <block type="pi-blocks/content-media">
             <fields>
                 <field name="contentTitle" field_type="line" label="Tiêu đề" />
@@ -32,38 +44,109 @@
             </fields>
         </block>
 
-        <!-- ── Testimonials Carousel ───────────────────────────────── -->
+        <!-- ═══════════════════════════════════════════════════════════════
+             TEXT WITH COUNTER  —  pi-blocks/block-text-w-counter
+             counters[] items: { heading (line), number (line) }
+             → translated automatically by WPML ATE (JSON scanning).
+             InnerBlocks text content translated via standard post workflow.
+        ═══════════════════════════════════════════════════════════════ -->
+        <block type="pi-blocks/block-text-w-counter">
+            <fields>
+                <!-- counters array { heading, number } — handled by WPML ATE -->
+            </fields>
+        </block>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             TESTIMONIALS CAROUSEL  —  pi-blocks/block-testimonials-carousel
+             testimonials[] items: { quote (area), name (line), position (line) }
+             → array translated automatically by WPML ATE.
+        ═══════════════════════════════════════════════════════════════ -->
         <block type="pi-blocks/block-testimonials-carousel">
             <fields>
                 <field name="heading" field_type="line" label="Tiêu đề section" />
+                <!-- testimonials array { quote, name, position } — handled by WPML ATE -->
             </fields>
         </block>
 
-        <!-- ── Process Steps Block ─────────────────────────────────── -->
-        <!--
-            The `items` array (title, description per step) is handled
-            automatically by WPML's Translation Editor via block JSON.
-        -->
+        <!-- ═══════════════════════════════════════════════════════════════
+             PROCESS STEPS  —  pi-blocks/process-steps
+             items[] items: { title (line), description (area), imgAlt (line) }
+             → array translated automatically by WPML ATE.
+        ═══════════════════════════════════════════════════════════════ -->
         <block type="pi-blocks/process-steps">
             <fields>
-                <!-- items array translated via WPML ATE block view -->
+                <!-- items array { title, description, imgAlt } — handled by WPML ATE -->
+            </fields>
+        </block>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             FAQ ACCORDION  —  pi-blocks/block-faq
+             items[] items: { question (line), answer (area) }
+             Both fields are also rendered via RichText → found in saved HTML.
+             Array also handled by WPML ATE for attribute-level translation.
+        ═══════════════════════════════════════════════════════════════ -->
+        <block type="pi-blocks/block-faq">
+            <fields>
+                <!-- items array { question, answer } — handled by WPML ATE -->
+            </fields>
+        </block>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             CONTACT INFO  —  pi-blocks/contact-info
+             hoursItems[] items: { days (line), time (line) }
+             → array translated automatically by WPML ATE.
+        ═══════════════════════════════════════════════════════════════ -->
+        <block type="pi-blocks/contact-info">
+            <fields>
+                <field name="address" field_type="area" label="Địa chỉ" />
+                <field name="phone"   field_type="line" label="Điện thoại" />
+                <field name="email"   field_type="line" label="Email" />
+                <!-- hoursItems array { days, time } — handled by WPML ATE -->
+            </fields>
+        </block>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             GALLERY CAROUSEL  —  pi-blocks/gallery-carousel
+             items[] items: { url (image), alt (line) }
+             alt text registered here; WPML ATE picks up remaining strings.
+        ═══════════════════════════════════════════════════════════════ -->
+        <block type="pi-blocks/gallery-carousel">
+            <fields>
+                <!-- items array { url, alt } — alt handled by WPML ATE -->
+            </fields>
+        </block>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             LOGO CAROUSEL  —  pi-blocks/logo-carousel
+             items[] items: { url (image), alt (line) }
+        ═══════════════════════════════════════════════════════════════ -->
+        <block type="pi-blocks/logo-carousel">
+            <fields>
+                <!-- items array { url, alt } — alt handled by WPML ATE -->
             </fields>
         </block>
 
         <!--
-            Blocks below use InnerBlocks or array attributes fully
-            managed by WPML's Advanced Translation Editor:
-              pi-blocks/block-text-w-counter  (counters array)
-              pi-blocks/block-sectors-list    (items array)
-              pi-blocks/block-teams-list      (items array)
-              pi-blocks/block-insights        (items array)
-              pi-blocks/block-gallery-carousel (images array)
-              pi-blocks/block-logo-carousel   (images array)
-              pi-blocks/block-separator       (no text content)
-              pi-blocks/block-column          (InnerBlocks)
-              pi-blocks/block-column-inner    (InnerBlocks)
-              pi-blocks/block-container       (InnerBlocks)
-              pi-blocks/block-related-list    (WP query – no custom text)
+            ─── Blocks with NO translatable text attributes ──────────────
+
+            pi-blocks/pi-separator-block  — visual only (colors, sizes)
+            pi-blocks/pi-columns          — layout InnerBlocks wrapper
+            pi-blocks/pi-column           — layout InnerBlocks item
+            pi-blocks/pi-container        — layout InnerBlocks wrapper
+            pi-blocks/client-block        — dynamic render, no text attrs
+
+            ─── Query-based blocks (text from post content) ──────────────
+
+            pi-blocks/block-sectors-list   — renders CPT "sectors"
+            pi-blocks/block-teams-list     — renders CPT "teams"
+            pi-blocks/block-service-list   — renders CPT "service"
+            pi-blocks/block-insights       — renders blog posts
+            pi-blocks/block-post-carousel  — renders blog posts
+            pi-blocks/block-related-list   — renders case studies by taxonomy
+
+            These blocks display text that comes from translated posts/CPTs,
+            so WPML handles translation via the standard post-translation
+            workflow — no block attribute registration needed here.
         -->
 
     </gutenberg-blocks>

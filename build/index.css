@@ -1084,6 +1084,12 @@ html :where(.wp-block) {
 .block-faq--editor .faq-item:hover .block-faq--editor .faq-item__remove {
   opacity: 1;
 }
+.block-faq--editor .faq-item__body {
+  display: none;
+}
+.block-faq--editor .faq-item--open .block-faq--editor .faq-item__body {
+  display: block;
+}
 .block-faq--editor .faq-item__answer {
   background: #F5F2EC;
   padding: 24px;
@@ -1102,6 +1108,72 @@ html :where(.wp-block) {
 .block-faq--editor .faq-add-btn {
   margin-top: 16px;
   align-self: flex-start;
+}
+/*!***********************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/blocks/block-contact-info/styles/editor.scss ***!
+  \***********************************************************************************************************************************************************************/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.block-contact-info--editor {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.block-contact-info--editor .ci-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.block-contact-info--editor .ci-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F5F2EC;
+  border-radius: 10px;
+  color: #6B5E52;
+}
+.block-contact-info--editor .ci-icon svg {
+  width: 20px;
+  height: 20px;
+}
+.block-contact-info--editor .ci-text {
+  flex: 1;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #27211C;
+  padding-top: 10px;
+}
+.block-contact-info--editor .ci-link {
+  text-decoration: none;
+  color: #27211C;
+}
+.block-contact-info--editor .ci-hours {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 10px;
+}
+.block-contact-info--editor .ci-hours__row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #27211C;
+}
+.block-contact-info--editor .ci-hours__days {
+  font-weight: 500;
+}
+.block-contact-info--editor .ci-hours__time {
+  color: #584E44;
 }
 
 /*# sourceMappingURL=index.css.map*/

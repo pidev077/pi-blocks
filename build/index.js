@@ -8036,6 +8036,394 @@ registerBlockType("pi-blocks/pi-columns", {
 
 /***/ },
 
+/***/ "./src/blocks/block-contact-info/components/edit.js"
+/*!**********************************************************!*\
+  !*** ./src/blocks/block-contact-info/components/edit.js ***!
+  \**********************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Edit)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+
+
+
+
+var ICONS = {
+  address: /*#__PURE__*/React.createElement("svg", {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z",
+    fill: "currentColor"
+  })),
+  phone: /*#__PURE__*/React.createElement("svg", {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z",
+    fill: "currentColor"
+  })),
+  email: /*#__PURE__*/React.createElement("svg", {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z",
+    fill: "currentColor"
+  })),
+  hours: /*#__PURE__*/React.createElement("svg", {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z",
+    fill: "currentColor"
+  }))
+};
+function Edit(_ref) {
+  var attributes = _ref.attributes,
+    setAttributes = _ref.setAttributes;
+  var address = attributes.address,
+    phone = attributes.phone,
+    email = attributes.email,
+    hoursItems = attributes.hoursItems;
+  var blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
+    className: "block-contact-info block-contact-info--editor"
+  });
+  var updateHours = function updateHours(index, field, value) {
+    var newItems = _toConsumableArray(hoursItems);
+    newItems[index] = _objectSpread(_objectSpread({}, newItems[index]), {}, _defineProperty({}, field, value));
+    setAttributes({
+      hoursItems: newItems
+    });
+  };
+  var addHours = function addHours() {
+    return setAttributes({
+      hoursItems: [].concat(_toConsumableArray(hoursItems), [{
+        days: "",
+        time: ""
+      }])
+    });
+  };
+  var removeHours = function removeHours(index) {
+    return setAttributes({
+      hoursItems: hoursItems.filter(function (_, i) {
+        return i !== index;
+      })
+    });
+  };
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Thông tin liên hệ"),
+    initialOpen: true
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextareaControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Địa chỉ"),
+    value: address,
+    onChange: function onChange(v) {
+      return setAttributes({
+        address: v
+      });
+    },
+    rows: 3
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    __next40pxDefaultSize: true,
+    __nextHasNoMarginBottom: true,
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Điện thoại"),
+    value: phone,
+    onChange: function onChange(v) {
+      return setAttributes({
+        phone: v
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    __next40pxDefaultSize: true,
+    __nextHasNoMarginBottom: true,
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Email"),
+    value: email,
+    onChange: function onChange(v) {
+      return setAttributes({
+        email: v
+      });
+    }
+  })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Giờ làm việc"),
+    initialOpen: true
+  }, hoursItems.map(function (item, i) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: i,
+      style: {
+        marginBottom: 16,
+        paddingBottom: 16,
+        borderBottom: "1px solid #e0e0e0"
+      }
+    }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+      __next40pxDefaultSize: true,
+      __nextHasNoMarginBottom: true,
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Ngày"),
+      value: item.days,
+      onChange: function onChange(v) {
+        return updateHours(i, "days", v);
+      }
+    }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+      __next40pxDefaultSize: true,
+      __nextHasNoMarginBottom: true,
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Giờ / Ghi chú"),
+      value: item.time,
+      onChange: function onChange(v) {
+        return updateHours(i, "time", v);
+      }
+    }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+      variant: "link",
+      isDestructive: true,
+      onClick: function onClick() {
+        return removeHours(i);
+      },
+      style: {
+        marginTop: 4
+      }
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Xóa dòng")));
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+    variant: "secondary",
+    onClick: addHours,
+    style: {
+      width: "100%"
+    }
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("+ Thêm dòng giờ")))), /*#__PURE__*/React.createElement("div", blockProps, address && /*#__PURE__*/React.createElement("div", {
+    className: "ci-item"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "ci-icon"
+  }, ICONS.address), /*#__PURE__*/React.createElement("span", {
+    className: "ci-text"
+  }, address)), phone && /*#__PURE__*/React.createElement("div", {
+    className: "ci-item"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "ci-icon"
+  }, ICONS.phone), /*#__PURE__*/React.createElement("a", {
+    className: "ci-text ci-link",
+    href: "tel:".concat(phone.replace(/\s/g, ""))
+  }, phone)), email && /*#__PURE__*/React.createElement("div", {
+    className: "ci-item"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "ci-icon"
+  }, ICONS.email), /*#__PURE__*/React.createElement("a", {
+    className: "ci-text ci-link",
+    href: "mailto:".concat(email)
+  }, email)), hoursItems.length > 0 && /*#__PURE__*/React.createElement("div", {
+    className: "ci-item ci-item--hours"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "ci-icon"
+  }, ICONS.hours), /*#__PURE__*/React.createElement("div", {
+    className: "ci-hours"
+  }, hoursItems.map(function (item, i) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: i,
+      className: "ci-hours__row"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "ci-hours__days"
+    }, item.days), /*#__PURE__*/React.createElement("span", {
+      className: "ci-hours__time"
+    }, item.time));
+  })))));
+}
+
+/***/ },
+
+/***/ "./src/blocks/block-contact-info/components/save.js"
+/*!**********************************************************!*\
+  !*** ./src/blocks/block-contact-info/components/save.js ***!
+  \**********************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Save)
+/* harmony export */ });
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
+
+var IconAddress = function IconAddress() {
+  return /*#__PURE__*/React.createElement("svg", {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z",
+    fill: "currentColor"
+  }));
+};
+var IconPhone = function IconPhone() {
+  return /*#__PURE__*/React.createElement("svg", {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z",
+    fill: "currentColor"
+  }));
+};
+var IconEmail = function IconEmail() {
+  return /*#__PURE__*/React.createElement("svg", {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z",
+    fill: "currentColor"
+  }));
+};
+var IconHours = function IconHours() {
+  return /*#__PURE__*/React.createElement("svg", {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z",
+    fill: "currentColor"
+  }));
+};
+function Save(_ref) {
+  var attributes = _ref.attributes;
+  var address = attributes.address,
+    phone = attributes.phone,
+    email = attributes.email,
+    hoursItems = attributes.hoursItems;
+  var blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
+    className: "block-contact-info"
+  });
+  return /*#__PURE__*/React.createElement("div", blockProps, address && /*#__PURE__*/React.createElement("div", {
+    className: "ci-item"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "ci-icon",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement(IconAddress, null)), /*#__PURE__*/React.createElement("span", {
+    className: "ci-text"
+  }, address)), phone && /*#__PURE__*/React.createElement("div", {
+    className: "ci-item"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "ci-icon",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement(IconPhone, null)), /*#__PURE__*/React.createElement("a", {
+    className: "ci-text ci-link",
+    href: "tel:".concat(phone.replace(/\s/g, ""))
+  }, phone)), email && /*#__PURE__*/React.createElement("div", {
+    className: "ci-item"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "ci-icon",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement(IconEmail, null)), /*#__PURE__*/React.createElement("a", {
+    className: "ci-text ci-link",
+    href: "mailto:".concat(email)
+  }, email)), hoursItems && hoursItems.length > 0 && /*#__PURE__*/React.createElement("div", {
+    className: "ci-item ci-item--hours"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "ci-icon",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement(IconHours, null)), /*#__PURE__*/React.createElement("div", {
+    className: "ci-hours"
+  }, hoursItems.map(function (item, i) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: i,
+      className: "ci-hours__row"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "ci-hours__days"
+    }, item.days), /*#__PURE__*/React.createElement("span", {
+      className: "ci-hours__time"
+    }, item.time));
+  }))));
+}
+
+/***/ },
+
+/***/ "./src/blocks/block-contact-info/index.js"
+/*!************************************************!*\
+  !*** ./src/blocks/block-contact-info/index.js ***!
+  \************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/style.scss */ "./src/blocks/block-contact-info/styles/style.scss");
+/* harmony import */ var _styles_editor_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/editor.scss */ "./src/blocks/block-contact-info/styles/editor.scss");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_edit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/edit */ "./src/blocks/block-contact-info/components/edit.js");
+/* harmony import */ var _components_save__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/save */ "./src/blocks/block-contact-info/components/save.js");
+
+
+
+
+
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("pi-blocks/contact-info", {
+  apiVersion: 3,
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Contact Info"),
+  icon: "phone",
+  category: "pi-blocks",
+  keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("contact"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("address"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("phone"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("email"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("hours")],
+  attributes: {
+    address: {
+      type: "string",
+      "default": "31 Đường Số 1, Phường An Khánh, Thành phố Hồ Chí Minh, Việt Nam"
+    },
+    phone: {
+      type: "string",
+      "default": "+84 38 766 7031"
+    },
+    email: {
+      type: "string",
+      "default": "info@ddclinic-vn.com"
+    },
+    hoursItems: {
+      type: "array",
+      "default": [{
+        days: "Thứ 2 - Thứ 6:",
+        time: "9:00 - 18:30"
+      }, {
+        days: "Chủ Nhật:",
+        time: "Chỉ nhận hẹn đặt trước"
+      }]
+    }
+  },
+  supports: {
+    anchor: true
+  },
+  edit: _components_edit__WEBPACK_IMPORTED_MODULE_4__["default"],
+  save: _components_save__WEBPACK_IMPORTED_MODULE_5__["default"]
+});
+
+/***/ },
+
 /***/ "./src/blocks/block-container/components/edit.js"
 /*!*******************************************************!*\
   !*** ./src/blocks/block-container/components/edit.js ***!
@@ -9079,10 +9467,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
@@ -9091,10 +9481,15 @@ function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" 
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
 function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
 function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
 
 
 var genId = function genId() {
@@ -9104,7 +9499,11 @@ var Edit = function Edit(_ref) {
   var attributes = _ref.attributes,
     setAttributes = _ref.setAttributes;
   var items = attributes.items;
-  var blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
+  var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    _useState2 = _slicedToArray(_useState, 2),
+    openIdx = _useState2[0],
+    setOpenIdx = _useState2[1];
+  var blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
     className: "block-faq block-faq--editor"
   });
   var update = function update(index, field, value) {
@@ -9134,12 +9533,18 @@ var Edit = function Edit(_ref) {
     var key = item.id || String(index);
     return /*#__PURE__*/React.createElement("div", {
       key: key,
-      className: "faq-item faq-item--open"
+      className: "faq-item".concat(openIdx === index ? " faq-item--open" : "")
     }, /*#__PURE__*/React.createElement("div", {
-      className: "faq-item__head"
+      className: "faq-item__head",
+      onClick: function onClick() {
+        return setOpenIdx(openIdx === index ? -1 : index);
+      },
+      style: {
+        cursor: "pointer"
+      }
     }, /*#__PURE__*/React.createElement("span", {
       className: "faq-item__num"
-    }, index + 1, "."), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
+    }, index + 1, "."), /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
       tagName: "span",
       className: "faq-item__question",
       placeholder: "Nh\u1EADp c\xE2u h\u1ECFi\u2026",
@@ -9148,7 +9553,7 @@ var Edit = function Edit(_ref) {
         return update(index, "question", val);
       },
       allowedFormats: []
-    }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+    }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
       className: "faq-item__remove",
       icon: "trash",
       isDestructive: true,
@@ -9158,7 +9563,7 @@ var Edit = function Edit(_ref) {
       }
     })), /*#__PURE__*/React.createElement("div", {
       className: "faq-item__body"
-    }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText, {
+    }, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
       tagName: "div",
       className: "faq-item__answer",
       placeholder: "Nh\u1EADp c\xE2u tr\u1EA3 l\u1EDDi\u2026",
@@ -9168,7 +9573,7 @@ var Edit = function Edit(_ref) {
       },
       allowedFormats: ["core/bold", "core/italic", "core/link"]
     })));
-  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
     className: "faq-add-btn",
     variant: "secondary",
     icon: "plus-alt2",
@@ -15053,6 +15458,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_block_service_list__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./blocks/block-service-list */ "./src/blocks/block-service-list/index.js");
 /* harmony import */ var _blocks_block_post_carousel__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./blocks/block-post-carousel */ "./src/blocks/block-post-carousel/index.js");
 /* harmony import */ var _blocks_block_faq__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./blocks/block-faq */ "./src/blocks/block-faq/index.js");
+/* harmony import */ var _blocks_block_contact_info__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./blocks/block-contact-info */ "./src/blocks/block-contact-info/index.js");
 /**
  * Gutenberg Blocks
  *
@@ -15075,6 +15481,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // Add more block here
+
 
 
 
@@ -20371,6 +20778,32 @@ __webpack_require__.r(__webpack_exports__);
 /***/ "./src/blocks/block-column-inner/styles/style.scss"
 /*!*********************************************************!*\
   !*** ./src/blocks/block-column-inner/styles/style.scss ***!
+  \*********************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ },
+
+/***/ "./src/blocks/block-contact-info/styles/editor.scss"
+/*!**********************************************************!*\
+  !*** ./src/blocks/block-contact-info/styles/editor.scss ***!
+  \**********************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ },
+
+/***/ "./src/blocks/block-contact-info/styles/style.scss"
+/*!*********************************************************!*\
+  !*** ./src/blocks/block-contact-info/styles/style.scss ***!
   \*********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 

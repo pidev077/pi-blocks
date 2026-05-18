@@ -43,6 +43,14 @@
 		}
 
 
+		&__body {
+			display: none;
+		}
+
+		&--open &__body {
+			display: block;
+		}
+
 		&__answer {
 			background: #F5F2EC;
 			padding: 24px;
