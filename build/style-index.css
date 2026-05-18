@@ -4514,7 +4514,12 @@ body.logged-in .team-popup-inner {
 .block-contact-info {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
+}
+@media (max-width: 767.98px) {
+  .block-contact-info {
+    gap: 16px;
+  }
 }
 
 .ci-item {
@@ -4525,6 +4530,11 @@ body.logged-in .team-popup-inner {
 .ci-item--hours {
   align-items: flex-start;
 }
+@media (max-width: 767.98px) {
+  .ci-item {
+    gap: 8px;
+  }
+}
 
 .ci-icon {
   flex-shrink: 0;
@@ -4534,17 +4544,13 @@ body.logged-in .team-popup-inner {
   color: #E0AC47;
 }
 .ci-icon svg {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
 }
 @media (max-width: 767.98px) {
-  .ci-icon {
-    width: 40px;
-    height: 40px;
-  }
   .ci-icon svg {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -4554,11 +4560,10 @@ body.logged-in .team-popup-inner {
   line-height: 1.6;
   color: #27211C;
   font-family: "Google Sans", sans-serif;
-  padding-top: 10px;
 }
 @media (max-width: 767.98px) {
   .ci-text {
-    font-size: 15px;
+    font-size: 14px;
   }
 }
 
@@ -4576,7 +4581,6 @@ body.logged-in .team-popup-inner {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding-top: 10px;
 }
 .ci-hours__row {
   display: flex;

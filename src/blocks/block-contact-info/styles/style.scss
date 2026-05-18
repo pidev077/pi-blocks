@@ -1,7 +1,10 @@
 .block-contact-info {
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 24px;
+	@include media-breakpoint-down(md) {
+		gap:16px;
+	}
 }
 
 .ci-item {
@@ -11,6 +14,9 @@
 
 	&--hours {
 		align-items: flex-start;
+	}
+	@include media-breakpoint-down(md) {
+		gap:8px;
 	}
 }
 
@@ -22,17 +28,14 @@
 	color: #E0AC47;
 
 	svg {
-		width: 20px;
-		height: 20px;
+		width: 24px;
+		height: 24px;
 	}
 
 	@include media-breakpoint-down(md) {
-		width: 40px;
-		height: 40px;
-
 		svg {
-			width: 18px;
-			height: 18px;
+			width: 20px;
+			height: 20px;
 		}
 	}
 }
@@ -43,10 +46,9 @@
 	line-height: 1.6;
 	color: #27211C;
 	font-family: $font-second;
-	padding-top: 10px;
 
 	@include media-breakpoint-down(md) {
-		font-size: 15px;
+		font-size: 14px;
 	}
 }
 
@@ -65,7 +67,6 @@
 	display: flex;
 	flex-direction: column;
 	gap: 4px;
-	padding-top: 10px;
 
 	&__row {
 		display: flex;
