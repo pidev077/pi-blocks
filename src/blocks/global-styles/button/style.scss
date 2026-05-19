@@ -28,7 +28,7 @@
 
 			@include media-breakpoint-down(md) {
 				padding: 10px 20px;
-				font-size: 15px;
+				font-size: 14px;
 			}
 
 			@each $name, $color in $color-palette {

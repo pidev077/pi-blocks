@@ -226,4 +226,8 @@ figure.wp-block-video {
         grid-template-columns: 1fr 1fr;
         grid-template-areas:         "col1 col2"        "col3 col4";
     }
+	.pi-layout-columns-4.mobi-2col > .pi-layout-column-wrap.pi-is-responsive-column .pi-block-layout-column-inner{
+        padding-left: 18px;
+		padding-right: 18px;
+    }
 }
