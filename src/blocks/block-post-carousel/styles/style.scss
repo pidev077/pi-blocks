@@ -97,7 +97,9 @@
 		text-decoration: none;
 		line-height: 1.6;
 		transition: background 0.2s ease;
-
+		@include media-breakpoint-down(md){
+            font-size: 12px;
+        }
 		&:hover {
 			background: #E0AC47;
 			color:#fff;
@@ -118,7 +120,9 @@
 		line-height: 1.3 !important;
 		color: #27211C;
 		margin: 0 !important;
-
+		@include media-breakpoint-down(md){
+            font-size: 20px;
+        }
 		a {
 			color: inherit;
 			text-decoration: none;
@@ -138,6 +142,10 @@
 		-webkit-line-clamp: 3;
 		-webkit-box-orient: vertical;
 		overflow: hidden;
+		@include media-breakpoint-down(md){
+            font-size: 14px;
+			line-height: 22px;
+        }
 	}
 
 	&__meta {

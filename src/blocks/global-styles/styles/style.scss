@@ -213,3 +213,17 @@ figure.wp-block-video {
 		padding-left: 40px;
 	}
 }
+.block-mobi{
+	display: none;
+	@include media-breakpoint-down(md) {
+		display: block;
+	}
+}
+@include media-breakpoint-down(md) {
+.pi-layout-columns-4.mobi-2col > .pi-layout-column-wrap.pi-is-responsive-column{
+        grid-template-rows: auto;
+        -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:         "col1 col2"        "col3 col4";
+    }
+}
