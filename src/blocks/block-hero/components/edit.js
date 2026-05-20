@@ -1,6 +1,6 @@
 import { __ } from "@wordpress/i18n";
 import { InnerBlocks, useBlockProps } from "@wordpress/block-editor";
-import { Fragment } from "@wordpress/element";
+import { Fragment, useEffect } from "@wordpress/element";
 import Inspector from "./inspector";
 import Background from "./background";
 
@@ -24,6 +24,15 @@ const MY_TEMPLATE = [
 const Edit = (props) => {
 	const { attributes, setAttributes, className } = props;
 	const { typeHero, colorText, overlay, scrollAnchor, scrollLabel } = attributes;
+
+	// Ensure scrollLabel is serialized in the block comment so WPML can detect it.
+	// When scrollLabel matches the old default value, Gutenberg omits it from the
+	// serialized attributes, making it invisible to WPML string translation.
+	useEffect(() => {
+		if (scrollAnchor && scrollLabel === undefined) {
+			setAttributes({ scrollLabel: "KHÁM PHÁ THÊM" });
+		}
+	}, []);
 
 	const blockProps = useBlockProps({
 		className: [

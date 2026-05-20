@@ -61,7 +61,6 @@ const attr = {
 	},
 	scrollLabel: {
 		type: "string",
-		default: "KHÁM PHÁ THÊM",
 	},
 };
 

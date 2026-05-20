@@ -13,6 +13,11 @@ function pi_service_list_render($atts)
         $atts
     );
 
+    do_action('wpml_register_single_string', 'pi-blocks', 'service_list_cta',      'Tìm Hiểu Thêm');
+    do_action('wpml_register_single_string', 'pi-blocks', 'service_list_no_posts', 'No services found.');
+    $cta_label     = apply_filters('wpml_translate_single_string', 'Tìm Hiểu Thêm',    'pi-blocks', 'service_list_cta');
+    $no_posts_text = apply_filters('wpml_translate_single_string', 'No services found.', 'pi-blocks', 'service_list_no_posts');
+
     $query = [
         'post_type'      => sanitize_key($atts['post_type']),
         'post_status'    => 'publish',
@@ -24,7 +29,7 @@ function pi_service_list_render($atts)
     $the_query = new WP_Query($query);
 
     if (!$the_query->have_posts()) {
-        return '<div class="block-service-list"><p>No services found.</p></div>';
+        return '<div class="block-service-list"><p>' . esc_html($no_posts_text) . '</p></div>';
     }
 
     $items   = [];
@@ -84,7 +89,7 @@ function pi_service_list_render($atts)
                     <div class="service-preview__card">
                         <p><?php echo esc_html($item['excerpt']); ?></p>
                         <a href="<?php echo esc_url($item['url']); ?>" class="service-preview__link">
-                            Tìm Hiểu Thêm
+                            <?php echo esc_html($cta_label); ?>
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                 <line x1="5" y1="19" x2="19" y2="5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                                 <polyline points="9 5 19 5 19 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

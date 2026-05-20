@@ -116,15 +116,21 @@ const Inspector = (props) => {
 					__next40pxDefaultSize
 					label="Anchor Link"
 					value={scrollAnchor}
-					onChange={(vl) => setAttributes({ scrollAnchor: vl })}
+					onChange={(vl) => {
+						const updates = { scrollAnchor: vl };
+						if (vl && scrollLabel === undefined) {
+							updates.scrollLabel = "KHÁM PHÁ THÊM";
+						}
+						setAttributes(updates);
+					}}
 				/>
 				{scrollAnchor && (
 					<TextControl
 						__next40pxDefaultSize
 						label="Scroll Label"
 						help="Text hiển thị trên nút cuộn (có thể dịch qua WPML)"
-						value={scrollLabel}
-						onChange={(vl) => setAttributes({ scrollLabel: vl })}
+						value={scrollLabel ?? "KHÁM PHÁ THÊM"}
+						onChange={(vl) => setAttributes({ scrollLabel: vl || "KHÁM PHÁ THÊM" })}
 					/>
 				)}
 			</PanelBody>

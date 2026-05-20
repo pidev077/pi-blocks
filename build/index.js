@@ -10109,6 +10109,17 @@ var Edit = function Edit(props) {
     overlay = attributes.overlay,
     scrollAnchor = attributes.scrollAnchor,
     scrollLabel = attributes.scrollLabel;
+
+  // Ensure scrollLabel is serialized in the block comment so WPML can detect it.
+  // When scrollLabel matches the old default value, Gutenberg omits it from the
+  // serialized attributes, making it invisible to WPML string translation.
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
+    if (scrollAnchor && scrollLabel === undefined) {
+      setAttributes({
+        scrollLabel: "KHÁM PHÁ THÊM"
+      });
+    }
+  }, []);
   var blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
     className: ["hero-block", "hero-type-".concat(typeHero), "".concat(overlay ? "hero-overlay" : ""), className].join(" ")
   });
@@ -10255,18 +10266,22 @@ var Inspector = function Inspector(props) {
     label: "Anchor Link",
     value: scrollAnchor,
     onChange: function onChange(vl) {
-      return setAttributes({
+      var updates = {
         scrollAnchor: vl
-      });
+      };
+      if (vl && scrollLabel === undefined) {
+        updates.scrollLabel = "KHÁM PHÁ THÊM";
+      }
+      setAttributes(updates);
     }
   }), scrollAnchor && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
     __next40pxDefaultSize: true,
     label: "Scroll Label",
     help: "Text hi\u1EC3n th\u1ECB tr\xEAn n\xFAt cu\u1ED9n (c\xF3 th\u1EC3 d\u1ECBch qua WPML)",
-    value: scrollLabel,
+    value: scrollLabel !== null && scrollLabel !== void 0 ? scrollLabel : "KHÁM PHÁ THÊM",
     onChange: function onChange(vl) {
       return setAttributes({
-        scrollLabel: vl
+        scrollLabel: vl || "KHÁM PHÁ THÊM"
       });
     }
   })), typeHero == "video" && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
@@ -10577,8 +10592,7 @@ var attr = {
     "default": true
   },
   scrollLabel: {
-    type: "string",
-    "default": "KHÁM PHÁ THÊM"
+    type: "string"
   }
 };
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("pi-blocks/hero", {
