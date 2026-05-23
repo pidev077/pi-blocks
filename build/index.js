@@ -12357,11 +12357,11 @@ var renderIcon = function renderIcon(type, size) {
       return /*#__PURE__*/React.createElement("svg", {
         width: s,
         height: s,
-        viewBox: "0 0 20 20",
+        viewBox: "0 0 16 16",
         fill: "currentColor",
         xmlns: "http://www.w3.org/2000/svg"
-      }, /*#__PURE__*/React.createElement("polygon", {
-        points: "10,0 12,8.5 20,10 12,11.5 10,20 8,11.5 0,10 8,8.5"
+      }, /*#__PURE__*/React.createElement("path", {
+        d: "M8 0L10.1607 5.83927L16 8L10.1607 10.1607L8 16L5.83927 10.1607L0 8L5.83927 5.83927L8 0Z"
       }));
   }
 };
@@ -12629,7 +12629,7 @@ var BlockAttrs = {
   },
   showIcon: {
     type: "boolean",
-    "default": false
+    "default": true
   },
   iconType: {
     type: "string",

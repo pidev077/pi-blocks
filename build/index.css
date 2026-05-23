@@ -319,6 +319,7 @@ html :where(.wp-block) {
   display: flex;
   align-items: center;
   gap: 14px;
+  min-width: min(200px, 100%);
 }
 .pi-separator-blocks.separator-fullwidth .separator-inner {
   width: 100% !important;

@@ -45,7 +45,7 @@ const BlockAttrs = {
 	},
 	showIcon: {
 		type: "boolean",
-		default: false,
+		default: true,
 	},
 	iconType: {
 		type: "string",

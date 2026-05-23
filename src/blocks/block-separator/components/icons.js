@@ -27,8 +27,8 @@ export const renderIcon = (type, size) => {
 		case "diamond":
 		default:
 			return (
-				<svg width={s} height={s} viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					<polygon points="10,0 12,8.5 20,10 12,11.5 10,20 8,11.5 0,10 8,8.5" />
+				<svg width={s} height={s} viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					<path d="M8 0L10.1607 5.83927L16 8L10.1607 10.1607L8 16L5.83927 10.1607L0 8L5.83927 5.83927L8 0Z" />
 				</svg>
 			);
 	}

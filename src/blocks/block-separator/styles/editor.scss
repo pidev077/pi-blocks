@@ -20,6 +20,7 @@
 		display: flex;
 		align-items: center;
 		gap: 14px;
+		min-width: min(200px, 100%);
 	}
 
 	&.separator-fullwidth .separator-inner {
