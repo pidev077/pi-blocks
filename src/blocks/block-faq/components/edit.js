@@ -1,4 +1,3 @@
-import { useState } from "@wordpress/element";
 import { RichText, useBlockProps } from "@wordpress/block-editor";
 import { Button } from "@wordpress/components";
 
@@ -6,7 +5,6 @@ const genId = () => Math.random().toString(36).slice(2, 9);
 
 const Edit = ({ attributes, setAttributes }) => {
 	const { items } = attributes;
-	const [openIdx, setOpenIdx] = useState(0);
 	const blockProps = useBlockProps({ className: "block-faq block-faq--editor" });
 
 	const update = (index, field, value) => {
@@ -28,8 +26,8 @@ const Edit = ({ attributes, setAttributes }) => {
 			{items.map((item, index) => {
 				const key = item.id || String(index);
 				return (
-					<div key={key} className={`faq-item${openIdx === index ? " faq-item--open" : ""}`}>
-						<div className="faq-item__head" onClick={() => setOpenIdx(openIdx === index ? -1 : index)} style={{ cursor: "pointer" }}>
+					<div key={key} className="faq-item faq-item--open">
+						<div className="faq-item__head">
 							<span className="faq-item__num">{index + 1}.</span>
 							<RichText
 								tagName="span"
@@ -44,7 +42,7 @@ const Edit = ({ attributes, setAttributes }) => {
 								icon="trash"
 								isDestructive
 								label="Xoá"
-								onClick={() => remove(index)}
+								onClick={(e) => { e.stopPropagation(); remove(index); }}
 							/>
 						</div>
 						<div className="faq-item__body">

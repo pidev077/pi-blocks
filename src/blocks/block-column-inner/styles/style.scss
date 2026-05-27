@@ -37,6 +37,13 @@
 			padding-right: var(--paddingRightMB, var(--paddingMB)) !important;
 			padding-bottom: var(--paddingBottomMB, var(--paddingMB)) !important;
 			padding-left: var(--paddingLeftMB, var(--paddingMB)) !important;
+
+			&.pi-has-border-mb {
+				border-top: var(--borderTopMB) !important;
+				border-right: var(--borderRightMB) !important;
+				border-bottom: var(--borderBottomMB) !important;
+				border-left: var(--borderLeftMB) !important;
+			}
 		}
 
 		&.pi-has-boxshadow {

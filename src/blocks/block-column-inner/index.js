@@ -223,6 +223,40 @@ registerBlockType("pi-blocks/pi-column", {
 			type: "boolean",
 			default: false,
 		},
+
+		isBorderMB: {
+			type: "boolean",
+			default: false,
+		},
+		borderHideMB: {
+			type: "boolean",
+			default: false,
+		},
+		borderColorMB: {
+			type: "string",
+			default: "",
+		},
+		borderWidthMB: {
+			type: "number",
+			default: 1,
+		},
+		borderTopMB: {
+			type: "boolean",
+			default: false,
+		},
+		borderRightMB: {
+			type: "boolean",
+			default: false,
+		},
+		borderBottomMB: {
+			type: "boolean",
+			default: false,
+		},
+		borderLeftMB: {
+			type: "boolean",
+			default: false,
+		},
+
 		isSticky: {
 			type: "boolean",
 			default: false,

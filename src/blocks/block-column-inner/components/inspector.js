@@ -69,6 +69,14 @@ const Inspector = (props) => {
 		borderRight,
 		borderBottom,
 		borderLeft,
+		isBorderMB,
+		borderHideMB,
+		borderColorMB,
+		borderWidthMB,
+		borderTopMB,
+		borderRightMB,
+		borderBottomMB,
+		borderLeftMB,
 		isSticky,
 	} = attributes;
 
@@ -587,6 +595,74 @@ const Inspector = (props) => {
 							}
 						/>
 					)}
+					<hr />
+					<p style={{ marginBottom: 4, fontWeight: 600 }}>
+						{__("Border Mobile", "pi-blocks")}
+					</p>
+					<ToggleControl
+						label={__("Bật tùy chỉnh border trên mobile", "pi-blocks")}
+						checked={isBorderMB}
+						onChange={() =>
+							setAttributes({ isBorderMB: !isBorderMB })
+						}
+					/>
+					{isBorderMB && (
+						<>
+							<ToggleControl
+								label={__("Ẩn border (hide all)", "pi-blocks")}
+								checked={borderHideMB}
+								onChange={() =>
+									setAttributes({ borderHideMB: !borderHideMB })
+								}
+							/>
+							{!borderHideMB && (
+								<>
+									<RangeControl
+										value={borderWidthMB}
+										label={__("Border Width (px)", "pi-blocks")}
+										onChange={(value) =>
+											setAttributes({ borderWidthMB: value })
+										}
+										__nextHasNoMarginBottom
+										min={1}
+										max={10}
+										step={1}
+									/>
+									<p style={{ marginBottom: 4, fontWeight: 500 }}>
+										{__("Border Sides (bỏ trống = tất cả)", "pi-blocks")}
+									</p>
+									<ToggleControl
+										label={__("Top", "pi-blocks")}
+										checked={borderTopMB}
+										onChange={() =>
+											setAttributes({ borderTopMB: !borderTopMB })
+										}
+									/>
+									<ToggleControl
+										label={__("Right", "pi-blocks")}
+										checked={borderRightMB}
+										onChange={() =>
+											setAttributes({ borderRightMB: !borderRightMB })
+										}
+									/>
+									<ToggleControl
+										label={__("Bottom", "pi-blocks")}
+										checked={borderBottomMB}
+										onChange={() =>
+											setAttributes({ borderBottomMB: !borderBottomMB })
+										}
+									/>
+									<ToggleControl
+										label={__("Left", "pi-blocks")}
+										checked={borderLeftMB}
+										onChange={() =>
+											setAttributes({ borderLeftMB: !borderLeftMB })
+										}
+									/>
+								</>
+							)}
+						</>
+					)}
 				</PanelBody>
 			</RenderSettingControl>
 
@@ -610,6 +686,20 @@ const Inspector = (props) => {
 							value: borderColor,
 							onChange: (color) =>
 								setAttributes({ borderColor: color }),
+							label: __("Choose color", "pi-blocks"),
+						},
+					]}
+				/>
+			)}
+
+			{isBorderMB && !borderHideMB && (
+				<PanelColorSettings
+					title={__("Border Color Mobile", "pi-blocks")}
+					colorSettings={[
+						{
+							value: borderColorMB,
+							onChange: (color) =>
+								setAttributes({ borderColorMB: color }),
 							label: __("Choose color", "pi-blocks"),
 						},
 					]}

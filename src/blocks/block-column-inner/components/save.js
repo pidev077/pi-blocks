@@ -61,6 +61,15 @@ const Save = (props) => {
 		paddingLeftMB,
 		paddingBottomMB,
 		paddingRightMB,
+
+		isBorderMB,
+		borderHideMB,
+		borderColorMB,
+		borderWidthMB,
+		borderTopMB,
+		borderRightMB,
+		borderBottomMB,
+		borderLeftMB,
 	} = attributes;
 
 	/* Setup the borderRadius styles. */
@@ -191,6 +200,39 @@ const Save = (props) => {
 		}
 	}
 
+	/* Setup border styles for mobile. */
+	let borderStyleMB = {};
+	if (isBorderMB) {
+		const bColor = borderColorMB || borderColor || "#F2EEE7";
+		const bWidth = (borderWidthMB || 1) + "px";
+		const bVal = `${bWidth} solid ${bColor}`;
+		if (borderHideMB) {
+			borderStyleMB = {
+				"--borderTopMB": "none",
+				"--borderRightMB": "none",
+				"--borderBottomMB": "none",
+				"--borderLeftMB": "none",
+			};
+		} else {
+			const hasSpecificSidesMB = borderTopMB || borderRightMB || borderBottomMB || borderLeftMB;
+			if (!hasSpecificSidesMB) {
+				borderStyleMB = {
+					"--borderTopMB": bVal,
+					"--borderRightMB": bVal,
+					"--borderBottomMB": bVal,
+					"--borderLeftMB": bVal,
+				};
+			} else {
+				borderStyleMB = {
+					"--borderTopMB": borderTopMB ? bVal : "none",
+					"--borderRightMB": borderRightMB ? bVal : "none",
+					"--borderBottomMB": borderBottomMB ? bVal : "none",
+					"--borderLeftMB": borderLeftMB ? bVal : "none",
+				};
+			}
+		}
+	}
+
 	/* Misc styles. */
 	const styles = {
 		backgroundColor: backgroundColor,
@@ -203,6 +245,7 @@ const Save = (props) => {
 			"pi-block-layout-column",
 			isBorder ? "pi-has-border" : null,
 			isBoxshadow ? "pi-has-boxshadow" : null,
+			isBorderMB ? "pi-has-border-mb" : null,
 			isSticky ? "is-sticky" : null,
 			columnVerticalAlignment
 				? "pi-is-vertically-aligned-" + columnVerticalAlignment
@@ -218,6 +261,7 @@ const Save = (props) => {
 			marginStyleTL,
 			paddingStyleTL,
 			paddingStyleMB,
+			borderStyleMB,
 			styles
 		),
 	});
