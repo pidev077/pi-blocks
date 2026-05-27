@@ -1103,7 +1103,7 @@ figure.wp-block-video video {
     padding-left: 18px;
   }
   .remove-bg {
-    background-image: none;
+    background-image: none !important;
   }
 }
 /*!*****************************************************************************************************************************************************************!*\
