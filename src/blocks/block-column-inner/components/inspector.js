@@ -63,6 +63,12 @@ const Inspector = (props) => {
 		isBoxshadow,
 		backgroundColor,
 		isBorder,
+		borderColor,
+		borderWidth,
+		borderTop,
+		borderRight,
+		borderBottom,
+		borderLeft,
 		isSticky,
 	} = attributes;
 
@@ -99,6 +105,52 @@ const Inspector = (props) => {
 					checked={isBorder}
 					onChange={() => setAttributes({ isBorder: !isBorder })}
 				/>
+				{isBorder && (
+					<>
+						<RangeControl
+							value={borderWidth}
+							label={__("Border Width (px)", "pi-blocks")}
+							onChange={(value) =>
+								setAttributes({ borderWidth: value })
+							}
+							__nextHasNoMarginBottom
+							min={1}
+							max={10}
+							step={1}
+						/>
+						<p style={{ marginBottom: 4, fontWeight: 500 }}>
+							{__("Border Sides (bỏ trống = tất cả)", "pi-blocks")}
+						</p>
+						<ToggleControl
+							label={__("Top", "pi-blocks")}
+							checked={borderTop}
+							onChange={() =>
+								setAttributes({ borderTop: !borderTop })
+							}
+						/>
+						<ToggleControl
+							label={__("Right", "pi-blocks")}
+							checked={borderRight}
+							onChange={() =>
+								setAttributes({ borderRight: !borderRight })
+							}
+						/>
+						<ToggleControl
+							label={__("Bottom", "pi-blocks")}
+							checked={borderBottom}
+							onChange={() =>
+								setAttributes({ borderBottom: !borderBottom })
+							}
+						/>
+						<ToggleControl
+							label={__("Left", "pi-blocks")}
+							checked={borderLeft}
+							onChange={() =>
+								setAttributes({ borderLeft: !borderLeft })
+							}
+						/>
+					</>
+				)}
 				<ToggleControl
 					label={__("Sticky Column", "pi-blocks")}
 					checked={isSticky}
@@ -549,6 +601,20 @@ const Inspector = (props) => {
 					},
 				]}
 			/>
+
+			{isBorder && (
+				<PanelColorSettings
+					title={__("Border Color", "pi-blocks")}
+					colorSettings={[
+						{
+							value: borderColor,
+							onChange: (color) =>
+								setAttributes({ borderColor: color }),
+							label: __("Choose color", "pi-blocks"),
+						},
+					]}
+				/>
+			)}
 
 			<RenderSettingControl id="pi_column_inner_backgroundImagePanel">
 				<BackgroundImagePanel {...props} />

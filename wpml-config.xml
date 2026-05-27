@@ -92,6 +92,39 @@
         </block>
 
         <!-- ═══════════════════════════════════════════════════════════════
+             INFO BOX  —  pi-blocks/info-box  (SSR, dynamic block)
+             rows[] không cần đăng ký — WPML ATE quét JSON tự động.
+        ═══════════════════════════════════════════════════════════════ -->
+        <block type="pi-blocks/info-box">
+            <fields>
+                <field name="phone"      field_type="line" label="Hotline" />
+                <field name="phoneHours" field_type="line" label="Phụ đề hotline" />
+                <field name="email"      field_type="line" label="Email" />
+                <field name="zaloName"   field_type="line" label="Tên Zalo Page" />
+                <field name="zaloSub"    field_type="line" label="Phụ đề Zalo" />
+                <field name="zaloUrl"    field_type="line" label="Link Zalo" />
+                <field name="address"    field_type="area" label="Địa chỉ văn phòng" />
+                <field name="phoneIcon"   field_type="image" label="Icon hotline" />
+                <field name="emailIcon"   field_type="image" label="Icon email" />
+                <field name="zaloIcon"    field_type="image" label="Icon Zalo" />
+                <field name="addressIcon" field_type="image" label="Icon địa chỉ" />
+            </fields>
+        </block>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             BUSINESS HOURS  —  pi-blocks/business-hours  (SSR, dynamic block)
+             rows[] items: { days (line), time (line) }
+             → array translated automatically by WPML ATE.
+        ═══════════════════════════════════════════════════════════════ -->
+        <block type="pi-blocks/business-hours">
+            <fields>
+                <field name="title"      field_type="line" label="Tiêu đề giờ làm việc" />
+                <field name="footerNote" field_type="area" label="Ghi chú cuối" />
+                <!-- rows array { days, time } — handled by WPML ATE -->
+            </fields>
+        </block>
+
+        <!-- ═══════════════════════════════════════════════════════════════
              CONTACT INFO  —  pi-blocks/contact-info
              hoursItems[] items: { days (line), time (line) }
              → array translated automatically by WPML ATE.

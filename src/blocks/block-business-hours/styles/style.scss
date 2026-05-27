@@ -1,0 +1,64 @@
+.block-business-hours {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+
+	@include media-breakpoint-down(md) {
+		gap: 24px;
+	}
+}
+
+.bh-title {
+	font-size: 24px;
+	font-weight: 700;
+	color: #27211C;
+	margin: 0;
+	font-family: $font-primary;
+	letter-spacing: 0.01em;
+
+	@include media-breakpoint-down(md) {
+		font-size: 20px;
+	}
+}
+
+.bh-card {
+
+}
+
+.bh-table {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+}
+
+.bh-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-family: $font-second;
+
+}
+
+.bh-days {
+	font-size: 16px;
+	color: #584E44;
+	line-height: 1.5;
+	font-weight: 500;
+}
+
+.bh-time {
+	font-size: 16px;
+	color: #584E44;
+	line-height: 1.5;
+	text-align: right;
+
+}
+
+.bh-note {
+	margin: 40px 0 0;
+	font-size: 14px;
+	color: #978B7B;
+	font-family: $font-second;
+	font-style: italic;
+	line-height: 1.7;
+}

@@ -1,6 +1,10 @@
 <?php
 function pi_service_list_render($atts)
 {
+    $selected_posts = isset($atts['selected_posts']) && is_array($atts['selected_posts'])
+        ? array_filter(array_map('intval', $atts['selected_posts']))
+        : [];
+
     $atts = shortcode_atts(
         [
             'post_type'      => 'service',
@@ -25,6 +29,12 @@ function pi_service_list_render($atts)
         'order'          => strtoupper($atts['order']),
         'orderby'        => $atts['orderBy'],
     ];
+
+    if (!empty($selected_posts)) {
+        $query['post__in']       = $selected_posts;
+        $query['orderby']        = 'post__in';
+        $query['posts_per_page'] = count($selected_posts);
+    }
 
     $the_query = new WP_Query($query);
 

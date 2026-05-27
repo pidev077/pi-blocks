@@ -8,13 +8,13 @@ import Edit from "./components/edit";
 import Save from "./components/save";
 
 const BlockAttrs = {
-	post_type: {
-		type: "string",
-		default: "service",
+	parent_only: {
+		type: "boolean",
+		default: true,
 	},
-	posts_per_page: {
-		type: "number",
-		default: -1,
+	alternate_layout: {
+		type: "boolean",
+		default: false,
 	},
 	order: {
 		type: "string",
@@ -22,12 +22,7 @@ const BlockAttrs = {
 	},
 	orderBy: {
 		type: "string",
-		default: "menu_order",
-	},
-	selected_posts: {
-		type: "array",
-		items: { type: "number" },
-		default: [],
+		default: "term_order",
 	},
 	anchor: {
 		type: "string",
@@ -35,12 +30,12 @@ const BlockAttrs = {
 	},
 };
 
-export default registerBlockType("pi-blocks/block-service-list", {
+export default registerBlockType("pi-blocks/block-service-category-list", {
 	apiVersion: 3,
-	title: __("List Service"),
-	icon: "list-view",
+	title: __("List Service Category"),
+	icon: "category",
 	category: "pi-blocks",
-	keywords: [__("list"), __("service"), __("dịch vụ")],
+	keywords: [__("list"), __("service"), __("category"), __("nhóm dịch vụ")],
 	attributes: BlockAttrs,
 	supports: {
 		anchor: true,

@@ -175,6 +175,36 @@ if (!function_exists('pi_init_register_block')) {
 		));
 
 
+		register_block_type('pi-blocks/block-service-category-list', array(
+			'render_callback' => 'pi_service_category_list_render',
+			'attributes' => array(
+				'parent_only' => array(
+					'type'    => 'boolean',
+					'default' => true,
+				),
+				'alternate_layout' => array(
+					'type'    => 'boolean',
+					'default' => false,
+				),
+				'order' => array(
+					'type'    => 'string',
+					'default' => 'asc',
+				),
+				'orderBy' => array(
+					'type'    => 'string',
+					'default' => 'term_order',
+				),
+				'className' => array(
+					'type'    => 'string',
+					'default' => '',
+				),
+				'anchor' => array(
+					'type'    => 'string',
+					'default' => '',
+				),
+			),
+		));
+
 		register_block_type('pi-blocks/block-service-list', array(
 			'render_callback' => 'pi_service_list_render',
 			'attributes' => array(
@@ -193,6 +223,11 @@ if (!function_exists('pi_init_register_block')) {
 				'orderBy' => array(
 					'type' => 'string',
 					'default' => 'menu_order',
+				),
+				'selected_posts' => array(
+					'type' => 'array',
+					'items' => array('type' => 'number'),
+					'default' => [],
 				),
 				'className' => array(
 					'type' => 'string',
@@ -266,6 +301,45 @@ if (!function_exists('pi_init_register_block')) {
 				),
 			),
 		));
+		register_block_type( 'pi-blocks/info-box', [
+			'render_callback' => 'pi_info_box_render',
+			'attributes'      => [
+				'anchor'      => [ 'type' => 'string',  'default' => '' ],
+				'className'   => [ 'type' => 'string',  'default' => '' ],
+				'phone'       => [ 'type' => 'string',  'default' => '+84 38 766 7031' ],
+				'phoneHours'  => [ 'type' => 'string',  'default' => '(Thứ Hai - Thứ Sáu: 9:00 - 18:30)' ],
+				'phoneIcon'   => [ 'type' => 'string',  'default' => '' ],
+				'email'       => [ 'type' => 'string',  'default' => 'info@ddclinic-vn.com' ],
+				'emailIcon'   => [ 'type' => 'string',  'default' => '' ],
+				'zaloName'    => [ 'type' => 'string',  'default' => 'DD CLINIC Vietnam' ],
+				'zaloSub'     => [ 'type' => 'string',  'default' => '(Nhắn tin trực tiếp qua Zalo)' ],
+				'zaloUrl'     => [ 'type' => 'string',  'default' => '' ],
+				'zaloIcon'    => [ 'type' => 'string',  'default' => '' ],
+				'address'     => [ 'type' => 'string',  'default' => '31 Đường Số 1, Phường An Khánh, Thành phố Hồ Chí Minh, Việt Nam' ],
+				'addressIcon' => [ 'type' => 'string',  'default' => '' ],
+				'iconWidth'   => [ 'type' => 'number',  'default' => 24 ],
+			],
+		] );
+
+		register_block_type( 'pi-blocks/business-hours', [
+			'render_callback' => 'pi_business_hours_render',
+			'attributes'      => [
+				'anchor'     => [ 'type' => 'string', 'default' => '' ],
+				'className'  => [ 'type' => 'string', 'default' => '' ],
+				'title'      => [ 'type' => 'string', 'default' => 'GIỜ LÀM VIỆC' ],
+				'rows'       => [
+					'type'    => 'array',
+					'default' => [
+						[ 'days' => 'Thứ Hai - Thứ Sáu', 'time' => '9:00 - 18:30' ],
+						[ 'days' => 'Thứ Bảy',            'time' => '9:00 - 16:00' ],
+						[ 'days' => 'Chủ Nhật',           'time' => 'Chỉ nhận hẹn trước' ],
+					],
+					'items'   => [ 'type' => 'object' ],
+				],
+				'footerNote' => [ 'type' => 'string', 'default' => '*Ngoài giờ làm việc, vui lòng để lại tin nhắn. Chúng tôi sẽ phản hồi sớm nhất có thể.' ],
+			],
+		] );
+
 	}
 }
 

@@ -14,6 +14,12 @@ const Save = (props) => {
 		borderRadius,
 		isBoxshadow,
 		isBorder,
+		borderColor,
+		borderWidth,
+		borderTop,
+		borderRight,
+		borderBottom,
+		borderLeft,
 		isSticky,
 		marginSync,
 		columnVerticalAlignment,
@@ -169,6 +175,22 @@ const Save = (props) => {
 		};
 	}
 
+	/* Setup border styles. */
+	let borderStyle = {};
+	if (isBorder) {
+		const bColor = borderColor || "#F2EEE7";
+		const bWidth = (borderWidth || 1) + "px";
+		const hasSpecificSides = borderTop || borderRight || borderBottom || borderLeft;
+		if (!hasSpecificSides) {
+			borderStyle = { border: `${bWidth} solid ${bColor}` };
+		} else {
+			if (borderTop) borderStyle.borderTop = `${bWidth} solid ${bColor}`;
+			if (borderRight) borderStyle.borderRight = `${bWidth} solid ${bColor}`;
+			if (borderBottom) borderStyle.borderBottom = `${bWidth} solid ${bColor}`;
+			if (borderLeft) borderStyle.borderLeft = `${bWidth} solid ${bColor}`;
+		}
+	}
+
 	/* Misc styles. */
 	const styles = {
 		backgroundColor: backgroundColor,
@@ -191,6 +213,7 @@ const Save = (props) => {
 			marginStyle,
 			paddingStyle,
 			borderRadiusStyle,
+			borderStyle,
 			marginStyleMB,
 			marginStyleTL,
 			paddingStyleTL,

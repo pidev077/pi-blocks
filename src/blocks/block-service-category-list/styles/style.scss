@@ -1,0 +1,222 @@
+$sg-accent:   #C9A96E;
+$sg-text:     #27211C;
+$sg-muted:    #584E44;
+$sg-label:    #B9AE9E;
+$sg-border:   #EBE5DC;
+$sg-img-bg:   linear-gradient(248.63deg, #FFFCF2 0.9%, #D6E6F7 99.6%);
+
+.block-service-category-list {
+	.service-category-card {
+		margin-bottom: 40px;
+    	background: #F9FAFB;
+    	padding: 40px 0px 40px 40px;
+		&:last-child  { border-bottom: none; padding-bottom: 0; }
+		&:hover{
+			background: #06354B;
+			.service-category-card__title {
+				color: #fff;
+			}
+
+			.service-category-card__desc {
+				color: #fff;
+			}
+
+			.service-category-card__services-label {
+				color: #fff;
+			}
+ 
+			.service-category-card__list {
+
+				li {
+					color: #fff;
+
+					&::before {
+						background-color: #fff;
+					}
+				}
+			}
+
+			.service-category-card__cta {
+				border: 1px solid #E0AC47;
+				color: #fff;
+				background: #E0AC47;
+
+				&:hover {
+					background-color: #fff;
+					color: #E0AC47;
+				}
+			}
+		}
+		&__inner {
+			display: grid;
+			grid-template-columns: 2fr 1fr;
+    		gap: 40px;
+			align-items: center;
+		}
+
+		// Alternate: image on left
+		&.is-reversed &__inner {
+			direction: rtl;
+
+			> * { direction: ltr; } 
+		}
+
+		// ── Content ──────────────────────────────────────
+		&__title {
+			font-size: clamp(24px, 3vw, 32px);
+			font-weight: 500;
+			color: #27211C;
+			line-height: 1.2;
+			margin: 0 0 16px;
+			font-family: $font-second;
+		}
+
+		&__desc {
+			font-size: 18px;
+			line-height: 26px;
+			color: #584E44;
+			margin: 0 0 24px;
+		}
+
+		&__services {
+			margin-bottom: 24px;
+		}
+
+		&__services-label {
+			display: block;
+			font-size: 14px;
+			color: #584E44;
+			margin-bottom: 16px;
+		}
+
+		&__list {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+
+			li {
+				position: relative;
+				padding-left: 18px;
+				font-size: 16px;
+				font-weight: 500;
+				color: #27211C;
+				margin-bottom: 8px;
+
+				&::before {
+					content: '';
+					position: absolute;
+					left: 0;
+					top: 8px;
+					width: 6px;
+					height: 6px;
+					border-radius: 50%;
+					background-color: #27211C;
+				}
+			}
+		}
+
+		&__cta {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			padding: 8px 20px;
+			border: 1px solid #E0AC47;
+			color: #E0AC47;
+			font-size: 16px;
+			font-weight: 500;
+			text-decoration: none;
+
+			svg { transition: transform 0.25s ease; }
+
+			&:hover {
+				background-color: #E0AC47;
+				color: #fff;
+
+				svg { transform: translate(2px, -2px); }
+			}
+		}
+
+		// ── Media ────────────────────────────────────────
+		&__media {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		&__image-wrap {
+			width: 100%;
+			aspect-ratio: 7 / 6;
+			overflow: hidden;
+			flex-shrink: 0;
+			opacity: 1;
+			border-top-left-radius: 200px;
+			border-bottom-left-radius: 200px;
+			background: $sg-img-bg;
+			flex-shrink: 0;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center top;
+				display: block;
+				transition: transform 0.55s ease;
+			}
+
+			&:hover img { transform: scale(1.04); }
+		}
+	}
+}
+
+
+@include media-breakpoint-down(md) {
+	.block-service-category-list {
+		.service-category-card {
+			padding: 24px 24px 0px 24px;
+
+			&__inner {
+				grid-template-columns: 1fr;
+				gap: 40px;
+			}
+			&__title {
+				margin: 0 0 8px;
+			}
+			&__cta {
+				padding: 7px 16px;
+				font-size: 14px;
+			}
+			&__services {
+				margin-bottom: 16px;
+			}
+			// Reset alternate — stack normally, no RTL trick
+			&.is-reversed &__inner {
+				direction: ltr;
+			}
+			&__content{
+				text-align: center;
+			}
+			&__list li {
+				list-style-type: none;
+				padding-left: 0;
+				&::before{
+					content: none;
+				}
+			}
+			&__desc {
+				font-size: 16px;
+				line-height: 24px;
+				color: #584E44;
+				margin: 0 0 16px;
+			}
+			// Image stays below content (natural DOM order)
+			&__image-wrap {
+				width: 100%;
+				aspect-ratio: 1 / 1;
+				margin: 0 auto;
+				border-top-left-radius: 200px;
+				border-top-right-radius: 200px;
+				border-bottom-left-radius: 0;
+			}
+		}
+	}
+}

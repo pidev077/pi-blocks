@@ -199,6 +199,30 @@ registerBlockType("pi-blocks/pi-column", {
 			type: "boolean",
 			default: false,
 		},
+		borderColor: {
+			type: "string",
+			default: "",
+		},
+		borderWidth: {
+			type: "number",
+			default: 1,
+		},
+		borderTop: {
+			type: "boolean",
+			default: false,
+		},
+		borderRight: {
+			type: "boolean",
+			default: false,
+		},
+		borderBottom: {
+			type: "boolean",
+			default: false,
+		},
+		borderLeft: {
+			type: "boolean",
+			default: false,
+		},
 		isSticky: {
 			type: "boolean",
 			default: false,
