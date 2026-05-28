@@ -8,9 +8,9 @@ import Edit from "./components/edit";
 import Save from "./components/save";
 
 const BlockAttrs = {
-	post_type: {
-		type: "string",
-		default: "service",
+	parent_only: {
+		type: "boolean",
+		default: true,
 	},
 	posts_per_page: {
 		type: "number",
@@ -22,12 +22,7 @@ const BlockAttrs = {
 	},
 	orderBy: {
 		type: "string",
-		default: "menu_order",
-	},
-	selected_posts: {
-		type: "array",
-		items: { type: "number" },
-		default: [],
+		default: "term_order",
 	},
 	anchor: {
 		type: "string",

@@ -1,16 +1,12 @@
 <?php
 function pi_service_list_render($atts)
 {
-    $selected_posts = isset($atts['selected_posts']) && is_array($atts['selected_posts'])
-        ? array_filter(array_map('intval', $atts['selected_posts']))
-        : [];
-
     $atts = shortcode_atts(
         [
-            'post_type'      => 'service',
+            'parent_only'    => true,
             'posts_per_page' => -1,
             'order'          => 'ASC',
-            'orderBy'        => 'menu_order',
+            'orderBy'        => 'term_order',
             'anchor'         => '',
             'className'      => '',
         ],
@@ -22,42 +18,74 @@ function pi_service_list_render($atts)
     $cta_label     = apply_filters('wpml_translate_single_string', 'Tìm Hiểu Thêm',    'pi-blocks', 'service_list_cta');
     $no_posts_text = apply_filters('wpml_translate_single_string', 'No services found.', 'pi-blocks', 'service_list_no_posts');
 
-    $query = [
-        'post_type'      => sanitize_key($atts['post_type']),
-        'post_status'    => 'publish',
-        'posts_per_page' => intval($atts['posts_per_page']),
-        'order'          => strtoupper($atts['order']),
-        'orderby'        => $atts['orderBy'],
-    ];
+    $parent = filter_var($atts['parent_only'], FILTER_VALIDATE_BOOLEAN) ? 0 : '';
+    $number = intval($atts['posts_per_page']) > 0 ? intval($atts['posts_per_page']) : 0;
 
-    if (!empty($selected_posts)) {
-        $query['post__in']       = $selected_posts;
-        $query['orderby']        = 'post__in';
-        $query['posts_per_page'] = count($selected_posts);
-    }
+    $terms = get_terms([
+        'taxonomy'   => 'service_category',
+        'parent'     => $parent,
+        'hide_empty' => false,
+        'orderby'    => $atts['orderBy'],
+        'order'      => strtoupper($atts['order']),
+        'number'     => $number,
+    ]);
 
-    $the_query = new WP_Query($query);
-
-    if (!$the_query->have_posts()) {
+    if (is_wp_error($terms) || empty($terms)) {
         return '<div class="block-service-list"><p>' . esc_html($no_posts_text) . '</p></div>';
     }
 
-    $items   = [];
-    $index   = 0;
+    $items = [];
+    foreach ($terms as $index => $term) {
+        // Find service_group linked to this term via ACF sg_linked_category
+        $sg_posts = get_posts([
+            'post_type'   => 'service_group',
+            'post_status' => 'publish',
+            'numberposts' => 1,
+            'meta_query'  => [[
+                'key'     => 'sg_linked_category',
+                'value'   => $term->term_id,
+                'compare' => '=',
+            ]],
+        ]);
+        $sg = !empty($sg_posts) ? $sg_posts[0] : null;
 
-    while ($the_query->have_posts()) {
-        $the_query->the_post();
+        // Title & URL: prefer service_group, fallback to taxonomy term
+        $title = $sg ? get_the_title($sg->ID) : $term->name;
+        $url   = $sg ? get_permalink($sg->ID) : get_term_link($term);
+
+        // Desc: prefer ACF service_hero_desc, then excerpt, then term description
+        $excerpt = '';
+        if ($sg) {
+            $excerpt = get_field('service_hero_desc', $sg->ID);
+            if (!$excerpt) {
+                $excerpt = get_the_excerpt($sg->ID);
+            }
+        } elseif ($term->description) {
+            $excerpt = $term->description;
+        }
+
+        // Image: prefer ACF service_hero_image, fallback to featured image
+        $thumb = '';
+        $alt   = esc_attr($title);
+        if ($sg) {
+            $hero_img = get_field('service_hero_image', $sg->ID);
+            if ($hero_img && is_array($hero_img)) {
+                $thumb = $hero_img['sizes']['large'] ?? $hero_img['url'] ?? '';
+            }
+            if (!$thumb) {
+                $thumb = get_the_post_thumbnail_url($sg->ID, 'large');
+            }
+        }
+
         $items[] = [
             'index'   => $index,
-            'title'   => get_the_title(),
-            'url'     => get_permalink(),
-            'excerpt' => get_the_excerpt(),
-            'thumb'   => get_the_post_thumbnail_url(get_the_ID(), 'large'),
-            'alt'     => get_the_title(),
+            'title'   => $title,
+            'url'     => $url,
+            'excerpt' => $excerpt,
+            'thumb'   => $thumb,
+            'alt'     => $alt,
         ];
-        $index++;
     }
-    wp_reset_postdata();
 
     $arrow_svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path d="M15.1429 6C15.1429 6.6095 15.745 7.51964 16.3545 8.28357C17.1381 9.26929 18.0745 10.1293 19.1481 10.7856C19.9531 11.2777 20.929 11.75 21.7143 11.75M21.7143 11.75C20.929 11.75 19.9523 12.2223 19.1481 12.7144C18.0745 13.3715 17.1381 14.2315 16.3545 15.2156C15.745 15.9804 15.1429 16.8921 15.1429 17.5M21.7143 11.75H2" stroke="currentColor" stroke-width="1.5"/>

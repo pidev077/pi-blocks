@@ -208,33 +208,28 @@ if (!function_exists('pi_init_register_block')) {
 		register_block_type('pi-blocks/block-service-list', array(
 			'render_callback' => 'pi_service_list_render',
 			'attributes' => array(
-				'post_type' => array(
-					'type' => 'string',
-					'default' => 'service',
+				'parent_only' => array(
+					'type'    => 'boolean',
+					'default' => true,
 				),
 				'posts_per_page' => array(
-					'type' => 'number',
+					'type'    => 'number',
 					'default' => -1,
 				),
 				'order' => array(
-					'type' => 'string',
+					'type'    => 'string',
 					'default' => 'asc',
 				),
 				'orderBy' => array(
-					'type' => 'string',
-					'default' => 'menu_order',
-				),
-				'selected_posts' => array(
-					'type' => 'array',
-					'items' => array('type' => 'number'),
-					'default' => [],
+					'type'    => 'string',
+					'default' => 'term_order',
 				),
 				'className' => array(
-					'type' => 'string',
+					'type'    => 'string',
 					'default' => '',
 				),
 				'anchor' => array(
-					'type' => 'string',
+					'type'    => 'string',
 					'default' => '',
 				),
 			),
