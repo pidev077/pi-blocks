@@ -1,0 +1,130 @@
+.wp-block-pi-blocks-block-technology {
+
+	// ─── Canvas Preview ───────────────────────────────────────
+	.technology__image--empty {
+		background: #f0ece5;
+		border: 1px dashed #d0c8be;
+	}
+
+	.technology-editor__empty {
+		padding: 40px 20px;
+		text-align: center;
+		border: 2px dashed #d0c8be;
+		border-radius: 8px;
+		color: #a09890;
+		font-size: 13px;
+	}
+
+	.technology-editor__preview {
+		display: grid;
+		gap: 20px;
+	}
+
+	.technology-editor__card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: 8px;
+	}
+
+	.technology-editor__image {
+		width: 100%;
+		aspect-ratio: 3 / 4;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: #f5f2ee;
+		border-radius: 4px;
+		overflow: hidden;
+
+		img {
+			width: auto;
+			height: 100%;
+			max-width: 100%;
+			object-fit: contain;
+		}
+	}
+
+	.technology-editor__no-image {
+		width: 100%;
+		aspect-ratio: 3 / 4;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: #f0ece5;
+		border-radius: 4px;
+		color: #b0a89e;
+		font-size: 12px;
+		border: 1px dashed #d0c8be;
+	}
+
+	.technology-editor__title {
+		font-size: 14px;
+		font-weight: 500;
+		margin: 4px 0 0;
+		color: #27211c;
+	}
+
+	.technology-editor__desc {
+		font-size: 12px;
+		color: #6b6560;
+		margin: 0;
+		line-height: 1.5;
+	}
+}
+
+// ─── Sidebar Inspector ─────────────────────────────────────────
+.tech-inspector__item {
+	border: 1px solid #e6dfd4;
+	border-radius: 6px;
+	padding: 10px;
+	margin-bottom: 10px;
+	background: #faf9f7;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.tech-inspector__item-header {
+	padding-bottom: 6px;
+	border-bottom: 1px solid #ede8e1;
+	margin-bottom: 4px;
+}
+
+.tech-inspector__image-wrap {
+	margin-bottom: 4px;
+}
+
+.tech-inspector__thumb {
+	position: relative;
+	cursor: pointer;
+	border-radius: 4px;
+	overflow: hidden;
+	line-height: 0;
+
+	img {
+		width: 100%;
+		height: 80px;
+		object-fit: contain;
+		background: #f0ece5;
+		display: block;
+	}
+
+	&:hover .tech-inspector__change {
+		opacity: 1;
+	}
+}
+
+.tech-inspector__change {
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.4);
+	color: #fff;
+	font-size: 11px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transition: opacity 0.2s ease;
+}

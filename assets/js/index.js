@@ -8,6 +8,8 @@ import Sectors from "./blocks/sectors";
 import ContentMedia from "./blocks/content-media";
 import ProcessSteps from "./blocks/process-steps";
 import ServiceList from "./blocks/service-list";
+import ServiceCarousel from "./blocks/service-carousel";
+import Technology from "./blocks/technology";
 
 document.addEventListener("DOMContentLoaded", async () => {
 	FunctionsJs.init();
@@ -19,4 +21,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 	ContentMedia.init();
 	ProcessSteps.init();
 	ServiceList.init();
+	ServiceCarousel.init();
+	Technology.init();
 });

@@ -1,0 +1,26 @@
+.wp-block-pi-blocks-block-service-carousel {
+	.block-service-carousel {
+		pointer-events: none;
+
+		// cho phép nav buttons hoạt động trong editor
+		.service-carousel__nav {
+			pointer-events: auto;
+		}
+	}
+
+	// Fallback grid khi SSR đang load (trước khi Swiper init)
+	.service-carousel__swiper:not(.swiper-initialized) {
+		overflow: visible;
+
+		.swiper-wrapper {
+			display: grid !important;
+			grid-template-columns: repeat(var(--spv, 3), 1fr);
+			gap: 20px;
+		}
+
+		.swiper-slide {
+			width: auto !important;
+			margin-right: 0 !important;
+		}
+	}
+}

@@ -159,6 +159,30 @@
             </fields>
         </block>
 
+        <!-- ═══════════════════════════════════════════════════════════════
+             TECHNOLOGY CAROUSEL  —  pi-blocks/block-technology
+             items[] items: { image: {id,url,alt}, title (line), description (area) }
+             → title & description translated automatically by WPML ATE (JSON scan).
+             image.url / image.id are NOT translated (media handled by Media Translation).
+        ═══════════════════════════════════════════════════════════════ -->
+        <block type="pi-blocks/block-technology">
+            <fields>
+                <!-- items array { image, title, description } — handled by WPML ATE -->
+            </fields>
+        </block>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             TEAM GRID  —  pi-blocks/block-team-grid  (SSR / PHP render)
+             Post content ("teams" CPT) translated via post-translation workflow.
+             link_label is a plain-text attribute shown in Inspector → must be
+             registered here so WPML Translation Editor can translate it.
+        ═══════════════════════════════════════════════════════════════ -->
+        <block type="pi-blocks/block-team-grid">
+            <fields>
+                <field name="link_label" field_type="line" label="Nhãn nút xem hồ sơ" />
+            </fields>
+        </block>
+
         <!--
             ─── Blocks with NO translatable text attributes ──────────────
 
@@ -168,14 +192,16 @@
             pi-blocks/pi-container        — layout InnerBlocks wrapper
             pi-blocks/client-block        — dynamic render, no text attrs
 
-            ─── Query-based blocks (text from post content) ──────────────
+            ─── Query-based / SSR blocks (text from post content) ────────
 
-            pi-blocks/block-sectors-list   — renders CPT "sectors"
-            pi-blocks/block-teams-list     — renders CPT "teams"
-            pi-blocks/block-service-list   — renders CPT "service"
-            pi-blocks/block-insights       — renders blog posts
-            pi-blocks/block-post-carousel  — renders blog posts
-            pi-blocks/block-related-list   — renders case studies by taxonomy
+            pi-blocks/block-sectors-list      — renders CPT "sectors"
+            pi-blocks/block-teams-list        — renders CPT "teams"
+            pi-blocks/block-service-list      — renders CPT "service"
+            pi-blocks/block-service-carousel  — renders service_group + service_category;
+                                                CTA string registered via wpml_register_single_string in PHP
+            pi-blocks/block-insights          — renders blog posts
+            pi-blocks/block-post-carousel     — renders blog posts
+            pi-blocks/block-related-list      — renders case studies by taxonomy
 
             These blocks display text that comes from translated posts/CPTs,
             so WPML handles translation via the standard post-translation

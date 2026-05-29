@@ -335,6 +335,92 @@ if (!function_exists('pi_init_register_block')) {
 			],
 		] );
 
+		register_block_type('pi-blocks/block-service-carousel', array(
+			'render_callback' => 'pi_service_carousel_render',
+			'attributes' => array(
+				'parent_only' => array(
+					'type'    => 'boolean',
+					'default' => true,
+				),
+				'posts_per_page' => array(
+					'type'    => 'number',
+					'default' => -1,
+				),
+				'order' => array(
+					'type'    => 'string',
+					'default' => 'asc',
+				),
+				'orderBy' => array(
+					'type'    => 'string',
+					'default' => 'term_order',
+				),
+				'slides_per_view' => array(
+					'type'    => 'number',
+					'default' => 3,
+				),
+				'className' => array(
+					'type'    => 'string',
+					'default' => '',
+				),
+				'anchor' => array(
+					'type'    => 'string',
+					'default' => '',
+				),
+			),
+		));
+
+		register_block_type('pi-blocks/block-team-grid', array(
+			'render_callback' => 'pi_team_grid_render',
+			'attributes' => array(
+				'posts_per_page' => array(
+					'type'    => 'number',
+					'default' => 9,
+				),
+				'order' => array(
+					'type'    => 'string',
+					'default' => 'asc',
+				),
+				'orderBy' => array(
+					'type'    => 'string',
+					'default' => 'menu_order',
+				),
+				'link_label' => array(
+					'type'    => 'string',
+					'default' => 'Xem Hồ Sơ',
+				),
+				'className' => array(
+					'type'    => 'string',
+					'default' => '',
+				),
+				'anchor' => array(
+					'type'    => 'string',
+					'default' => '',
+				),
+			),
+		));
+
+		register_block_type('pi-blocks/block-technology', array(
+			'attributes' => array(
+				'items' => array(
+					'type'    => 'array',
+					'default' => [],
+					'items'   => array('type' => 'object'),
+				),
+				'slides_per_view' => array(
+					'type'    => 'number',
+					'default' => 3,
+				),
+				'anchor' => array(
+					'type'    => 'string',
+					'default' => '',
+				),
+				'className' => array(
+					'type'    => 'string',
+					'default' => '',
+				),
+			),
+		));
+
 	}
 }
 
