@@ -5,7 +5,7 @@
 
 .ib-item {
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	gap: 16px;
 	margin-bottom:24px;
 	&:last-child{
@@ -17,7 +17,6 @@
 	flex-shrink: 0;
 	display: flex;
 	align-items: flex-start;
-	padding-top: 18px;
 
 	svg, 
 	img {

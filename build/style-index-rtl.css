@@ -5093,7 +5093,7 @@ body.logged-in .team-popup-inner {
 
 .ib-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 16px;
   margin-bottom: 24px;
 }
@@ -5105,7 +5105,6 @@ body.logged-in .team-popup-inner {
   flex-shrink: 0;
   display: flex;
   align-items: flex-start;
-  padding-top: 18px;
 }
 .ib-icon svg,
 .ib-icon img {
