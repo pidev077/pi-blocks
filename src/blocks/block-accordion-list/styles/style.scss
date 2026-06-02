@@ -1,9 +1,11 @@
 .block-accordion-list {
 	display: flex;
 	flex-direction: column;
+	counter-reset: accordion-counter;
 }
 
 .accordion-item {
+	counter-increment: accordion-counter;
 	border-top: 1px solid #EBE5DC;
 
 	&:last-child {
@@ -45,6 +47,10 @@
 		font-family: $font-second;
 		padding-top: 3px;
 		line-height: 1.4;
+
+		&::before {
+			content: counter(accordion-counter, decimal-leading-zero);
+		}
 
 		@include media-breakpoint-down(md) {
 			grid-row: 1;
@@ -115,11 +121,6 @@
 		.icon-minus { display: block; }
 	}
 
-	// Static items (no body) — icon is decorative, no pointer on row
-	&--static &__head {
-		cursor: default;
-	}
-
 	&__body {
 		animation: accordionFadeIn 0.2s ease;
 		padding-bottom: 32px;
@@ -130,7 +131,6 @@
 	}
 
 	&__content {
-		background: #FAF8F4;
 		padding: 24px;
 		font-size: 15px;
 		line-height: 1.7;

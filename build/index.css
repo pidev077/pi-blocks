@@ -1425,5 +1425,23 @@ html :where(.wp-block) {
   width: 24px;
   height: 24px;
 }
+/*!*************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/blocks/block-accordion-item/styles/editor.scss ***!
+  \*************************************************************************************************************************************************************************/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.accordion-item--editor .accordion-item__body {
+  display: block;
+}
+.accordion-item--editor .accordion-item__body .accordion-item__content {
+  border-left: 3px solid #EBE5DC;
+  padding-left: 16px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
 
 /*# sourceMappingURL=index.css.map*/

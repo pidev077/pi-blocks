@@ -7,14 +7,17 @@ import { registerBlockType } from "@wordpress/blocks";
 import Edit from "./components/edit";
 import Save from "./components/save";
 
-export default registerBlockType("pi-blocks/block-accordion-list", {
+export default registerBlockType("pi-blocks/block-accordion-item", {
 	apiVersion: 3,
-	title: __("Accordion List"),
-	icon: "list-view",
+	title: __("Accordion Item"),
+	icon: "minus",
 	category: "pi-blocks",
-	keywords: [__("accordion"), __("list"), __("services"), __("items")],
-	attributes: {},
-	supports: { anchor: true },
+	parent: ["pi-blocks/block-accordion-list"],
+	attributes: {
+		title: { type: "string", default: "" },
+		description: { type: "string", default: "" },
+	},
+	supports: { anchor: false, reusable: false, html: false },
 	edit: (props) => <Edit {...props} />,
 	save: (props) => <Save {...props} />,
 });

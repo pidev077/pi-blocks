@@ -1,0 +1,12 @@
+.accordion-item--editor {
+	.accordion-item__body {
+		display: block; // always visible in editor
+
+		.accordion-item__content {
+			border-left: 3px solid #EBE5DC;
+			padding-left: 16px;
+			margin-top: 8px;
+			margin-bottom: 16px;
+		}
+	}
+}

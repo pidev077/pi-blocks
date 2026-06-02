@@ -43,3 +43,4 @@ import "./blocks/block-info-box";
 import "./blocks/block-team-grid";
 import "./blocks/block-technology";
 import "./blocks/block-accordion-list";
+import "./blocks/block-accordion-item";

@@ -5399,9 +5399,11 @@ body.logged-in .team-popup-inner {
 .block-accordion-list {
   display: flex;
   flex-direction: column;
+  counter-reset: accordion-counter;
 }
 
 .accordion-item {
+  counter-increment: accordion-counter;
   border-top: 1px solid #EBE5DC;
 }
 .accordion-item:last-child {
@@ -5443,6 +5445,9 @@ body.logged-in .team-popup-inner {
   font-family: "Google Sans", sans-serif;
   padding-top: 3px;
   line-height: 1.4;
+}
+.accordion-item__num::before {
+  content: counter(accordion-counter, decimal-leading-zero);
 }
 @media (max-width: 767.98px) {
   .accordion-item__num {
@@ -5520,9 +5525,6 @@ body.logged-in .team-popup-inner {
 .accordion-item[open] .icon-minus {
   display: block;
 }
-.accordion-item--static .accordion-item__head {
-  cursor: default;
-}
 .accordion-item__body {
   animation: accordionFadeIn 0.2s ease;
   padding-bottom: 32px;
@@ -5533,7 +5535,6 @@ body.logged-in .team-popup-inner {
   }
 }
 .accordion-item__content {
-  background: #FAF8F4;
   padding: 24px;
   font-size: 15px;
   line-height: 1.7;
@@ -5563,3 +5564,12 @@ body.logged-in .team-popup-inner {
     transform: translateY(0);
   }
 }
+/*!************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/blocks/block-accordion-item/styles/style.scss ***!
+  \************************************************************************************************************************************************************************/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
