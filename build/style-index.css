@@ -888,6 +888,10 @@ h6, .h6 {
     font-size: 1.125rem;
   }
 }
+.wp-block-list > li + li {
+  margin-top: var(--pi-list-gap, 0px);
+}
+
 .has-primary-color {
   color: #ffe071 !important;
 }
@@ -5381,6 +5385,182 @@ body.logged-in .team-popup-inner {
   .block-technology .technology__btn svg {
     width: 14px;
     height: 14px;
+  }
+}
+/*!************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/blocks/block-accordion-list/styles/style.scss ***!
+  \************************************************************************************************************************************************************************/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.block-accordion-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion-item {
+  border-top: 1px solid #EBE5DC;
+}
+.accordion-item:last-child {
+  border-bottom: 1px solid #EBE5DC;
+}
+.accordion-item summary {
+  list-style: none;
+}
+.accordion-item summary::-webkit-details-marker {
+  display: none;
+}
+.accordion-item__head {
+  display: grid;
+  grid-template-columns: 56px 1fr 2fr 32px;
+  align-items: start;
+  column-gap: 24px;
+  padding: 32px 0;
+  cursor: pointer;
+  user-select: none;
+}
+@media (max-width: 1023.98px) {
+  .accordion-item__head {
+    grid-template-columns: 48px 1fr 1fr 28px;
+    column-gap: 16px;
+    padding: 28px 0;
+  }
+}
+@media (max-width: 767.98px) {
+  .accordion-item__head {
+    grid-template-columns: 40px 1fr 28px;
+    grid-template-rows: auto auto;
+    padding: 24px 0;
+  }
+}
+.accordion-item__num {
+  font-size: 18px;
+  font-weight: 500;
+  color: #584E44;
+  font-family: "Google Sans", sans-serif;
+  padding-top: 3px;
+  line-height: 1.4;
+}
+@media (max-width: 767.98px) {
+  .accordion-item__num {
+    grid-row: 1;
+    grid-column: 1;
+    font-size: 14px;
+  }
+}
+.accordion-item__title {
+  font-size: 24px;
+  font-weight: 500;
+  color: #27211C;
+  font-family: "Google Sans", sans-serif;
+  line-height: 1.4;
+}
+@media (max-width: 1023.98px) {
+  .accordion-item__title {
+    font-size: 20px;
+  }
+}
+@media (max-width: 767.98px) {
+  .accordion-item__title {
+    font-size: 18px;
+    grid-row: 1;
+    grid-column: 2;
+  }
+}
+.accordion-item__desc {
+  font-size: 16px;
+  font-weight: 400;
+  color: #584E44;
+  line-height: 1.65;
+  font-family: "Google Sans", sans-serif;
+}
+@media (max-width: 1023.98px) {
+  .accordion-item__desc {
+    font-size: 15px;
+  }
+}
+@media (max-width: 767.98px) {
+  .accordion-item__desc {
+    grid-row: 2;
+    grid-column: 2/4;
+    margin-top: 8px;
+    font-size: 14px;
+  }
+}
+.accordion-item__icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: #27211C;
+  margin-top: 2px;
+  justify-self: end;
+}
+.accordion-item__icon svg {
+  width: 24px;
+  height: 24px;
+}
+.accordion-item__icon .icon-plus {
+  display: block;
+}
+.accordion-item__icon .icon-minus {
+  display: none;
+}
+@media (max-width: 767.98px) {
+  .accordion-item__icon {
+    grid-row: 1;
+    grid-column: 3;
+  }
+}
+.accordion-item[open] .icon-plus {
+  display: none;
+}
+.accordion-item[open] .icon-minus {
+  display: block;
+}
+.accordion-item--static .accordion-item__head {
+  cursor: default;
+}
+.accordion-item__body {
+  animation: accordionFadeIn 0.2s ease;
+  padding-bottom: 32px;
+}
+@media (max-width: 767.98px) {
+  .accordion-item__body {
+    padding-bottom: 24px;
+  }
+}
+.accordion-item__content {
+  background: #FAF8F4;
+  padding: 24px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #584E44;
+  font-family: "Google Sans", sans-serif;
+}
+.accordion-item__content p {
+  margin: 0;
+}
+.accordion-item__content p + p {
+  margin-top: 12px;
+}
+@media (max-width: 767.98px) {
+  .accordion-item__content {
+    font-size: 14px;
+    padding: 16px;
+  }
+}
+
+@keyframes accordionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

@@ -1,0 +1,46 @@
+.block-accordion-list--editor {
+	.accordion-item {
+		border-top: 1px solid #EBE5DC;
+
+		&:last-child {
+			border-bottom: 1px solid #EBE5DC;
+		}
+
+		&__head {
+			display: grid;
+			grid-template-columns: 56px 1fr 2fr 32px;
+			align-items: start;
+			column-gap: 24px;
+			padding: 24px 0;
+			pointer-events: none;
+		}
+
+		&__num {
+			font-size: 14px;
+			color: #B9AE9E;
+			font-family: $font-primary;
+		}
+
+		&__title {
+			font-size: 20px;
+			font-weight: 600;
+			color: #27211C;
+			font-family: $font-primary;
+		}
+
+		&__desc {
+			font-size: 15px;
+			color: #584E44;
+			line-height: 1.65;
+			font-family: $font-second;
+		}
+
+		&__icon {
+			width: 24px;
+			height: 24px;
+			color: #27211C;
+			justify-self: end;
+			svg { width: 24px; height: 24px; }
+		}
+	}
+}

@@ -1,0 +1,153 @@
+.block-accordion-list {
+	display: flex;
+	flex-direction: column;
+}
+
+.accordion-item {
+	border-top: 1px solid #EBE5DC;
+
+	&:last-child {
+		border-bottom: 1px solid #EBE5DC;
+	}
+
+	// Remove native <details> arrow
+	summary {
+		list-style: none;
+		&::-webkit-details-marker { display: none; }
+	}
+
+	&__head {
+		display: grid;
+		grid-template-columns: 56px 1fr 2fr 32px;
+		align-items: start;
+		column-gap: 24px;
+		padding: 32px 0;
+		cursor: pointer;
+		user-select: none;
+
+		@include media-breakpoint-down(lg) {
+			grid-template-columns: 48px 1fr 1fr 28px;
+			column-gap: 16px;
+			padding: 28px 0;
+		}
+
+		@include media-breakpoint-down(md) {
+			grid-template-columns: 40px 1fr 28px;
+			grid-template-rows: auto auto;
+			padding: 24px 0;
+		}
+	}
+
+	&__num {
+		font-size: 18px;
+		font-weight: 500;
+		color: #584E44;
+		font-family: $font-second;
+		padding-top: 3px;
+		line-height: 1.4;
+
+		@include media-breakpoint-down(md) {
+			grid-row: 1;
+			grid-column: 1;
+			font-size: 14px;
+		}
+	}
+
+	&__title {
+		font-size: 24px;
+		font-weight: 500;
+		color: #27211C;
+		font-family: $font-second;
+		line-height: 1.4;
+
+		@include media-breakpoint-down(lg) {
+			font-size: 20px;
+		}
+
+		@include media-breakpoint-down(md) {
+			font-size: 18px;
+			grid-row: 1;
+			grid-column: 2;
+		}
+	}
+
+	&__desc {
+		font-size: 16px;
+		font-weight: 400;
+		color: #584E44;
+		line-height: 1.65;
+		font-family: $font-second;
+
+		@include media-breakpoint-down(lg) {
+			font-size: 15px;
+		}
+
+		@include media-breakpoint-down(md) {
+			grid-row: 2;
+			grid-column: 2 / 4;
+			margin-top: 8px;
+			font-size: 14px;
+		}
+	}
+
+	&__icon {
+		flex-shrink: 0;
+		width: 24px;
+		height: 24px;
+		color: #27211C;
+		margin-top: 2px;
+		justify-self: end;
+
+		svg { width: 24px; height: 24px; }
+
+		.icon-plus  { display: block; }
+		.icon-minus { display: none; }
+
+		@include media-breakpoint-down(md) {
+			grid-row: 1;
+			grid-column: 3;
+		}
+	}
+
+	// <details> open state
+	&[open] {
+		.icon-plus  { display: none; }
+		.icon-minus { display: block; }
+	}
+
+	// Static items (no body) — icon is decorative, no pointer on row
+	&--static &__head {
+		cursor: default;
+	}
+
+	&__body {
+		animation: accordionFadeIn 0.2s ease;
+		padding-bottom: 32px;
+
+		@include media-breakpoint-down(md) {
+			padding-bottom: 24px;
+		}
+	}
+
+	&__content {
+		background: #FAF8F4;
+		padding: 24px;
+		font-size: 15px;
+		line-height: 1.7;
+		color: #584E44;
+		font-family: $font-second;
+
+		p { margin: 0; }
+		p + p { margin-top: 12px; }
+
+		@include media-breakpoint-down(md) {
+			font-size: 14px;
+			padding: 16px;
+		}
+	}
+}
+
+@keyframes accordionFadeIn {
+	from { opacity: 0; transform: translateY(-6px); }
+	to   { opacity: 1; transform: translateY(0); }
+}

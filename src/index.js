@@ -42,3 +42,4 @@ import "./blocks/block-business-hours";
 import "./blocks/block-info-box";
 import "./blocks/block-team-grid";
 import "./blocks/block-technology";
+import "./blocks/block-accordion-list";

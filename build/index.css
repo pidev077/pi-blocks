@@ -1375,5 +1375,55 @@ html :where(.wp-block) {
   opacity: 0;
   transition: opacity 0.2s ease;
 }
+/*!*************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/blocks/block-accordion-list/styles/editor.scss ***!
+  \*************************************************************************************************************************************************************************/
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.block-accordion-list--editor .accordion-item {
+  border-top: 1px solid #EBE5DC;
+}
+.block-accordion-list--editor .accordion-item:last-child {
+  border-bottom: 1px solid #EBE5DC;
+}
+.block-accordion-list--editor .accordion-item__head {
+  display: grid;
+  grid-template-columns: 56px 1fr 2fr 32px;
+  align-items: start;
+  column-gap: 24px;
+  padding: 24px 0;
+  pointer-events: none;
+}
+.block-accordion-list--editor .accordion-item__num {
+  font-size: 14px;
+  color: #B9AE9E;
+  font-family: "Playfair Display", serif;
+}
+.block-accordion-list--editor .accordion-item__title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #27211C;
+  font-family: "Playfair Display", serif;
+}
+.block-accordion-list--editor .accordion-item__desc {
+  font-size: 15px;
+  color: #584E44;
+  line-height: 1.65;
+  font-family: "Google Sans", sans-serif;
+}
+.block-accordion-list--editor .accordion-item__icon {
+  width: 24px;
+  height: 24px;
+  color: #27211C;
+  justify-self: end;
+}
+.block-accordion-list--editor .accordion-item__icon svg {
+  width: 24px;
+  height: 24px;
+}
 
 /*# sourceMappingURL=index.css.map*/
