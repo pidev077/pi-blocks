@@ -14,6 +14,7 @@ export default {
 		testimonialsCarousel();
 		logoCarousel();
 		galleryCarousel();
+		resultCarousel();
 	},
 };
 
@@ -114,5 +115,40 @@ function galleryCarousel() {
 			disableOnInteraction: false,
 		},
 		allowTouchMove: false,
+	});
+}
+
+function resultCarousel() {
+	const $blocks = document.querySelectorAll(".block-result-carousel");
+	if (!$blocks.length) return;
+
+	$blocks.forEach(($block) => {
+		const swiperEl = $block.querySelector(".block-result-carousel__swiper");
+		if (!swiperEl) return;
+
+		const prevEl = $block.querySelector(".block-result-carousel__prev");
+		const nextEl = $block.querySelector(".block-result-carousel__next");
+		const currentEl = $block.querySelector(".block-result-carousel__current");
+		const totalEl = $block.querySelector(".block-result-carousel__total");
+
+		const swiper = new Swiper(swiperEl, {
+			modules: [Navigation],
+			slidesPerView: 1,
+			loop: false,
+			grabCursor: true,
+			navigation: {
+				prevEl,
+				nextEl,
+			},
+			on: {
+				init(sw) {
+					if (totalEl) totalEl.textContent = String(sw.slides.length).padStart(2, "0");
+					if (currentEl) currentEl.textContent = "01";
+				},
+				slideChange(sw) {
+					if (currentEl) currentEl.textContent = String(sw.activeIndex + 1).padStart(2, "0");
+				},
+			},
+		});
 	});
 }

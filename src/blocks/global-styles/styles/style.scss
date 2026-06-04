@@ -3,6 +3,21 @@
 @import "~swiper/css/pagination";
 @import "./form.scss";
 
+.heading-strikethrough {
+	padding-bottom: 10px;
+	position: relative;
+	&::after {
+		content: '';
+		display: block;
+		width: 236px;
+		height: 18px;
+		background-color: #F2EEE7;
+		bottom: 0;
+		position: absolute;
+		z-index: -1;
+	}
+}
+
 // Responsive heading scale — mirrors theme Bootstrap RFS breakpoints
 h1, .h1,
 h2, .h2,

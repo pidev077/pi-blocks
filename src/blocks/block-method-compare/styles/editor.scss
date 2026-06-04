@@ -1,0 +1,20 @@
+.block-method-compare--editor {
+	.mc-table__image-placeholder {
+		width: 100%;
+		height: 110px;
+		background: #f5f2ee;
+		border: 2px dashed #ccc;
+		border-radius: 3px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		max-width: 180px;
+		margin: 0 auto;
+
+		&::after {
+			content: "Chưa có ảnh";
+			font-size: 11px;
+			color: #aaa;
+		}
+	}
+}

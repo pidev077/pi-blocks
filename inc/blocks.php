@@ -399,6 +399,18 @@ if (!function_exists('pi_init_register_block')) {
 			),
 		));
 
+		register_block_type( 'pi-blocks/block-method-compare', [
+			'render_callback' => 'pi_method_compare_render',
+			'attributes'      => [
+				'anchor'       => [ 'type' => 'string', 'default' => '' ],
+				'className'    => [ 'type' => 'string', 'default' => '' ],
+				'sectionLabel' => [ 'type' => 'string', 'default' => 'SO SÁNH PHƯƠNG PHÁP' ],
+				'heading'      => [ 'type' => 'string', 'default' => '' ],
+				'columns'      => [ 'type' => 'array',  'default' => [], 'items' => [ 'type' => 'object' ] ],
+				'criteria'     => [ 'type' => 'array',  'default' => [], 'items' => [ 'type' => 'object' ] ],
+			],
+		] );
+
 		register_block_type('pi-blocks/block-technology', array(
 			'attributes' => array(
 				'items' => array(

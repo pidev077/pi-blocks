@@ -1,0 +1,11 @@
+.block-result-carousel {
+	&__swiper {
+		.swiper-slide {
+			width: 100%;
+		}
+	}
+
+	&__controls {
+		pointer-events: none;
+	}
+}

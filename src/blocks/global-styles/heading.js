@@ -14,6 +14,7 @@ const addAttributes = (settings) => {
 			piFontFamily: { type: "string" },
 			enableAnimation: { type: "boolean", default: false },
 			typeAnimation: { type: "string", default: "fadein-chars" },
+			enableStrikethrough: { type: "boolean", default: false },
 		});
 	}
 	return settings;
@@ -23,7 +24,7 @@ const withAdvancedControls = createHigherOrderComponent(
 	(BlockEdit) => (props) => {
 		const {
 			name,
-			attributes: { piFontFamily, enableAnimation, typeAnimation },
+			attributes: { piFontFamily, enableAnimation, typeAnimation, enableStrikethrough },
 			setAttributes,
 		} = props;
 
@@ -71,6 +72,15 @@ const withAdvancedControls = createHigherOrderComponent(
 									}
 								/>
 							)}
+							<ToggleControl
+								label="Strikethrough"
+								checked={enableStrikethrough}
+								onChange={() =>
+									setAttributes({
+										enableStrikethrough: !enableStrikethrough,
+									})
+								}
+							/>
 						</PanelBody>
 					</InspectorControls>
 				)}
@@ -83,7 +93,7 @@ const withAdvancedControls = createHigherOrderComponent(
 const applyExtraClass = (
 	extraProps,
 	blockType,
-	{ piFontFamily, enableAnimation, typeAnimation }
+	{ piFontFamily, enableAnimation, typeAnimation, enableStrikethrough }
 ) => {
 	if (!allowedBlocks.includes(blockType.name)) {
 		return extraProps;
@@ -92,7 +102,8 @@ const applyExtraClass = (
 	extraProps.className = classnames(
 		extraProps.className,
 		piFontFamily ? "font-" + piFontFamily : "",
-		enableAnimation ? `wp-block-heading-${typeAnimation}` : ""
+		enableAnimation ? `wp-block-heading-${typeAnimation}` : "",
+		enableStrikethrough ? "heading-strikethrough" : ""
 	);
 
 	return extraProps;

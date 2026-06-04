@@ -18,6 +18,21 @@ Editor style
 	}
 }
 
+.heading-strikethrough {
+	position: relative;
+	padding-bottom: 10px;
+	&::after {
+		content: '';
+		display: block;
+		width: 236px;
+		height: 18px;
+		background-color: #F2EEE7;
+		bottom: 0;
+		position: absolute;
+		z-index: -1;
+	}
+}
+
 .is-root-container {
 	overflow: hidden;
 	.wp-block-image img {
