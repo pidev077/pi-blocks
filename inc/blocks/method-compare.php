@@ -24,18 +24,6 @@ if ( ! function_exists( 'pi_method_compare_render' ) ) {
 		?>
 		<section<?php echo $id_attr; ?> class="<?php echo $class; ?>">
 
-			<?php if ( $atts['sectionLabel'] || $atts['heading'] ) : ?>
-			<div class="mc-intro">
-				<?php if ( $atts['sectionLabel'] ) : ?>
-					<span class="mc-intro__label"><?php echo esc_html( $atts['sectionLabel'] ); ?></span>
-					<span class="mc-intro__deco" aria-hidden="true">✦</span>
-				<?php endif; ?>
-				<?php if ( $atts['heading'] ) : ?>
-					<h2 class="mc-intro__heading"><?php echo esc_html( $atts['heading'] ); ?></h2>
-				<?php endif; ?>
-			</div>
-			<?php endif; ?>
-
 			<div class="mc-table-wrap">
 				<table class="mc-table">
 					<thead>

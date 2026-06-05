@@ -1,57 +1,10 @@
 $mc-text:      #27211C;
 $mc-muted:     #584E44;
-$mc-label:     #B9AE9E;
-$mc-gold:      #c9a96e;
 $mc-row-even:  #F9FAFB;
 $mc-row-odd:   #ffffff;
 
 // ── Section wrapper ───────────────────────────────────────────────────
-.block-method-compare {
-	padding: 80px 0;
 
-	@include media-breakpoint-down(md) {
-		padding: 60px 0;
-	}
-}
-
-// ── Intro ─────────────────────────────────────────────────────────────
-.mc-intro {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	margin-bottom: 48px;
-
-	@include media-breakpoint-down(md) {
-		margin-bottom: 32px;
-	}
-
-	&__label {
-		font-size: 12px;
-		font-weight: 600;
-		letter-spacing: 0.15em;
-		text-transform: uppercase;
-		color: $mc-label;
-		font-family: $font-second;
-	}
-
-	&__deco {
-		font-size: 14px;
-		color: $mc-gold;
-		margin: 8px 0;
-		line-height: 1;
-	}
-
-	&__heading {
-		font-size: clamp(24px, 3vw, 36px);
-		font-weight: 500;
-		color: $mc-text;
-		line-height: 1.3;
-		font-family: $font-primary;
-		max-width: 640px;
-		margin: 0;
-	}
-}
 
 // ── Table wrapper ─────────────────────────────────────────────────────
 .mc-table-wrap {
@@ -136,11 +89,10 @@ $mc-row-odd:   #ffffff;
 
 		img {
 			width: 100%;
-			max-width: 180px;
+			max-width: 300px;
 			height: auto;
 			display: block;
 			margin: 0 auto;
-			border-radius: 2px;
 		}
 	}
 
