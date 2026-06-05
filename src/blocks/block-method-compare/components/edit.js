@@ -18,7 +18,7 @@ const ChevronIcon = () => (
 );
 
 const Edit = ({ attributes, setAttributes }) => {
-	const { sectionLabel, heading, columns, criteria } = attributes;
+	const { columns, criteria } = attributes;
 	const blockProps = useBlockProps({ className: "block-method-compare block-method-compare--editor" });
 
 	const setColumn = (i, patch) =>
@@ -58,19 +58,6 @@ const Edit = ({ attributes, setAttributes }) => {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title="Tiêu đề" initialOpen={true}>
-					<TextControl
-						label="Section Label"
-						value={sectionLabel}
-						onChange={(val) => setAttributes({ sectionLabel: val })}
-					/>
-					<TextControl
-						label="Heading"
-						value={heading}
-						onChange={(val) => setAttributes({ heading: val })}
-					/>
-				</PanelBody>
-
 				<PanelBody title={`Cột (${columns.length})`} initialOpen={false}>
 					{columns.map((col, i) => (
 						<div
@@ -157,12 +144,6 @@ const Edit = ({ attributes, setAttributes }) => {
 			</InspectorControls>
 
 			<div {...blockProps}>
-				<div className="mc-intro">
-					{sectionLabel && <span className="mc-intro__label">{sectionLabel}</span>}
-					<span className="mc-intro__deco" aria-hidden="true">✦</span>
-					{heading && <h2 className="mc-intro__heading">{heading}</h2>}
-				</div>
-
 				<div className="mc-table-wrap">
 					<table className="mc-table">
 						<thead>

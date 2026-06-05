@@ -12,6 +12,10 @@ const BlockAttrs = {
 		type: "boolean",
 		default: true,
 	},
+	category: {
+		type: "number",
+		default: 0,
+	},
 	posts_per_page: {
 		type: "number",
 		default: -1,

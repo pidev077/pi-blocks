@@ -109,6 +109,33 @@ const applyExtraClass = (
 	return extraProps;
 };
 
+const withEditorClass = createHigherOrderComponent(
+	(BlockListBlock) => (props) => {
+		const {
+			name,
+			attributes: { piFontFamily, enableAnimation, typeAnimation, enableStrikethrough },
+		} = props;
+
+		if (!allowedBlocks.includes(name)) {
+			return <BlockListBlock {...props} />;
+		}
+
+		const extraClasses = classnames(
+			piFontFamily ? "font-" + piFontFamily : "",
+			enableAnimation ? `wp-block-heading-${typeAnimation}` : "",
+			enableStrikethrough ? "heading-strikethrough" : ""
+		);
+
+		return (
+			<BlockListBlock
+				{...props}
+				className={classnames(props.className, extraClasses)}
+			/>
+		);
+	},
+	"withEditorClass"
+);
+
 // Add filters
 addFilter(
 	"blocks.registerBlockType",
@@ -119,6 +146,11 @@ addFilter(
 	"editor.BlockEdit",
 	"editorskit/custom-advanced-control",
 	withAdvancedControls
+);
+addFilter(
+	"editor.BlockListBlock",
+	"editorskit/withEditorClass",
+	withEditorClass
 );
 addFilter(
 	"blocks.getSaveContent.extraProps",

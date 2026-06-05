@@ -342,6 +342,10 @@ if (!function_exists('pi_init_register_block')) {
 					'type'    => 'boolean',
 					'default' => true,
 				),
+				'category' => array(
+					'type'    => 'number',
+					'default' => 0,
+				),
 				'posts_per_page' => array(
 					'type'    => 'number',
 					'default' => -1,
