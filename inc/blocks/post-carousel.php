@@ -40,7 +40,7 @@ function block_post_carousel_render($atts, $content)
 	$the_query = new WP_Query($query_args);
 
 	if (!$the_query->have_posts()) {
-		return '<div class="block-post-carousel"><p>No posts found.</p></div>';
+		return '<div class="block-post-carousel"><p>' . esc_html__('No posts found.', 'pi-blocks') . '</p></div>';
 	}
 
 	$uid         = 'bpc-' . uniqid();

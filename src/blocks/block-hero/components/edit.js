@@ -23,7 +23,7 @@ const MY_TEMPLATE = [
 
 const Edit = (props) => {
 	const { attributes, setAttributes, className } = props;
-	const { typeHero, colorText, overlay, scrollAnchor, scrollLabel } = attributes;
+	const { typeHero, colorText, overlay, scrollAnchor, scrollLabel, blockHeight } = attributes;
 
 	// Ensure scrollLabel is serialized in the block comment so WPML can detect it.
 	// When scrollLabel matches the old default value, Gutenberg omits it from the
@@ -39,8 +39,10 @@ const Edit = (props) => {
 			"hero-block",
 			`hero-type-${typeHero}`,
 			`${overlay ? "hero-overlay" : ""}`,
+			blockHeight ? "hero-custom-height" : "",
 			className,
 		].join(" "),
+		style: blockHeight ? { "--hero-height": blockHeight } : {},
 	});
 
 	return (

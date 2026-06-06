@@ -250,6 +250,15 @@ html :where(.wp-block) {
   background: rgb(208.8186046512, 149.8046511628, 35.1813953488);
   color: #fff;
 }
+.is-root-container .wp-block-buttons .wp-block-button.is-pi-outline .wp-block-button__link {
+  background: transparent;
+  color: #E0AC47;
+  border: 2px solid #E0AC47;
+}
+.is-root-container .wp-block-buttons .wp-block-button.is-pi-outline .wp-block-button__link:hover {
+  background: #E0AC47;
+  color: #fff;
+}
 .is-root-container .wp-block-buttons .wp-block-button.has-pi-icon .wp-block-button__link::after {
   content: "";
   display: inline-block;

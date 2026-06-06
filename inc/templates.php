@@ -35,7 +35,7 @@ function pi_item_article()
       </div>
 
       <a href="<?= esc_url(get_permalink()) ?>" class="item-post__btn">
-         Read more
+         <?php esc_html_e('Read more', 'pi-blocks'); ?>
       </a>
    </div>
 <?php }
@@ -45,7 +45,7 @@ function pi_get_cates_posts()
    // Get current category from URL parameter
    $current_category = isset($_GET['category']) ? sanitize_text_field($_GET['category']) : 'all';
    $data_cate = 'all';
-   $current_category_name = 'All';
+   $current_category_name = __('All', 'pi-blocks');
 
    if ($current_category !== 'all') {
       $category = get_category_by_slug($current_category);
@@ -65,7 +65,7 @@ function pi_get_cates_posts()
                   fill="#667085" />
             </svg>
 
-            Filter by
+            <?php esc_html_e('Filter by', 'pi-blocks'); ?>
          </div>
 
          <div class="pi-filter-posts-block__cates-dropdown">
@@ -78,7 +78,7 @@ function pi_get_cates_posts()
             </svg>
 
             <ul>
-               <li data-cate="all">All</li>
+               <li data-cate="all"><?php esc_html_e('All', 'pi-blocks'); ?></li>
                <?php foreach ($categories as $value): ?>
                   <li data-cate="<?= $value->term_id ?>"> <?= $value->name ?> </li>
                <?php endforeach; ?>
@@ -128,7 +128,7 @@ function pi_get_team_detail_html($team_id)
    </div>
 
    <div class="team-popup__right">
-      <h3 class="title h6">ABOUT</h3>
+      <h3 class="title h6"><?php esc_html_e('ABOUT', 'pi-blocks'); ?></h3>
       <div class="content">
          <?= apply_filters('the_content', $post->post_content); ?>
       </div>

@@ -25,6 +25,20 @@
 		}
 	}
 
+	&.hero-custom-height {
+		height: var(--hero-height);
+		max-height: none;
+
+		@supports (height: 100svh) {
+			height: var(--hero-height);
+		}
+
+		@include media-breakpoint-down(md) {
+			height: var(--hero-height);
+			max-height: none;
+		}
+	}
+
 	.container {
 		position: relative;
 		z-index: 3;

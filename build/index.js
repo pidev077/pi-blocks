@@ -10979,7 +10979,8 @@ var Edit = function Edit(props) {
     colorText = attributes.colorText,
     overlay = attributes.overlay,
     scrollAnchor = attributes.scrollAnchor,
-    scrollLabel = attributes.scrollLabel;
+    scrollLabel = attributes.scrollLabel,
+    blockHeight = attributes.blockHeight;
 
   // Ensure scrollLabel is serialized in the block comment so WPML can detect it.
   // When scrollLabel matches the old default value, Gutenberg omits it from the
@@ -10992,7 +10993,10 @@ var Edit = function Edit(props) {
     }
   }, []);
   var blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
-    className: ["hero-block", "hero-type-".concat(typeHero), "".concat(overlay ? "hero-overlay" : ""), className].join(" ")
+    className: ["hero-block", "hero-type-".concat(typeHero), "".concat(overlay ? "hero-overlay" : ""), blockHeight ? "hero-custom-height" : "", className].join(" "),
+    style: blockHeight ? {
+      "--hero-height": blockHeight
+    } : {}
   });
   return /*#__PURE__*/React.createElement(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.Fragment, null, /*#__PURE__*/React.createElement(_inspector__WEBPACK_IMPORTED_MODULE_3__["default"], props), /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement(_background__WEBPACK_IMPORTED_MODULE_4__["default"], props), /*#__PURE__*/React.createElement("div", {
     className: "container"
@@ -11075,7 +11079,8 @@ var Inspector = function Inspector(props) {
     posterUrl = attributes.posterUrl,
     videoFormat = attributes.videoFormat,
     scrollAnchor = attributes.scrollAnchor,
-    scrollLabel = attributes.scrollLabel;
+    scrollLabel = attributes.scrollLabel,
+    blockHeight = attributes.blockHeight;
   var onSelectMedia = function onSelectMedia(media) {
     setAttributes({
       imgID: parseInt(media.id),
@@ -11153,6 +11158,17 @@ var Inspector = function Inspector(props) {
     onChange: function onChange(vl) {
       return setAttributes({
         scrollLabel: vl || "KHÁM PHÁ THÊM"
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+    __next40pxDefaultSize: true,
+    label: "Block Height",
+    help: "\u0110\u1EC3 tr\u1ED1ng \u0111\u1EC3 d\xF9ng chi\u1EC1u cao to\xE0n m\xE0n h\xECnh. V\xED d\u1EE5: 600px, 80vh",
+    placeholder: "100vh (m\u1EB7c \u0111\u1ECBnh)",
+    value: blockHeight,
+    onChange: function onChange(vl) {
+      return setAttributes({
+        blockHeight: vl
       });
     }
   })), typeHero == "video" && /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
@@ -11351,9 +11367,13 @@ var Save = function Save(props) {
     colorText = attributes.colorText,
     overlay = attributes.overlay,
     scrollAnchor = attributes.scrollAnchor,
-    scrollLabel = attributes.scrollLabel;
+    scrollLabel = attributes.scrollLabel,
+    blockHeight = attributes.blockHeight;
   var blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
-    className: ["hero-block", "hero-type-".concat(typeHero), "".concat(overlay ? "hero-overlay" : ""), className].join(" ")
+    className: ["hero-block", "hero-type-".concat(typeHero), "".concat(overlay ? "hero-overlay" : ""), blockHeight ? "hero-custom-height" : "", className].join(" "),
+    style: blockHeight ? {
+      "--hero-height": blockHeight
+    } : {}
   });
   return /*#__PURE__*/React.createElement("div", blockProps, /*#__PURE__*/React.createElement(_background__WEBPACK_IMPORTED_MODULE_1__["default"], props), /*#__PURE__*/React.createElement("div", {
     className: "container"
@@ -11464,6 +11484,10 @@ var attr = {
   },
   scrollLabel: {
     type: "string"
+  },
+  blockHeight: {
+    type: "string",
+    "default": ""
   }
 };
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("pi-blocks/hero", {
@@ -17555,6 +17579,10 @@ var addCustomAttributes = function addCustomAttributes(settings) {
         type: 'string',
         "default": ''
       },
+      piOutline: {
+        type: 'boolean',
+        "default": false
+      },
       piShowIcon: {
         type: 'boolean',
         "default": false
@@ -17583,6 +17611,7 @@ var withInspectorControls = createHigherOrderComponent(function (BlockEdit) {
       clientId = props.clientId;
     var hoverColor = attributes.hoverColor,
       hoverBgColor = attributes.hoverBgColor,
+      piOutline = attributes.piOutline,
       piShowIcon = attributes.piShowIcon,
       piIconUrl = attributes.piIconUrl,
       piIconSize = attributes.piIconSize;
@@ -17591,9 +17620,12 @@ var withInspectorControls = createHigherOrderComponent(function (BlockEdit) {
       if (!blockEl) return;
       blockEl.style.setProperty('--hover-color', hoverColor || '');
       blockEl.style.setProperty('--hover-bg-color', hoverBgColor || '');
-
-      // data-block có thể là wrapper ngoài, cần tìm đúng .wp-block-button để CSS selector khớp
       var buttonEl = blockEl.querySelector('.wp-block-button') || blockEl;
+      if (piOutline) {
+        buttonEl.classList.add('is-pi-outline');
+      } else {
+        buttonEl.classList.remove('is-pi-outline');
+      }
       if (piShowIcon && piIconUrl) {
         buttonEl.style.setProperty('--pi-icon-url', "url(".concat(piIconUrl, ")"));
         buttonEl.style.setProperty('--pi-icon-size', "".concat(piIconSize || 20, "px"));
@@ -17603,7 +17635,7 @@ var withInspectorControls = createHigherOrderComponent(function (BlockEdit) {
         buttonEl.style.removeProperty('--pi-icon-size');
         buttonEl.classList.remove('has-pi-icon');
       }
-    }, [hoverColor, hoverBgColor, piShowIcon, piIconUrl, piIconSize, clientId]);
+    }, [hoverColor, hoverBgColor, piOutline, piShowIcon, piIconUrl, piIconSize, clientId]);
     return /*#__PURE__*/React.createElement(Fragment, null, /*#__PURE__*/React.createElement(BlockEdit, props), /*#__PURE__*/React.createElement(InspectorControls, {
       group: "styles"
     }, /*#__PURE__*/React.createElement(PanelColorSettings, {
@@ -17627,6 +17659,17 @@ var withInspectorControls = createHigherOrderComponent(function (BlockEdit) {
         label: __('Hover Background Color', 'pi-blocks')
       }]
     })), /*#__PURE__*/React.createElement(InspectorControls, null, /*#__PURE__*/React.createElement(PanelBody, {
+      title: __('Button Style', 'pi-blocks'),
+      initialOpen: false
+    }, /*#__PURE__*/React.createElement(ToggleControl, {
+      label: __('Outline style', 'pi-blocks'),
+      checked: !!piOutline,
+      onChange: function onChange(val) {
+        return setAttributes({
+          piOutline: val
+        });
+      }
+    })), /*#__PURE__*/React.createElement(PanelBody, {
       title: __('Button Icon', 'pi-blocks'),
       initialOpen: false
     }, /*#__PURE__*/React.createElement(ToggleControl, {
@@ -17719,6 +17762,7 @@ var applyExtraClass = function applyExtraClass(extraProps, blockType, attributes
   }
   var hoverColor = attributes.hoverColor,
     hoverBgColor = attributes.hoverBgColor,
+    piOutline = attributes.piOutline,
     piShowIcon = attributes.piShowIcon,
     piIconUrl = attributes.piIconUrl,
     piIconSize = attributes.piIconSize;
@@ -17731,6 +17775,9 @@ var applyExtraClass = function applyExtraClass(extraProps, blockType, attributes
     extraProps.style = _objectSpread(_objectSpread({}, extraProps.style), {}, {
       '--hover-bg-color': hoverBgColor
     });
+  }
+  if (piOutline) {
+    extraProps.className = [extraProps.className, 'is-pi-outline'].filter(Boolean).join(' ');
   }
   if (piShowIcon && piIconUrl) {
     extraProps.className = [extraProps.className, 'has-pi-icon'].filter(Boolean).join(' ');

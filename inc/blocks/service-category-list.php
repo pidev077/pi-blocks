@@ -20,7 +20,7 @@ function pi_service_category_list_render( $atts ) {
 	] );
 
 	if ( is_wp_error( $terms ) || empty( $terms ) ) {
-		return '<div class="block-service-category-list"><p>Không tìm thấy danh mục dịch vụ.</p></div>';
+		return '<div class="block-service-category-list"><p>' . esc_html__('Không tìm thấy danh mục dịch vụ.', 'pi-blocks') . '</p></div>';
 	}
 
 	$alternate = filter_var( $atts['alternate_layout'], FILTER_VALIDATE_BOOLEAN );
@@ -125,7 +125,7 @@ function pi_service_category_list_render( $atts ) {
 
 						<?php if ( ! empty( $list_items ) ) : ?>
 						<div class="service-category-card__services">
-							<span class="service-category-card__services-label">Dịch Vụ Bao Gồm</span>
+							<span class="service-category-card__services-label"><?php esc_html_e('Dịch Vụ Bao Gồm', 'pi-blocks'); ?></span>
 							<ul class="service-category-card__list">
 								<?php foreach ( $list_items as $item ) : ?>
 								<li><?php echo esc_html( $item ); ?></li>
@@ -138,7 +138,7 @@ function pi_service_category_list_render( $atts ) {
 							$cta_title = str_ireplace( [ 'Phẫu Thuật ', 'Điều Trị ' ], '', $title );
 						?>
 						<a href="<?php echo esc_url( $url ); ?>" class="service-category-card__cta">
-							Xem <?php echo esc_html( $cta_title ); ?>
+							<?php printf( esc_html__('Xem %s', 'pi-blocks'), esc_html( $cta_title ) ); ?>
 							<?php echo $arrow_svg; ?>
 						</a>
 						<?php endif; ?>

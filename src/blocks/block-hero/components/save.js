@@ -3,15 +3,17 @@ import Background from "./background";
 
 const Save = (props) => {
 	const { attributes, className } = props;
-	const { typeHero, colorText, overlay, scrollAnchor, scrollLabel } = attributes;
+	const { typeHero, colorText, overlay, scrollAnchor, scrollLabel, blockHeight } = attributes;
 
 	const blockProps = useBlockProps.save({
 		className: [
 			"hero-block",
 			`hero-type-${typeHero}`,
 			`${overlay ? "hero-overlay" : ""}`,
+			blockHeight ? "hero-custom-height" : "",
 			className,
 		].join(" "),
+		style: blockHeight ? { "--hero-height": blockHeight } : {},
 	});
 
 	return (

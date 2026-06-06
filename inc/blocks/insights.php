@@ -34,10 +34,10 @@ function block_insights_render($atts, $content)
 			<?php if ($categories) { ?>
 				<div class="block-insights__action">
 					<div class="block-insights__drowdown">
-						<div class="block-insights__drowdown--label">All categories</div>
+						<div class="block-insights__drowdown--label"><?php esc_html_e('All categories', 'pi-blocks'); ?></div>
 
 						<div class="block-insights__drowdown--list">
-							<div class="block-insights__drowdown--item" data-id="-1">All categories</div>
+							<div class="block-insights__drowdown--item" data-id="-1"><?php esc_html_e('All categories', 'pi-blocks'); ?></div>
 							<?php foreach ($categories as $cat) { ?>
 								<div class="block-insights__drowdown--item" data-id="<?= $cat->term_id ?>">
 									<?= $cat->name ?>
@@ -55,7 +55,7 @@ function block_insights_render($atts, $content)
 						insight_card();
 					}
 				} else { ?>
-					<div class="pi-filter-posts-block--not-found"> Sorry, no posts matched your criteria.</div>
+					<div class="pi-filter-posts-block--not-found"><?php esc_html_e('Sorry, no posts matched your criteria.', 'pi-blocks'); ?></div>
 				<?php } ?>
 			</div>
 			<div id="block-insights__infinite">
@@ -97,7 +97,7 @@ function insight_card()
 		</a>
 		<div class="insight-card__content">
 			<h2 class="h5 insight-card__title"><a href="<?= get_the_permalink() ?>"><?= get_the_title() ?></a></h2>
-			<a class="insight-card__link" href="<?= get_the_permalink() ?>">Read more</a>
+			<a class="insight-card__link" href="<?= get_the_permalink() ?>"><?php esc_html_e('Read more', 'pi-blocks'); ?></a>
 		</div>
 	</div>
 	<?php

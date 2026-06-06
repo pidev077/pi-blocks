@@ -26,6 +26,10 @@ const addCustomAttributes = (settings) => {
                 type: 'string',
                 default: '',
             },
+            piOutline: {
+                type: 'boolean',
+                default: false,
+            },
             piShowIcon: {
                 type: 'boolean',
                 default: false,
@@ -52,7 +56,7 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
         }
 
         const { attributes, setAttributes, clientId } = props;
-        const { hoverColor, hoverBgColor, piShowIcon, piIconUrl, piIconSize } = attributes;
+        const { hoverColor, hoverBgColor, piOutline, piShowIcon, piIconUrl, piIconSize } = attributes;
 
         useEffect(() => {
             const blockEl = document.querySelector(`[data-block="${clientId}"]`);
@@ -61,8 +65,13 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
             blockEl.style.setProperty('--hover-color', hoverColor || '');
             blockEl.style.setProperty('--hover-bg-color', hoverBgColor || '');
 
-            // data-block có thể là wrapper ngoài, cần tìm đúng .wp-block-button để CSS selector khớp
             const buttonEl = blockEl.querySelector('.wp-block-button') || blockEl;
+
+            if (piOutline) {
+                buttonEl.classList.add('is-pi-outline');
+            } else {
+                buttonEl.classList.remove('is-pi-outline');
+            }
 
             if (piShowIcon && piIconUrl) {
                 buttonEl.style.setProperty('--pi-icon-url', `url(${piIconUrl})`);
@@ -73,7 +82,7 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
                 buttonEl.style.removeProperty('--pi-icon-size');
                 buttonEl.classList.remove('has-pi-icon');
             }
-        }, [hoverColor, hoverBgColor, piShowIcon, piIconUrl, piIconSize, clientId]);
+        }, [hoverColor, hoverBgColor, piOutline, piShowIcon, piIconUrl, piIconSize, clientId]);
 
         return (
             <Fragment>
@@ -97,6 +106,13 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
                     />
                 </InspectorControls>
                 <InspectorControls>
+                    <PanelBody title={__('Button Style', 'pi-blocks')} initialOpen={false}>
+                        <ToggleControl
+                            label={__('Outline style', 'pi-blocks')}
+                            checked={!!piOutline}
+                            onChange={(val) => setAttributes({ piOutline: val })}
+                        />
+                    </PanelBody>
                     <PanelBody title={__('Button Icon', 'pi-blocks')} initialOpen={false}>
                         <ToggleControl
                             label={__('Show icon after text', 'pi-blocks')}
@@ -161,7 +177,7 @@ const applyExtraClass = (extraProps, blockType, attributes) => {
         return extraProps;
     }
 
-    const { hoverColor, hoverBgColor, piShowIcon, piIconUrl, piIconSize } = attributes;
+    const { hoverColor, hoverBgColor, piOutline, piShowIcon, piIconUrl, piIconSize } = attributes;
 
     if (hoverColor) {
         extraProps.style = { ...extraProps.style, '--hover-color': hoverColor };
@@ -169,6 +185,10 @@ const applyExtraClass = (extraProps, blockType, attributes) => {
 
     if (hoverBgColor) {
         extraProps.style = { ...extraProps.style, '--hover-bg-color': hoverBgColor };
+    }
+
+    if (piOutline) {
+        extraProps.className = [extraProps.className, 'is-pi-outline'].filter(Boolean).join(' ');
     }
 
     if (piShowIcon && piIconUrl) {

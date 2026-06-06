@@ -36,7 +36,7 @@ function pi_service_carousel_render($atts)
         ]);
 
         if (empty($services)) {
-            return '<div class="block-service-carousel"><p>Không tìm thấy dịch vụ trong danh mục này.</p></div>';
+            return '<div class="block-service-carousel"><p>' . esc_html__('Không tìm thấy dịch vụ trong danh mục này.', 'pi-blocks') . '</p></div>';
         }
 
         foreach ($services as $svc) {
@@ -71,7 +71,7 @@ function pi_service_carousel_render($atts)
         ]);
 
         if (is_wp_error($terms) || empty($terms)) {
-            return '<div class="block-service-carousel"><p>Không tìm thấy danh mục dịch vụ.</p></div>';
+            return '<div class="block-service-carousel"><p>' . esc_html__('Không tìm thấy danh mục dịch vụ.', 'pi-blocks') . '</p></div>';
         }
 
         foreach ($terms as $term) {

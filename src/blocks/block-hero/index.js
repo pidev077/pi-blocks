@@ -62,6 +62,10 @@ const attr = {
 	scrollLabel: {
 		type: "string",
 	},
+	blockHeight: {
+		type: "string",
+		default: "",
+	},
 };
 
 registerBlockType("pi-blocks/hero", {

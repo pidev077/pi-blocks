@@ -93,7 +93,7 @@ function pi_teams_list_render($atts)
                 <?php if ($the_query->max_num_pages > 1): ?>
                     <div class="block-teams-list__load-more">
                         <div class="loading"></div>
-                        <button class="pi-btn btn-load-more"> Load More </button>
+                        <button class="pi-btn btn-load-more"><?php esc_html_e('Load More', 'pi-blocks'); ?></button>
                     </div>
                 <?php endif; ?>
             </div>

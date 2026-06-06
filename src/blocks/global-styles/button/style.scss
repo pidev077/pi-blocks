@@ -54,6 +54,20 @@
 			}
 		}
 	}
+	.wp-block-button.is-pi-outline {
+		.wp-block-button__link {
+			background: transparent;
+			color: #E0AC47;
+			border: 2px solid #E0AC47;
+
+			&:hover {
+				background: #E0AC47;
+				color: #fff;
+				box-shadow: 0 8px 24px rgba(#E0AC47, 0.4);
+			}
+		}
+	}
+
 	.wp-block-button.has-pi-icon {
 		.wp-block-button__link {
 			&::after {

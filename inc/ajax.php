@@ -29,7 +29,7 @@ function ajax_filter_insights()
             insight_card();
         }
     } else {
-        echo '<div class="message-not-found">Sorry, no posts matched your criteria.</div>';
+        echo '<div class="message-not-found">' . esc_html__('Sorry, no posts matched your criteria.', 'pi-blocks') . '</div>';
     }
 
     $items = ob_get_clean();
@@ -96,7 +96,7 @@ function filter_case_studies_ajax()
             $i++;
         endwhile;
     else:
-        echo '<p class="no-items">Sorry, there are no case studies to display.</p>';
+        echo '<p class="no-items">' . esc_html__('Sorry, there are no case studies to display.', 'pi-blocks') . '</p>';
     endif;
 
     $items = ob_get_clean();
@@ -146,7 +146,7 @@ function ajax_filter_teams()
             team_card();
         }
     } else {
-        echo '<div class="message-not-found">Sorry, no posts matched your criteria.1</div>';
+        echo '<div class="message-not-found">' . esc_html__('Sorry, no posts matched your criteria.', 'pi-blocks') . '</div>';
     }
 
     $items = ob_get_clean();

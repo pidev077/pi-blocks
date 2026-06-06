@@ -63,7 +63,6 @@
       endwhile;
       wp_reset_postdata();
       ?>
-   </div> <?php else: ?> <div>Sorry, no posts
-      matched your criteria.</div> <?php endif; ?>
+   </div> <?php else: ?> <div><?php esc_html_e('Sorry, no posts matched your criteria.', 'pi-blocks'); ?></div> <?php endif; ?>
 </div> <?php return ob_get_clean();
 }

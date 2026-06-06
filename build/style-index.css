@@ -1217,6 +1217,16 @@ figure.wp-block-video video {
   transform: translateY(0);
   box-shadow: none;
 }
+.wp-block-buttons .wp-block-button.is-pi-outline .wp-block-button__link {
+  background: transparent;
+  color: #E0AC47;
+  border: 2px solid #E0AC47;
+}
+.wp-block-buttons .wp-block-button.is-pi-outline .wp-block-button__link:hover {
+  background: #E0AC47;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(224, 172, 71, 0.4);
+}
 .wp-block-buttons .wp-block-button.has-pi-icon .wp-block-button__link::after {
   content: "";
   display: inline-block;
@@ -2045,6 +2055,21 @@ figure.wp-block-video video {
     .hero-block {
       height: calc(100svh + 0px);
     }
+  }
+}
+.hero-block.hero-custom-height {
+  height: var(--hero-height);
+  max-height: none;
+}
+@supports (height: 100svh) {
+  .hero-block.hero-custom-height {
+    height: var(--hero-height);
+  }
+}
+@media (max-width: 767.98px) {
+  .hero-block.hero-custom-height {
+    height: var(--hero-height);
+    max-height: none;
   }
 }
 .hero-block .container {

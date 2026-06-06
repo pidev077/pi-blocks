@@ -53,6 +53,7 @@ const Inspector = (props) => {
 		videoFormat,
 		scrollAnchor,
 		scrollLabel,
+		blockHeight,
 	} = attributes;
 
 	const onSelectMedia = (media) => {
@@ -133,6 +134,14 @@ const Inspector = (props) => {
 						onChange={(vl) => setAttributes({ scrollLabel: vl || "KHÁM PHÁ THÊM" })}
 					/>
 				)}
+				<TextControl
+					__next40pxDefaultSize
+					label="Block Height"
+					help="Để trống để dùng chiều cao toàn màn hình. Ví dụ: 600px, 80vh"
+					placeholder="100vh (mặc định)"
+					value={blockHeight}
+					onChange={(vl) => setAttributes({ blockHeight: vl })}
+				/>
 			</PanelBody>
 
 			{typeHero == "video" && (
