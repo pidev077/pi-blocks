@@ -10,7 +10,7 @@ $sg-img-bg:   linear-gradient(248.63deg, #FFFCF2 0.9%, #D6E6F7 99.6%);
 		margin-bottom: 40px;
     	background: #F9FAFB;
     	padding: 40px 0px 40px 40px;
-		&:last-child  { border-bottom: none; padding-bottom: 0; }
+		&:last-child  { border-bottom: none;}
 		&:hover{
 			background: #06354B;
 			.service-category-card__title {
