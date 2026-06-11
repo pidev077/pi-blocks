@@ -87,6 +87,9 @@
         ═══════════════════════════════════════════════════════════════ -->
         <block type="pi-blocks/block-faq">
             <fields>
+                <field name="groupTitle"  field_type="line" label="Tiêu đề nhóm" />
+                <field name="openLabel"   field_type="line" label="Nhãn khi mở" />
+                <field name="closeLabel"  field_type="line" label="Nhãn khi đóng" />
                 <!-- items array { question, answer } — handled by WPML ATE -->
             </fields>
         </block>

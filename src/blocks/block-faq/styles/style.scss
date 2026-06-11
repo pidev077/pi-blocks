@@ -1,19 +1,119 @@
+// ── FAQ Group Block ───────────────────────────────────────────────────────────
+
 .block-faq {
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 60px;
 }
 
+// ── Group header (toggle button) ──────────────────────────────────────────────
+.faq-group__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	width: 100%;
+	padding-top: 0;
+	padding-bottom: 16px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	text-align: left;
+	border-bottom: 1px solid #F2EEE7;
+	padding-left: 0;
+	&--editor {
+		cursor: default;
+		border-top: 2px dashed #E8E0D4;
+		padding: 16px 0;
+	}
+}
+
+.faq-group__label {
+	display: flex;
+	align-items: baseline;
+	gap: 8px;
+}
+
+.faq-group__letter {
+	font-family: $font-primary, serif;
+	font-size: 32px;
+	font-weight: 500;
+	color: #E0AC47;
+	line-height: 1.3;
+	flex-shrink: 0;
+
+	@include media-breakpoint-down(md) { font-size: 20px; }
+}
+
+.faq-group__title {
+	font-family: $font-primary, serif;
+	font-size: 32px;
+	font-weight: 500;
+	color: #120a00;
+	line-height: 1.3;
+
+	@include media-breakpoint-down(md) { font-size: 20px; }
+}
+
+// Toggle label: Mở / Đóng
+.faq-group__toggle-label {
+	font-family: $font-second, sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+	color: #978B7B;
+	flex-shrink: 0;
+	transition: color 0.2s ease;
+}
+
+// Default (closed): show closeLabel ("Đóng")
+.faq-group__open-text  { display: none; }
+.faq-group__close-text { display: inline;
+font-size: 16px;
+		font-weight: 500;
+}
+
+// Open state: show openLabel ("Mở")
+.block-faq.is-open {
+	.faq-group__open-text  { display: inline; }
+	.faq-group__close-text { display: none; }
+
+	.faq-group__title { color: #E0AC47; }
+
+	.faq-group__toggle-label {
+		color: #E0AC47;
+		font-size: 16px;
+		font-weight: 500;
+	}
+}
+
+// Editor badge
+.faq-group__state-badge {
+	font-family: $font-second, sans-serif;
+	font-size: 12px;
+	color: #fff;
+	background: #978B7B;
+	border-radius: 4px;
+	padding: 2px 8px;
+	flex-shrink: 0;
+}
+
+// ── Group body ────────────────────────────────────────────────────────────────
+.faq-group__body {
+	&[hidden] { display: none; }
+}
+
+// ── FAQ Items ─────────────────────────────────────────────────────────────────
 .faq-item {
-	border-top: 1px solid #F2EEE7;
-	padding: 40px 0;
-	@include media-breakpoint-down(md) {
-			padding: 32px 0;
-		}
+	border-bottom: 1px solid #F2EEE7;
+	padding: 24px 0;
+
+	@include media-breakpoint-down(md) { padding: 24px 0; }
+
 	&:last-of-type {
 		border-bottom: 1px solid #F2EEE7;
+		margin-bottom: 0px;
 	}
 
-	// Remove native details arrow
 	summary {
 		list-style: none;
 		&::-webkit-details-marker { display: none; }
@@ -23,34 +123,31 @@
 		display: flex;
 		align-items: flex-start;
 		gap: 12px;
-		margin-bottom: 16px;
 		cursor: pointer;
 		user-select: none;
 	}
 
 	&__num {
 		flex-shrink: 0;
-		font-size: 24px;
+		font-family: $font-primary, serif;
+		font-size: 20px;
 		font-weight: 500;
 		color: #27211C;
 		line-height: 1.4;
 		min-width: 28px;
-		font-family: $font-primary;
-		@include media-breakpoint-down(md) {
-			font-size: 20px;
-		}
+
+		@include media-breakpoint-down(md) { font-size: 17px; }
 	}
 
 	&__question {
 		flex: 1;
+		font-family: $font-primary, serif;
 		font-size: 24px;
 		font-weight: 500;
 		color: #27211C;
 		line-height: 1.4;
-		font-family: $font-primary;
-		@include media-breakpoint-down(md) {
-			font-size: 20px;
-		}
+
+		@include media-breakpoint-down(md) { font-size: 17px; }
 	}
 
 	&__icon {
@@ -58,33 +155,38 @@
 		width: 24px;
 		height: 24px;
 		color: #27211C;
-		margin-top: 2px;
-		position: relative;
+		margin-top: 3px;
 
-		// Default state: show plus, hide minus
-		.icon-plus  { display: block;  width: 24px; height: 24px; }
-		.icon-minus { display: none;   width: 24px; height: 24px; }
+		svg { width: 24px; height: 24px; display: block; }
+		.icon-plus  { display: block; }
+		.icon-minus { display: none; }
 	}
 
-	// Open state: hide plus, show minus
 	&[open] {
 		.icon-plus  { display: none; }
 		.icon-minus { display: block; }
+
+		.faq-item__num,
+		.faq-item__question { color: #E0AC47; }
 	}
 
 	&__body {
+		margin-top: 16px;
 		animation: faqFadeIn 0.2s ease;
 	}
 
 	&__answer {
 		background: #FAF8F4;
 		padding: 24px;
+		font-family: $font-second, sans-serif;
 		font-size: 16px;
-		line-height: 24px;
+		line-height: 1.75;
 		color: #584E44;
+		border-radius: 4px;
 
 		p { margin: 0; }
 		p + p { margin-top: 12px; }
+
 		@include media-breakpoint-down(md) {
 			font-size: 14px;
 			padding: 16px;

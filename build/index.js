@@ -10400,7 +10400,13 @@ var genId = function genId() {
 var Edit = function Edit(_ref) {
   var attributes = _ref.attributes,
     setAttributes = _ref.setAttributes;
-  var items = attributes.items;
+  var groupLetter = attributes.groupLetter,
+    groupTitle = attributes.groupTitle,
+    defaultOpen = attributes.defaultOpen,
+    showGroupHeader = attributes.showGroupHeader,
+    openLabel = attributes.openLabel,
+    closeLabel = attributes.closeLabel,
+    items = attributes.items;
   var blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)({
     className: "block-faq block-faq--editor"
   });
@@ -10428,6 +10434,61 @@ var Edit = function Edit(_ref) {
     });
   };
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, null, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+    title: "C\xE0i \u0111\u1EB7t nh\xF3m",
+    initialOpen: true
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+    label: "K\xFD t\u1EF1 nh\xF3m (A, B, C\u2026)",
+    value: groupLetter,
+    onChange: function onChange(val) {
+      return setAttributes({
+        groupLetter: val
+      });
+    },
+    placeholder: "A"
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+    label: "Ti\xEAu \u0111\u1EC1 nh\xF3m",
+    value: groupTitle,
+    onChange: function onChange(val) {
+      return setAttributes({
+        groupTitle: val
+      });
+    },
+    placeholder: "T\xEAn nh\xF3m c\xE2u h\u1ECFi\u2026"
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+    label: "Hi\u1EC3n th\u1ECB ti\xEAu \u0111\u1EC1 nh\xF3m",
+    checked: showGroupHeader,
+    onChange: function onChange(val) {
+      return setAttributes({
+        showGroupHeader: val
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+    label: "M\u1EB7c \u0111\u1ECBnh m\u1EDF",
+    checked: defaultOpen,
+    onChange: function onChange(val) {
+      return setAttributes({
+        defaultOpen: val
+      });
+    }
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+    label: "Nh\xE3n khi M\u1EDE (hi\u1EC7n khi \u0111ang m\u1EDF)",
+    value: openLabel,
+    onChange: function onChange(val) {
+      return setAttributes({
+        openLabel: val
+      });
+    },
+    placeholder: "M\u1EDF"
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+    label: "Nh\xE3n khi \u0110\xD3NG (hi\u1EC7n khi \u0111ang \u0111\xF3ng)",
+    value: closeLabel,
+    onChange: function onChange(val) {
+      return setAttributes({
+        closeLabel: val
+      });
+    },
+    placeholder: "\u0110\xF3ng"
+  })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
     title: "Danh s\xE1ch c\xE2u h\u1ECFi",
     initialOpen: true
   }, items.map(function (item, index) {
@@ -10474,12 +10535,23 @@ var Edit = function Edit(_ref) {
     style: {
       width: "100%"
     }
-  }, "Th\xEAm c\xE2u h\u1ECFi"))), /*#__PURE__*/React.createElement("div", blockProps, items.length === 0 ? /*#__PURE__*/React.createElement("p", {
+  }, "Th\xEAm c\xE2u h\u1ECFi"))), /*#__PURE__*/React.createElement("div", blockProps, showGroupHeader && /*#__PURE__*/React.createElement("div", {
+    className: "faq-group__header faq-group__header--editor"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "faq-group__label"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "faq-group__letter"
+  }, groupLetter, "."), /*#__PURE__*/React.createElement("span", {
+    className: "faq-group__title"
+  }, groupTitle || "Tiêu đề nhóm")), /*#__PURE__*/React.createElement("span", {
+    className: "faq-group__state-badge"
+  }, defaultOpen ? "Mặc định: Mở" : "Mặc định: Đóng")), items.length === 0 ? /*#__PURE__*/React.createElement("p", {
     style: {
       color: "#999",
-      fontStyle: "italic"
+      fontStyle: "italic",
+      padding: "16px 0"
     }
-  }, "Ch\u01B0a c\xF3 c\xE2u h\u1ECFi n\xE0o \u2014 th\xEAm trong sidebar b\xEAn ph\u1EA3i.") : items.map(function (item, index) {
+  }, "Ch\u01B0a c\xF3 c\xE2u h\u1ECFi \u2014 th\xEAm trong sidebar b\xEAn ph\u1EA3i.") : items.map(function (item, index) {
     return /*#__PURE__*/React.createElement("details", {
       key: item.id || String(index),
       className: "faq-item",
@@ -10525,11 +10597,41 @@ __webpack_require__.r(__webpack_exports__);
 
 var Save = function Save(_ref) {
   var attributes = _ref.attributes;
-  var items = attributes.items;
+  var groupLetter = attributes.groupLetter,
+    groupTitle = attributes.groupTitle,
+    defaultOpen = attributes.defaultOpen,
+    showGroupHeader = attributes.showGroupHeader,
+    openLabel = attributes.openLabel,
+    closeLabel = attributes.closeLabel,
+    items = attributes.items;
+  var id = "faq-group-".concat((groupLetter || "").toLowerCase());
   var blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
-    className: "block-faq"
+    className: "block-faq".concat(defaultOpen ? " is-open" : ""),
+    id: id
   });
-  return /*#__PURE__*/React.createElement("div", blockProps, items.map(function (item, index) {
+  return /*#__PURE__*/React.createElement("div", blockProps, showGroupHeader && /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "faq-group__header js-faq-group-toggle",
+    "aria-expanded": defaultOpen ? "true" : "false",
+    "aria-controls": "".concat(id, "-body")
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "faq-group__label"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "faq-group__letter"
+  }, groupLetter, "."), /*#__PURE__*/React.createElement("span", {
+    className: "faq-group__title"
+  }, groupTitle)), /*#__PURE__*/React.createElement("span", {
+    className: "faq-group__toggle-label",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "faq-group__open-text"
+  }, openLabel), /*#__PURE__*/React.createElement("span", {
+    className: "faq-group__close-text"
+  }, closeLabel))), /*#__PURE__*/React.createElement("div", {
+    className: "faq-group__body",
+    id: "".concat(id, "-body"),
+    hidden: !defaultOpen
+  }, items.map(function (item, index) {
     var key = item.id || String(index);
     return /*#__PURE__*/React.createElement("details", {
       key: key,
@@ -10546,8 +10648,7 @@ var Save = function Save(_ref) {
     }, /*#__PURE__*/React.createElement("svg", {
       className: "icon-plus",
       viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg"
+      fill: "none"
     }, /*#__PURE__*/React.createElement("path", {
       d: "M12 5V19M5 12H19",
       stroke: "currentColor",
@@ -10556,8 +10657,7 @@ var Save = function Save(_ref) {
     })), /*#__PURE__*/React.createElement("svg", {
       className: "icon-minus",
       viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg"
+      fill: "none"
     }, /*#__PURE__*/React.createElement("path", {
       d: "M5 12H19",
       stroke: "currentColor",
@@ -10568,7 +10668,7 @@ var Save = function Save(_ref) {
     }, /*#__PURE__*/React.createElement("div", {
       className: "faq-item__answer"
     }, item.answer)));
-  }));
+  })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Save);
 
@@ -10593,6 +10693,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _components_edit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/edit */ "./src/blocks/block-faq/components/edit.js");
 /* harmony import */ var _components_save__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/save */ "./src/blocks/block-faq/components/save.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 
 
 
@@ -10601,19 +10707,45 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__.registerBlockType)("pi-blocks/block-faq", {
   apiVersion: 3,
-  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("FAQ Accordion"),
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("FAQ Group"),
   icon: "editor-help",
   category: "pi-blocks",
-  keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("faq"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("accordion"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("question"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("answer")],
+  keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("faq"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("accordion"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("question"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("answer"), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("group")],
   attributes: {
+    groupLetter: {
+      type: "string",
+      "default": "A"
+    },
+    groupTitle: {
+      type: "string",
+      "default": "Tiêu đề nhóm câu hỏi"
+    },
+    defaultOpen: {
+      type: "boolean",
+      "default": true
+    },
+    showGroupHeader: {
+      type: "boolean",
+      "default": true
+    },
+    openLabel: {
+      type: "string",
+      "default": "Mở"
+    },
+    closeLabel: {
+      type: "string",
+      "default": "Đóng"
+    },
     items: {
       type: "array",
       "default": [{
-        question: "Question 1?",
-        answer: "Answer 1."
+        id: "1",
+        question: "Câu hỏi 1?",
+        answer: "Câu trả lời 1."
       }, {
-        question: "Question 2?",
-        answer: "Answer 2."
+        id: "2",
+        question: "Câu hỏi 2?",
+        answer: "Câu trả lời 2."
       }]
     }
   },
@@ -10622,7 +10754,293 @@ __webpack_require__.r(__webpack_exports__);
   },
   save: function save(props) {
     return /*#__PURE__*/React.createElement(_components_save__WEBPACK_IMPORTED_MODULE_5__["default"], props);
-  }
+  },
+  deprecated: [{
+    // Version with showGroupHeader but hardcoded Mở/Đóng, before openLabel/closeLabel attributes
+    attributes: {
+      groupLetter: {
+        type: "string",
+        "default": "A"
+      },
+      groupTitle: {
+        type: "string",
+        "default": "Tiêu đề nhóm câu hỏi"
+      },
+      defaultOpen: {
+        type: "boolean",
+        "default": true
+      },
+      showGroupHeader: {
+        type: "boolean",
+        "default": true
+      },
+      items: {
+        type: "array",
+        "default": [{
+          id: "1",
+          question: "Câu hỏi 1?",
+          answer: "Câu trả lời 1."
+        }, {
+          id: "2",
+          question: "Câu hỏi 2?",
+          answer: "Câu trả lời 2."
+        }]
+      }
+    },
+    save: function save(_ref) {
+      var attributes = _ref.attributes;
+      var groupLetter = attributes.groupLetter,
+        groupTitle = attributes.groupTitle,
+        defaultOpen = attributes.defaultOpen,
+        showGroupHeader = attributes.showGroupHeader,
+        items = attributes.items;
+      var id = "faq-group-".concat((groupLetter || "").toLowerCase());
+      return /*#__PURE__*/React.createElement("div", {
+        className: "block-faq".concat(defaultOpen ? " is-open" : ""),
+        id: id
+      }, showGroupHeader && /*#__PURE__*/React.createElement("button", {
+        type: "button",
+        className: "faq-group__header js-faq-group-toggle",
+        "aria-expanded": defaultOpen ? "true" : "false",
+        "aria-controls": "".concat(id, "-body")
+      }, /*#__PURE__*/React.createElement("span", {
+        className: "faq-group__label"
+      }, /*#__PURE__*/React.createElement("span", {
+        className: "faq-group__letter"
+      }, groupLetter, "."), /*#__PURE__*/React.createElement("span", {
+        className: "faq-group__title"
+      }, groupTitle)), /*#__PURE__*/React.createElement("span", {
+        className: "faq-group__toggle-label",
+        "aria-hidden": "true"
+      }, /*#__PURE__*/React.createElement("span", {
+        className: "faq-group__open-text"
+      }, "M\u1EDF"), /*#__PURE__*/React.createElement("span", {
+        className: "faq-group__close-text"
+      }, "\u0110\xF3ng"))), /*#__PURE__*/React.createElement("div", {
+        className: "faq-group__body",
+        id: "".concat(id, "-body"),
+        hidden: !defaultOpen
+      }, items.map(function (item, index) {
+        var key = item.id || String(index);
+        return /*#__PURE__*/React.createElement("details", {
+          key: key,
+          className: "faq-item"
+        }, /*#__PURE__*/React.createElement("summary", {
+          className: "faq-item__head"
+        }, /*#__PURE__*/React.createElement("span", {
+          className: "faq-item__num"
+        }, index + 1, "."), /*#__PURE__*/React.createElement("span", {
+          className: "faq-item__question"
+        }, item.question), /*#__PURE__*/React.createElement("span", {
+          className: "faq-item__icon",
+          "aria-hidden": "true"
+        }, /*#__PURE__*/React.createElement("svg", {
+          className: "icon-plus",
+          viewBox: "0 0 24 24",
+          fill: "none"
+        }, /*#__PURE__*/React.createElement("path", {
+          d: "M12 5V19M5 12H19",
+          stroke: "currentColor",
+          strokeWidth: "1.5",
+          strokeLinecap: "round"
+        })), /*#__PURE__*/React.createElement("svg", {
+          className: "icon-minus",
+          viewBox: "0 0 24 24",
+          fill: "none"
+        }, /*#__PURE__*/React.createElement("path", {
+          d: "M5 12H19",
+          stroke: "currentColor",
+          strokeWidth: "1.5",
+          strokeLinecap: "round"
+        })))), /*#__PURE__*/React.createElement("div", {
+          className: "faq-item__body"
+        }, /*#__PURE__*/React.createElement("div", {
+          className: "faq-item__answer"
+        }, item.answer)));
+      })));
+    },
+    migrate: function migrate(attributes) {
+      return _objectSpread(_objectSpread({}, attributes), {}, {
+        openLabel: "Mở",
+        closeLabel: "Đóng"
+      });
+    }
+  }, {
+    // Version with group header always visible (before showGroupHeader toggle)
+    attributes: {
+      groupLetter: {
+        type: "string",
+        "default": "A"
+      },
+      groupTitle: {
+        type: "string",
+        "default": "Tiêu đề nhóm câu hỏi"
+      },
+      defaultOpen: {
+        type: "boolean",
+        "default": true
+      },
+      items: {
+        type: "array",
+        "default": [{
+          id: "1",
+          question: "Câu hỏi 1?",
+          answer: "Câu trả lời 1."
+        }, {
+          id: "2",
+          question: "Câu hỏi 2?",
+          answer: "Câu trả lời 2."
+        }]
+      }
+    },
+    save: function save(_ref2) {
+      var attributes = _ref2.attributes;
+      var groupLetter = attributes.groupLetter,
+        groupTitle = attributes.groupTitle,
+        defaultOpen = attributes.defaultOpen,
+        items = attributes.items;
+      var id = "faq-group-".concat((groupLetter || "").toLowerCase());
+      return /*#__PURE__*/React.createElement("div", {
+        className: "block-faq".concat(defaultOpen ? " is-open" : ""),
+        id: id
+      }, /*#__PURE__*/React.createElement("button", {
+        type: "button",
+        className: "faq-group__header js-faq-group-toggle",
+        "aria-expanded": defaultOpen ? "true" : "false",
+        "aria-controls": "".concat(id, "-body")
+      }, /*#__PURE__*/React.createElement("span", {
+        className: "faq-group__label"
+      }, /*#__PURE__*/React.createElement("span", {
+        className: "faq-group__letter"
+      }, groupLetter, "."), /*#__PURE__*/React.createElement("span", {
+        className: "faq-group__title"
+      }, groupTitle)), /*#__PURE__*/React.createElement("span", {
+        className: "faq-group__toggle-label",
+        "aria-hidden": "true"
+      }, /*#__PURE__*/React.createElement("span", {
+        className: "faq-group__open-text"
+      }, "M\u1EDF"), /*#__PURE__*/React.createElement("span", {
+        className: "faq-group__close-text"
+      }, "\u0110\xF3ng"))), /*#__PURE__*/React.createElement("div", {
+        className: "faq-group__body",
+        id: "".concat(id, "-body"),
+        hidden: !defaultOpen
+      }, items.map(function (item, index) {
+        var key = item.id || String(index);
+        return /*#__PURE__*/React.createElement("details", {
+          key: key,
+          className: "faq-item"
+        }, /*#__PURE__*/React.createElement("summary", {
+          className: "faq-item__head"
+        }, /*#__PURE__*/React.createElement("span", {
+          className: "faq-item__num"
+        }, index + 1, "."), /*#__PURE__*/React.createElement("span", {
+          className: "faq-item__question"
+        }, item.question), /*#__PURE__*/React.createElement("span", {
+          className: "faq-item__icon",
+          "aria-hidden": "true"
+        }, /*#__PURE__*/React.createElement("svg", {
+          className: "icon-plus",
+          viewBox: "0 0 24 24",
+          fill: "none"
+        }, /*#__PURE__*/React.createElement("path", {
+          d: "M12 5V19M5 12H19",
+          stroke: "currentColor",
+          strokeWidth: "1.5",
+          strokeLinecap: "round"
+        })), /*#__PURE__*/React.createElement("svg", {
+          className: "icon-minus",
+          viewBox: "0 0 24 24",
+          fill: "none"
+        }, /*#__PURE__*/React.createElement("path", {
+          d: "M5 12H19",
+          stroke: "currentColor",
+          strokeWidth: "1.5",
+          strokeLinecap: "round"
+        })))), /*#__PURE__*/React.createElement("div", {
+          className: "faq-item__body"
+        }, /*#__PURE__*/React.createElement("div", {
+          className: "faq-item__answer"
+        }, item.answer)));
+      })));
+    },
+    migrate: function migrate(attributes) {
+      return _objectSpread(_objectSpread({}, attributes), {}, {
+        showGroupHeader: true,
+        openLabel: "Mở",
+        closeLabel: "Đóng"
+      });
+    }
+  }, {
+    // Old "FAQ Accordion" format — flat list of items, no group header
+    attributes: {
+      items: {
+        type: "array",
+        "default": [{
+          question: "Question 1?",
+          answer: "Answer 1."
+        }, {
+          question: "Question 2?",
+          answer: "Answer 2."
+        }]
+      }
+    },
+    save: function save(_ref3) {
+      var attributes = _ref3.attributes;
+      var items = attributes.items;
+      return /*#__PURE__*/React.createElement("div", {
+        className: "block-faq"
+      }, items.map(function (item, index) {
+        var key = item.id || String(index);
+        return /*#__PURE__*/React.createElement("details", {
+          key: key,
+          className: "faq-item"
+        }, /*#__PURE__*/React.createElement("summary", {
+          className: "faq-item__head"
+        }, /*#__PURE__*/React.createElement("span", {
+          className: "faq-item__num"
+        }, index + 1, "."), /*#__PURE__*/React.createElement("span", {
+          className: "faq-item__question"
+        }, item.question), /*#__PURE__*/React.createElement("span", {
+          className: "faq-item__icon",
+          "aria-hidden": "true"
+        }, /*#__PURE__*/React.createElement("svg", {
+          className: "icon-plus",
+          viewBox: "0 0 24 24",
+          fill: "none"
+        }, /*#__PURE__*/React.createElement("path", {
+          d: "M12 5V19M5 12H19",
+          stroke: "currentColor",
+          strokeWidth: "1.5",
+          strokeLinecap: "round"
+        })), /*#__PURE__*/React.createElement("svg", {
+          className: "icon-minus",
+          viewBox: "0 0 24 24",
+          fill: "none"
+        }, /*#__PURE__*/React.createElement("path", {
+          d: "M5 12H19",
+          stroke: "currentColor",
+          strokeWidth: "1.5",
+          strokeLinecap: "round"
+        })))), /*#__PURE__*/React.createElement("div", {
+          className: "faq-item__body"
+        }, /*#__PURE__*/React.createElement("div", {
+          className: "faq-item__answer"
+        }, item.answer)));
+      }));
+    },
+    migrate: function migrate(attributes) {
+      return {
+        groupLetter: "A",
+        groupTitle: "Câu Hỏi Thường Gặp",
+        defaultOpen: true,
+        showGroupHeader: true,
+        openLabel: "Mở",
+        closeLabel: "Đóng",
+        items: attributes.items
+      };
+    }
+  }]
 }));
 
 /***/ },
