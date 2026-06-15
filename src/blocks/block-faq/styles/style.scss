@@ -194,6 +194,45 @@ font-size: 16px;
 	}
 }
 
+// ── Plain layout (accordion đơn giản, không số) ───────────────────────────────
+.faq-item--plain {
+	.faq-item__question {
+		font-size: 28px;
+
+		@include media-breakpoint-down(md) { font-size: 19px; }
+	}
+
+	.faq-item__answer {
+		background: #fff;
+
+		ul, ol {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		li {
+			position: relative;
+			padding-left: 20px;
+			margin-bottom: 10px;
+			line-height: 1.7;
+
+			&::before {
+				content: "•";
+				position: absolute;
+				left: 2px;
+				top: 0;
+				color: #584E44;
+			}
+
+			&:last-child { margin-bottom: 0; }
+		}
+
+		p { margin: 0; }
+		p + p { margin-top: 10px; }
+	}
+}
+
 @keyframes faqFadeIn {
 	from { opacity: 0; transform: translateY(-6px); }
 	to   { opacity: 1; transform: translateY(0); }

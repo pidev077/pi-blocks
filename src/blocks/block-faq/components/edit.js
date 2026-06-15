@@ -1,7 +1,7 @@
 import {
 	InspectorControls,
 	useBlockProps,
-	RichText,
+	ColorPalette,
 } from "@wordpress/block-editor";
 import {
 	PanelBody,
@@ -9,13 +9,14 @@ import {
 	TextControl,
 	TextareaControl,
 	ToggleControl,
+	RadioControl,
 	Button,
 } from "@wordpress/components";
 
 const genId = () => Math.random().toString(36).slice(2, 9);
 
 const Edit = ({ attributes, setAttributes }) => {
-	const { groupLetter, groupTitle, defaultOpen, showGroupHeader, openLabel, closeLabel, items } = attributes;
+	const { groupLetter, groupTitle, defaultOpen, showGroupHeader, openLabel, closeLabel, layout, answerBg, items } = attributes;
 	const blockProps = useBlockProps({ className: "block-faq block-faq--editor" });
 
 	const update = (index, field, value) => {
@@ -32,10 +33,21 @@ const Edit = ({ attributes, setAttributes }) => {
 	const remove = (index) =>
 		setAttributes({ items: items.filter((_, i) => i !== index) });
 
+	const isPlain = layout === "plain";
+
 	return (
 		<>
 			<InspectorControls>
 				<PanelBody title="Cài đặt nhóm" initialOpen={true}>
+					<RadioControl
+						label="Kiểu hiển thị"
+						selected={layout}
+						options={[
+							{ label: "Có số thứ tự (mặc định)", value: "numbered" },
+							{ label: "Accordion đơn giản (không số)", value: "plain" },
+						]}
+						onChange={(val) => setAttributes({ layout: val })}
+					/>
 					<TextControl
 						label="Ký tự nhóm (A, B, C…)"
 						value={groupLetter}
@@ -72,7 +84,28 @@ const Edit = ({ attributes, setAttributes }) => {
 					/>
 				</PanelBody>
 
+				<PanelBody title="Màu nền nội dung" initialOpen={false}>
+					<p style={{ fontSize: "12px", color: "#666", margin: "0 0 8px" }}>
+						Để trống = dùng màu mặc định theo layout.
+					</p>
+					<ColorPalette
+						colors={[
+							{ name: "Kem nhạt (mặc định numbered)", color: "#FAF8F4" },
+							{ name: "Trắng (mặc định plain)", color: "#ffffff" },
+							{ name: "Kem vàng", color: "#FDF6E8" },
+							{ name: "Xám nhạt", color: "#F5F5F5" },
+						]}
+						value={answerBg}
+						onChange={(val) => setAttributes({ answerBg: val ?? "" })}
+					/>
+				</PanelBody>
+
 				<PanelBody title="Danh sách câu hỏi" initialOpen={true}>
+					{isPlain && (
+						<p style={{ fontSize: "12px", color: "#666", margin: "0 0 12px", lineHeight: 1.5 }}>
+							Nội dung hỗ trợ HTML: <code>&lt;ul&gt;&lt;li&gt;…&lt;/li&gt;&lt;/ul&gt;</code>, <code>&lt;p&gt;</code>…
+						</p>
+					)}
 					{items.map((item, index) => (
 						<div
 							key={item.id || String(index)}
@@ -84,7 +117,7 @@ const Edit = ({ attributes, setAttributes }) => {
 						>
 							<PanelRow>
 								<strong style={{ fontSize: "12px", color: "#555" }}>
-									Câu hỏi {index + 1}
+									{isPlain ? `Mục ${index + 1}` : `Câu hỏi ${index + 1}`}
 								</strong>
 								<Button
 									icon="trash"
@@ -95,17 +128,21 @@ const Edit = ({ attributes, setAttributes }) => {
 								/>
 							</PanelRow>
 							<TextControl
-								label="Câu hỏi"
+								label={isPlain ? "Tiêu đề" : "Câu hỏi"}
 								value={item.question}
 								onChange={(val) => update(index, "question", val)}
-								placeholder="Nhập câu hỏi…"
+								placeholder={isPlain ? "Nhập tiêu đề…" : "Nhập câu hỏi…"}
 							/>
 							<TextareaControl
-								label="Câu trả lời"
+								label={isPlain ? "Nội dung (HTML)" : "Câu trả lời"}
 								value={item.answer}
 								onChange={(val) => update(index, "answer", val)}
-								placeholder="Nhập câu trả lời…"
-								rows={4}
+								placeholder={
+									isPlain
+										? "<ul>\n  <li>Mục đầu tiên</li>\n  <li>Mục thứ hai</li>\n</ul>"
+										: "Nhập câu trả lời…"
+								}
+								rows={isPlain ? 6 : 4}
 							/>
 						</div>
 					))}
@@ -115,7 +152,7 @@ const Edit = ({ attributes, setAttributes }) => {
 						onClick={add}
 						style={{ width: "100%" }}
 					>
-						Thêm câu hỏi
+						{isPlain ? "Thêm mục" : "Thêm câu hỏi"}
 					</Button>
 				</PanelBody>
 			</InspectorControls>
@@ -141,17 +178,32 @@ const Edit = ({ attributes, setAttributes }) => {
 					</p>
 				) : (
 					items.map((item, index) => (
-						<details key={item.id || String(index)} className="faq-item" open>
+						<details key={item.id || String(index)} className={`faq-item${isPlain ? " faq-item--plain" : ""}`} open>
 							<summary className="faq-item__head">
-								<span className="faq-item__num">{index + 1}.</span>
+								{!isPlain && (
+									<span className="faq-item__num">{index + 1}.</span>
+								)}
 								<span className="faq-item__question">
-									{item.question || <em style={{ color: "#bbb" }}>Chưa có câu hỏi</em>}
+									{item.question || <em style={{ color: "#bbb" }}>Chưa có tiêu đề</em>}
 								</span>
 							</summary>
 							<div className="faq-item__body">
-								<div className="faq-item__answer">
-									{item.answer || <em style={{ color: "#bbb" }}>Chưa có câu trả lời</em>}
-								</div>
+								{isPlain ? (
+									<div
+										className="faq-item__answer"
+										style={answerBg ? { backgroundColor: answerBg } : undefined}
+										dangerouslySetInnerHTML={{
+											__html: item.answer || "<em style='color:#bbb'>Chưa có nội dung</em>",
+										}}
+									/>
+								) : (
+									<div
+										className="faq-item__answer"
+										style={answerBg ? { backgroundColor: answerBg } : undefined}
+									>
+										{item.answer || <em style={{ color: "#bbb" }}>Chưa có câu trả lời</em>}
+									</div>
+								)}
 							</div>
 						</details>
 					))

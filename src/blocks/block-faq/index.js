@@ -38,6 +38,14 @@ export default registerBlockType("pi-blocks/block-faq", {
 			type: "string",
 			default: "Đóng",
 		},
+		layout: {
+			type: "string",
+			default: "numbered",
+		},
+		answerBg: {
+			type: "string",
+			default: "",
+		},
 		items: {
 			type: "array",
 			default: [

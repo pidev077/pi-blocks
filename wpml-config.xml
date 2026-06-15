@@ -175,6 +175,17 @@
         </block>
 
         <!-- ═══════════════════════════════════════════════════════════════
+             PULL QUOTE  —  pi-blocks/block-pullquote  (static save)
+             quote and author are plain text attributes stored in block JSON.
+        ═══════════════════════════════════════════════════════════════ -->
+        <block type="pi-blocks/block-pullquote">
+            <fields>
+                <field name="quote"  field_type="area" label="Nội dung trích dẫn" />
+                <field name="author" field_type="line" label="Tác giả / Nguồn" />
+            </fields>
+        </block>
+
+        <!-- ═══════════════════════════════════════════════════════════════
              TEAM GRID  —  pi-blocks/block-team-grid  (SSR / PHP render)
              Post content ("teams" CPT) translated via post-translation workflow.
              link_label is a plain-text attribute shown in Inspector → must be
@@ -202,6 +213,9 @@
             pi-blocks/block-service-list      — renders CPT "service"
             pi-blocks/block-service-carousel  — renders service_group + service_category;
                                                 CTA string registered via wpml_register_single_string in PHP
+            pi-blocks/block-service-tabs      — SSR; groups[].label, items[].navLabel/title/desc
+                                                registered individually via wpml_register_single_string in PHP
+                                                (see inc/blocks/wpml-strings.php)
             pi-blocks/block-insights          — renders blog posts
             pi-blocks/block-post-carousel     — renders blog posts
             pi-blocks/block-related-list      — renders case studies by taxonomy

@@ -373,6 +373,15 @@ if (!function_exists('pi_init_register_block')) {
 			),
 		));
 
+		register_block_type( 'pi-blocks/block-service-tabs', [
+			'render_callback' => 'pi_service_tabs_render',
+			'attributes'      => [
+				'anchor'    => [ 'type' => 'string', 'default' => '' ],
+				'className' => [ 'type' => 'string', 'default' => '' ],
+				'groups'    => [ 'type' => 'array',  'default' => [], 'items' => [ 'type' => 'object' ] ],
+			],
+		] );
+
 		register_block_type('pi-blocks/block-team-grid', array(
 			'render_callback' => 'pi_team_grid_render',
 			'attributes' => array(

@@ -1,0 +1,60 @@
+// ── Pull Quote Block ───────────────────────────────────────────────────────────
+
+.block-pullquote {
+	display: flex;
+	align-items: flex-start;
+	gap: 28px;
+	padding: 40px 60px;
+	margin: 0;
+	border: none;
+	border-left: 3px solid var(--pq-color, #c9a96e);
+
+	&__mark {
+		flex-shrink: 0;
+		font-family: $font-primary, serif;
+		font-size: var(--pq-mark-size, 5rem);
+		line-height: 0.85;
+		color: var(--pq-color, #c9a96e);
+		font-style: normal;
+		font-weight: 700;
+	}
+
+	&__body {
+		flex: 1;
+		padding-top: 4px;
+	}
+
+	&__text {
+		font-family: $font-primary, serif;
+		font-size: var(--pq-text-size, 28px);
+		font-style: italic;
+		font-weight: 400;
+		line-height: 1.65;
+		color: #27211C;
+		margin: 0;
+	}
+
+	&__author {
+		display: block;
+		margin-top: 20px;
+		font-family: $font-second, sans-serif;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 500;
+		color: #584E44;
+		letter-spacing: 0.04em;
+	}
+
+	@include media-breakpoint-down(md) {
+		padding: 28px 20px;
+		gap: 16px;
+
+		&__mark {
+			font-size: calc(var(--pq-mark-size, 5rem) * 0.7);
+		}
+
+		&__text {
+			font-size: max(18px, calc(var(--pq-text-size, 28px) * 0.75));
+		}
+	}
+}

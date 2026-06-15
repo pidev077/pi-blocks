@@ -1,8 +1,10 @@
 import { useBlockProps } from "@wordpress/block-editor";
 
 const Save = ({ attributes }) => {
-	const { groupLetter, groupTitle, defaultOpen, showGroupHeader, openLabel, closeLabel, items } = attributes;
+	const { groupLetter, groupTitle, defaultOpen, showGroupHeader, openLabel, closeLabel, layout, answerBg, items } = attributes;
 	const id = `faq-group-${(groupLetter || "").toLowerCase()}`;
+	const isPlain = layout === "plain";
+	const answerStyle = answerBg ? { backgroundColor: answerBg } : undefined;
 
 	const blockProps = useBlockProps.save({
 		className: `block-faq${defaultOpen ? " is-open" : ""}`,
@@ -39,9 +41,11 @@ const Save = ({ attributes }) => {
 				{items.map((item, index) => {
 					const key = item.id || String(index);
 					return (
-						<details key={key} className="faq-item">
+						<details key={key} className={`faq-item${isPlain ? " faq-item--plain" : ""}`}>
 							<summary className="faq-item__head">
-								<span className="faq-item__num">{index + 1}.</span>
+								{!isPlain && (
+									<span className="faq-item__num">{index + 1}.</span>
+								)}
 								<span className="faq-item__question">{item.question}</span>
 								<span className="faq-item__icon" aria-hidden="true">
 									<svg className="icon-plus" viewBox="0 0 24 24" fill="none">
@@ -53,7 +57,15 @@ const Save = ({ attributes }) => {
 								</span>
 							</summary>
 							<div className="faq-item__body">
-								<div className="faq-item__answer">{item.answer}</div>
+								{isPlain ? (
+									<div
+										className="faq-item__answer"
+										style={answerStyle}
+										dangerouslySetInnerHTML={{ __html: item.answer }}
+									/>
+								) : (
+									<div className="faq-item__answer" style={answerStyle}>{item.answer}</div>
+								)}
 							</div>
 						</details>
 					);
