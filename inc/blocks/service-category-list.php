@@ -38,10 +38,11 @@ function pi_service_category_list_render( $atts ) {
 
 			// Find service_group linked to this term via ACF field sg_linked_category
 			$sg_posts = get_posts( [
-				'post_type'      => 'service_group',
-				'post_status'    => 'publish',
-				'numberposts'    => 1,
-				'meta_query'     => [ [
+				'post_type'        => 'service_group',
+				'post_status'      => 'publish',
+				'numberposts'      => 1,
+				'suppress_filters' => false,
+				'meta_query'       => [ [
 					'key'     => 'sg_linked_category',
 					'value'   => $term->term_id,
 					'compare' => '=',
@@ -94,10 +95,11 @@ function pi_service_category_list_render( $atts ) {
 				}
 			} else {
 				$services = get_posts( [
-					'post_type'      => 'service',
-					'post_status'    => 'publish',
-					'numberposts'    => 6,
-					'tax_query'      => [ [
+					'post_type'        => 'service',
+					'post_status'      => 'publish',
+					'numberposts'      => 6,
+					'suppress_filters' => false,
+					'tax_query'        => [ [
 						'taxonomy' => 'service_category',
 						'field'    => 'term_id',
 						'terms'    => $term->term_id,

@@ -23,12 +23,13 @@ function pi_service_carousel_render($atts)
         // Mode: lấy service posts trực tiếp theo category được chọn
         $orderby  = ($atts['orderBy'] === 'term_order') ? 'menu_order' : $atts['orderBy'];
         $services = get_posts([
-            'post_type'   => 'service',
-            'post_status' => 'publish',
-            'numberposts' => $number ?: -1,
-            'orderby'     => $orderby,
-            'order'       => strtoupper($atts['order']),
-            'tax_query'   => [[
+            'post_type'        => 'service',
+            'post_status'      => 'publish',
+            'numberposts'      => $number ?: -1,
+            'orderby'          => $orderby,
+            'order'            => strtoupper($atts['order']),
+            'suppress_filters' => false,
+            'tax_query'        => [[
                 'taxonomy' => 'service_category',
                 'field'    => 'term_id',
                 'terms'    => $selected_cat,

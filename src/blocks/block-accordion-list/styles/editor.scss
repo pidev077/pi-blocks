@@ -1,14 +1,18 @@
 .block-accordion-list--editor {
 	.accordion-item {
 		border-top: 1px solid #EBE5DC;
+		display: grid;
+		grid-template-columns: 56px 1fr 2fr 32px;
+		column-gap: 24px;
 
 		&:last-child {
 			border-bottom: 1px solid #EBE5DC;
 		}
 
 		&__head {
+			grid-column: 1 / -1;
 			display: grid;
-			grid-template-columns: 56px 1fr 2fr 32px;
+			grid-template-columns: subgrid;
 			align-items: start;
 			column-gap: 24px;
 			padding: 24px 0;
@@ -41,6 +45,10 @@
 			color: #27211C;
 			justify-self: end;
 			svg { width: 24px; height: 24px; }
+		}
+
+		&__body {
+			grid-column: 3 / 4;
 		}
 	}
 }

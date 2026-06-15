@@ -18,11 +18,19 @@
 		&::-webkit-details-marker { display: none; }
 	}
 
+	&[open] {
+		.icon-plus  { display: none; }
+		.icon-minus { display: block; }
+	}
+
+	// Both __head and __body share the same grid columns so content aligns.
+	// We do NOT put display:grid on <details> itself because Chrome 120+
+	// wraps non-summary children in ::details-content, breaking grid-column.
 	&__head {
 		display: grid;
 		grid-template-columns: 56px 1fr 2fr 32px;
-		align-items: start;
 		column-gap: 24px;
+		align-items: start;
 		padding: 32px 0;
 		cursor: pointer;
 		user-select: none;
@@ -115,23 +123,26 @@
 		}
 	}
 
-	// <details> open state
-	&[open] {
-		.icon-plus  { display: none; }
-		.icon-minus { display: block; }
-	}
-
 	&__body {
+		display: grid;
+		grid-template-columns: 56px 1fr 2fr 32px;
+		column-gap: 24px;
 		animation: accordionFadeIn 0.2s ease;
 		padding-bottom: 32px;
 
+		@include media-breakpoint-down(lg) {
+			grid-template-columns: 48px 1fr 1fr 28px;
+			column-gap: 16px;
+		}
+
 		@include media-breakpoint-down(md) {
+			grid-template-columns: 40px 1fr 28px;
 			padding-bottom: 24px;
 		}
 	}
 
 	&__content {
-		padding: 24px;
+		grid-column: 3 / 4;
 		font-size: 15px;
 		line-height: 1.7;
 		color: #584E44;
@@ -141,8 +152,8 @@
 		p + p { margin-top: 12px; }
 
 		@include media-breakpoint-down(md) {
+			grid-column: 2 / -1;
 			font-size: 14px;
-			padding: 16px;
 		}
 	}
 }

@@ -71,7 +71,7 @@ function pi_related_list_render($attributes) {
             <div class="case-taxonomy-buttons">
                <?php if (!empty($solutions)) : ?>
                <?php foreach ($solutions as $term) : ?>
-               <a class="case-btn solution" href="/solutions/<?php echo esc_html($term->slug); ?>">
+               <a class="case-btn solution" href="<?php echo esc_url(get_term_link($term)); ?>">
                   <?= esc_html($term->name); ?>
                </a>
                <?php endforeach; ?>
