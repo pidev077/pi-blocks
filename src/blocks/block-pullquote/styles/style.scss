@@ -3,18 +3,18 @@
 .block-pullquote {
 	display: flex;
 	align-items: flex-start;
-	gap: 28px;
-	padding: 40px 60px;
+	gap: 8px;
+	padding: 16px 0px 0 28px;
 	margin: 0;
 	border: none;
-	border-left: 3px solid var(--pq-color, #c9a96e);
+	border-left: 2px solid var(--pq-color, #c9a96e);
 
 	&__mark {
 		flex-shrink: 0;
 		font-family: $font-primary, serif;
-		font-size: var(--pq-mark-size, 5rem);
+		font-size: 50px;
 		line-height: 0.85;
-		color: var(--pq-color, #c9a96e);
+		color: #584E44;
 		font-style: normal;
 		font-weight: 700;
 	}
@@ -32,6 +32,7 @@
 		line-height: 1.65;
 		color: #27211C;
 		margin: 0;
+		padding-top: 24px;
 	}
 
 	&__author {
