@@ -1,5 +1,5 @@
 import { InspectorControls, useBlockProps, ColorPalette } from "@wordpress/block-editor";
-import { PanelBody, TextareaControl, TextControl, RangeControl } from "@wordpress/components";
+import { PanelBody, TextareaControl, TextControl, RangeControl, SelectControl } from "@wordpress/components";
 
 const BRAND_COLORS = [
 	{ name: "Vàng đồng (mặc định)", color: "#c9a96e" },
@@ -10,20 +10,32 @@ const BRAND_COLORS = [
 ];
 
 const Edit = ({ attributes, setAttributes }) => {
-	const { quote, author, accentColor, markSize, textSize } = attributes;
-	const blockProps = useBlockProps({ className: "block-pullquote" });
+	const { quote, author, accentColor, markSize, textSize, layout } = attributes;
+	const blockProps = useBlockProps({ className: `block-pullquote block-pullquote--${layout}` });
 
 	const blockStyle = {
-		borderLeftColor: accentColor,
 		"--pq-color": accentColor,
 		"--pq-mark-size": `${markSize}rem`,
 		"--pq-text-size": `${textSize}px`,
+		...(layout === "classic" && { borderLeftColor: accentColor }),
 	};
 
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title="Nội dung" initialOpen={true}>
+				<PanelBody title="Layout" initialOpen={true}>
+					<SelectControl
+						label="Kiểu bố cục"
+						value={layout}
+						options={[
+							{ label: "Classic (border trái)", value: "classic" },
+							{ label: "Hero (full-width, mark lớn)", value: "hero" },
+						]}
+						onChange={(val) => setAttributes({ layout: val })}
+					/>
+				</PanelBody>
+
+				<PanelBody title="Nội dung" initialOpen={false}>
 					<TextareaControl
 						label="Đoạn trích dẫn"
 						value={quote}
@@ -76,7 +88,7 @@ const Edit = ({ attributes, setAttributes }) => {
 					<p className="block-pullquote__text">
 						{quote || <em style={{ color: "#bbb" }}>Nhập nội dung trích dẫn trong sidebar...</em>}
 					</p>
-					{author && <cite className="block-pullquote__author">— {author}</cite>}
+					{author && <cite className="block-pullquote__author">– {author}</cite>}
 				</div>
 			</blockquote>
 		</>

@@ -32,6 +32,10 @@ export default registerBlockType("pi-blocks/block-pullquote", {
 			type: "number",
 			default: 28,
 		},
+		layout: {
+			type: "string",
+			default: "classic",
+		},
 	},
 	supports: {
 		anchor: true,

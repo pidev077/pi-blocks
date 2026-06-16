@@ -7,7 +7,63 @@
 	padding: 16px 0px 0 28px;
 	margin: 0;
 	border: none;
-	border-left: 2px solid var(--pq-color, #c9a96e);
+
+	// ── Classic layout (border trái) ──────────────────────────────────────────
+	&--classic {
+		border-left: 2px solid var(--pq-color, #c9a96e);
+	}
+
+	// ── Hero layout (full-width, mark lớn) ───────────────────────────────────
+	&--hero {
+		display: flex;
+		align-items: flex-start;
+		gap: 40px;
+		border-left: none;
+		padding: 0;
+		@include media-breakpoint-down(md) {
+			gap: 0px;
+		}
+		.block-pullquote__mark {
+			font-size: 256px;
+			line-height: 0.7;
+			color: #584E44;
+			flex-shrink: 0;
+			margin-top: 0px;
+			font-family: $font-primary;
+			font-style: italic;
+			font-weight: 500;
+			@include media-breakpoint-down(md) {
+				font-size: 96px;
+			}
+		}
+
+		.block-pullquote__body {
+			padding-top: 0;
+		}
+
+		.block-pullquote__text {
+			font-size: var(--pq-text-size, 32px);
+			line-height: 1.65;
+			padding-top: 0;
+			padding-top: 40px;
+			@include media-breakpoint-down(md) {
+				padding-top: 60px;
+				font-size: 24px;
+			}
+		}
+
+		.block-pullquote__author {
+			margin-top: 24px;
+			font-size: 16px;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			color: #978B7B;
+			font-weight: 500;
+			@include media-breakpoint-down(md) {
+				font-size: 14px;
+			}
+		}
+	}
 
 	&__mark {
 		flex-shrink: 0;
@@ -44,18 +100,5 @@
 		font-weight: 500;
 		color: #584E44;
 		letter-spacing: 0.04em;
-	}
-
-	@include media-breakpoint-down(md) {
-		padding: 28px 20px;
-		gap: 16px;
-
-		&__mark {
-			font-size: calc(var(--pq-mark-size, 5rem) * 0.7);
-		}
-
-		&__text {
-			font-size: max(18px, calc(var(--pq-text-size, 28px) * 0.75));
-		}
 	}
 }
