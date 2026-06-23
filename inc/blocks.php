@@ -194,6 +194,13 @@ if (!function_exists('pi_init_register_block')) {
 					'type'    => 'string',
 					'default' => 'term_order',
 				),
+				'custom_categories' => array(
+					'type'    => 'array',
+					'default' => array(),
+					'items'   => array(
+						'type' => 'number',
+					),
+				),
 				'className' => array(
 					'type'    => 'string',
 					'default' => '',

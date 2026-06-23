@@ -1,23 +1,35 @@
 <?php
 function pi_service_category_list_render( $atts ) {
 	$atts = shortcode_atts( [
-		'parent_only'      => true,
-		'alternate_layout' => false,
-		'order'            => 'ASC',
-		'orderBy'          => 'term_order',
-		'anchor'           => '',
-		'className'        => '',
+		'parent_only'       => true,
+		'alternate_layout'  => false,
+		'order'             => 'ASC',
+		'orderBy'           => 'term_order',
+		'custom_categories' => [],
+		'anchor'            => '',
+		'className'         => '',
 	], $atts );
 
-	$parent = filter_var( $atts['parent_only'], FILTER_VALIDATE_BOOLEAN ) ? 0 : '';
+	$custom_categories = array_filter( array_map( 'absint', (array) $atts['custom_categories'] ) );
 
-	$terms = get_terms( [
-		'taxonomy'   => 'service_category',
-		'parent'     => $parent,
-		'hide_empty' => false,
-		'orderby'    => $atts['orderBy'],
-		'order'      => strtoupper( $atts['order'] ),
-	] );
+	if ( ! empty( $custom_categories ) ) {
+		$terms = get_terms( [
+			'taxonomy'   => 'service_category',
+			'include'    => $custom_categories,
+			'hide_empty' => false,
+			'orderby'    => 'include',
+		] );
+	} else {
+		$parent = filter_var( $atts['parent_only'], FILTER_VALIDATE_BOOLEAN ) ? 0 : '';
+
+		$terms = get_terms( [
+			'taxonomy'   => 'service_category',
+			'parent'     => $parent,
+			'hide_empty' => false,
+			'orderby'    => $atts['orderBy'],
+			'order'      => strtoupper( $atts['order'] ),
+		] );
+	}
 
 	if ( is_wp_error( $terms ) || empty( $terms ) ) {
 		return '<div class="block-service-category-list"><p>' . esc_html__('Không tìm thấy danh mục dịch vụ.', 'pi-blocks') . '</p></div>';

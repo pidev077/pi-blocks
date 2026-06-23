@@ -12,6 +12,10 @@ const BlockAttrs = {
 		type: "boolean",
 		default: true,
 	},
+	custom_categories: {
+		type: "array",
+		default: [],
+	},
 	alternate_layout: {
 		type: "boolean",
 		default: false,
