@@ -65,10 +65,15 @@ function pi_service_list_render($atts)
             $excerpt = $term->description;
         }
 
-        // Image: prefer ACF service_hero_image, fallback to featured image
+        // Image: prefer ACF service_category_image (on the term), then service_group's
+        // service_hero_image, then service_group's featured image
         $thumb = '';
         $alt   = esc_attr($title);
-        if ($sg) {
+        $cat_img = get_field('service_category_image', 'service_category_' . $term->term_id);
+        if ($cat_img && is_array($cat_img)) {
+            $thumb = $cat_img['sizes']['large'] ?? $cat_img['url'] ?? '';
+        }
+        if (!$thumb && $sg) {
             $hero_img = get_field('service_hero_image', $sg->ID);
             if ($hero_img && is_array($hero_img)) {
                 $thumb = $hero_img['sizes']['large'] ?? $hero_img['url'] ?? '';

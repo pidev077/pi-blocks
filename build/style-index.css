@@ -4755,7 +4755,7 @@ body.logged-in .team-popup-inner {
 }
 .post-carousel-card__cat:hover {
   background: #E0AC47;
-  color: #fff;
+  color: #fff !important;
 }
 .post-carousel-card__content {
   display: flex;
