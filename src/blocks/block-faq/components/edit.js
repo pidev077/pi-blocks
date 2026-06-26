@@ -179,13 +179,15 @@ const Edit = ({ attributes, setAttributes }) => {
 				) : (
 					items.map((item, index) => (
 						<details key={item.id || String(index)} className={`faq-item${isPlain ? " faq-item--plain" : ""}`} open>
-							<summary className="faq-item__head">
-								{!isPlain && (
-									<span className="faq-item__num">{index + 1}.</span>
-								)}
-								<span className="faq-item__question">
-									{item.question || <em style={{ color: "#bbb" }}>Chưa có tiêu đề</em>}
-								</span>
+							<summary>
+								<h3 className="faq-item__head">
+									{!isPlain && (
+										<span className="faq-item__num">{index + 1}.</span>
+									)}
+									<span className="faq-item__question">
+										{item.question || <em style={{ color: "#bbb" }}>Chưa có tiêu đề</em>}
+									</span>
+								</h3>
 							</summary>
 							<div className="faq-item__body">
 								{isPlain ? (

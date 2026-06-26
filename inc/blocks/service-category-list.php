@@ -134,7 +134,7 @@ function pi_service_category_list_render( $atts ) {
 						<h2 class="service-category-card__title"><?php echo esc_html( $title ); ?></h2>
 
 						<?php if ( $desc ) : ?>
-						<p class="service-category-card__desc cc"><?php echo esc_html( $desc ); ?></p>
+						<p class="service-category-card__desc"><?php echo esc_html( $desc ); ?></p>
 						<?php endif; ?>
 
 						<?php if ( ! empty( $list_items ) ) : ?>

@@ -42,19 +42,21 @@ const Save = ({ attributes }) => {
 					const key = item.id || String(index);
 					return (
 						<details key={key} className={`faq-item${isPlain ? " faq-item--plain" : ""}`}>
-							<summary className="faq-item__head">
-								{!isPlain && (
-									<span className="faq-item__num">{index + 1}.</span>
-								)}
-								<span className="faq-item__question">{item.question}</span>
-								<span className="faq-item__icon" aria-hidden="true">
-									<svg className="icon-plus" viewBox="0 0 24 24" fill="none">
-										<path d="M12 5V19M5 12H19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-									</svg>
-									<svg className="icon-minus" viewBox="0 0 24 24" fill="none">
-										<path d="M5 12H19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-									</svg>
-								</span>
+							<summary>
+								<h3 className="faq-item__head">
+									{!isPlain && (
+										<span className="faq-item__num">{index + 1}.</span>
+									)}
+									<span className="faq-item__question">{item.question}</span>
+									<span className="faq-item__icon" aria-hidden="true">
+										<svg className="icon-plus" viewBox="0 0 24 24" fill="none">
+											<path d="M12 5V19M5 12H19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+										</svg>
+										<svg className="icon-minus" viewBox="0 0 24 24" fill="none">
+											<path d="M5 12H19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+										</svg>
+									</span>
+								</h3>
 							</summary>
 							<div className="faq-item__body">
 								{isPlain ? (

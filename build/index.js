@@ -10610,7 +10610,7 @@ var Edit = function Edit(_ref) {
       key: item.id || String(index),
       className: "faq-item".concat(isPlain ? " faq-item--plain" : ""),
       open: true
-    }, /*#__PURE__*/React.createElement("summary", {
+    }, /*#__PURE__*/React.createElement("summary", null, /*#__PURE__*/React.createElement("h3", {
       className: "faq-item__head"
     }, !isPlain && /*#__PURE__*/React.createElement("span", {
       className: "faq-item__num"
@@ -10620,7 +10620,7 @@ var Edit = function Edit(_ref) {
       style: {
         color: "#bbb"
       }
-    }, "Ch\u01B0a c\xF3 ti\xEAu \u0111\u1EC1"))), /*#__PURE__*/React.createElement("div", {
+    }, "Ch\u01B0a c\xF3 ti\xEAu \u0111\u1EC1")))), /*#__PURE__*/React.createElement("div", {
       className: "faq-item__body"
     }, isPlain ? /*#__PURE__*/React.createElement("div", {
       className: "faq-item__answer",
@@ -10707,7 +10707,7 @@ var Save = function Save(_ref) {
     return /*#__PURE__*/React.createElement("details", {
       key: key,
       className: "faq-item".concat(isPlain ? " faq-item--plain" : "")
-    }, /*#__PURE__*/React.createElement("summary", {
+    }, /*#__PURE__*/React.createElement("summary", null, /*#__PURE__*/React.createElement("h3", {
       className: "faq-item__head"
     }, !isPlain && /*#__PURE__*/React.createElement("span", {
       className: "faq-item__num"
@@ -10734,7 +10734,7 @@ var Save = function Save(_ref) {
       stroke: "currentColor",
       strokeWidth: "1.5",
       strokeLinecap: "round"
-    })))), /*#__PURE__*/React.createElement("div", {
+    }))))), /*#__PURE__*/React.createElement("div", {
       className: "faq-item__body"
     }, isPlain ? /*#__PURE__*/React.createElement("div", {
       className: "faq-item__answer",
@@ -10842,6 +10842,141 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
     return /*#__PURE__*/React.createElement(_components_save__WEBPACK_IMPORTED_MODULE_5__["default"], props);
   },
   deprecated: [{
+    // Version with summary as faq-item__head directly, before wrapping question text in h3
+    attributes: {
+      groupLetter: {
+        type: "string",
+        "default": "A"
+      },
+      groupTitle: {
+        type: "string",
+        "default": "Tiêu đề nhóm câu hỏi"
+      },
+      defaultOpen: {
+        type: "boolean",
+        "default": true
+      },
+      showGroupHeader: {
+        type: "boolean",
+        "default": true
+      },
+      openLabel: {
+        type: "string",
+        "default": "Mở"
+      },
+      closeLabel: {
+        type: "string",
+        "default": "Đóng"
+      },
+      layout: {
+        type: "string",
+        "default": "numbered"
+      },
+      answerBg: {
+        type: "string",
+        "default": ""
+      },
+      items: {
+        type: "array",
+        "default": [{
+          id: "1",
+          question: "Câu hỏi 1?",
+          answer: "Câu trả lời 1."
+        }, {
+          id: "2",
+          question: "Câu hỏi 2?",
+          answer: "Câu trả lời 2."
+        }]
+      }
+    },
+    save: function save(_ref) {
+      var attributes = _ref.attributes;
+      var groupLetter = attributes.groupLetter,
+        groupTitle = attributes.groupTitle,
+        defaultOpen = attributes.defaultOpen,
+        showGroupHeader = attributes.showGroupHeader,
+        openLabel = attributes.openLabel,
+        closeLabel = attributes.closeLabel,
+        layout = attributes.layout,
+        answerBg = attributes.answerBg,
+        items = attributes.items;
+      var id = "faq-group-".concat((groupLetter || "").toLowerCase());
+      var isPlain = layout === "plain";
+      var answerStyle = answerBg ? {
+        backgroundColor: answerBg
+      } : undefined;
+      return /*#__PURE__*/React.createElement("div", {
+        className: "block-faq".concat(defaultOpen ? " is-open" : ""),
+        id: id
+      }, showGroupHeader && /*#__PURE__*/React.createElement("button", {
+        type: "button",
+        className: "faq-group__header js-faq-group-toggle",
+        "aria-expanded": defaultOpen ? "true" : "false",
+        "aria-controls": "".concat(id, "-body")
+      }, /*#__PURE__*/React.createElement("span", {
+        className: "faq-group__label"
+      }, /*#__PURE__*/React.createElement("span", {
+        className: "faq-group__letter"
+      }, groupLetter, "."), /*#__PURE__*/React.createElement("span", {
+        className: "faq-group__title"
+      }, groupTitle)), /*#__PURE__*/React.createElement("span", {
+        className: "faq-group__toggle-label",
+        "aria-hidden": "true"
+      }, /*#__PURE__*/React.createElement("span", {
+        className: "faq-group__open-text"
+      }, openLabel), /*#__PURE__*/React.createElement("span", {
+        className: "faq-group__close-text"
+      }, closeLabel))), /*#__PURE__*/React.createElement("div", {
+        className: "faq-group__body",
+        id: "".concat(id, "-body"),
+        hidden: !defaultOpen
+      }, items.map(function (item, index) {
+        var key = item.id || String(index);
+        return /*#__PURE__*/React.createElement("details", {
+          key: key,
+          className: "faq-item".concat(isPlain ? " faq-item--plain" : "")
+        }, /*#__PURE__*/React.createElement("summary", {
+          className: "faq-item__head"
+        }, !isPlain && /*#__PURE__*/React.createElement("span", {
+          className: "faq-item__num"
+        }, index + 1, "."), /*#__PURE__*/React.createElement("span", {
+          className: "faq-item__question"
+        }, item.question), /*#__PURE__*/React.createElement("span", {
+          className: "faq-item__icon",
+          "aria-hidden": "true"
+        }, /*#__PURE__*/React.createElement("svg", {
+          className: "icon-plus",
+          viewBox: "0 0 24 24",
+          fill: "none"
+        }, /*#__PURE__*/React.createElement("path", {
+          d: "M12 5V19M5 12H19",
+          stroke: "currentColor",
+          strokeWidth: "1.5",
+          strokeLinecap: "round"
+        })), /*#__PURE__*/React.createElement("svg", {
+          className: "icon-minus",
+          viewBox: "0 0 24 24",
+          fill: "none"
+        }, /*#__PURE__*/React.createElement("path", {
+          d: "M5 12H19",
+          stroke: "currentColor",
+          strokeWidth: "1.5",
+          strokeLinecap: "round"
+        })))), /*#__PURE__*/React.createElement("div", {
+          className: "faq-item__body"
+        }, isPlain ? /*#__PURE__*/React.createElement("div", {
+          className: "faq-item__answer",
+          style: answerStyle,
+          dangerouslySetInnerHTML: {
+            __html: item.answer
+          }
+        }) : /*#__PURE__*/React.createElement("div", {
+          className: "faq-item__answer",
+          style: answerStyle
+        }, item.answer)));
+      })));
+    }
+  }, {
     // Version with showGroupHeader but hardcoded Mở/Đóng, before openLabel/closeLabel attributes
     attributes: {
       groupLetter: {
@@ -10873,8 +11008,8 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
         }]
       }
     },
-    save: function save(_ref) {
-      var attributes = _ref.attributes;
+    save: function save(_ref2) {
+      var attributes = _ref2.attributes;
       var groupLetter = attributes.groupLetter,
         groupTitle = attributes.groupTitle,
         defaultOpen = attributes.defaultOpen,
@@ -10979,8 +11114,8 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
         }]
       }
     },
-    save: function save(_ref2) {
-      var attributes = _ref2.attributes;
+    save: function save(_ref3) {
+      var attributes = _ref3.attributes;
       var groupLetter = attributes.groupLetter,
         groupTitle = attributes.groupTitle,
         defaultOpen = attributes.defaultOpen,
@@ -11071,8 +11206,8 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
         }]
       }
     },
-    save: function save(_ref3) {
-      var attributes = _ref3.attributes;
+    save: function save(_ref4) {
+      var attributes = _ref4.attributes;
       var items = attributes.items;
       return /*#__PURE__*/React.createElement("div", {
         className: "block-faq"
