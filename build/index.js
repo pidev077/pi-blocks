@@ -13428,8 +13428,16 @@ var Inspector = function Inspector(props) {
     categorySuggestions: categorySuggestions,
     selectedCategories: selectedCat ? [selectedCat] : [],
     onCategoryChange: function onCategoryChange(val) {
-      return setAttributes({
-        cat: val.length ? val[val.length - 1].id : 0
+      if (!val.length) {
+        setAttributes({
+          cat: 0
+        });
+        return;
+      }
+      var last = val[val.length - 1];
+      var matched = typeof last === "string" ? categorySuggestions[last] : last;
+      setAttributes({
+        cat: matched ? matched.id : 0
       });
     }
   })), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
@@ -18220,7 +18228,7 @@ var Counters = function Counters(props) {
     return /*#__PURE__*/React.createElement("div", {
       className: "counter-item",
       key: index
-    }, /*#__PURE__*/React.createElement("h3", {
+    }, /*#__PURE__*/React.createElement("div", {
       style: {
         color: countersColor
       },

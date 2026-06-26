@@ -5,7 +5,7 @@ const Counters = (props) => {
         <div className='block-text-w-counters__counters'> 
             { counters.map((counter, index) => ( 
                 <div className='counter-item' key={index}> 
-                <h3 style={{color: countersColor}} className='counter-number'>{counter.number}</h3>
+                <div style={{color: countersColor}} className='counter-number'>{counter.number}</div>
                     <p style={{color: countersColor}}>{counter.heading}</p>
                     
                 </div>

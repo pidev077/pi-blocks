@@ -2444,7 +2444,7 @@ figure.wp-block-video video {
     text-align: center;
   }
 }
-.block-text-w-counters__counters .counter-item h3 {
+.block-text-w-counters__counters .counter-item .counter-number {
   margin: 0;
   font-size: 48px;
   line-height: 100%;
@@ -2454,12 +2454,12 @@ figure.wp-block-video video {
   font-variant-numeric: lining-nums proportional-nums;
 }
 @media (max-width: 1023.98px) {
-  .block-text-w-counters__counters .counter-item h3 {
+  .block-text-w-counters__counters .counter-item .counter-number {
     font-size: 40px;
   }
 }
 @media (max-width: 767.98px) {
-  .block-text-w-counters__counters .counter-item h3 {
+  .block-text-w-counters__counters .counter-item .counter-number {
     font-size: 36px;
   }
 }

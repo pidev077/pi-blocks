@@ -33,9 +33,15 @@ const Inspector = (props) => {
 					onNumberOfItemsChange={(val) => setAttributes({ posts_per_page: val })}
 					categorySuggestions={categorySuggestions}
 					selectedCategories={selectedCat ? [selectedCat] : []}
-					onCategoryChange={(val) =>
-						setAttributes({ cat: val.length ? val[val.length - 1].id : 0 })
-					}
+					onCategoryChange={(val) => {
+						if (!val.length) {
+							setAttributes({ cat: 0 });
+							return;
+						}
+						const last = val[val.length - 1];
+						const matched = typeof last === "string" ? categorySuggestions[last] : last;
+						setAttributes({ cat: matched ? matched.id : 0 });
+					}}
 				/>
 			</PanelBody>
 			<PanelBody title="Display">
