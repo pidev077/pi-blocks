@@ -73,7 +73,7 @@ function pi_service_tabs_render( $atts ) {
 				     <?php echo ! $is_first ? 'hidden' : ''; ?>
 				>
 					<?php if ( $title ) : ?>
-					<h2 class="service-tabs__panel-title"><?php echo esc_html( $title ); ?></h2>
+					<h3 class="service-tabs__panel-title"><?php echo esc_html( $title ); ?></h3>
 					<?php endif; ?>
 					<?php if ( $desc ) : ?>
 					<p class="service-tabs__panel-desc"><?php echo esc_html( $desc ); ?></p>
