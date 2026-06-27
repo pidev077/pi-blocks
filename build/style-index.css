@@ -4864,6 +4864,9 @@ body.logged-in .team-popup-inner {
   display: flex;
   align-items: baseline;
   gap: 8px;
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
 }
 
 .faq-group__letter {

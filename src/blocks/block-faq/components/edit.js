@@ -161,10 +161,10 @@ const Edit = ({ attributes, setAttributes }) => {
 				{/* Group header preview */}
 				{showGroupHeader && (
 					<div className="faq-group__header faq-group__header--editor">
-						<div className="faq-group__label">
+						<h2 className="faq-group__label">
 							<span className="faq-group__letter">{groupLetter}.</span>
 							<span className="faq-group__title">{groupTitle || "Tiêu đề nhóm"}</span>
-						</div>
+						</h2>
 						<span className="faq-group__state-badge">
 							{defaultOpen ? "Mặc định: Mở" : "Mặc định: Đóng"}
 						</span>

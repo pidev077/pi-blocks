@@ -21,10 +21,10 @@ const Save = ({ attributes }) => {
 					aria-expanded={defaultOpen ? "true" : "false"}
 					aria-controls={`${id}-body`}
 				>
-					<span className="faq-group__label">
+					<h2 className="faq-group__label">
 						<span className="faq-group__letter">{groupLetter}.</span>
 						<span className="faq-group__title">{groupTitle}</span>
-					</span>
+					</h2>
 					<span className="faq-group__toggle-label" aria-hidden="true">
 						<span className="faq-group__open-text">{openLabel}</span>
 						<span className="faq-group__close-text">{closeLabel}</span>

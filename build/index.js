@@ -10591,7 +10591,7 @@ var Edit = function Edit(_ref) {
     }
   }, isPlain ? "Thêm mục" : "Thêm câu hỏi"))), /*#__PURE__*/React.createElement("div", blockProps, showGroupHeader && /*#__PURE__*/React.createElement("div", {
     className: "faq-group__header faq-group__header--editor"
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h2", {
     className: "faq-group__label"
   }, /*#__PURE__*/React.createElement("span", {
     className: "faq-group__letter"
@@ -10685,7 +10685,7 @@ var Save = function Save(_ref) {
     className: "faq-group__header js-faq-group-toggle",
     "aria-expanded": defaultOpen ? "true" : "false",
     "aria-controls": "".concat(id, "-body")
-  }, /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement("h2", {
     className: "faq-group__label"
   }, /*#__PURE__*/React.createElement("span", {
     className: "faq-group__letter"
