@@ -2446,10 +2446,10 @@ figure.wp-block-video video {
 }
 .block-text-w-counters__counters .counter-item .counter-number {
   margin: 0;
-  font-size: 48px;
+  font-size: 52px;
   line-height: 100%;
   font-family: "Playfair Display", serif;
-  font-weight: 400;
+  font-weight: 600;
   margin-bottom: 60px;
   font-variant-numeric: lining-nums proportional-nums;
 }
